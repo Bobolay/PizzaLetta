@@ -78,6 +78,8 @@ gem 'quiet_assets'
 
 gem 'kaminari'
 
+gem 'figaro'
+
 # gem "htmlcompressor"
 # gem 'rack-page_caching'
 
