@@ -1,0 +1,120 @@
+.header-container
+  position: fixed
+  padding: 16px 30px
+  width: calc(100% - 80px)
+  top: 0
+  display: -webkit-flex
+  display: -moz-flex
+  display: -ms-flex
+  display: -o-flex
+  display: flex
+  background: white
+  justify-content: space-between
+  +transition-property(transform)
+  +transition-duration(1s)
+  +translate(0,-100%)
+  z-index: 11
+  &.scrolled, &.visible
+    +translate(0,0)
+  @media #{$small-only}
+  @media #{$xxlarge-up}
+  &:before
+    content: ''
+    position: absolute
+    display: block
+    position: absolute
+    width: 206px
+    height: 100%
+    top: 0
+    right: 0
+    background: $red
+    z-index: -1
+  .large-title, .right-part
+    align-self: center
+  .large-title
+    text-transform: uppercase
+    font-weight: 600
+  .right-part
+    margin-left: auto
+    .dib
+      margin-right: 20px
+      &:last-child
+        margin-right: 0
+
+  .webcam
+    padding: 0 10px
+    border-left: 1px solid rgba(0,0,0,0.25)
+    border-right: 1px solid rgba(0,0,0,0.25)
+    text-align: center
+    svg
+    span
+      font-size: 12px
+      text-transform: uppercase
+      color: $red
+
+  .contact
+    position: relative
+    padding-right: 30px
+    width: 200px
+    a
+      display: block
+    .dropdown-arrow
+      +y-align
+      right: 15px
+      svg
+        width: 10px
+        height: 10px
+        +rotate(132deg)
+
+  .cart
+    .cart-icon
+      svg
+        width: 40px
+        height: 40px
+    .order-quantity
+      font-size: 18px
+      font-weight: 600
+      color: #fff
+    .total-price
+      color: white
+      padding-left: 20px
+      font-weight: 600
+      border-left: 1px solid $dark
+      height: 50px
+      line-height: 50px
+
+  .contact-dropdown
+    width: 220px
+    position: absolute
+    left: -20px
+    bottom: -4px
+    +translate(0,100%)
+    padding: 10px
+    background: white
+    box-shadow: 3px 8px 10px 3px rgba(0, 0, 0, 0.1)
+    opacity: 0
+    pointer-events: none
+    +transition(.25s)
+    &.visible
+      opacity: 1
+      pointer-events: initial
+    &:before
+      content: ''
+      display: block
+      width: 100%
+      height: 50px
+      position: absolute
+      bottom: 0
+      left: 0
+      background: $red
+      z-index: -1
+    button
+      display: block
+      width: 100%
+      margin-top: 20px
+      padding: 10px
+      font-size: 12px
+      text-transform: uppercase
+      color: white
+      font-weight: 600
+      text-align: center

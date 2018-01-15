@@ -1,0 +1,40 @@
+- if !defined?(discount)
+  - discount = nil
+
+.columns.medium-6.large-4
+
+  .square
+    .fullsize.item
+
+      / img size: 500x500#
+      .img-bg style="background-image: url(#{asset_path('img/pexels-photo-280453.jpg')})"
+
+      .info-panel
+
+        p.name Назва піци
+        p.ingredients Список інгредієнтів
+
+        .price class=("reduced" if discount)
+          .inner-text
+            - if discount
+              span
+                = discount
+            span &#8372
+            | 112
+
+        .size-option.clearfix
+          .floated 30
+          .floated.active 40
+
+        .add-to-cart
+
+          .quantity.on-red-bg
+            .decrease -
+            .number 2
+            .increase +
+
+          .add-to-cart-btn add to cart
+
+          .total-price
+            span &#8372
+            | 777

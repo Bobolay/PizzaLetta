@@ -1,0 +1,34 @@
+.header-container
+
+  p.large-title pizza
+
+  .right-part
+
+    .dib.webcam
+      = inline_svg ('icons/camera.svg')
+      span live
+
+    .dib.contact
+      a.numbers href="tel:+380972283228" +38 (097) 228-3-228
+      p.numbers-light 10:00 - 00:00
+      .dropdown-arrow = inline_svg ('icons/pizza_part.svg')
+
+      .contact-dropdown
+        .line-separator
+        a.numbers href="tel:+380932283228" +38 (093) 228-3-228
+        a.numbers href="tel:+380672283228" +38 (067) 228-3-228
+        .line-separator
+        form
+          p.small Або вкажіть ваш номер
+          .input-field
+            input placeholder="Телефон"
+          button Передзвоніть мені
+
+
+
+    .dib.cart
+      .dib.cart-icon = inline_svg ('icons/basket.svg')
+      .dib.order-quantity 4
+      .dib.total-price
+        span &#8372;
+        | 234

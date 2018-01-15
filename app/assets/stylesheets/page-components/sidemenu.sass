@@ -1,0 +1,65 @@
+.sidemenu-wrap
+  position: fixed
+  width: 80px
+  height: 100%
+  top: 0
+  left: 0
+  background: $dark
+  @media #{$small-only}
+    display: none
+
+  .logo
+    display: block
+    width: 60px
+    margin: 20px 10px
+
+  .sidenav
+    +y-align
+    width: 100%
+    li
+    a
+      display: block
+      height: 80px
+      text-align: center
+      cursor: pointer
+      svg
+        width: 40px
+        height: 40px
+        margin-top: 10px
+        fill: rgba(255,255,255,0.5)
+        +transition(.25s)
+      span
+        color: white
+        opacity: 0
+        +transition(.25s)
+      &:hover
+        span
+          opacity: 1
+        svg
+          fill: rgba(255,255,255,0.75)
+      &.active
+        background: $red
+        span
+          opacity: 1
+        svg
+          fill: white
+
+  .socials
+    position: absolute
+    bottom: 30px
+    left: 10px
+    a
+      position: relative
+      display: inline-block
+      width: 24px
+      height: 24px
+      border: 1px solid white
+      border-radius: 50%
+      margin-right: 10px
+      &:last-child
+        margin-right: 0
+      svg
+        +centered-inside
+        width: 14px
+        height: 14px
+        fill: white

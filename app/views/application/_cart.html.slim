@@ -1,0 +1,34 @@
+.cart
+
+  .local-header
+    p.title
+      | корзина
+    .close-btn = inline_svg "icons/close.svg"
+
+  ul.item-list
+    li
+
+      .img-container
+        .img-bg style="background-image: url(#{asset_path('img/Special-offer-v3.jpg')})"
+
+      p.name
+        | Карбонара
+
+      p.price
+        span &#8372
+        | 253
+
+      .quantity.on-white-bg
+        .decrease -
+        .number 2
+        .increase +
+
+      p.ingredients
+        | Моцарелла, Сир, Гриби, Анчоуси, Ананас
+
+      p.special-offer
+        | gift
+
+      p.ingredients
+        | Coca-cola,
+        span 0.3l

@@ -1,0 +1,256 @@
+// Item list
+
+.item-list
+  .square
+    overflow: hidden
+    margin-bottom: 30px
+
+.item
+  cursor: pointer
+  &.active, &:hover
+    .info-panel
+      +translate(0,0)
+
+.info-panel
+  position: absolute
+  background: white
+  padding: 20px
+  width: 100%
+  height: 200px
+  bottom: 0
+  left: 0
+  +translate(0,60px)
+  +transition(.25s)
+  .price
+    position: absolute
+    width: 70px
+    height: 70px
+    -webkit-border-radius: 50%
+    -moz-border-radius: 50%
+    border-radius: 50%
+    top: -35px
+    right: 20px
+    color: #fff
+    background: $red
+    &:before
+      content: ''
+      display: block
+      position: absolute
+      top: 2px
+      left: 2px
+      right: 2px
+      bottom: 2px
+      border: 1px solid white
+      pointer-events: none
+      border-radius: 50%
+    .inner-text
+      +xy-align
+    &.reduced
+      span:first-child
+        display: block
+        text-decoration: line-through
+        text-align: center
+  .size-option
+    position: absolute
+    right: 20px
+    top: 40px
+    border: 1px solid black
+    &:after
+      content: 'cm'
+      +x-align
+      bottom: -20px
+      font-size: 10px
+      color: grey
+    .floated
+      padding: 6px
+      &.active
+        color: #fff
+        background: $dark
+  .add-to-cart
+    position: absolute
+    width: 100%
+    height: 60px
+    padding: 15px 0
+    bottom: 0
+    left: 0
+    background: $red
+    +clearfix
+    .quantity
+      float: left
+    .total-price
+      float: right
+      line-height: 30px
+      margin-right: 15px
+      color: white
+    .add-to-cart-btn
+      +x-align
+      width: 100px
+      z-index: 1
+      color: white
+      line-height: 30px
+
+
+// Filter
+
+.filter-wrap
+  position: relative
+  margin: 30px 0
+  .regular
+    font-size: 14px
+    text-transform: uppercase
+    margin-right: 20px
+    font-weight: 600
+  .filter
+    position: relative
+    padding: 10px
+    border: 1px solid rgba(0,0,0,0.25)
+    cursor: pointer
+    +transition(.25s)
+    &:nth-child(n+2)
+      margin-left: -1px
+    &:hover, &.active
+      border: 1px solid $dark
+      svg
+        fill: $dark
+      span
+        color: $dark
+  svg
+    display: inline-block
+    width: 30px
+    height: 30px
+    vertical-align: middle
+    fill: rgba(0,0,0,0.5)
+    margin-right: 10px
+    +transition(.25s)
+  span
+    color: rgba(0,0,0,0.5)
+    +transition(.25s)
+
+
+// Live video
+
+.video-container
+  position: relative
+  padding-bottom: 50%
+
+.camera-option
+  position: absolute
+  bottom: 30px
+  left: 30px
+  border: 1px solid white
+  .floated
+    font-size: 12px
+    padding: 5px 10px
+    color: white
+    cursor: pointer
+    &.active
+      background: white
+      color: $dark
+      cursor: initial
+
+.camera-description
+  position: absolute
+  bottom: 30px
+  right: 30px
+  .small, .larger
+    text-transform: uppercase
+    color: white
+  .larger
+    position: relative
+    font-weight: 600
+    margin-top: 5px
+    &:before
+      content: ''
+      display: block
+      width: 8px
+      height: 8px
+      background: $red
+      border: 1px solid white
+      border-radius: 50%
+      position: absolute
+      top: 4px
+      left: -15px
+
+
+// SUBSCRIBE
+
+.subscribe-wrap
+  position: relative
+  padding: 60px 0
+  background: $red
+  overflow: hidden
+  .pizza-img
+    width: 150px
+    height: 150px
+    +y-align
+    left: -30px
+    z-index: 1
+    -webkit-background-size: contain
+    background-size: contain
+    background-repeat: no-repeat
+    display: none
+    @media #{$large-up}
+      display: block
+  .bg-pattern
+    width: 70%
+    height: 100%
+    position: absolute
+    top: 0
+    right: 0
+    -webkit-background-size: cover
+    background-size: cover
+  .large
+    color: white
+    font-weight: 600
+    margin-bottom: 10px
+  .small
+    color: white
+  button
+    position: absolute
+    top: 0
+    right: 0
+    padding: 12px
+    span
+      font-size: 10px
+      text-transform: uppercase
+      font-weight: 600
+    svg
+      width: 10px
+      height: 10px
+
+
+
+// Social on main page
+
+.social-wrap
+  position: relative
+  margin: 100px 0
+  .main-text
+    width: 400px
+    max-width: 100%
+    margin: 0 auto 50px
+    text-align: center
+    .smaller
+      margin: 30px 0
+  .square
+    margin-bottom: 20px
+  .heart-icon
+    display: inline-block
+    width: 20px
+    height: 21px
+    vertical-align: middle
+    margin-right: 20px
+    cursor: pointer
+    +transition(.25s)
+    &:hover
+      fill: red
+  .btn
+    span
+      font-size: 12px
+      font-weight: 600
+  .title
+    font-size: 14px
+    margin: 20px 0 10px
+    font-weight: 600
+  .smaller
+    margin-bottom: 30px

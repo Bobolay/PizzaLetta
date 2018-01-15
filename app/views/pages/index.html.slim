@@ -1,0 +1,98 @@
+/ FILTER
+.indent
+  .row
+    .columns
+      .filter-wrap.clearfix
+        .floated
+          .dib.regular фільтрування
+          .dib.clearfix
+            .floated.filter data-filter="all"
+              = inline_svg ('icons/navtabs/540269.svg')
+              span Всі
+            .floated.filter data-filter=".vegetarian"
+              = inline_svg ('icons/navtabs/135463.svg')
+              span Вегетаріанська
+            .floated.filter data-filter=".meat"
+              = inline_svg ('icons/navtabs/135397.svg')
+              span М'ясо
+            .floated.filter data-filter=".seafood"
+              = inline_svg ('icons/navtabs/135446.svg')
+              span Морепродукти
+            .floated.filter data-filter=".cheese"
+              = inline_svg ('icons/navtabs/135421.svg')
+              span Сирна
+        .floated-right
+          .dib.regular сортування
+          .dib
+            select.sorting
+              option Ціна: зростання
+              option Ціна: спадання
+
+
+/ PIZZA LIST
+/ differences: price regular or reduced
+.indent.item-list
+  .row.columns-left
+    = render "list_item_pizza"
+    = render "list_item_pizza", discount: 200
+    = render "list_item_pizza"
+
+
+/ LIVE VIDEO
+.video-container
+  .img-bg style="background-image: url(#{asset_path('img/nick-karvounis-463853.jpg')})"
+  .camera-option.clearfix
+    .floated.active Камера №1
+    .floated Камера №2
+  .camera-description
+    p.small Вебкамера
+    p.larger Кухня наживо
+
+
+/ SUBSCRIBE
+.subscribe-wrap
+  .bg-pattern style="background-image: url(#{asset_path('img/Letta-pattern-red.png')})"
+  .pizza-img style="background-image: url(#{asset_path('img/pizza_PNG7122.png')})"
+  .row
+    .columns.medium-10.large-9.large-centered.xlarge-8
+      .row
+        .columns.medium-6.large-5
+          p.large Get the latest
+          p.small Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        .columns.medium-6
+          form
+            .input-field
+              input placeholder="Email address"
+            button
+              = inline_svg ("icons/pizza_part.svg")
+              span Join
+
+
+/ SOCIAL AND FEEDBACKS
+.social-wrap
+  .row
+    .columns
+      .main-text
+        p.large-title Follow us
+        p.smaller Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        .btn.dark
+          = inline_svg ("icons/instagram.svg")
+          span pizzaletta
+        .btn.dark
+          = inline_svg ("icons/instagram.svg")
+          span lovemypizza
+  .row.columns-left
+    .columns.medium-6.large-4
+      .square
+        .img-bg style="background-image: url(#{asset_path('img/pexels-photo-280453.jpeg')})"
+      span.heart-icon = inline_svg "icons/heart.svg"
+      span.likes 45
+      p.title Pizzaletta
+      p.smaller Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    .columns.medium-6.large-4
+      .square
+        .img-bg style="background-image: url(#{asset_path('img/pexels-photo-688012.jpeg')})"
+      span.heart-icon = inline_svg "icons/heart.svg"
+      span.likes 45
+      p.title Lovemypizza
+      p.smaller Sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
