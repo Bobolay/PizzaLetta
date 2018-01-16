@@ -15,8 +15,15 @@ body
   background: rgba(0,0,0,0.075)
   .main-wrapper
     flex: 1
-  &.menu-opened
+  &.overflow-hidden
     overflow: hidden
+    &:before
+      content: ''
+      display: block
+      +fullsize
+      background: rgba(0,0,0,0.75)
+      z-index: 30
+      +transition(.25s)
   @media #{$small-only}
     padding-left: 0
 

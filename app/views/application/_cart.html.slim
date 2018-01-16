@@ -1,34 +1,150 @@
-.cart
+.cart-container
 
   .local-header
     p.title
       | корзина
-    .close-btn = inline_svg "icons/close.svg"
+    .close-btn.cart-close-btn = inline_svg "icons/close.svg"
 
-  ul.item-list
-    li
+  .scroll-container
+    ul.item-list
 
-      .img-container
-        .img-bg style="background-image: url(#{asset_path('img/Special-offer-v3.jpg')})"
 
-      p.name
-        | Карбонара
 
-      p.price
-        span &#8372
-        | 253
+      li.cart-item
 
-      .quantity.on-white-bg
-        .decrease -
-        .number 2
-        .increase +
+        .img-holder
+          .img-bg style="background-image: url(#{asset_path('img/Test-pizza.png')})"
 
-      p.ingredients
-        | Моцарелла, Сир, Гриби, Анчоуси, Ананас
+        p.name
+          | Карбонара
 
-      p.special-offer
-        | gift
+        p.price
+          span &#8372
+          | 253
 
-      p.ingredients
-        | Coca-cola,
-        span 0.3l
+        .quantity.on-white-bg
+          .decrease = inline_svg "icons/remove.svg"
+          .number 2
+          .increase = inline_svg "icons/add.svg"
+
+        p.ingredients
+          | Моцарелла, Сир, Гриби, Анчоуси, Ананаc, Помідор, Кукурудза
+
+        p.special-offer
+          | gift
+
+        p.ingredients
+          | Coca-cola,
+          span 0.3l
+
+
+
+      li.cart-item
+
+        .img-holder
+          .img-bg style="background-image: url(#{asset_path('img/Test-pizza.png')})"
+
+        p.name
+          | Карбонара
+
+        p.price
+          span &#8372
+          | 253
+
+        .quantity.on-white-bg
+          .decrease = inline_svg "icons/remove.svg"
+          .number 2
+          .increase = inline_svg "icons/add.svg"
+
+        p.ingredients
+          | Моцарелла, Сир, Гриби, Анчоуси, Ананаc, Помідор, Кукурудза
+
+        p.special-offer
+          | gift
+
+        p.ingredients
+          | Coca-cola,
+          span 0.3l
+
+
+
+      li.cart-item
+
+        .img-holder
+          .img-bg style="background-image: url(#{asset_path('img/Test-drinks.png')})"
+
+        p.name
+          | Імбирний лимонад
+
+        p.price
+          span &#8372
+          | 35
+
+        .quantity.on-white-bg
+          .decrease = inline_svg "icons/remove.svg"
+          .number 5
+          .increase = inline_svg "icons/add.svg"
+
+        p.ingredients
+          | Моцарелла, Сир, Гриби, Анчоуси, Ананаc, Помідор, Кукурудза
+
+        p.special-offer
+          | gift
+
+        p.ingredients
+          | Coca-cola,
+          span 0.3l
+
+      li.cart-item
+
+        .img-holder
+          .img-bg style="background-image: url(#{asset_path('img/Test-drinks.png')})"
+
+        p.name
+          | Імбирний лимонад
+
+        p.price
+          span &#8372
+          | 35
+
+        .quantity.on-white-bg
+          .decrease = inline_svg "icons/remove.svg"
+          .number 5
+          .increase = inline_svg "icons/add.svg"
+
+        p.ingredients
+          | Моцарелла, Сир, Гриби, Анчоуси, Ананаc, Помідор, Кукурудза
+
+        p.special-offer
+          | gift
+
+        p.ingredients
+          | Coca-cola,
+          span 0.3l
+
+    .sauce-option
+      p.smaller добавити соус
+      .clearfix
+        .floated.active
+          .img style="background-image: url(#{asset_path('img/Test-sauce.png')})"
+          p.name червоний
+          p.price
+            span &#8372
+            | 17
+          .remove = inline_svg "icons/remove.svg"
+          .add = inline_svg "icons/add.svg"
+        .floated
+          .img style="background-image: url(#{asset_path('img/Test-sauce.png')})"
+          p.name білий
+          p.price
+            span &#8372
+            | 17
+          .remove = inline_svg "icons/remove.svg"
+          .add = inline_svg "icons/add.svg"
+
+  .order-confirmation.clearfix
+    .floated.price
+      span &#8372
+      | 2903
+    .floated.btn.red
+      | оформити замовлення

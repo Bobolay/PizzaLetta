@@ -66,9 +66,16 @@
   
 .btn
   display: inline-block
-  padding: 16px 22px
+  height: 48px
+  line-height: 48px
+  font-size: 14px
+  font-weight: 900
+  padding: 0px 22px
+  color: #fff
   text-transform: uppercase
+  text-align: center
   margin-right: 10px
+  cursor: pointer
   &:last-child
     margin-right: 0
   svg
@@ -78,9 +85,10 @@
     height: 30px
   &.dark
     background: $dark
-    color: #fff
     svg
       fill: white
+  &.red
+    background: $red
 
 .indent
   margin: 30px 0
@@ -95,25 +103,43 @@
     line-height: 30px
   .decrease, .increase
     cursor: pointer
+    svg
+      width: 12px
+      height: 12px
+      line
+        +transition(.25s)
+        stroke: $dark
   .number
     background: $dark
     color: white
   &.on-red-bg
     .decrease, .increase
       color: white
+      &:hover
+        svg line
+          stroke: white
   &.on-white-bg
     .decrease, .increase
       color: $dark
+      &:hover
+        svg line
+          stroke: $red
 
 .local-header
   position: relative
+  height: 74px
+  padding: 25px
   .title
     text-transform: uppercase
 
 .close-btn
   width: 40px
   height: 40px
+  padding: 10px
   cursor: pointer
+  svg line
+    +transition(.25s)
+    stroke: $dark-grey
   &:hover
-    svg
-      fill: $red
+    svg line
+      stroke: $red

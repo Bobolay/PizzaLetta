@@ -1,7 +1,8 @@
 .header-container
   position: fixed
-  padding: 16px 30px
+  padding: 10px 30px
   width: calc(100% - 80px)
+  height: 74px
   top: 0
   display: -webkit-flex
   display: -moz-flex
@@ -59,15 +60,25 @@
     a
       display: block
     .dropdown-arrow
+      padding: 10px
       +y-align
-      right: 15px
+      right: 6px
+      cursor: pointer
       svg
         width: 10px
         height: 10px
         +rotate(132deg)
+        +transition(.25s)
+      &:hover
+        svg
+          fill: $red
+      &.active
+        svg
+          +rotate(313deg)
 
   .cart
     .cart-icon
+      cursor: pointer
       svg
         width: 40px
         height: 40px
