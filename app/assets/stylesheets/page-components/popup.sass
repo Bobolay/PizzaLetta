@@ -1,27 +1,56 @@
-// .popup-wrapper
+// Success message
 
-//   position: fixed
-//   width: 100%
-//   height: auto
-//   min-height: 100vh
-//   background: rgba($brown900, .97)
-//   z-index: 9999
-//   opacity: 0
-//   pointer-events: none
-//   +transition(0.25s)
-
-//   .close-popup
-//     position: absolute
-//     top: 30px
-//     right: 30px
-//     width: 20px
-//     height: 20px
-//     cursor: pointer
-//     svg
-//       width: 100%
-//       height: 100%
-//       fill: $brown200
-//     &:hover
-//       svg
-//         fill: #F8F7F3
-
+.success-wrap
+  position: fixed
+  width: 100%
+  height: 100%
+  top: 0
+  left: 0
+  z-index: 12
+  opacity: 0
+  pointer-events: none
+  +transition(.25s)
+  &.visible
+    opacity: 1
+    pointer-events: initial
+  &:before
+    content: ''
+    +fullsize
+    background: rgba(0,0,0,0.75)
+  .inner-container
+    width: 600px
+    max-width: 100%
+    padding: 50px
+    background: white
+    +xy-align
+    text-align: center
+  .success-close-btn
+    position: absolute
+    width: 40px
+    height: 40px
+    top: 0
+    right: 0
+    padding: 12px
+    background: $dark
+    cursor: pointer
+    svg
+      stroke: white
+  .done
+    position: relative
+    width: 100px
+    height: 100px
+    border: 1px solid $dark
+    border-radius: 50%
+    margin: 0 auto 30px
+    svg
+      width: 50%
+      height: 50%
+      +centered-inside
+      +translate(0,-10px)
+  .title
+    font-weight: 900
+    text-transform: uppercase
+    margin-bottom: 20px
+  .smaller
+    font-weight: 600
+    margin-bottom: 80px

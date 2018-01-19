@@ -152,3 +152,51 @@
         +centered-inside
         line
           stroke: white
+
+
+
+.order-summary
+
+  .floated:first-child
+    width: 70%
+  .floated:nth-child(n+2)
+    width: 15%
+  .floated:last-child
+    text-align: right
+
+  .order-headers
+    border-bottom: 2px solid $dark-grey
+    margin-bottom: 20px
+    padding: 10px 0
+    .floated
+      font-size: 12px
+      text-transform: uppercase
+  .item-list
+  .order-item
+    position: relative
+    min-height: 60px
+    .floated:first-child
+      padding-left: 90px
+    .img-holder
+      position: absolute
+      top: 0
+      left: 0
+      width: 70px
+      &:before
+        content: ''
+        display: block
+        padding-top: 60%
+    .img-bg
+      -webkit-background-size: contain
+      background-size: contain
+    .name
+      font-size: 14px
+      font-weight: 600
+    .quantity
+      font-size: 14px
+      font-weight: 600
+    .price
+      color: $red
+      font-weight: 600
+      span
+        font-weight: normal

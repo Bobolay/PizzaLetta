@@ -56,6 +56,17 @@
         )
 
 
+        // close success message
+        $('.success-close-btn').on('click', function(){
+            $('.success-wrap').removeClass('visible');
+            $('body').removeClass('overflow-hidden');
+        })
+        $.clickOut('.success-wrap',
+            function(){
+                $('.success-wrap').removeClass('visible');
+                $('body').removeClass('overflow-hidden');
+            },{except: '.success-wrap'}
+        )
 
     });
 
