@@ -231,3 +231,147 @@
   @media #{$small-only}
     .btn-prev, .btn-next
       display: none
+
+
+// About us page
+
+.banner
+  position: relative
+  height: 100vh
+  &:before
+    content: ''
+    display: block
+    position: absolute
+    width: 100%
+    height: 50%
+    bottom: 0
+    left: 0
+    background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.25))
+    z-index: 1
+  .img-bg
+    @media #{$large-up}
+      background-attachment: fixed
+  .banner-title
+    width: 100%
+    +x-align
+    bottom: 40px
+    font-size: 120px
+    font-weight: 900
+    text-transform: uppercase
+    color: white
+    text-align: center
+    z-index: 2
+    @media #{$small-only}
+      font-size: 48px
+    @media #{$medium-only}
+      font-size: 72px
+    @media #{$large-only}
+      font-size: 100px
+    @media #{$xlarge-up}
+      font-size: 120px
+
+.about-wrap
+
+  .logo-icon
+    width: 200px
+    height: 200px
+
+  .regular
+    font-weight: 600
+    line-height: 1.5
+
+  .carousel-wrap
+
+  .principles-title
+    display: inline-block
+    padding: 20px 0
+    font-size: 12px
+    border-top: 1px solid $dark
+    text-transform: uppercase
+    font-weight: 900
+    letter-spacing: 1px
+  .principles-list
+    counter-reset: principles
+    li
+      position: relative
+      counter-increment: principles
+      padding-bottom: 20px
+      border-bottom: 1px solid $light-grey
+      margin-bottom: 40px
+      &:before
+        content: counter(principles)
+        display: block
+        width: 60px
+        height: 60px
+        position: absolute
+        top: -20px
+        left: -90px
+        border-radius: 50%
+        border: 1px solid $dark
+        font-size: 24px
+        font-weight: 900
+        line-height: 60px
+        text-align: center
+
+  .camera
+    position: relative
+    display: inline-block
+    font-size: 14px
+    font-weight: 900
+    color: $red
+    +transition(.25s)
+    margin-right: 20px
+    padding: 10px 0
+    cursor: pointer
+    span
+      display: inline-block
+      vertical-align: middle
+      width: 20px
+      height: 20px
+      margin-right: 10px
+      border-radius: 50%
+      background: $red
+      +transition(.25s)
+    svg
+      width: 10px
+      margin: 5px 4px
+      fill: white
+      +rotate(45deg)
+      +transition(.25s)
+    &:hover
+      color: $dark
+      span
+        background: $dark
+      svg
+        fill: $red
+
+.blockquotes
+  position: relative
+  margin-top: 100px
+  background: $red
+  padding: 100px 0 120px
+  .bg-pattern
+    position: absolute
+    width: 100%
+    height: 100%
+    top: 0
+    left: 0
+    -webkit-background-size: cover
+    background-size: cover
+  i
+    display: block
+    position: relative
+    width: 1000px
+    margin: 0 auto
+    max-width: 100%
+    font-size: 32px
+    color: white
+    text-align: center
+    font-weight: 900
+    &:before
+      content: '\201C'
+      font-size: 80px
+      +x-align
+      top: 0
+      +translate(0,-60%)
+  
