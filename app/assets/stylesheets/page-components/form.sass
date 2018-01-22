@@ -2,16 +2,137 @@ form
   position: relative
   .input-field
     position: relative
-    margin: 10px 0
-    border: 1px solid rgba(0,0,0,.25)
+    margin: 20px 0
+    .nice-select
+      width: 100%
     input, textarea, select
       font-size: 14px
-      color: $grey600
+      color: $dark
       display: block
-      padding: 10px
+      padding: 16px 20px
       width: 100%
       border: none
       outline: none
       background-color: white
+      border: 1px solid rgba(0,0,0,.25)
+      +transition(.25s)
       &:focus
         outline: none
+    label
+      position: absolute
+      top: 18px
+      left: 10px
+      color: $light-grey
+      padding: 0 10px
+      pointer-events: none
+      +transition(.25s)
+    input:focus ~ label, input.used ~ label
+      top: -5px
+      font-size: 12px
+      color: $dark
+      background: white
+      text-transform: uppercase
+    input:focus, input.used
+      border: 1px solid $dark
+    &.locked
+      input
+        pointer-events: none
+      &:after
+        content: ''
+        display: block
+        width: 24px
+        height: 24px
+        position: absolute
+        top: 6px
+        right: 6px
+        background: asset_url('icons/lock.svg')
+
+  .nice-select
+    border: 1px solid $dark
+    & ~ label
+      top: -5px
+      font-size: 12px
+      color: #000
+      background: white
+      text-transform: uppercase
+
+.icon-holder
+  position: relative
+  padding-left: 30px
+  .icon
+    width: 22px
+    height: 22px
+    position: absolute
+    top: -3px
+    left: 0
+    border-radius: 50%
+    border: 1px solid $dark
+    &:after
+      content: ''
+      display: block
+      background: asset_url('icons/pizza_part_white.svg')
+      width: 12px
+      height: 12px
+      position: absolute
+      top: 4px
+      left: 4px
+      opacity: 0
+  &.active
+    .icon
+      background: $dark
+      &:after
+        opacity: 1
+
+.checkbox-field
+
+  input[type="checkbox"]
+    position: absolute
+    top: -9999px
+    left: -9999px
+    opacity: 0
+    &:checked
+      & ~ .icon
+        background: $dark
+        &:after
+          opacity: 1
+  label
+    font-size: 12px
+    font-weight: 600
+    cursor: pointer
+    +transition(.25s)
+    &:hover
+      color: $red
+  .icon
+    border-radius: 20%
+
+.sum
+  position: relative
+  font-size: 12px
+  top: 20px
+
+.red-label
+  display: inline-block
+  padding: 10px 0
+  margin: 10px 0 0
+  font-size: 10px
+  color: $red
+  text-transform: uppercase
+  font-weight: 600
+  cursor: pointer
+  svg
+    display: inline-block
+    width: 12px
+    height: 12px
+    stroke: $red
+    margin-right: 10px
+    vertical-align: middle
+
+.optional-textarea
+  display: none
+  &.visible
+    display: block
+
+button.red
+  display: block
+  width: 100%
+  margin-top: 30px

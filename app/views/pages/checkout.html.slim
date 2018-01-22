@@ -1,0 +1,103 @@
+.checkout-wrap
+
+  .row
+
+    .columns.large-7
+      .panel
+        p.title введіть дані доставки
+        .clearfix.tab-buttons
+          .floated.tab-button.icon-holder.active
+            .icon
+            | Доставка кур'єром
+          .floated.tab-button.icon-holder
+            .icon
+            | Забрати самому
+          .floated.tab-button.icon-holder
+            .icon
+            | Вказати по телефону
+
+        form.tab-content-wrapper
+          .tab-content.active
+            .row
+              .columns.large-6
+                .input-field
+                  input
+                  label Ім'я
+              .columns.large-6
+                .input-field
+                  input
+                  label Телефон
+              .columns
+                .input-field
+                  input
+                  label Ел.Cкринька (не обов'язково)
+                .checkbox-field.icon-holder
+                  input#receive-news type="checkbox" checked=""
+                  label for="receive-news" Отримувати новини та спеціальні пропозиції
+                  .icon
+
+            .line-separator.inside-form
+
+            .row
+              .columns.large-3
+                .input-field.locked
+                  input.used value="Львів"
+                  label Місто
+              .columns.large-3
+                .input-field
+                  input
+                  label Вулиця
+              .columns.large-3
+                .input-field
+                  input
+                  label Будинок
+              .columns.large-3
+                .input-field
+                  input
+                  label Квартира
+
+            .line-separator.inside-form
+
+            .row
+              .columns.large-4
+                .input-field
+                  select
+                    option Сьогодні
+                    option Завтра
+                  label Дата доставки
+              .columns.large-4
+                .input-field
+                  select
+                    option Якомога швидше
+                    option Я не спішу
+                  label Час доставки
+              .columns.large-4
+                .input-field
+                  select
+                    option Готівка
+                    option Карта банку
+                  label Форма оплати
+
+              .columns.large-8
+                .input-field
+                  input.used placeholder="Сума, грн."
+                  label Підготувати решту з
+              .columns.large-4
+                i.sum Вкажіть суму оплати, щоб кур'єр мав при собі решту
+
+            p.red-label.textarea-btn
+              = inline_svg "icons/add.svg"
+              | додати коментар (не обов'язково)
+
+            .input-field.optional-textarea
+              textarea rows="5" placeholder="Поле для коментарів..."
+
+            button.btn.red
+              | замовити
+
+          .tab-content 2
+          .tab-content 3
+
+    .columns.large-4
+      .panel
+        p.title ваше замовлення

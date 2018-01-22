@@ -47,7 +47,7 @@
                 $(this).addClass('active');
             }
         })
-        // close cart
+        // close contact box
         $.clickOut('.contact-dropdown',
             function(){
                 $('.contact-dropdown').removeClass('visible');
@@ -55,6 +55,11 @@
             },{except: '.contact-dropdown, .contact-dropdown-btn'}
         )
 
+
+        // show/hide textarea
+        $('.textarea-btn').on('click', function(){
+            $('.optional-textarea').toggleClass('visible');
+        })
 
 
     });

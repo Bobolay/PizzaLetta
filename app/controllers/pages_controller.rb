@@ -6,4 +6,7 @@ class PagesController < ApplicationController
   def structure_parts
   end
 
+  def checkout
+  end
+
 end
