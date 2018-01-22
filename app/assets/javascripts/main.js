@@ -56,13 +56,11 @@
         )
 
 
-<<<<<<< HEAD
         // show/hide textarea
         $('.textarea-btn').on('click', function(){
             $('.optional-textarea').toggleClass('visible');
         })
 
-=======
         // close success message
         $('.success-close-btn').on('click', function(){
             $('.success-wrap').removeClass('visible');
@@ -74,7 +72,6 @@
                 $('body').removeClass('overflow-hidden');
             },{except: '.success-wrap'}
         )
->>>>>>> 0b1d76356fe25b1d62c7986245f39cd6ee3d9967
 
     });
 

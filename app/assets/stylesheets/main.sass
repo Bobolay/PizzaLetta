@@ -215,6 +215,19 @@
 
 
 // Promotions page
+
 .promotions-wrap
   .square
     margin-bottom: 30px
+.promotion-one
+  .btn-prev, .btn-next
+    position: absolute
+    top: 50%
+    +translate(0,-50%)
+  .btn-prev
+    left: -40px
+  .btn-next
+    right: -40px
+  @media #{$small-only}
+    .btn-prev, .btn-next
+      display: none

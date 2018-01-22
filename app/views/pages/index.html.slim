@@ -3,6 +3,7 @@
   .row
     .columns
       .filter-wrap.clearfix
+        / Filtering
         .floated
           .dib.regular фільтрування
           .dib.clearfix
@@ -21,6 +22,7 @@
             .floated.filter data-filter=".cheese"
               = inline_svg ('icons/navtabs/135421.svg')
               span Сирна
+        / Sorting
         .floated-right
           .dib.regular сортування
           .dib
@@ -72,6 +74,7 @@
 .social-wrap
   .row
     .columns
+      / Title and social buttons
       .main-text
         p.large-title Follow us
         p.smaller Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -82,6 +85,8 @@
           = inline_svg ("icons/instagram.svg")
           span lovemypizza
   .row.columns-left
+
+    / Post from socials
     .columns.medium-6.large-4
       .square
         .img-bg style="background-image: url(#{asset_path('img/pexels-photo-280453.jpeg')})"
@@ -89,6 +94,8 @@
       span.likes 45
       p.title Pizzaletta
       p.smaller Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+    / Post from socials
     .columns.medium-6.large-4
       .square
         .img-bg style="background-image: url(#{asset_path('img/pexels-photo-688012.jpeg')})"

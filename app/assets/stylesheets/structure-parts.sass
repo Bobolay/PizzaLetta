@@ -15,6 +15,11 @@
   .floated-right
     float: right
 
+@media #{$small-only}
+  .columns.no-padding
+    padding-left: 0
+    padding-right: 0
+
 .float-right
   @media #{$medium-up}
     float: right !important
@@ -79,6 +84,12 @@
       fill: white
   &.red
     background: $red
+  &.big
+    width: 100%
+    margin-top: 50px
+    font-size: 16px
+    height: 60px
+    line-height: 60px
 
 .close-btn
   width: 40px
@@ -105,6 +116,101 @@ p.clear-btn
     stroke: $red
     margin-right: 6px
 
+.btn-prev, .btn-next
+  position: relative
+  width: 30px
+  height: 30px
+  border-radius: 50%
+  box-shadow: 0 2px 5px 0px rgba(0,0,0,0.2)
+  cursor: pointer
+  z-index: 1
+  +transition(.25s)
+  svg
+    +centered-inside
+    width: 10px
+    height: 10px
+    left: 2px
+    +transition(.25s)
+  &:hover
+    background: $red
+    box-shadow: 0 4px 7px 0px rgba(0,0,0,0.2)
+    svg
+      fill: white
+.btn-prev
+  svg
+    +rotate(-180deg)
+    right: 2px
+
+.article-navigation
+  .small
+    position: relative
+    text-align: center
+    text-transform: uppercase
+    padding: 20px 0
+    @media #{$small-only}
+      background: $grey
+      padding-bottom: 50px
+      &:after
+        content: ''
+        display: block
+        width: 1px
+        height: 30px
+        +x-align
+        bottom: 10px
+        background: $light-grey
+  .floated
+    position: relative
+    cursor: pointer
+    @media #{$small-only}
+      width: 100%
+      background: white
+      text-align: center
+      padding: 20px 0
+      &:first-child
+        border-bottom: 1px solid $light-grey
+    @media #{$medium-up}
+      background: white
+      width: 50%
+    &:hover
+      .title
+        color: $red
+      .img-bg
+        +scale(1.05)
+  .floated:last-child
+    @media #{$medium-up}
+      text-align: right
+      &:before
+        content: ''
+        display: block
+        width: 1px
+        height: 50%
+        background: $light-grey
+        +y-align
+        left: 0
+  .img
+    position: relative
+    width: 100px
+    height: 100px
+    overflow: hidden
+    @media #{$small-only}
+      display: none
+    .img-bg
+      +transition(.5s)
+  .inner-text
+    padding: 0 20px
+    @media #{$medium-up}
+      width: calc(100% - 100px)
+      max-width: 400px
+    .subtitle
+      font-size: 12px
+      text-transform: uppercase
+      margin-bottom: 10px
+    .title
+      max-width: 400px
+      max-height: 48px
+      overflow: hidden
+      +transition(.25s)
+
 .shadow-box
   box-shadow: 0 4px 10px 0px rgba(0,0,0,0.2)
 
@@ -112,7 +218,8 @@ p.clear-btn
   margin: 30px 0
 
 .section-indent
-  margin: 100px 0
+  @media #{$medium-up}
+    margin: 100px 0
 
 .align-right
   text-align: right
@@ -207,21 +314,6 @@ p.clear-btn
   display: none
   &.active
     display: block
-
-@keyframes example
-  from
-    background-position: 0 0
-  to
-    background-position: 0 -720px
-
-.sprite
-  height: 80px
-  background-size: 100% auto
-  background-position: center top
-  background-repeat: no-repeat
-  &:hover
-    animation-name: example
-    animation-duration: 5s
 
 .red-price
   -webkit-border-radius: 50%
