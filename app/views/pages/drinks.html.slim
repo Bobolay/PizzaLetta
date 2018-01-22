@@ -1,0 +1,38 @@
+/ FILTER
+.indent
+  .row
+    .columns
+      .filter-wrap.clearfix
+        .floated
+          .dib.regular фільтрування
+          .dib.clearfix
+            .floated.filter data-filter="all"
+              = inline_svg ('icons/navtabs/540269.svg')
+              span Всі
+            .floated.filter data-filter=".vegetarian"
+              = inline_svg ('icons/navtabs/135463.svg')
+              span Вегетаріанська
+            .floated.filter data-filter=".meat"
+              = inline_svg ('icons/navtabs/135397.svg')
+              span М'ясо
+            .floated.filter data-filter=".seafood"
+              = inline_svg ('icons/navtabs/135446.svg')
+              span Морепродукти
+            .floated.filter data-filter=".cheese"
+              = inline_svg ('icons/navtabs/135421.svg')
+              span Сирна
+        .floated-right
+          .dib.regular сортування
+          .dib
+            select.sorting
+              option Ціна: зростання
+              option Ціна: спадання
+
+
+/ BEVERAGES LIST
+/ differences: price regular or reduced
+.indent.item-list
+  .row.columns-left
+    = render "list_item_drink"
+    = render "list_item_drink"
+    = render "list_item_drink"

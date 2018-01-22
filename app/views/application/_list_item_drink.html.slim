@@ -7,12 +7,13 @@
     .fullsize.item
 
       / img size: 500x500#
-      .img-bg style="background-image: url(#{asset_path('img/pexels-photo-280453.jpg')})"
+      .drink-img-wrap
+        .img-bg style="background-image: url(#{asset_path('img/Test-drinks.png')})"
 
-      .info-panel.white
+      .info-panel.dark
 
-        p.name Назва піци
-        p.ingredients Список інгредієнтів
+        p.ingredients Лимонади | 0.5 л
+        p.name Грушевий лимонад з шалфеєм
 
         .red-price.small-circle class=("reduced" if discount)
           .inner-text
@@ -21,10 +22,6 @@
                 = discount
             span &#8372
             | 112
-
-        .size-option.clearfix
-          .floated 30
-          .floated.active 40
 
         .add-to-cart
 

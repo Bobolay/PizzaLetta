@@ -6,14 +6,21 @@
     margin-bottom: 30px
 
 .item
+  background: white
   cursor: pointer
   &.active, &:hover
     .info-panel
       +translate(0,0)
 
+.drink-img-wrap
+  position: absolute
+  width: 100%
+  height: calc(100% - 140px)
+  .img-bg
+    background-size: contain
+
 .info-panel
   position: absolute
-  background: white
   padding: 20px
   width: 100%
   height: 200px
@@ -21,35 +28,23 @@
   left: 0
   +translate(0,60px)
   +transition(.25s)
-  .price
+  &.white
+    background: white
+  &.dark
+    background: $dark
+    .name, .ingredients
+      color: white
+  .name
+    font-size: 24px
+    font-weight: 900
+    margin-bottom: 10px
+  .ingredients
+    font-size: 14px
+    margin-bottom: 10px
+  .red-price
     position: absolute
-    width: 70px
-    height: 70px
-    -webkit-border-radius: 50%
-    -moz-border-radius: 50%
-    border-radius: 50%
     top: -35px
     right: 20px
-    color: #fff
-    background: $red
-    &:before
-      content: ''
-      display: block
-      position: absolute
-      top: 2px
-      left: 2px
-      right: 2px
-      bottom: 2px
-      border: 1px solid white
-      pointer-events: none
-      border-radius: 50%
-    .inner-text
-      +xy-align
-    &.reduced
-      span:first-child
-        display: block
-        text-decoration: line-through
-        text-align: center
   .size-option
     position: absolute
     right: 20px
@@ -88,43 +83,6 @@
       z-index: 1
       color: white
       line-height: 30px
-
-
-// Filter
-
-.filter-wrap
-  position: relative
-  margin: 30px 0
-  .regular
-    font-size: 14px
-    text-transform: uppercase
-    margin-right: 20px
-    font-weight: 600
-  .filter
-    position: relative
-    padding: 10px
-    border: 1px solid rgba(0,0,0,0.25)
-    cursor: pointer
-    +transition(.25s)
-    &:nth-child(n+2)
-      margin-left: -1px
-    &:hover, &.active
-      border: 1px solid $dark
-      svg
-        fill: $dark
-      span
-        color: $dark
-  svg
-    display: inline-block
-    width: 30px
-    height: 30px
-    vertical-align: middle
-    fill: rgba(0,0,0,0.5)
-    margin-right: 10px
-    +transition(.25s)
-  span
-    color: rgba(0,0,0,0.5)
-    +transition(.25s)
 
 
 // Live video
@@ -253,4 +211,10 @@
     margin: 20px 0 10px
     font-weight: 600
   .smaller
+    margin-bottom: 30px
+
+
+// Promotions page
+.promotions-wrap
+  .square
     margin-bottom: 30px

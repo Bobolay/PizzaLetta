@@ -1,0 +1,64 @@
+p.clear-btn
+  = inline_svg "icons/close.svg"
+  | очистити все
+
+.row
+  .columns.large-5
+
+    .order-summary
+
+      .order-headers.clearfix
+        .floated назва
+        .floated к-сть
+        .floated ціна
+
+      ul.item-list
+
+        li.order-item.clearfix
+          .floated
+            .img-holder
+              .img-bg style="background-image: url(#{asset_path('img/Test-pizza.png')})"
+            p.name.dib
+              | Карбонара
+          .floated
+            p.quantity.dib 2
+          .floated
+            p.price.dib
+              span &#8372
+              | 253
+
+        li.order-item.clearfix
+          .floated
+            .img-holder
+              .img-bg style="background-image: url(#{asset_path('img/Test-pizza.png')})"
+            p.name.dib
+              | Карбонара
+          .floated
+            p.quantity.dib 2
+          .floated
+            p.price.dib
+              span &#8372
+              | 253
+
+        li.order-item.clearfix
+          .floated
+            .img-holder
+              .img-bg style="background-image: url(#{asset_path('img/Test-drinks.png')})"
+            p.name.dib
+              | Карбонара
+          .floated
+            p.quantity.dib 2
+          .floated
+            p.price.dib
+              span &#8372
+              | 253
+
+      .input-field
+        input
+        label Промокод
+
+      .total-price-container.align-right
+        span.label загальна сума
+        span.price
+          span &#8372
+          | 253

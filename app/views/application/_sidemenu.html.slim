@@ -1,18 +1,19 @@
 .sidemenu-wrap
 
-  a.logo = inline_svg ('icons/logo.svg')
+  a.logo href=root_path
+    = inline_svg ('icons/logo.svg')
 
   ul.sidenav
     li
-      a.active
+      a.active href=root_path
         = inline_svg ('icons/pizza.svg')
         span Pizza
     li
-      a
+      a href=drinks_path
         = inline_svg ('icons/349825.svg')
         span Напої
     li
-      a
+      a href=promotions_path
         = inline_svg ('icons/15172.svg')
         span Подарунки
     li
