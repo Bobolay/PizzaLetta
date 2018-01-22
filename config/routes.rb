@@ -2,12 +2,16 @@ Rails.application.routes.draw do
   root to: "pages#index"
 
   controller :pages do
+
     get "structure-parts", action: "structure_parts"
 
     get "drinks", action: "drinks"
     get "promotions", action: "promotions"
+    get "promotion_one", action: "promotion_one"
 
     get "checkout", action: "checkout"
+
+    get "about", action: "about"
     get "shipping", action: "shipping"
     get "policy", action: "policy"
 
