@@ -280,7 +280,27 @@
     font-weight: 600
     line-height: 1.5
 
-  .carousel-wrap
+  .owl-wrap
+    position: relative
+    padding: 50px 0 100px
+  .owl-carousel
+    .item
+      position: relative
+      height: 300px
+      background: transparent
+    img
+      vertical-align: bottom
+      position: absolute
+      bottom: 0
+  .custom-controls
+    position: absolute
+    bottom: 40px
+    right: 0
+  .owl-btn-prev, .owl-btn-next
+    display: inline-block
+    width: 30px
+    height: 30px
+    padding: 10px
 
   .principles-title
     display: inline-block
@@ -320,7 +340,7 @@
     font-weight: 900
     color: $red
     +transition(.25s)
-    margin-right: 20px
+    margin-right: 40px
     padding: 10px 0
     cursor: pointer
     span

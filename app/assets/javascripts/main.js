@@ -14,7 +14,7 @@
         // initialize nice select
         $('select').niceSelect();
 
-        // show/hide cart
+        // Show/hide cart
         $('.cart-icon').on('click', function(){
             if ($('.cart-container').hasClass('visible')){
                 $('.cart-container').removeClass('visible');
@@ -28,7 +28,7 @@
             $('.cart-container').removeClass('visible');
             $('body').removeClass('overflow-hidden');
         })
-        // close cart
+        // Close cart
         $.clickOut('.cart-container',
             function(){
                 $('.cart-container').removeClass('visible');
@@ -37,7 +37,7 @@
         )
 
 
-        // show contact box
+        // Show contact box
         $('.contact-dropdown-btn').on('click', function(){
             if ($('.contact-dropdown').hasClass('visible')){
                 $('.contact-dropdown').removeClass('visible');
@@ -47,7 +47,7 @@
                 $(this).addClass('active');
             }
         })
-        // close contact box
+        // Close contact box
         $.clickOut('.contact-dropdown',
             function(){
                 $('.contact-dropdown').removeClass('visible');
@@ -56,7 +56,7 @@
         )
 
 
-        // show/hide textarea
+        // Show/hide textarea
         $('.textarea-btn').on('click', function(){
             $('.optional-textarea').toggleClass('visible');
         })
@@ -72,6 +72,31 @@
                 $('body').removeClass('overflow-hidden');
             },{except: '.success-wrap'}
         )
+
+
+        // Owl carousel initialize
+        var owl = $('.owl-carousel').owlCarousel({
+            loop:true,
+            margin:10,
+            nav:false,
+            responsive:{
+                0:{
+                    items:1
+                },
+                600:{
+                    items:3
+                },
+                1000:{
+                    items:4
+                }
+            }
+        })
+        $(".owl-btn-next").click(function(){
+            owl.trigger('next.owl.carousel');
+        })
+        $(".owl-btn-prev").click(function(){
+            owl.trigger('prev.owl.carousel');
+        })
 
     });
 

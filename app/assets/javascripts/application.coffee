@@ -12,6 +12,7 @@
 # require plugins/datepick
 # require plugins/form
 #= require plugins/jquery.bxslider
+#= require plugins/owl.carousel.min
 #= require plugins/jquery.scrolldelta
 # require plugins/lightgallery.min
 # require plugins/scroll-banner
