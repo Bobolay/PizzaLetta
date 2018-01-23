@@ -11,8 +11,10 @@
     // Listen for the jQuery ready event on the document
     $(function() {
 
-        // initialize nice select
+
+        // Initialize nice select
         $('select').niceSelect();
+
 
         // Show/hide cart
         $('.cart-icon').on('click', function(){
@@ -29,7 +31,7 @@
             $('body').removeClass('overflow-hidden');
         })
         // Close cart
-        $.clickOut('.cart-container',
+        $.clickOut('.cart-container.visible',
             function(){
                 $('.cart-container').removeClass('visible');
                 $('body').removeClass('overflow-hidden');
@@ -48,7 +50,7 @@
             }
         })
         // Close contact box
-        $.clickOut('.contact-dropdown',
+        $.clickOut('.contact-dropdown.visible',
             function(){
                 $('.contact-dropdown').removeClass('visible');
                 $('.contact-dropdown-btn').removeClass('active');
@@ -61,22 +63,22 @@
             $('.optional-textarea').toggleClass('visible');
         })
 
-        // close success message
+
+        // Close success message
         $('.success-close-btn').on('click', function(){
             $('.success-wrap').removeClass('visible');
             $('body').removeClass('overflow-hidden');
         })
-        $.clickOut('.success-wrap',
+        $.clickOut('.success-wrap.visible',
             function(){
                 $('.success-wrap').removeClass('visible');
                 $('body').removeClass('overflow-hidden');
             },{except: '.success-wrap'}
         )
 
-
-        // Owl carousel initialize
+        // Owl carousel initialize (about us page)
         var owl = $('.owl-carousel').owlCarousel({
-            loop:true,
+            loop: true,
             margin:10,
             nav:false,
             responsive:{
@@ -101,6 +103,5 @@
     });
 
     // The rest of the code goes here!
-
 })
 );

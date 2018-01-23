@@ -1,103 +1,243 @@
-.checkout-wrap
+.section-indent.checkout-wrap
 
-  .row
+  form
 
-    .columns.large-7
-      .panel
-        p.title введіть дані доставки
-        .clearfix.tab-buttons
-          .floated.tab-button.icon-holder.active
-            .icon
-            | Доставка кур'єром
-          .floated.tab-button.icon-holder
-            .icon
-            | Забрати самому
-          .floated.tab-button.icon-holder
-            .icon
-            | Вказати по телефону
+    .row
 
-        form.tab-content-wrapper
-          .tab-content.active
-            .row
-              .columns.large-6
-                .input-field
-                  input
-                  label Ім'я
-              .columns.large-6
-                .input-field
-                  input
-                  label Телефон
-              .columns
-                .input-field
-                  input
-                  label Ел.Cкринька (не обов'язково)
-                .checkbox-field.icon-holder
-                  input#receive-news type="checkbox" checked=""
-                  label for="receive-news" Отримувати новини та спеціальні пропозиції
-                  .icon
+      .columns.large-7
+        .panel
+          p.title введіть дані доставки
+          .clearfix.tab-buttons
 
-            .line-separator.inside-form
+            /.floated.tab-button.icon-holder.active
+            /  .icon
+            /  | Доставка кур'єром
+            /.floated.tab-button.icon-holder
+            /  .icon
+            /  | Забрати самому
+            /.floated.tab-button.icon-holder
+            /  .icon
+            /  | Вказати по телефону
+            .floated.tab-button.icon-holder.active
+              input#order_way_1 type="radio" name="order_way"
+              .icon
+              label for="order_way_1" Доставка кур'єром
+            .floated.tab-button.icon-holder
+              input#order_way_2 type="radio" name="order_way"
+              .icon
+              label for="order_way_2" Забрати самому
+            .floated.tab-button.icon-holder
+              input#order_way_3 type="radio" name="order_way"
+              .icon
+              label for="order_way_3" Вказати по телефону
 
-            .row
-              .columns.large-3
-                .input-field.locked
-                  input.used value="Львів"
-                  label Місто
-              .columns.large-3
-                .input-field
-                  input
-                  label Вулиця
-              .columns.large-3
-                .input-field
-                  input
-                  label Будинок
-              .columns.large-3
-                .input-field
-                  input
-                  label Квартира
+          .tab-content-wrapper
 
-            .line-separator.inside-form
+            / 1 TAB Courier delivery
+            .tab-content.active
 
-            .row
-              .columns.large-4
-                .input-field
-                  select
-                    option Сьогодні
-                    option Завтра
-                  label Дата доставки
-              .columns.large-4
-                .input-field
-                  select
-                    option Якомога швидше
-                    option Я не спішу
-                  label Час доставки
-              .columns.large-4
-                .input-field
-                  select
-                    option Готівка
-                    option Карта банку
-                  label Форма оплати
+              .row
+                .columns.large-6
+                  .input-field
+                    input
+                    label Ім'я
+                .columns.large-6
+                  .input-field
+                    input
+                    label Телефон
+                .columns
+                  .input-field
+                    input
+                    label Ел. скринька (не обов'язково)
+                  .checkbox-field.icon-holder
+                    input#receive-news type="checkbox" checked=""
+                    label for="receive-news" Отримувати новини та спеціальні пропозиції
+                    .icon
 
-              .columns.large-8
-                .input-field
-                  input.used placeholder="Сума, грн."
-                  label Підготувати решту з
-              .columns.large-4
-                i.sum Вкажіть суму оплати, щоб кур'єр мав при собі решту
+              .line-separator.inside-form
 
-            p.red-label.textarea-btn
-              = inline_svg "icons/add.svg"
-              | додати коментар (не обов'язково)
+              .row
+                .columns.large-3
+                  .input-field.locked
+                    input.used value="Львів"
+                    label Місто
+                .columns.large-3
+                  .input-field
+                    input
+                    label Вулиця
+                .columns.large-3
+                  .input-field
+                    input
+                    label Будинок
+                .columns.large-3
+                  .input-field
+                    input
+                    label Квартира
 
-            .input-field.optional-textarea
-              textarea rows="5" placeholder="Поле для коментарів..."
+              .line-separator.inside-form
 
-            button.btn.red
-              | замовити
+              .row
+                .columns.large-4
+                  .input-field
+                    select
+                      option Сьогодні
+                      option Завтра
+                    label Дата доставки
+                .columns.large-4
+                  .input-field
+                    select
+                      option Якомога швидше
+                      option Я не спішу
+                    label Час доставки
+                .columns.large-4
+                  .input-field
+                    select
+                      option Готівка
+                      option Карта банку
+                    label Форма оплати
 
-          .tab-content 2
-          .tab-content 3
+                .columns.large-8
+                  .input-field
+                    input.used placeholder="Сума, грн."
+                    label Підготувати решту з
+                .columns.large-4
+                  i.sum Вкажіть суму оплати, щоб кур'єр мав при собі решту
 
-    .columns.large-4
-      .panel
-        p.title ваше замовлення
+              p.red-label.textarea-btn
+                = inline_svg "icons/add.svg"
+                | додати коментар (не обов'язково)
+
+              .input-field.optional-textarea
+                textarea rows="5" placeholder="Поле для коментарів..."
+
+              button.btn.red
+                | замовити
+
+            / 2 TAB Take by Yourself
+            .tab-content
+
+              .row
+                .columns.large-6
+                  .input-field
+                    input
+                    label Ім'я
+                .columns.large-6
+                  .input-field
+                    input
+                    label Телефон
+                .columns
+                  .input-field
+                    input
+                    label Ел.Cкринька (не обов'язково)
+                  .checkbox-field.icon-holder
+                    input#receive-news type="checkbox" checked=""
+                    label for="receive-news" Отримувати новини та спеціальні пропозиції
+                    .icon
+
+              .line-separator.inside-form
+
+              .row
+                .columns.large-6
+                  .input-field
+                    select
+                      option Просп. Чорновола 45
+                      option вул. Городоцька 7
+                    label Забрати з
+                .columns.large-3
+                  .input-field
+                    select
+                      option Сьогодні
+                      option Завтра
+                      option 21.01.2018
+                    label Дата доставки
+                .columns.large-3
+                  .input-field
+                    select
+                      option 10:00
+                      option 11:00
+                    label Час
+
+              p.red-label.textarea-btn
+                = inline_svg "icons/add.svg"
+                | додати коментар (не обов'язково)
+
+              .input-field.optional-textarea
+                textarea rows="5" placeholder="Поле для коментарів..."
+
+              button.btn.red
+                | замовити
+
+            / 3 TAB Order by phone
+            .tab-content
+              .row
+                .columns
+                  .input-field
+                    input
+                    label Телефон
+              button.btn.red
+                | замовити
+
+
+
+      / ORDER SUMMARY
+      .columns.large-4
+        .panel.order-summary
+
+          p.title ваше замовлення
+
+          .order-headers.clearfix
+            .floated назва
+            .floated к-сть
+            .floated ціна
+
+          ul.item-list
+
+            li.order-item.clearfix
+              .floated
+                .img-holder
+                  .img-bg style="background-image: url(#{asset_path('img/Test-pizza.png')})"
+                p.name.dib
+                  | Карбонара
+              .floated
+                p.quantity.dib 2
+              .floated
+                p.price.dib
+                  span &#8372
+                  | 253
+
+            li.order-item.clearfix
+              .floated
+                .img-holder
+                  .img-bg style="background-image: url(#{asset_path('img/Test-pizza.png')})"
+                p.name.dib
+                  | Карбонара
+              .floated
+                p.quantity.dib 2
+              .floated
+                p.price.dib
+                  span &#8372
+                  | 253
+
+            li.order-item.clearfix
+              .floated
+                .img-holder
+                  .img-bg style="background-image: url(#{asset_path('img/Test-drinks.png')})"
+                p.name.dib
+                  | Карбонара
+              .floated
+                p.quantity.dib 2
+              .floated
+                p.price.dib
+                  span &#8372
+                  | 253
+
+          .input-field
+            input
+            label Промокод
+            span.static-label ввести
+
+          .total-price-container.align-right
+            span.label загальна сума
+            span.price
+              span &#8372
+              | 253

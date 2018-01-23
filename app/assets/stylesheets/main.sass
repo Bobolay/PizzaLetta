@@ -286,7 +286,7 @@
   .owl-carousel
     .item
       position: relative
-      height: 300px
+      padding-bottom: 120%
       background: transparent
     img
       vertical-align: bottom
@@ -298,9 +298,15 @@
     right: 0
   .owl-btn-prev, .owl-btn-next
     display: inline-block
-    width: 30px
-    height: 30px
+    width: 40px
+    height: 40px
     padding: 10px
+    cursor: pointer
+    svg
+      +transition(.25s)
+    &:hover
+      svg
+        fill: $red
 
   .principles-title
     display: inline-block
