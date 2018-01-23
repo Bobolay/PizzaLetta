@@ -400,4 +400,22 @@
       +x-align
       top: 0
       +translate(0,-60%)
-  
+
+.constructor-wrap
+  position: relative
+  height: 100vh
+  overflow: hidden
+  background-image: asset_url('img/letta-pattern-white.png')
+  .pizza-preview
+    position: absolute
+    width: 100%
+    height: 100%
+    -webkit-background-size: contain
+    background-size: contain
+    background-position: center
+    background-repeat: no-repeat
+    top: -30%
+    left: -40%
+    +transition(.5s)
+    &.small
+      +scale(.7)

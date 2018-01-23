@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   controller :pages do
 
     get "structure-parts", action: "structure_parts"
+    get "constructor", action: "constructor"
 
     get "drinks", action: "drinks"
     get "promotions", action: "promotions"
