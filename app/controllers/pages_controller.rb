@@ -3,10 +3,12 @@ class PagesController < ApplicationController
   def index
   end
 
-  def structure_parts
+  def checkout
+    @render_footer = false
   end
 
-  def checkout
+  def constructor
+    @render_footer = false
   end
 
 end

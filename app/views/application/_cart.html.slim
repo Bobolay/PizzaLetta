@@ -116,10 +116,15 @@
           | Coca-cola,
           span 0.3l
 
+    / Choose additional sauce
     .sauce-option
-      p.smaller добавити соус
-      .clearfix
-        .floated.active
+
+      .ingredient-type
+        p.subtitle добавити соус
+
+      .clearfix.ingredients-container
+
+        .floated
           .img style="background-image: url(#{asset_path('img/Test-sauce.png')})"
           p.name червоний
           p.price
@@ -127,6 +132,7 @@
             | 17
           .remove = inline_svg "icons/remove.svg"
           .add = inline_svg "icons/add.svg"
+
         .floated
           .img style="background-image: url(#{asset_path('img/Test-sauce.png')})"
           p.name білий
@@ -136,6 +142,7 @@
           .remove = inline_svg "icons/remove.svg"
           .add = inline_svg "icons/add.svg"
 
+  / Total price and comfirmation
   .order-confirmation.clearfix
     .floated.price
       span &#8372

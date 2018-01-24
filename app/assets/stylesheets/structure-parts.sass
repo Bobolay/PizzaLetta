@@ -317,6 +317,8 @@ p.clear-btn
   &.active
     display: block
 
+//Price label inside circle
+
 .red-price
   -webkit-border-radius: 50%
   -moz-border-radius: 50%
@@ -347,3 +349,72 @@ p.clear-btn
       display: block
       text-decoration: line-through
       text-align: center
+
+
+// Ingredient item
+
+.ingredients-container
+  position: relative
+  padding: 15px 0
+  .floated
+    position: relative
+    text-align: center
+    padding: 10px
+    cursor: pointer
+    margin-bottom: 15px
+    +transition(.25s)
+    @media #{$large-up}
+      width: 20%
+      height: 100px
+    &:after
+      content: ''
+      display: block
+      position: absolute
+      width: 100%
+      height: 2px
+      background: $red
+      bottom: 0
+      left: 0
+      opacity: 0
+      +transition(.25s)
+    &:hover, &.active
+      background: $grey
+      &:after
+        opacity: 1
+    &:hover
+      &:not(.active)
+        .add
+          opacity: 1
+    &.active
+      &:hover
+        .remove
+          opacity: 1
+  .img
+    width: 50px
+    height: 50px
+    -webkit-background-size: contain
+    background-size: contain
+    background-repeat: no-repeat
+    background-position: center
+    margin: 0 auto
+  .name
+    font-size: 10px
+    text-transform: uppercase
+    font-weight: 600
+  .price
+    font-size: 12px
+  .add, .remove
+    width: 24px
+    height: 24px
+    +centered-inside
+    background: $red
+    border-radius: 50%
+    +transition(.25s)
+    opacity: 0
+    svg
+      width: 50%
+      height: 50%
+      +centered-inside
+      line
+        stroke: white
+

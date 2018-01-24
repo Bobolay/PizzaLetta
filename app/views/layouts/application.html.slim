@@ -6,11 +6,16 @@ html
     = stylesheet_link_tag    "application", media: 'all', 'data-turbolinks-track' => true
     = csrf_meta_tags
   body
+
     = render "header"
     = render "sidemenu"
     = render "cart"
     = render "success_message"
+
     .main-wrapper
       = yield
-    = render "footer"
+
+    - if @render_footer != false
+      = render "footer"
+
     = javascript_include_tag "application", 'data-turbolinks-track' => true

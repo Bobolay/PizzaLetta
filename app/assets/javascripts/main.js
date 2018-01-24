@@ -100,6 +100,10 @@
             owl.trigger('prev.owl.carousel');
         })
 
+
+        // Choose only ONE option (like sauce type)
+
+
     });
 
     // The rest of the code goes here!
