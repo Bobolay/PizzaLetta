@@ -96,3 +96,5 @@ gem 'figaro'
 gem 'thin'
 
 gem 'puma'
+
+gem 'angularjs-rails', '1.6'

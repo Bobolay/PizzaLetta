@@ -320,6 +320,7 @@ p.clear-btn
 //Price label inside circle
 
 .red-price
+  position: relative
   -webkit-border-radius: 50%
   -moz-border-radius: 50%
   border-radius: 50%
@@ -328,9 +329,13 @@ p.clear-btn
   &.small-circle
     width: 70px
     height: 70px
+    &:before
+      border: 1px solid white
   &.big-circle
     width: 100px
     height: 100px
+    &:before
+      border: 2px solid white
   &:before
     content: ''
     display: block
@@ -339,14 +344,18 @@ p.clear-btn
     left: 2px
     right: 2px
     bottom: 2px
-    border: 1px solid white
     pointer-events: none
     border-radius: 50%
   .inner-text
     +xy-align
+    font-size: 24px
+    font-weight: 900
+  span
+    font-weight: initial
   &.reduced
     span:first-child
       display: block
+      font-size: 16px
       text-decoration: line-through
       text-align: center
 
@@ -417,4 +426,3 @@ p.clear-btn
       +centered-inside
       line
         stroke: white
-

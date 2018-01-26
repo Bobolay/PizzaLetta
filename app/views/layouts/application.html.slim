@@ -3,9 +3,9 @@ html
   head
     / = seo_tags
     meta name="viewport" content="width=device-width, initial-scale=1.0"
-    = stylesheet_link_tag    "application", media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag "application", media: 'all'
     = csrf_meta_tags
-  body
+  body ng-app="pizzaApp"
 
     = render "header"
     = render "sidemenu"
@@ -18,4 +18,4 @@ html
     - if @render_footer != false
       = render "footer"
 
-    = javascript_include_tag "application", 'data-turbolinks-track' => true
+    = javascript_include_tag "application"

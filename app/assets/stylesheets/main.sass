@@ -475,6 +475,40 @@
         &:before
           background-image: asset_url('icons/pizza_part_white.svg')
 
+  // Ingredients preview block
+  .ingredients-preview
+    display: none
+    position: absolute
+    bottom: 50px
+    z-index: 1
+    @media #{$medium-up}
+      display: block
+      right: 600px
+    @media #{$xxlarge-up}
+      right: initial
+      left: 50%
+      +translate(-50%,0)
+    .red-price
+      margin: 0 auto
+  .ingredients-list
+    margin: 30px 0
+    li
+      display: inline-block
+      position: relative
+      width: 50px
+      height: 50px
+      border-radius: 50%
+      background: white
+      -webkit-box-shadow: 1px 2px 5px 0 rgba(0,0,0,0.1)
+      -moz-box-shadow: 1px 2px 5px 0 rgba(0,0,0,0.1)
+      box-shadow: 1px 2px 5px 0 rgba(0,0,0,0.1)
+      margin-right: 10px
+      &:last-child
+        margin-right: 0
+    .img-bg
+      -webkit-background-size: contain
+      background-size: contain
+
 .ingredient-type
   position: relative
   border-bottom: 1px solid $light-grey
