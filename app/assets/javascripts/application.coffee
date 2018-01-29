@@ -25,3 +25,4 @@
 #     A N G U L A R
 
 #= require angular/app
+#= require angular/main_controller
