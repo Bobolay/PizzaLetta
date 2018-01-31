@@ -76,7 +76,8 @@
             },{except: '.success-wrap'}
         )
 
-        // Owl carousel initialize (about us page)
+
+        // OWL CAROUSEL initialize (about us page)
         var owl = $('.owl-carousel').owlCarousel({
             loop: false,
             margin:10,
@@ -99,6 +100,16 @@
         $(".owl-btn-prev").click(function(){
             owl.trigger('prev.owl.carousel');
         })
+
+
+        // MIX IT UP up initialize (for items: pizza and drinks)
+        $('.mix-container').mixItUp({
+            callbacks: {
+                onMixLoad: function (state, futureState) {
+                    $('.mix-container .mix').addClass('display-none')
+                }
+            }
+        });
 
 
         // Choose only ONE option (like sauce type)

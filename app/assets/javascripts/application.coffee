@@ -15,6 +15,7 @@
 #= require plugins/owl.carousel.min
 # require plugins/lightgallery.min
 #= require plugins/jquery.nice-select.min
+#= require plugins/mixitup-2.1.1.min
 
 #     I N I T I A L I Z E
 
@@ -25,4 +26,5 @@
 #     A N G U L A R
 
 #= require angular/app
+#= require angular/header_controller
 #= require angular/main_controller
