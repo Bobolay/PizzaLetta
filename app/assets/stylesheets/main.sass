@@ -55,8 +55,17 @@
     font-weight: 900
     margin-bottom: 10px
   .ingredients
+    width: calc(100% - 80px)
     font-size: 14px
     margin-bottom: 10px
+    li
+      display: inline-block
+      &:after
+        content: '\002C'
+        margin-right: 5px
+      &:last-child
+        &:after
+          display: none
   .red-price
     position: absolute
     top: -35px

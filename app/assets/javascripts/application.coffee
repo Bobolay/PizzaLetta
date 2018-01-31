@@ -28,3 +28,4 @@
 #= require angular/app
 #= require angular/header_controller
 #= require angular/main_controller
+#= require angular/pizza_list_controller
