@@ -1,61 +1,3 @@
-//   L I S T   O F   I T E M S
-
-pizzaApp.controller("PizzaListCtrl", function ($scope, itemsService, cartService) {
-
-    //   Decrease quantity
-    $scope.decrease = function(pizza){
-        if (pizza.qnty == 1 ) {
-            return;
-        } else {
-            pizza.qnty--;
-        }
-    }
-
-    //   Increase quantity
-    $scope.increase = function(pizza){
-        pizza.qnty++;
-    }
-
-    //   Items list
-    $scope.pizza_list = itemsService.getItems();
-
-    //   Add item to cart
-    $scope.addToCart = function(pizza){
-        cartService.addToCart(pizza);
-    }
-
-});
-
-//   C A R T
-
-pizzaApp.controller("CartCtrl", function ($scope, cartService) {
-
-    //   Items list in cart
-    $scope.cart = cartService.getCart();
-
-
-    //   Buy items
-    $scope.buy = function(pizza){
-        cartService.buy(pizza);
-    }
-
-})
-
-pizzaApp.factory("cartService", function(){
-    var cart = [];
-    return {
-        getCart: function () {
-            return cart;
-        },
-        addToCart: function (pizza) {
-            cart.push(pizza);
-        },
-        buy: function (pizza) {
-            alert("Thatnk's for buying: ", pizza.name);
-        }
-    }
-});
-
 pizzaApp.factory("itemsService", function(){
     var items = [
         {
@@ -144,6 +86,19 @@ pizzaApp.factory("itemsService", function(){
         getItems: function () {
             return items;
         }
+    }
+
+})
+
+pizzaApp.controller("CartCtrl", function ($scope) {
+
+    //   Items list in cart
+    $scope.cart = [];
+
+
+    //   Buy items
+    $scope.buy = function(){
+
     }
 
 })

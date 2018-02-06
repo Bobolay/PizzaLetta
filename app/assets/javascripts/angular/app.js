@@ -1,1 +1,1 @@
-var pizzaApp = angular.module('pizzaApp', []);
+var pizzaApp = angular.module('pizzaApp', ['ngRoute']);

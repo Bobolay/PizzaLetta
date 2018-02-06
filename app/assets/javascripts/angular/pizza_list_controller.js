@@ -1,5 +1,25 @@
-pizzaApp.controller("PizzaListCtrl", function ($scope) {
+pizzaApp.controller("PizzaListCtrl", function ($scope, itemsService) {
 
+    //   Decrease quantity
+    $scope.decrease = function(pizza){
+        if (pizza.qnty == 1 ) {
+            return;
+        } else {
+            pizza.qnty--;
+        }
+    }
+
+    //   Increase quantity
+    $scope.increase = function(pizza){
+        pizza.qnty++;
+    }
+
+    //   Add item to cart
+    $scope.addToCart = function(pizza){
+        console.log("Add to cart: ", pizza)
+    }
+
+    //   Items list
     $scope.pizza_list = [
         {
             imgUrl: "hcmp84855_290760_s3.jpeg",
@@ -13,6 +33,7 @@ pizzaApp.controller("PizzaListCtrl", function ($scope) {
                 "hand"
             ],
             price: "121",
+            qnty: 1,
             discount: "134"
         },
         {
@@ -25,7 +46,8 @@ pizzaApp.controller("PizzaListCtrl", function ($scope) {
                 "hand",
                 "soys"
             ],
-            price: "87"
+            price: "87",
+            qnty: 1
         },
         {
             imgUrl: "margharita1-600x480.jpeg",
@@ -37,7 +59,8 @@ pizzaApp.controller("PizzaListCtrl", function ($scope) {
                 "oluvka",
                 "pizza"
             ],
-            price: "105"
+            price: "105",
+            qnty: 1
         },
         {
             imgUrl: "piza400x300.jpg",
@@ -49,7 +72,8 @@ pizzaApp.controller("PizzaListCtrl", function ($scope) {
                 "klubnika",
                 "kyriatyna"
             ],
-            price: "100"
+            price: "100",
+            qnty: 1
         },
         {
             imgUrl: "pizza-saucisse-piquante-2301.jpg",
@@ -60,7 +84,8 @@ pizzaApp.controller("PizzaListCtrl", function ($scope) {
                 "pomidor",
                 "sauce",
             ],
-            price: "96"
+            price: "96",
+            qnty: 1
         },
         {
             imgUrl: "small-1.jpg",
@@ -73,7 +98,8 @@ pizzaApp.controller("PizzaListCtrl", function ($scope) {
                 "oluvka",
                 "pizza"
             ],
-            price: "88"
+            price: "88",
+            qnty: 1
         }
     ]
 

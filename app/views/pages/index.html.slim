@@ -34,17 +34,14 @@
 / differences: price regular or reduced
 .indent.item-list.mix-container ng-controller="PizzaListCtrl"
   .row.columns-left
-    /= render "list_item_pizza"
-    /= render "list_item_pizza", discount: 200
-    /= render "list_item_pizza"
 
-    .columns.medium-6.large-4 ng-repeat="pizza in pizza_list"
+    .columns.medium-6.large-4.mix ng-repeat="pizza in pizza_list" class="{{pizza.category}}"
 
-      .square.mix class="{{pizza.category}}"
+      .square
         .fullsize.item
 
           / img size: 500x500#
-          .img-bg style="background-image: url(#{asset_path('img/carousel/{{pizza.imgUrl}}')})"
+          .img-bg style="background-image: url(#{asset_path('assets/img/carousel/{{pizza.imgUrl}}')})"
 
           .info-panel.white
 
@@ -69,11 +66,13 @@
             .add-to-cart
 
               .quantity.on-red-bg
-                .decrease = inline_svg "icons/remove.svg"
-                .number 1
-                .increase = inline_svg "icons/add.svg"
+                .decrease ng-click="decrease(pizza)"
+                  = inline_svg "icons/remove.svg"
+                .number ng-bind="pizza.qnty"
+                .increase ng-click="increase(pizza)"
+                  = inline_svg "icons/add.svg"
 
-              .add-to-cart-btn add to cart
+              .add-to-cart-btn ng-click="addToCart(pizza)" add to cart
 
               .total-price
                 span &#8372

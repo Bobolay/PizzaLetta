@@ -26,6 +26,8 @@
 #     A N G U L A R
 
 #= require angular/app
+# require angular/config
 #= require angular/header_controller
 #= require angular/main_controller
-#= require angular/pizza_list_controller
+# require angular/pizza_list_controller
+# require angular/cart_controller
