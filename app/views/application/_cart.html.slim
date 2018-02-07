@@ -1,4 +1,52 @@
-.cart-container
+/ CART
+/.indent.item-list.mix-container ng-controller="CartCtrl"
+/  .row.columns-left
+/    .columns
+/      h1 CART
+/    .columns.medium-6.large-4.mix ng-repeat="pizza in cart" class="{{pizza.category}}"
+/
+/      .square
+/        .fullsize.item
+/
+/          / img size: 500x500#
+/          .img-bg style="background-image: url(#{asset_path('assets/img/carousel/{{pizza.imgUrl}}')})"
+/
+/          .info-panel.white
+/
+/            p.name
+/              | {{pizza.name}}
+/            ul.ingredients
+/              li ng-repeat="ingredient in pizza.ingredients"
+/                | {{ingredient}}
+/
+/            .red-price.small-circle ng-class="{reduced: pizza.discount}"
+/              .inner-text
+/                span ng-if="pizza.discount"
+/                  | {{pizza.discount}}
+/                span &#8372
+/                | {{pizza.price}}
+/
+/            .size-option
+/              .clearfix
+/                .floated 30
+/                .floated.active 40
+/
+/            .add-to-cart
+/
+/              .quantity.on-red-bg
+/                .decrease ng-click="decrease(pizza)"
+/                  = inline_svg "icons/remove.svg"
+/                .number ng-bind="pizza.qnty"
+/                .increase ng-click="increase(pizza)"
+/                  = inline_svg "icons/add.svg"
+/
+/              .add-to-cart-btn ng-click="buy(pizza)" buy
+/
+/              .total-price
+/                span &#8372
+/                | 777
+
+.cart-container ng-controller="CartCtrl"
 
   .local-header
     p.title
@@ -8,25 +56,26 @@
   .scroll-container
     ul.item-list
 
-      li.cart-item
+      li.cart-item ng-repeat="pizza in cart"
 
         .img-holder
-          .img-bg style="background-image: url(#{asset_path('img/Test-pizza.png')})"
+          .img-bg style="background-image: url(#{asset_path('assets/img/carousel/{{pizza.imgUrl}}')})"
 
         p.name
-          | Карбонара
+          | {{pizza.name}}
 
         p.price
           span &#8372
-          | 253
+          | {{pizza.price}}
 
         .quantity.on-white-bg
-          .decrease = inline_svg "icons/remove.svg"
-          .number 2
-          .increase = inline_svg "icons/add.svg"
+          .decrease ng-click="decrease(pizza)" = inline_svg "icons/remove.svg"
+          .number ng-bind="pizza.qnty"
+          .increase ng-click="increase(pizza)" = inline_svg "icons/add.svg"
 
-        p.ingredients
-          | Моцарелла, Сир, Гриби, Анчоуси, Ананаc, Помідор, Кукурудза
+        ul.ingredients
+          li ng-repeat="ingredient in pizza.ingredients"
+            | {{ingredient}}
 
         p.special-offer
           | gift
@@ -35,86 +84,86 @@
           | Coca-cola,
           span 0.3l
 
-      li.cart-item
-
-        .img-holder
-          .img-bg style="background-image: url(#{asset_path('img/Test-pizza.png')})"
-
-        p.name
-          | Карбонара
-
-        p.price
-          span &#8372
-          | 253
-
-        .quantity.on-white-bg
-          .decrease = inline_svg "icons/remove.svg"
-          .number 2
-          .increase = inline_svg "icons/add.svg"
-
-        p.ingredients
-          | Моцарелла, Сир, Гриби, Анчоуси, Ананаc, Помідор, Кукурудза
-
-        p.special-offer
-          | gift
-
-        p.ingredients
-          | Coca-cola,
-          span 0.3l
-
-      li.cart-item
-
-        .img-holder
-          .img-bg style="background-image: url(#{asset_path('img/Test-drinks.png')})"
-
-        p.name
-          | Імбирний лимонад
-
-        p.price
-          span &#8372
-          | 35
-
-        .quantity.on-white-bg
-          .decrease = inline_svg "icons/remove.svg"
-          .number 5
-          .increase = inline_svg "icons/add.svg"
-
-        p.ingredients
-          | Моцарелла, Сир, Гриби, Анчоуси, Ананаc, Помідор, Кукурудза
-
-        p.special-offer
-          | gift
-
-        p.ingredients
-          | Coca-cola,
-          span 0.3l
-
-      li.cart-item
-
-        .img-holder
-          .img-bg style="background-image: url(#{asset_path('img/Test-drinks.png')})"
-
-        p.name
-          | Імбирний лимонад
-
-        p.price
-          span &#8372
-          | 35
-
-        .quantity.on-white-bg
-          .decrease = inline_svg "icons/remove.svg"
-          .number 5
-          .increase = inline_svg "icons/add.svg"
-
-        p.ingredients
-          | Моцарелла, Сир, Гриби, Анчоуси, Ананаc, Помідор, Кукурудза
-
-        p.special-offer
-          | gift
-
-        p.ingredients
-          | Coca-cola,
-          span 0.3l
+      /li.cart-item
+      /
+      /  .img-holder
+      /    .img-bg style="background-image: url(#{asset_path('img/Test-pizza.png')})"
+      /
+      /  p.name
+      /    | Карбонара
+      /
+      /  p.price
+      /    span &#8372
+      /    | 253
+      /
+      /  .quantity.on-white-bg
+      /    .decrease = inline_svg "icons/remove.svg"
+      /    .number 2
+      /    .increase = inline_svg "icons/add.svg"
+      /
+      /  p.ingredients
+      /    | Моцарелла, Сир, Гриби, Анчоуси, Ананаc, Помідор, Кукурудза
+      /
+      /  p.special-offer
+      /    | gift
+      /
+      /  p.ingredients
+      /    | Coca-cola,
+      /    span 0.3l
+      /
+      /li.cart-item
+      /
+      /  .img-holder
+      /    .img-bg style="background-image: url(#{asset_path('img/Test-drinks.png')})"
+      /
+      /  p.name
+      /    | Імбирний лимонад
+      /
+      /  p.price
+      /    span &#8372
+      /    | 35
+      /
+      /  .quantity.on-white-bg
+      /    .decrease = inline_svg "icons/remove.svg"
+      /    .number 5
+      /    .increase = inline_svg "icons/add.svg"
+      /
+      /  p.ingredients
+      /    | Моцарелла, Сир, Гриби, Анчоуси, Ананаc, Помідор, Кукурудза
+      /
+      /  p.special-offer
+      /    | gift
+      /
+      /  p.ingredients
+      /    | Coca-cola,
+      /    span 0.3l
+      /
+      /li.cart-item
+      /
+      /  .img-holder
+      /    .img-bg style="background-image: url(#{asset_path('img/Test-drinks.png')})"
+      /
+      /  p.name
+      /    | Імбирний лимонад
+      /
+      /  p.price
+      /    span &#8372
+      /    | 35
+      /
+      /  .quantity.on-white-bg
+      /    .decrease = inline_svg "icons/remove.svg"
+      /    .number 5
+      /    .increase = inline_svg "icons/add.svg"
+      /
+      /  p.ingredients
+      /    | Моцарелла, Сир, Гриби, Анчоуси, Ананаc, Помідор, Кукурудза
+      /
+      /  p.special-offer
+      /    | gift
+      /
+      /  p.ingredients
+      /    | Coca-cola,
+      /    span 0.3l
 
     / Choose additional sauce
     .sauce-option

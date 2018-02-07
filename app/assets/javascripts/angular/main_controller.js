@@ -59,7 +59,7 @@ pizzaApp.factory("cartService", function(){
             cart.push(pizza);
         },
         buy: function (pizza) {
-            alert("Thatnk's for buying: ", pizza.name);
+            alert("Thank's for buying: ", pizza.name);
         }
     }
 });
