@@ -1,6 +1,12 @@
+//   A L L   I N   O N E
+
+
 //   L I S T   O F   I T E M S
 
 pizzaApp.controller("PizzaListCtrl", function ($scope, itemsService, cartService) {
+
+    //   Items list (we get them from ItemsService)
+    $scope.pizza_list = itemsService.getItems();
 
     //   Decrease quantity
     $scope.decrease = function(pizza){
@@ -16,15 +22,14 @@ pizzaApp.controller("PizzaListCtrl", function ($scope, itemsService, cartService
         pizza.qnty++;
     }
 
-    //   Items list
-    $scope.pizza_list = itemsService.getItems();
-
     //   Add item to cart
     $scope.addToCart = function(pizza){
         cartService.addToCart(pizza);
     }
 
 });
+
+
 
 //   C A R T
 
@@ -33,13 +38,16 @@ pizzaApp.controller("CartCtrl", function ($scope, cartService) {
     //   Items list in cart
     $scope.cart = cartService.getCart();
 
-
     //   Buy items
     $scope.buy = function(pizza){
         cartService.buy(pizza);
     }
 
 })
+
+
+
+//   C A R T   F U N C T I O N A L
 
 pizzaApp.factory("cartService", function(){
     var cart = [];
@@ -56,7 +64,12 @@ pizzaApp.factory("cartService", function(){
     }
 });
 
+
+
+//   A L L   I T E M S   S E R V I C E
+
 pizzaApp.factory("itemsService", function(){
+    //   ITEMS collection
     var items = [
         {
             imgUrl: "hcmp84855_290760_s3.jpeg",
@@ -139,7 +152,7 @@ pizzaApp.factory("itemsService", function(){
             qnty: 1
         }
     ]
-
+    //   Return all items from ITEMS collection
     return {
         getItems: function () {
             return items;
