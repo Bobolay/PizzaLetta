@@ -8,18 +8,26 @@ pizzaApp.controller("PizzaListCtrl", function ($scope, itemsService, cartService
     //   Items list (we get them from ItemsService)
     $scope.pizza_list = itemsService.getItems();
 
+    // //   Decrease quantity
+    // $scope.decrease = function(pizza){
+    //     if (pizza.qnty == 1 ) {
+    //         return;
+    //     } else {
+    //         pizza.qnty--;
+    //     }
+    // }
+    //
+    // //   Increase quantity
+    // $scope.increase = function(pizza){
+    //     pizza.qnty++;
+    // }
     //   Decrease quantity
     $scope.decrease = function(pizza){
-        if (pizza.qnty == 1 ) {
-            return;
-        } else {
-            pizza.qnty--;
-        }
+        cartService.decrease(pizza);
     }
-
     //   Increase quantity
     $scope.increase = function(pizza){
-        pizza.qnty++;
+        cartService.increase(pizza);
     }
 
     //   Add item to cart
@@ -37,6 +45,21 @@ pizzaApp.controller("CartCtrl", function ($scope, cartService) {
 
     //   Items list in cart
     $scope.cart = cartService.getCart();
+
+    //   Decrease quantity
+    $scope.decrease = function(pizza){
+        cartService.decrease(pizza);
+    }
+
+    //   Increase quantity
+    $scope.increase = function(pizza){
+        cartService.increase(pizza);
+    }
+
+    // Remove item from cart
+    $scope.remove = function(pizza) {
+        cartService.remove(pizza);
+    };
 
     //   Buy items
     $scope.buy = function(pizza){
@@ -58,10 +81,24 @@ pizzaApp.factory("cartService", function(){
         addToCart: function (pizza) {
             cart.push(pizza);
         },
+        decrease: function(pizza){
+            if (pizza.qnty == 1 ) {
+                return;
+            } else {
+                pizza.qnty--;
+            }
+        },
+        increase: function(pizza){
+            pizza.qnty++;
+        },
+        remove: function(pizza){
+            cart.splice(pizza,1);
+        },
         buy: function (pizza) {
             alert("Thank's for buying: ", pizza.name);
         }
     }
+
 });
 
 
@@ -84,7 +121,11 @@ pizzaApp.factory("itemsService", function(){
             ],
             price: "121",
             qnty: 1,
-            discount: "134"
+            discount: "134",
+            bonus: {
+                name: "Coca-cola",
+                attribute: "0.3l"
+            }
         },
         {
             imgUrl: "IMG_5753-1.jpg",

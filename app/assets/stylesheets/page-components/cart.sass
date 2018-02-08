@@ -64,6 +64,15 @@
     .ingredients
       font-size: 14px
       margin-bottom: 10px
+      li
+        display: inline-block
+        text-transform: capitalize
+        &:after
+          content: ','
+          margin-right: 5px
+        &:last-child
+          &:after
+            display: none
     .special-offer
       font-size: 12px
       color: $red

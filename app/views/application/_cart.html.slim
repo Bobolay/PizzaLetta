@@ -1,51 +1,3 @@
-/ CART
-/.indent.item-list.mix-container ng-controller="CartCtrl"
-/  .row.columns-left
-/    .columns
-/      h1 CART
-/    .columns.medium-6.large-4.mix ng-repeat="pizza in cart" class="{{pizza.category}}"
-/
-/      .square
-/        .fullsize.item
-/
-/          / img size: 500x500#
-/          .img-bg style="background-image: url(#{asset_path('assets/img/carousel/{{pizza.imgUrl}}')})"
-/
-/          .info-panel.white
-/
-/            p.name
-/              | {{pizza.name}}
-/            ul.ingredients
-/              li ng-repeat="ingredient in pizza.ingredients"
-/                | {{ingredient}}
-/
-/            .red-price.small-circle ng-class="{reduced: pizza.discount}"
-/              .inner-text
-/                span ng-if="pizza.discount"
-/                  | {{pizza.discount}}
-/                span &#8372
-/                | {{pizza.price}}
-/
-/            .size-option
-/              .clearfix
-/                .floated 30
-/                .floated.active 40
-/
-/            .add-to-cart
-/
-/              .quantity.on-red-bg
-/                .decrease ng-click="decrease(pizza)"
-/                  = inline_svg "icons/remove.svg"
-/                .number ng-bind="pizza.qnty"
-/                .increase ng-click="increase(pizza)"
-/                  = inline_svg "icons/add.svg"
-/
-/              .add-to-cart-btn ng-click="buy(pizza)" buy
-/
-/              .total-price
-/                span &#8372
-/                | 777
-
 .cart-container ng-controller="CartCtrl"
 
   .local-header
@@ -66,7 +18,7 @@
 
         p.price
           span &#8372
-          | {{pizza.price}}
+          | {{pizza.qnty * pizza.price}}
 
         .quantity.on-white-bg
           .decrease ng-click="decrease(pizza)" = inline_svg "icons/remove.svg"
@@ -77,12 +29,16 @@
           li ng-repeat="ingredient in pizza.ingredients"
             | {{ingredient}}
 
-        p.special-offer
-          | gift
 
-        p.ingredients
-          | Coca-cola,
-          span 0.3l
+        .bonus ng-if="pizza.bonus"
+          p.special-offer
+            | gift
+          p.ingredients
+            | {{pizza.bonus.name}},&nbsp;
+            span
+              | {{pizza.bonus.attribute}}
+
+        /.remove ng-click="remove(pizza)" X
 
       /li.cart-item
       /
@@ -195,6 +151,6 @@
   .order-confirmation.clearfix
     .floated.price
       span &#8372
-      | 2903
+      | 123 example
     a.floated.btn.red href=checkout_path
       | оформити замовлення
