@@ -55,7 +55,7 @@ end
 config.model Giftdescription do
  navigation_label "Промоакціїі"
  label "Загальний опис"
- include_fields :description
+ field :description, :ck_editor
 end
 
 end

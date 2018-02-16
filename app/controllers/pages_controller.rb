@@ -21,7 +21,7 @@ class PagesController < ApplicationController
   end
 
   def promotions
-    @description = Gistdescription.first
+    @description = Giftdescription.first
   end
 
   def policy

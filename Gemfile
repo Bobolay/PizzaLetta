@@ -107,8 +107,8 @@ gem 'carrierwave'
 gem 'devise'
 gem 'simple_form'
 gem 'rails_admin-i18n'
-# gem 'ckeditor'
-
+gem 'ckeditor'
+gem 'mini_magick'
 
 gem 'protected_attributes'
 gem 'rails_admin_nestable'
