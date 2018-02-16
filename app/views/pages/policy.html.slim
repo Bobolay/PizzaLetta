@@ -6,14 +6,14 @@
       .article-container.shadow-box
 
         .img-holder
-          .img-bg style="background-image: url(#{asset_path('img/nick-karvounis-463853.jpg')})"
+          .img-bg style="background-image: url(#{@policy.image})"
 
         .inner-indent
 
-          p.title 1. Загальні положення
+          p.title =@policy.first_title
           p
-            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod at libero enim beatae nesciunt doloribus modi debitis laudantium possimus obcaecati nemo ea nobis, saepe est cupiditate nisi provident? Sequi, ad. Quod at libero enim beatae nesciunt doloribus modi debitis laudantium possimus obcaecati nemo ea nobis, saepe est cupiditate nisi provident? Sequi, ad.
+            =@policy.first_description
 
-          p.title Терміни та визначення
+          p.title =@policy.second_title
           p
-            | Aut eum excepturi, autem ipsum aspernatur! Hic dicta ipsam recusandae at, laboriosam magnam doloribus modi laborum a? Molestiae ab vero, dignissimos perspiciatis. Aboriosam magnam doloribus modi laborum a? Molestiae ab vero, dignissimos perspiciatis.
+            =@policy.second_description

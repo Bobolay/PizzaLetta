@@ -20,18 +20,9 @@
     .columns
       .owl-wrap
         .owl-carousel.owl-theme
-          .item
-            img src=asset_path('img/carousel/piza400x300.jpg')
-          .item
-            img src=asset_path('img/carousel/margharita1-600x480.jpeg')
-          .item
-            img src=asset_path('img/carousel/hcmp84855_290760_s3.jpeg')
-          .item
-            img src=asset_path('img/carousel/pizza-saucisse-piquante-2301.jpg')
-          .item
-            img src=asset_path('img/carousel/small-1.jpg')
-          .item
-            img src=asset_path('img/carousel/IMG_5753-1.jpg')
+          - @images.each do |i|
+            .item
+              img src=i.image
         .custom-controls
           .owl-btn-prev = inline_svg "icons/arrows/Arrow-left-01.svg"
           .owl-btn-next = inline_svg "icons/arrows/Arrow-right-01.svg"
