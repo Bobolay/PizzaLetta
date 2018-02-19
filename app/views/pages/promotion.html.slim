@@ -1,0 +1,56 @@
+.section-indent.promotion-one
+
+  .row
+    .columns.medium-10.medium-centered.large-8.no-padding
+
+      .article-container.shadow-box
+
+        .img-holder
+
+          / prev and next promotion navigation
+          .btn-prev = inline_svg "icons/play-button.svg"
+          .btn-next = inline_svg "icons/play-button.svg"
+
+          / promotion image
+          .img-bg style="background-image: url(#{@promotion.image})"
+
+        / promotion description
+        .inner-indent
+
+          = raw @promotion.description
+
+          a.btn.red.big href=root_path каталог піци
+
+.article-navigation
+
+  p.small дивіться також
+
+  .clearfix
+    - if @previous
+      a.floated
+        .img.dib
+          .img-bg style="background-image: url(#{@previous.image})"
+        .dib.inner-text
+          p.subtitle попередня акція
+          p.title = @previous.title
+    -else
+      a.floated
+        .img.dib
+          .img-bg style="background-image: url(#{@last.image})"
+        .dib.inner-text
+          p.subtitle попередня акція
+          p.title = @last.title
+    - if @next
+      a.floated
+        .dib.inner-text
+          p.subtitle  наступна акція
+          p.title = @next.title
+        .img.dib
+          .img-bg style="background-image: url(#{@next.image})"
+    - else
+      a.floated
+        .dib.inner-text
+          p.subtitle  наступна акція
+          p.title = @first.title
+        .img.dib
+          .img-bg style="background-image: url(#{@first.image})"

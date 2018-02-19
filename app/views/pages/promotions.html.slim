@@ -2,15 +2,11 @@
 
   .row
 
-    / promotion preview
-    .columns.medium-6
-      a.square href=promotion_one_path
-        .img-bg style="background-image: url(#{asset_path('img/Special-offer-v3.jpg')})"
+    -@gifts.each do |gift|
+      .columns.medium-6
+        a.square href=promotion_path(gift)
+          .img-bg style="background-image: url(#{gift.image})"
 
-    / promotion preview
-    .columns.medium-6
-      a.square href=promotion_one_path
-        .img-bg style="background-image: url(#{asset_path('img/Special-offer.jpg')})"
 
     .columns
       p.smaller
