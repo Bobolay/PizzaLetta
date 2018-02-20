@@ -26,16 +26,30 @@
                 $('body').addClass('overflow-hidden');
             }
         })
+
+
+        // Show/hide custom pizza menu
+        $('.add-ingredient-btn').on('click', function(){
+            if ($('.custom-pizza-container').hasClass('visible')){
+                $('.custom-pizza-container').removeClass('visible');
+                $('body').removeClass('overflow-hidden');
+            } else {
+                $('.custom-pizza-container').addClass('visible');
+                $('body').addClass('overflow-hidden');
+            }
+        })
+
+
+        // Close side-container (cart and custom pizza)
         $('.cart-close-btn').on('click', function(){
-            $('.cart-container').removeClass('visible');
+            $('.side-container').removeClass('visible');
             $('body').removeClass('overflow-hidden');
         })
-        // Close cart
-        $.clickOut('.cart-container.visible',
+        $.clickOut('.side-container.visible',
             function(){
-                $('.cart-container').removeClass('visible');
+                $('.side-container').removeClass('visible');
                 $('body').removeClass('overflow-hidden');
-            },{except: '.cart-container, .cart-icon'}
+            },{except: '.side-container, .cart-icon, .add-ingredient-btn'}
         )
 
 

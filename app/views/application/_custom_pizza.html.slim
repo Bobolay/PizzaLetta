@@ -1,8 +1,8 @@
-.side-container.cart-container ng-controller="CartCtrl"
+.side-container.custom-pizza-container
 
   .local-header
     p.title
-      | корзина
+      | добавте інгредієнти
     .close-btn.cart-close-btn = inline_svg "icons/close.svg"
 
   .scroll-container
@@ -36,9 +36,6 @@
             | {{pizza.bonus.name}},&nbsp;
             span
               | {{pizza.bonus.attribute}}
-
-        /.remove ng-click="remove(pizza)" X
-
 
     / Choose additional sauce
     .sauce-option

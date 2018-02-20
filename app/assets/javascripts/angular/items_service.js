@@ -1,4 +1,8 @@
+//   A L L   I T E M S   S E R V I C E
+
 pizzaApp.factory("itemsService", function(){
+
+    //   ITEMS collection
     var items = [
         {
             imgUrl: "hcmp84855_290760_s3.jpeg",
@@ -11,9 +15,16 @@ pizzaApp.factory("itemsService", function(){
                 "leg",
                 "hand"
             ],
-            price: "121",
+            price: [
+                "121",
+                "132"
+            ],
             qnty: 1,
-            discount: "134"
+            discount: "134",
+            bonus: {
+                name: "Coca-cola",
+                attribute: "0.3l"
+            }
         },
         {
             imgUrl: "IMG_5753-1.jpg",
@@ -81,24 +92,10 @@ pizzaApp.factory("itemsService", function(){
             qnty: 1
         }
     ]
-
+    //   Return all items from ITEMS collection
     return {
-        getItems: function () {
+        getPizzaItems: function () {
             return items;
         }
     }
-
-})
-
-pizzaApp.controller("CartCtrl", function ($scope) {
-
-    //   Items list in cart
-    $scope.cart = [];
-
-
-    //   Buy items
-    $scope.buy = function(){
-
-    }
-
 })

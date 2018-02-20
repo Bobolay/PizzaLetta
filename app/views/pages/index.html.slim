@@ -35,7 +35,7 @@
 .indent.item-list.mix-container ng-controller="PizzaListCtrl"
   .row.columns-left
 
-    .columns.medium-6.large-4.mix ng-repeat="pizza in pizza_list" class="{{pizza.category}}"
+    .columns.medium-6.large-4.mix ng-repeat="(index, pizza) in pizza_list" class="{{pizza.category}}"
 
       .square
         .fullsize.item
@@ -50,18 +50,28 @@
             ul.ingredients
               li ng-repeat="ingredient in pizza.ingredients"
                 | {{ingredient}}
+            .add-ingredient-btn
+              span = inline_svg "icons/plus.svg"
+              | додати
 
             .red-price.small-circle ng-class="{reduced: pizza.discount}"
               .inner-text
                 span ng-if="pizza.discount"
                   | {{pizza.discount}}
                 span &#8372
-                | {{pizza.price}}
+                .price ng-show="size == 'small'"
+                  | {{pizza.price[0]}}
+                .price ng-show="size == 'big'"
+                  | {{pizza.price[1]}}
 
-            .size-option
+            .size-option id="pizza-{{i+1}}"
               .clearfix
-                .floated 30
-                .floated.active 40
+                label.floated
+                  input type="radio" name="size-{{index+1}}" value="small" ng-model="size"
+                  .checkmark 30
+                label.floated
+                  input type="radio" name="size-{{index+1}}" value="big" ng-model="size" ng-checked="true"
+                  .checkmark 40
 
             .add-to-cart
 

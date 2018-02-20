@@ -1,4 +1,4 @@
-.constructor-wrap
+.constructor-wrap ng-controller="ConstructorCtrl"
 
   .pizza-preview style="background-image: url(#{asset_path('img/pizza_PNG7122.png')})"
 
@@ -33,114 +33,28 @@
           .floated.active 40
       p.subtitle.dib соус
       .sauce-option.dib
-        input#sauce-white type="radio" name="sauce"
+        input#sauce-white type="radio" name="sauce" ng-model='sauce' ng-value="'white'" ng-click="getSauce(sauce)"
         label.white for="sauce-white"
-        input#sauce-red type="radio" name="sauce" checked="checked"
+        input#sauce-red type="radio" name="sauce" checked="checked" ng-model='sauce' ng-value="'red'" ng-click="getSauce(sauce)"
         label.red for="sauce-red"
 
     / Choose ingredients
     / Meet
-    .ingredient-type
-      p.subtitle м'ясо
-      .qnty
-        span.choosed 1
-        span.total 10
-    .clearfix.ingredients-container
+    .ingredient-type-wrap ng-repeat="category in ingredients_list"
+      .ingredient-type
+        p.subtitle
+          | {{category.ingredient_category}}
+        .qnty
+          span.choosed 1
+          span.total ng-bind="category.list.length"
 
-      .floated
-        .img style="background-image: url(#{asset_path('img/ingredients/Letta-ingr-sosauge.png')})"
-        p.name червоний
-        p.price
-          span &#8372
-          | 17
-        .remove = inline_svg "icons/remove.svg"
-        .add = inline_svg "icons/add.svg"
-
-      .floated
-        .img style="background-image: url(#{asset_path('img/ingredients/Letta-ingr-Shromp.png')})"
-        p.name білий
-        p.price
-          span &#8372
-          | 17
-        .remove = inline_svg "icons/remove.svg"
-        .add = inline_svg "icons/add.svg"
-
-      .floated
-        .img style="background-image: url(#{asset_path('img/ingredients/Letta-ingr-salomon.png')})"
-        p.name червоний
-        p.price
-          span &#8372
-          | 17
-        .remove = inline_svg "icons/remove.svg"
-        .add = inline_svg "icons/add.svg"
-
-      .floated
-        .img style="background-image: url(#{asset_path('img/ingredients/Letta-ingr-Salaymi.png')})"
-        p.name червоний
-        p.price
-          span &#8372
-          | 17
-        .remove = inline_svg "icons/remove.svg"
-        .add = inline_svg "icons/add.svg"
-
-      .floated
-        .img style="background-image: url(#{asset_path('img/ingredients/Letta-ingr-ham.png')})"
-        p.name білий
-        p.price
-          span &#8372
-          | 17
-        .remove = inline_svg "icons/remove.svg"
-        .add = inline_svg "icons/add.svg"
-
-      .floated
-        .img style="background-image: url(#{asset_path('img/ingredients/Letta-ingr-chiken.png')})"
-        p.name червоний
-        p.price
-          span &#8372
-          | 17
-        .remove = inline_svg "icons/remove.svg"
-        .add = inline_svg "icons/add.svg"
-
-    / Cheese
-    .ingredient-type
-      p.subtitle сири
-      .qnty
-        span.choosed 1
-        span.total 10
-    .clearfix.ingredients-container
-
-      .floated
-        .img style="background-image: url(#{asset_path('img/ingredients/Letta-ingr-motsarella.png')})"
-        p.name червоний
-        p.price
-          span &#8372
-          | 17
-        .remove = inline_svg "icons/remove.svg"
-        .add = inline_svg "icons/add.svg"
-
-      .floated
-        .img style="background-image: url(#{asset_path('img/ingredients/Letta-ingr-parmesan.png')})"
-        p.name білий
-        p.price
-          span &#8372
-          | 17
-        .remove = inline_svg "icons/remove.svg"
-        .add = inline_svg "icons/add.svg"
-
-
-    / Vegetables
-    .ingredient-type
-      p.subtitle овочі
-      .qnty
-        span.choosed 1
-        span.total 10
-    .clearfix.ingredients-container
-
-      .floated
-        .img style="background-image: url(#{asset_path('img/ing-Corn.png')})"
-        p.name червоний
-        p.price
-          span &#8372
-          | 17
-        .remove = inline_svg "icons/remove.svg"
-        .add = inline_svg "icons/add.svg"
+      .clearfix.ingredients-container
+        .floated ng-click="toggleIngredient($event.currentTarget)" ng-repeat="ingredient in category.list"
+          .img style="background-image: url(#{asset_path('assets/img/ingredients/{{ingredient.imgUrl}}')})"
+          p.name
+            | {{ingredient.name}}
+          p.price
+            span &#8372
+            | {{ingredient.price}}
+          .remove = inline_svg "icons/remove.svg"
+          .add = inline_svg "icons/add.svg"
