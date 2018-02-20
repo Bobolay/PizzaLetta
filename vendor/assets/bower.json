@@ -1,9 +1,8 @@
 {
-  "name": "dsl-generated dependencies",
+  "name": "dsl-generated-dependencies",
   "dependencies": {
-    "foundation-sites": "latest",
+    "foundation-sites": "6.2.3",
     "sass-css3-mixins": "latest",
-    "jquery-ui": "latest",
-    "sass-burger": "latest"
+    "jquery-ui": "latest"
   }
 }

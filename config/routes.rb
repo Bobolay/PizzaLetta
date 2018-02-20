@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
+  devise_for :users
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root to: "pages#index"
 
   controller :pages do
@@ -8,7 +11,7 @@ Rails.application.routes.draw do
 
     get "drinks", action: "drinks"
     get "promotions", action: "promotions"
-    get "promotion_one", action: "promotion_one"
+    get "promotion", action: "promotion"
 
     get "checkout", action: "checkout"
 

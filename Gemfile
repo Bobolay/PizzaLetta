@@ -45,7 +45,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'slim-rails'
+gem 'slim-rails', '3.1.1'
 
 gem 'bower-rails'
 
@@ -53,7 +53,7 @@ gem "protected_attributes"
 
 # gem 'rails_admin'
 # gem 'rails_admin_nestable'
-
+gem 'ckeditor'
 # gem 'devise'
 
 gem 'enumerize'
@@ -98,3 +98,21 @@ gem 'thin'
 gem 'puma'
 
 gem 'angularjs-rails', '1.6'
+
+
+
+
+gem 'rails_admin'
+gem 'carrierwave'
+gem 'devise'
+gem 'simple_form'
+gem 'rails_admin-i18n'
+gem 'ckeditor'
+gem 'mini_magick'
+
+gem 'protected_attributes'
+gem 'rails_admin_nestable'
+
+gem 'htmlcompressor'
+gem 'rack-page_caching'
+gem 'ace-rails-ap'
