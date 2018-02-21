@@ -27,7 +27,8 @@
 
     .dib.cart
       .dib.cart-icon = inline_svg ('icons/basket.svg')
-      .dib.order-quantity 4
+      .dib.order-quantity
+        | {{pizza_qnty}}
       .dib.total-price
         span &#8372;
         | 234

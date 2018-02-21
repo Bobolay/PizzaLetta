@@ -15,10 +15,7 @@ pizzaApp.factory("itemsService", function(){
                 "leg",
                 "hand"
             ],
-            price: [
-                "121",
-                "132"
-            ],
+            price: "112",
             qnty: 1,
             discount: "134",
             bonus: {

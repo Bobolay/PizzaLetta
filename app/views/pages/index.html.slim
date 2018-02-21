@@ -31,7 +31,6 @@
 
 
 / PIZZA LIST
-/ differences: price regular or reduced
 .indent.item-list.mix-container ng-controller="PizzaListCtrl"
   .row.columns-left
 
@@ -59,19 +58,23 @@
                 span ng-if="pizza.discount"
                   | {{pizza.discount}}
                 span &#8372
-                .price ng-show="size == 'small'"
-                  | {{pizza.price[0]}}
-                .price ng-show="size == 'big'"
-                  | {{pizza.price[1]}}
+                span.price
+                  | {{pizza.price}}
+                / For version 2.0 (size)
+                /.price ng-show="size == 'small'"
+                /  | {{pizza.price[0]}}
+                /.price ng-show="size == 'big'"
+                /  | {{pizza.price[1]}}
 
-            .size-option id="pizza-{{i+1}}"
-              .clearfix
-                label.floated
-                  input type="radio" name="size-{{index+1}}" value="small" ng-model="size"
-                  .checkmark 30
-                label.floated
-                  input type="radio" name="size-{{index+1}}" value="big" ng-model="size" ng-checked="true"
-                  .checkmark 40
+            / For version 2.0 (size)
+            /.size-option id="pizza-{{i+1}}"
+            /  .clearfix
+            /    label.floated
+            /      input type="radio" name="size-{{index+1}}" value="small" ng-model="size"
+            /      .checkmark 30
+            /    label.floated
+            /      input type="radio" name="size-{{index+1}}" value="big" ng-model="size" ng-checked="true"
+            /      .checkmark 40
 
             .add-to-cart
 

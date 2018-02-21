@@ -8,13 +8,16 @@ pizzaApp.controller("PizzaListCtrl", function ($scope, itemsService, cartService
     //   Items list (we get them from ItemsService)
     $scope.pizza_list = itemsService.getPizzaItems();
 
-    //   Decrease quantity
+    //   Decrease/increase quantity in items list only
     $scope.decrease = function(pizza){
-        cartService.decrease(pizza);
+        if (pizza.qnty == 1 ) {
+            return;
+        } else {
+            pizza.qnty--;
+        }
     }
-    //   Increase quantity
     $scope.increase = function(pizza){
-        cartService.increase(pizza);
+        pizza.qnty++;
     }
 
     //   Add item to cart
@@ -23,6 +26,97 @@ pizzaApp.controller("PizzaListCtrl", function ($scope, itemsService, cartService
     }
 
 });
+
+
+//   C A R T
+
+pizzaApp.controller("CartCtrl", function ($scope, cartService) {
+
+    //   Items list in cart
+    $scope.cart = cartService.getCart();
+
+    //   Decrease/increase quantity in cart only
+    $scope.decrease = function(pizza){
+        if (pizza.qnty == 1 ) {
+            return;
+        } else {
+            pizza.qnty--;
+        }
+    },
+    $scope.increase = function(pizza){
+        pizza.qnty++;
+    },
+
+    // Remove item from cart
+    $scope.remove = function(pizza) {
+        cartService.remove(pizza);
+    };
+
+    //   Buy items
+    $scope.buy = function(pizza){
+        cartService.buy(pizza);
+    }
+
+})
+
+
+//   S E R V I C E S
+
+//   C A R T   F U N C T I O N A L
+
+pizzaApp.factory("cartService", function(){
+    var cart = [];
+    var pizza_qnty = cart.length;
+    return {
+        getCart: function () {
+            return cart;
+        },
+        getPizzaQnty: function () {
+            return pizza_qnty;
+        },
+
+        // addToCart: function (pizza) {
+        //     cart.push(pizza);
+        //     pizza_qnty++;
+        //     console.log(pizza_qnty);
+        // },
+
+        addToCart: function (pizza) {
+            var clone = cart.find(function(matched){
+                return matched.name === pizza.name;
+            });
+            if (clone) {
+                clone.qnty += pizza.qnty || 0;
+            } else {
+                cart.push({
+                    'imgUrl': pizza.imgUrl,
+                    'name': pizza.name,
+                    'qnty': pizza.qnty,
+                    'price': pizza.price
+                });
+                console.log(cart);
+            }
+        },
+
+        remove: function(pizza){
+            cart.splice(pizza,1);
+            pizza_qnty--;
+            console.log(pizza_qnty);
+        },
+        buy: function (pizza) {
+            alert("Thank's for buying: ", pizza.name);
+        }
+    }
+
+});
+
+
+
+
+
+
+
+
 
 
 //   P I Z Z A   C O N S T R U C T O R
@@ -53,78 +147,14 @@ pizzaApp.controller("ConstructorCtrl", function ($scope, ingredientsService) {
 
     };
 
-    $scope.toggleIngredient = function (item) {
-        console.log(angular.element(item).find('.name'));
-    };
+    // $scope.toggleIngredient = function (item) {
+    //     console.log(angular.element(item).find('.name'));
+    // };
 
     // $scope.toggleIngredient = function($event){
     //     console.log($event.currentTarget)
     //     custom_pizza.ingredients.push(this);
     //     console.log(custom_pizza);
     // }
-
-});
-
-
-//   C A R T
-
-pizzaApp.controller("CartCtrl", function ($scope, cartService) {
-
-    //   Items list in cart
-    $scope.cart = cartService.getCart();
-
-    //   Decrease quantity
-    $scope.decrease = function(pizza){
-        cartService.decrease(pizza);
-    }
-
-    //   Increase quantity
-    $scope.increase = function(pizza){
-        cartService.increase(pizza);
-    }
-
-    // Remove item from cart
-    $scope.remove = function(pizza) {
-        cartService.remove(pizza);
-    };
-
-    //   Buy items
-    $scope.buy = function(pizza){
-        cartService.buy(pizza);
-    }
-
-})
-
-
-//   S E R V I C E S
-
-//   C A R T   F U N C T I O N A L
-
-pizzaApp.factory("cartService", function(){
-    var cart = [];
-    return {
-        getCart: function () {
-            return cart;
-        },
-        addToCart: function (pizza) {
-            cart.push(pizza);
-        },
-        decrease: function(pizza){
-            if (pizza.qnty == 1 ) {
-                return;
-            } else {
-                pizza.qnty--;
-            }
-        },
-        increase: function(pizza){
-            pizza.qnty++;
-        },
-        remove: function(pizza){
-            cart.splice(pizza,1);
-        },
-        buy: function (pizza) {
-            alert("Thank's for buying: ", pizza.name);
-        }
-    }
 
 });
