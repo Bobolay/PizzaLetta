@@ -6,19 +6,20 @@
     .close-btn.cart-close-btn = inline_svg "icons/close.svg"
 
   .scroll-container
-    ul.item-list
 
-      li.cart-item ng-repeat="pizza in cart"
+    .custom-pizza ng-controller="CustomPizzaCtrl"
+
+      .cart-item
 
         .img-holder
-          .img-bg style="background-image: url(#{asset_path('assets/img/carousel/{{pizza.imgUrl}}')})"
+          .img-bg style="background-image: url(#{asset_path('assets/img/carousel/{{custom_pizza.imgUrl}}')})"
 
         p.name
-          | {{pizza.name}}
+          | {{custom_pizza.name}}
 
-        p.price
-          span &#8372
-          | {{pizza.qnty * pizza.price}}
+        /p.price
+        /  span &#8372
+        /  | {{pizza.qnty * pizza.price}}
 
         .quantity.on-white-bg
           .decrease ng-click="decrease(pizza)" = inline_svg "icons/remove.svg"
@@ -26,42 +27,31 @@
           .increase ng-click="increase(pizza)" = inline_svg "icons/add.svg"
 
         ul.ingredients
-          li ng-repeat="ingredient in pizza.ingredients"
+          li ng-repeat="ingredient in custom_pizza.ingredients"
             | {{ingredient}}
 
-        .bonus ng-if="pizza.bonus"
-          p.special-offer
-            | gift
-          p.ingredients
-            | {{pizza.bonus.name}},&nbsp;
-            span
-              | {{pizza.bonus.attribute}}
+    .panel ng-controller="ConstructorCtrl"
 
-    / Choose additional sauce
-    .sauce-option
+      / Choose ingredients
+      / Meet
+      .ingredient-type-wrap ng-repeat="category in ingredients_list"
+        .ingredient-type
+          p.subtitle
+            | {{category.ingredient_category}}
+          .qnty
+            span.choosed 1
+            span.total ng-bind="category.list.length"
 
-      .ingredient-type
-        p.subtitle добавити соус
-
-      .clearfix.ingredients-container
-
-        .floated
-          .img style="background-image: url(#{asset_path('img/Test-sauce.png')})"
-          p.name червоний
-          p.price
-            span &#8372
-            | 17
-          .remove = inline_svg "icons/remove.svg"
-          .add = inline_svg "icons/add.svg"
-
-        .floated
-          .img style="background-image: url(#{asset_path('img/Test-sauce.png')})"
-          p.name білий
-          p.price
-            span &#8372
-            | 17
-          .remove = inline_svg "icons/remove.svg"
-          .add = inline_svg "icons/add.svg"
+        .clearfix.ingredients-container
+          .floated ng-click="toggleIngredient($event.currentTarget)" ng-repeat="ingredient in category.list"
+            .img style="background-image: url(#{asset_path('assets/img/ingredients/{{ingredient.imgUrl}}')})"
+            p.name
+              | {{ingredient.name}}
+            p.price
+              span &#8372
+              | {{ingredient.price}}
+            .remove = inline_svg "icons/remove.svg"
+            .add = inline_svg "icons/add.svg"
 
   / Total price and comfirmation
   .order-confirmation.clearfix
@@ -69,4 +59,4 @@
       span &#8372
       | 123 example
     a.floated.btn.red href=checkout_path
-      | оформити замовлення
+      | Додати в корзину

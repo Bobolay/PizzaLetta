@@ -15,21 +15,25 @@ pizzaApp.controller("PizzaListCtrl", function ($scope, itemsService, cartService
         } else {
             pizza.qnty--;
         }
-    }
+    };
     $scope.increase = function(pizza){
         pizza.qnty++;
-    }
+    };
 
     //   Add item to cart
     $scope.addToCart = function(pizza){
         cartService.addToCart(pizza);
-    }
+    };
+
+    //   Custom pizza
+    $scope.makeCustomPizza = function(pizza){
+        cartService.makeCustomPizza(pizza);
+    };
 
 });
 
 
 //   C A R T
-
 pizzaApp.controller("CartCtrl", function ($scope, cartService) {
 
     //   Items list in cart
@@ -59,28 +63,51 @@ pizzaApp.controller("CartCtrl", function ($scope, cartService) {
 
 })
 
+//   C U S T O M   P I Z Z A
+pizzaApp.controller("CustomPizzaCtrl", function ($scope, cartService) {
+
+    //   Custom pizza
+    $scope.cart = cartService.getCustomPizza();
+
+})
+
 
 //   S E R V I C E S
 
 //   C A R T   F U N C T I O N A L
 
 pizzaApp.factory("cartService", function(){
+
     var cart = [];
     var pizza_qnty = cart.length;
+    var custom_pizza;
+
     return {
         getCart: function () {
             return cart;
         },
+        getCustomPizza: function () {
+            return custom_pizza;
+        },
         getPizzaQnty: function () {
             return pizza_qnty;
         },
-
-        // addToCart: function (pizza) {
-        //     cart.push(pizza);
-        //     pizza_qnty++;
-        //     console.log(pizza_qnty);
-        // },
-
+        makeCustomPizza: function (pizza) {
+            if (typeof pizza === 'object') {
+                console.log(pizza);
+                custom_pizza = pizza;
+                // custom_pizza = {
+                //     'imgUrl': pizza.imgUrl,
+                //     'name': pizza.name,
+                //     'qnty': pizza.qnty,
+                //     'price': pizza.price,
+                //     'ingredients': pizza.ingredients
+                // };
+            } else {
+                return false
+            }
+            // console.log(custom_pizza);
+        },
         addToCart: function (pizza) {
             var clone = cart.find(function(matched){
                 return matched.name === pizza.name;
@@ -92,12 +119,11 @@ pizzaApp.factory("cartService", function(){
                     'imgUrl': pizza.imgUrl,
                     'name': pizza.name,
                     'qnty': pizza.qnty,
-                    'price': pizza.price
+                    'price': pizza.price,
+                    'ingredients': pizza.ingredients
                 });
-                console.log(cart);
             }
         },
-
         remove: function(pizza){
             cart.splice(pizza,1);
             pizza_qnty--;
@@ -106,6 +132,7 @@ pizzaApp.factory("cartService", function(){
         buy: function (pizza) {
             alert("Thank's for buying: ", pizza.name);
         }
+
     }
 
 });
