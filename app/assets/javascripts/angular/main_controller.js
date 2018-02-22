@@ -26,8 +26,8 @@ pizzaApp.controller("PizzaListCtrl", function ($scope, itemsService, cartService
     };
 
     //   Custom pizza
-    $scope.makeCustomPizza = function(pizza){
-        cartService.makeCustomPizza(pizza);
+    $scope.addCustomPizza = function(pizza){
+        cartService.addCustomPizza(pizza);
     };
 
 });
@@ -63,13 +63,15 @@ pizzaApp.controller("CartCtrl", function ($scope, cartService) {
 
 })
 
+
 //   C U S T O M   P I Z Z A
 pizzaApp.controller("CustomPizzaCtrl", function ($scope, cartService) {
 
     //   Custom pizza
-    $scope.cart = cartService.getCustomPizza();
+    $scope.custom_pizza = cartService.getCustomPizza();
 
 })
+
 
 
 //   S E R V I C E S
@@ -80,7 +82,8 @@ pizzaApp.factory("cartService", function(){
 
     var cart = [];
     var pizza_qnty = cart.length;
-    var custom_pizza;
+
+    var custom_pizza = {};
 
     return {
         getCart: function () {
@@ -92,21 +95,15 @@ pizzaApp.factory("cartService", function(){
         getPizzaQnty: function () {
             return pizza_qnty;
         },
-        makeCustomPizza: function (pizza) {
+        addCustomPizza: function (pizza) {
             if (typeof pizza === 'object') {
-                console.log(pizza);
-                custom_pizza = pizza;
-                // custom_pizza = {
-                //     'imgUrl': pizza.imgUrl,
-                //     'name': pizza.name,
-                //     'qnty': pizza.qnty,
-                //     'price': pizza.price,
-                //     'ingredients': pizza.ingredients
-                // };
+                custom_pizza.imgUrl = pizza.imgUrl;
+                custom_pizza.name = pizza.name;
+                custom_pizza.qnty = pizza.qnty;
+                custom_pizza.ingredients = pizza.ingredients;
             } else {
                 return false
             }
-            // console.log(custom_pizza);
         },
         addToCart: function (pizza) {
             var clone = cart.find(function(matched){
@@ -138,11 +135,35 @@ pizzaApp.factory("cartService", function(){
 });
 
 
+//   S E N D   O R D E R
 
+pizzaApp.controller("postController", function ($scope, $http) {
 
+    // create a blank object to handle form data.
+    $scope.message = {
+        "name": "Bob",
+        "age": 25
+    };
+    // calling our submit function.
+    $scope.submitForm = function() {
 
+        $http({
+            method  : 'POST',
+            url     : 'http://localhost:3000/checkout',
+            data    : {data: $scope.message},
+            headers : {'Content-Type': 'application/x-www-form-urlencoded'}
+        }).success(function(data) {
+            if (data.errors) {
+                // Showing errors.
+                $scope.errorContent = data.errors.errorContent;
+            } else {
+                $scope.message = data.message;
+            }
+        });
 
+    };
 
+});
 
 
 
