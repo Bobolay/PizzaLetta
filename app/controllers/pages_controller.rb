@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+ Contact.first
 
   def index
   end

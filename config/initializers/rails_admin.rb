@@ -38,7 +38,7 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
-   config.included_models = [Ingridient,Drink,Gift,About,Shipping,Oferta,Aboutimage,Giftdescription]
+   config.included_models = [Pizza,Contact,Ingridient,Drink,Gift,About,Shipping,Oferta,Aboutimage,Giftdescription]
   config.model Shipping do
    label "Доставка"
    include_fields :time_of_shipping, :description, :first_address, :first_address_map, :second_address, :second_address_map, :payment_description, :image
@@ -87,5 +87,15 @@ RailsAdmin.config do |config|
     field :category, :enum do
       enum ["Мясо","Морепродукти","Сири","Овочі"]
     end
+  end
+  config.model Contact do
+    label "Контактні дані"
+    navigation_label "Коактні дані"
+    include_fields :first_number, :second_number, :third_number, :facebook, :instagram
+  end
+  config.model Pizza do
+    navigation_label "Меню"
+    label "Піца"
+    include_fields :name, :image, :ingridients, :pricesmall, :pricebig, :meat, :cheese, :fish, :vegeterian, :show
   end
 end

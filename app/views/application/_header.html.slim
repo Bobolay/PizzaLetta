@@ -10,14 +10,14 @@
       span live
 
     .dib.contact
-      a.numbers href="tel:+380972283228" +38 (097) 228-3-228
+      a.numbers href="tel:#{Contact.first.first_number}" = Contact.first.first_number
       p.numbers-light 10:00 - 00:00
       .dropdown-arrow.contact-dropdown-btn = inline_svg ('icons/pizza_part.svg')
 
       .contact-dropdown
         .line-separator
-        a.numbers href="tel:+380932283228" +38 (093) 228-3-228
-        a.numbers href="tel:+380672283228" +38 (067) 228-3-228
+        a.numbers href="tel:#{Contact.first.second_number}" = Contact.first.second_number
+        a.numbers href="tel:#{Contact.first.third_number}" = Contact.first.third_number
         .line-separator
         form
           p.small Або вкажіть ваш номер
