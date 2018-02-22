@@ -48,10 +48,10 @@
               | {{pizza.name}}
             ul.ingredients
               li ng-repeat="ingredient in pizza.ingredients"
-                | {{ingredient}}
+                | {{ingredient.name}}
             .add-ingredient-btn ng-click="addCustomPizza(pizza)"
               span = inline_svg "icons/plus.svg"
-              | додати
+              | додати інгредієнт
 
             .red-price.small-circle ng-class="{reduced: pizza.discount}"
               .inner-text

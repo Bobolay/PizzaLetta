@@ -104,13 +104,24 @@
 
 .order-summary
 
-  .floated:first-child
-    width: 70%
-  .floated:nth-child(n+2)
-    width: 15%
-    text-align: center
-  .floated:last-child
-    text-align: right
+  &.width-style-1
+    .floated:first-child
+      width: 70%
+    .floated:nth-child(n+2)
+      width: 15%
+      text-align: center
+    .floated:last-child
+      text-align: right
+
+  &.width-style-2
+    .floated:first-child
+      width: calc(100% - 140px)
+    .floated:nth-child(n+2)
+      width: 90px
+      text-align: center
+    .floated:last-child
+      width: 50px
+      text-align: right
 
   .order-headers
     border-bottom: 2px solid $dark-grey
@@ -149,3 +160,5 @@
       font-weight: 900
       span
         font-weight: normal
+      &.kostyl
+        line-height: 28px

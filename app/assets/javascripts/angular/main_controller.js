@@ -69,6 +69,17 @@ pizzaApp.controller("CustomPizzaCtrl", function ($scope, cartService) {
 
     //   Custom pizza
     $scope.custom_pizza = cartService.getCustomPizza();
+    //   Decrease/increase quantity in cart only
+    $scope.decrease = function(ingredient){
+        if (ingredient.qnty == 1 ) {
+            return;
+        } else {
+            ingredient.qnty--;
+        }
+    },
+    $scope.increase = function(ingredient){
+        ingredient.qnty++;
+    }
 
 })
 
@@ -135,35 +146,35 @@ pizzaApp.factory("cartService", function(){
 });
 
 
-//   S E N D   O R D E R
-
-pizzaApp.controller("postController", function ($scope, $http) {
-
-    // create a blank object to handle form data.
-    $scope.message = {
-        "name": "Bob",
-        "age": 25
-    };
-    // calling our submit function.
-    $scope.submitForm = function() {
-
-        $http({
-            method  : 'POST',
-            url     : 'http://localhost:3000/checkout',
-            data    : {data: $scope.message},
-            headers : {'Content-Type': 'application/x-www-form-urlencoded'}
-        }).success(function(data) {
-            if (data.errors) {
-                // Showing errors.
-                $scope.errorContent = data.errors.errorContent;
-            } else {
-                $scope.message = data.message;
-            }
-        });
-
-    };
-
-});
+// //   S E N D   O R D E R
+//
+// pizzaApp.controller("postController", function ($scope, $http) {
+//
+//     // create a blank object to handle form data.
+//     $scope.message = {
+//         "name": "Bob",
+//         "age": 25
+//     };
+//     // calling our submit function.
+//     $scope.submitForm = function() {
+//
+//         $http({
+//             method  : 'POST',
+//             url     : 'http://localhost:3000/checkout',
+//             data    : {data: $scope.message},
+//             headers : {'Content-Type': 'application/x-www-form-urlencoded'}
+//         }).success(function(data) {
+//             if (data.errors) {
+//                 // Showing errors.
+//                 $scope.errorContent = data.errors.errorContent;
+//             } else {
+//                 $scope.message = data.message;
+//             }
+//         });
+//
+//     };
+//
+// });
 
 
 
