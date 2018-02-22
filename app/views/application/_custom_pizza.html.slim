@@ -1,39 +1,78 @@
-.side-container.custom-pizza-container
+.side-container.custom-pizza-container ng-controller="CustomPizzaCtrl"
 
   .local-header
     p.title
       | добавте інгредієнти
+    p
+      | Піца "{{custom_pizza.name}}"
     .close-btn.cart-close-btn = inline_svg "icons/close.svg"
 
   .scroll-container
 
-    .custom-pizza ng-controller="CustomPizzaCtrl"
+    .panel.order-summary
 
-      .cart-item
+      .order-headers.clearfix
+        .floated назва
+        .floated к-сть
+        .floated ціна
 
-        .img-holder
-          .img-bg style="background-image: url(#{asset_path('assets/img/carousel/{{custom_pizza.imgUrl}}')})"
+      ul
 
-        p.name
-          | {{custom_pizza.name}}
+        li.order-item.clearfix
+          .floated
+            .img-holder
+              .img-bg style="background-image: url(#{asset_path('img/Test-pizza.png')})"
+            p.name.dib
+              | Карбонара
+          .floated
+            p.quantity.dib 2
+          .floated
+            p.price.dib
+              span &#8372
+              | 253
+
+        li.order-item.clearfix
+          .floated
+            .img-holder
+              .img-bg style="background-image: url(#{asset_path('img/Test-pizza.png')})"
+            p.name.dib
+              | Карбонара
+          .floated
+            p.quantity.dib 2
+          .floated
+            p.price.dib
+              span &#8372
+              | 253
+
+        li.order-item.clearfix
+          .floated
+            .img-holder
+              .img-bg style="background-image: url(#{asset_path('img/Test-drinks.png')})"
+            p.name.dib
+              | Карбонара
+          .floated
+            p.quantity.dib 2
+          .floated
+            p.price.dib
+              span &#8372
+              | 253
 
         /p.price
         /  span &#8372
         /  | {{pizza.qnty * pizza.price}}
 
-        .quantity.on-white-bg
-          .decrease ng-click="decrease(pizza)" = inline_svg "icons/remove.svg"
-          .number ng-bind="pizza.qnty"
-          .increase ng-click="increase(pizza)" = inline_svg "icons/add.svg"
+        /.quantity.on-white-bg
+        /  .decrease ng-click="decrease(pizza)" = inline_svg "icons/remove.svg"
+        /  .number ng-bind="pizza.qnty"
+        /  .increase ng-click="increase(pizza)" = inline_svg "icons/add.svg"
 
-        ul.ingredients
-          li ng-repeat="ingredient in custom_pizza.ingredients"
-            | {{ingredient}}
+        /ul.ingredients
+        /  li ng-repeat="ingredient in custom_pizza.ingredients"
+        /    | {{ingredient}}
 
+
+    /   List of ingredients
     .panel ng-controller="ConstructorCtrl"
-
-      / Choose ingredients
-      / Meet
       .ingredient-type-wrap ng-repeat="category in ingredients_list"
         .ingredient-type
           p.subtitle
@@ -41,7 +80,6 @@
           .qnty
             span.choosed 1
             span.total ng-bind="category.list.length"
-
         .clearfix.ingredients-container
           .floated ng-click="toggleIngredient($event.currentTarget)" ng-repeat="ingredient in category.list"
             .img style="background-image: url(#{asset_path('assets/img/ingredients/{{ingredient.imgUrl}}')})"
@@ -52,6 +90,7 @@
               | {{ingredient.price}}
             .remove = inline_svg "icons/remove.svg"
             .add = inline_svg "icons/add.svg"
+
 
   / Total price and comfirmation
   .order-confirmation.clearfix
