@@ -15,6 +15,9 @@
   &.active, &:hover
     .info-panel
       +translate(0,0)
+    .add-ingredient-btn
+      opacity: 1
+
 
 .drink-img-wrap
   position: absolute
@@ -32,11 +35,17 @@
     bottom: -20px
     font-size: 10px
     color: grey
-  .floated
+  label
+    cursor: pointer
+  input
+    position: absolute
+    visibility: hidden
+    opacity: 0
+  .checkmark
     padding: 6px
-    &.active
-      color: #fff
-      background: $dark
+  input:checked ~ .checkmark
+    color: white
+    background: $dark
 
 .info-panel
   position: absolute
@@ -70,6 +79,28 @@
       &:last-child
         &:after
           display: none
+  .add-ingredient-btn
+    display: inline-block
+    color: white
+    padding: 4px 6px
+    text-transform: uppercase
+    font-size: 9px
+    font-weight: 700
+    background: $dark
+    +transition(.1s)
+    opacity: 0
+    span
+      display: inline-block
+      width: 11px
+      height: 11px
+      vertical-align: middle
+      margin-right: 4px
+    svg
+      rect
+        +transition(.25s)
+        fill: white
+    &:hover
+      background: $red
   .red-price
     position: absolute
     top: -35px
@@ -290,6 +321,8 @@
       font-size: 120px
 
 .about-wrap
+  overflow: hidden
+  background: white
 
   .logo-icon
     width: 200px
@@ -302,15 +335,17 @@
   .owl-wrap
     position: relative
     padding: 50px 0 100px
+    height: 600px
   .owl-carousel
     .item
       position: relative
       padding-bottom: 120%
       background: transparent
     img
-      vertical-align: bottom
       position: absolute
       bottom: 0
+  .owl-stage-outer
+    overflow: initial
   .custom-controls
     position: absolute
     bottom: 40px
@@ -446,6 +481,7 @@
     position: relative
     padding-top: 100px
     z-index: 2
+    overflow: auto
     @media #{$medium-up}
       position: absolute
       width: 500px

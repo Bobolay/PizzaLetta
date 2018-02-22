@@ -1,4 +1,4 @@
-.cart-container ng-controller="CartCtrl"
+.side-container.cart-container ng-controller="CartCtrl"
 
   .local-header
     p.title
@@ -29,7 +29,6 @@
           li ng-repeat="ingredient in pizza.ingredients"
             | {{ingredient}}
 
-
         .bonus ng-if="pizza.bonus"
           p.special-offer
             | gift
@@ -38,88 +37,8 @@
             span
               | {{pizza.bonus.attribute}}
 
-        /.remove ng-click="remove(pizza)" X
+        .remove ng-click="remove(pizza)" X
 
-      /li.cart-item
-      /
-      /  .img-holder
-      /    .img-bg style="background-image: url(#{asset_path('img/Test-pizza.png')})"
-      /
-      /  p.name
-      /    | Карбонара
-      /
-      /  p.price
-      /    span &#8372
-      /    | 253
-      /
-      /  .quantity.on-white-bg
-      /    .decrease = inline_svg "icons/remove.svg"
-      /    .number 2
-      /    .increase = inline_svg "icons/add.svg"
-      /
-      /  p.ingredients
-      /    | Моцарелла, Сир, Гриби, Анчоуси, Ананаc, Помідор, Кукурудза
-      /
-      /  p.special-offer
-      /    | gift
-      /
-      /  p.ingredients
-      /    | Coca-cola,
-      /    span 0.3l
-      /
-      /li.cart-item
-      /
-      /  .img-holder
-      /    .img-bg style="background-image: url(#{asset_path('img/Test-drinks.png')})"
-      /
-      /  p.name
-      /    | Імбирний лимонад
-      /
-      /  p.price
-      /    span &#8372
-      /    | 35
-      /
-      /  .quantity.on-white-bg
-      /    .decrease = inline_svg "icons/remove.svg"
-      /    .number 5
-      /    .increase = inline_svg "icons/add.svg"
-      /
-      /  p.ingredients
-      /    | Моцарелла, Сир, Гриби, Анчоуси, Ананаc, Помідор, Кукурудза
-      /
-      /  p.special-offer
-      /    | gift
-      /
-      /  p.ingredients
-      /    | Coca-cola,
-      /    span 0.3l
-      /
-      /li.cart-item
-      /
-      /  .img-holder
-      /    .img-bg style="background-image: url(#{asset_path('img/Test-drinks.png')})"
-      /
-      /  p.name
-      /    | Імбирний лимонад
-      /
-      /  p.price
-      /    span &#8372
-      /    | 35
-      /
-      /  .quantity.on-white-bg
-      /    .decrease = inline_svg "icons/remove.svg"
-      /    .number 5
-      /    .increase = inline_svg "icons/add.svg"
-      /
-      /  p.ingredients
-      /    | Моцарелла, Сир, Гриби, Анчоуси, Ананаc, Помідор, Кукурудза
-      /
-      /  p.special-offer
-      /    | gift
-      /
-      /  p.ingredients
-      /    | Coca-cola,
-      /    span 0.3l
 
     / Choose additional sauce
     .sauce-option

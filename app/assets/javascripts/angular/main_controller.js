@@ -6,55 +6,50 @@
 pizzaApp.controller("PizzaListCtrl", function ($scope, itemsService, cartService) {
 
     //   Items list (we get them from ItemsService)
-    $scope.pizza_list = itemsService.getItems();
+    $scope.pizza_list = itemsService.getPizzaItems();
 
-    // //   Decrease quantity
-    // $scope.decrease = function(pizza){
-    //     if (pizza.qnty == 1 ) {
-    //         return;
-    //     } else {
-    //         pizza.qnty--;
-    //     }
-    // }
-    //
-    // //   Increase quantity
-    // $scope.increase = function(pizza){
-    //     pizza.qnty++;
-    // }
-    //   Decrease quantity
+    //   Decrease/increase quantity in items list only
     $scope.decrease = function(pizza){
-        cartService.decrease(pizza);
-    }
-    //   Increase quantity
+        if (pizza.qnty == 1 ) {
+            return;
+        } else {
+            pizza.qnty--;
+        }
+    };
     $scope.increase = function(pizza){
-        cartService.increase(pizza);
-    }
+        pizza.qnty++;
+    };
 
     //   Add item to cart
     $scope.addToCart = function(pizza){
         cartService.addToCart(pizza);
-    }
+    };
+
+    //   Custom pizza
+    $scope.makeCustomPizza = function(pizza){
+        cartService.makeCustomPizza(pizza);
+    };
 
 });
 
 
-
 //   C A R T
-
 pizzaApp.controller("CartCtrl", function ($scope, cartService) {
 
     //   Items list in cart
     $scope.cart = cartService.getCart();
 
-    //   Decrease quantity
+    //   Decrease/increase quantity in cart only
     $scope.decrease = function(pizza){
-        cartService.decrease(pizza);
-    }
-
-    //   Increase quantity
+        if (pizza.qnty == 1 ) {
+            return;
+        } else {
+            pizza.qnty--;
+        }
+    },
     $scope.increase = function(pizza){
-        cartService.increase(pizza);
-    }
+        pizza.qnty++;
+    },
 
     // Remove item from cart
     $scope.remove = function(pizza) {
@@ -68,136 +63,125 @@ pizzaApp.controller("CartCtrl", function ($scope, cartService) {
 
 })
 
+//   C U S T O M   P I Z Z A
+pizzaApp.controller("CustomPizzaCtrl", function ($scope, cartService) {
 
+    //   Custom pizza
+    $scope.cart = cartService.getCustomPizza();
+
+})
+
+
+//   S E R V I C E S
 
 //   C A R T   F U N C T I O N A L
 
 pizzaApp.factory("cartService", function(){
+
     var cart = [];
+    var pizza_qnty = cart.length;
+    var custom_pizza;
+
     return {
         getCart: function () {
             return cart;
         },
-        addToCart: function (pizza) {
-            cart.push(pizza);
+        getCustomPizza: function () {
+            return custom_pizza;
         },
-        decrease: function(pizza){
-            if (pizza.qnty == 1 ) {
-                return;
+        getPizzaQnty: function () {
+            return pizza_qnty;
+        },
+        makeCustomPizza: function (pizza) {
+            if (typeof pizza === 'object') {
+                console.log(pizza);
+                custom_pizza = pizza;
+                // custom_pizza = {
+                //     'imgUrl': pizza.imgUrl,
+                //     'name': pizza.name,
+                //     'qnty': pizza.qnty,
+                //     'price': pizza.price,
+                //     'ingredients': pizza.ingredients
+                // };
             } else {
-                pizza.qnty--;
+                return false
             }
+            // console.log(custom_pizza);
         },
-        increase: function(pizza){
-            pizza.qnty++;
+        addToCart: function (pizza) {
+            var clone = cart.find(function(matched){
+                return matched.name === pizza.name;
+            });
+            if (clone) {
+                clone.qnty += pizza.qnty || 0;
+            } else {
+                cart.push({
+                    'imgUrl': pizza.imgUrl,
+                    'name': pizza.name,
+                    'qnty': pizza.qnty,
+                    'price': pizza.price,
+                    'ingredients': pizza.ingredients
+                });
+            }
         },
         remove: function(pizza){
             cart.splice(pizza,1);
+            pizza_qnty--;
+            console.log(pizza_qnty);
         },
         buy: function (pizza) {
             alert("Thank's for buying: ", pizza.name);
         }
+
     }
 
 });
 
 
 
-//   A L L   I T E M S   S E R V I C E
 
-pizzaApp.factory("itemsService", function(){
-    //   ITEMS collection
-    var items = [
-        {
-            imgUrl: "hcmp84855_290760_s3.jpeg",
-            name: "Вегетаріанська",
-            category: "vegetarian",
-            ingredients: [
-                "constructor",
-                "lemon",
-                "pomidor",
-                "leg",
-                "hand"
-            ],
-            price: "121",
-            qnty: 1,
-            discount: "134",
-            bonus: {
-                name: "Coca-cola",
-                attribute: "0.3l"
-            }
-        },
-        {
-            imgUrl: "IMG_5753-1.jpg",
-            name: "М'ясна",
-            category: "meat",
-            ingredients: [
-                "ogirok",
-                "pomidor",
-                "hand",
-                "soys"
-            ],
-            price: "87",
-            qnty: 1
-        },
-        {
-            imgUrl: "margharita1-600x480.jpeg",
-            name: "Морська",
-            category: "seafood",
-            ingredients: [
-                "mayonez",
-                "vogirok",
-                "oluvka",
-                "pizza"
-            ],
-            price: "105",
-            qnty: 1
-        },
-        {
-            imgUrl: "piza400x300.jpg",
-            name: "Сирна",
-            category: "cheese",
-            ingredients: [
-                "ananas",
-                "bananas",
-                "klubnika",
-                "kyriatyna"
-            ],
-            price: "100",
-            qnty: 1
-        },
-        {
-            imgUrl: "pizza-saucisse-piquante-2301.jpg",
-            name: "М'ясна",
-            category: "meat",
-            ingredients: [
-                "olyvka",
-                "pomidor",
-                "sauce",
-            ],
-            price: "96",
-            qnty: 1
-        },
-        {
-            imgUrl: "small-1.jpg",
-            name: "Вегетаріанська",
-            category: "vegetarian",
-            ingredients: [
-                "lemon",
-                "ananas",
-                "pomidor",
-                "oluvka",
-                "pizza"
-            ],
-            price: "88",
-            qnty: 1
-        }
-    ]
-    //   Return all items from ITEMS collection
-    return {
-        getItems: function () {
-            return items;
-        }
-    }
 
-})
+
+
+
+
+
+//   P I Z Z A   C O N S T R U C T O R
+
+pizzaApp.controller("ConstructorCtrl", function ($scope, ingredientsService) {
+
+    //   Ingredients list (we get them from ItemsService)
+    $scope.ingredients_list = ingredientsService.getIngredients();
+
+    //   Set size option
+    $scope.size = "big";
+    $scope.getSize = function(size) {
+        $scope.size = size;
+    };
+
+    //   Set sauce option
+    $scope.sauce = "red";
+    $scope.getSauce = function(sauce) {
+        $scope.sauce = sauce;
+    };
+
+    var custom_pizza = {
+        pizzaImgUrl: "pizza-contructor.png",
+        name: "DIY pizza",
+        size: $scope.size,
+        sauce: $scope.sauce,
+        ingredients: []
+
+    };
+
+    // $scope.toggleIngredient = function (item) {
+    //     console.log(angular.element(item).find('.name'));
+    // };
+
+    // $scope.toggleIngredient = function($event){
+    //     console.log($event.currentTarget)
+    //     custom_pizza.ingredients.push(this);
+    //     console.log(custom_pizza);
+    // }
+
+});
