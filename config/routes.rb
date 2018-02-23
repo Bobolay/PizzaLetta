@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root to: "pages#index"
-
+  post "/order", to: "orders#new"
   controller :pages do
 
     get "structure_parts", action: "structure_parts"
@@ -20,6 +20,5 @@ Rails.application.routes.draw do
     get "policy", action: "policy"
 
   end
-
   match "*url", to: "application#render_not_found", via: [:get, :post, :path, :put, :update, :delete]
 end
