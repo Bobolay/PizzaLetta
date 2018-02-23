@@ -12,7 +12,7 @@ pizzaApp.factory("itemsService", function(){
                 {
                     name: "Шампіньйони",
                     imgUrl: "Letta-ingr-champinion.png",
-                    price: "22",
+                    price: "25",
                     qnty: "1"
                 },
                 {
@@ -230,7 +230,7 @@ pizzaApp.factory("itemsService", function(){
                 {
                     name: "Шампіньйони",
                     imgUrl: "Letta-ingr-champinion.png",
-                    price: "22",
+                    price: "25",
                     qnty: "1"
                 },
                 {

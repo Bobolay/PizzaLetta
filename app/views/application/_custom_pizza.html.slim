@@ -16,7 +16,7 @@
         .floated к-сть
         .floated ціна
 
-      ul
+      ul.pizza-ingredients
 
         li.order-item.clearfix ng-repeat="ingredient in custom_pizza.ingredients"
           .floated
@@ -31,7 +31,24 @@
           .floated
             p.price.dib.kostyl
               span &#8372
-              | 253
+              | {{ingredient.price}}
+
+      ul
+
+        li.order-item.clearfix ng-repeat="ingredient in custom_ingredients"
+          .floated
+            .img-holder
+              .img-bg style="background-image: url(#{asset_path('assets/img/ingredients/{{ingredient.imgUrl}}')})"
+            p.name.dib
+              | {{ingredient.name}}
+          .floated.quantity.on-white-bg
+            .decrease ng-click="decrease(ingredient)" = inline_svg "icons/remove.svg"
+            .number ng-bind="ingredient.qnty || 1"
+            .increase ng-click="increase(ingredient)" = inline_svg "icons/add.svg"
+          .floated
+            p.price.dib.kostyl
+              span &#8372
+              | {{ingredient.price}}
 
     /   List of ingredients
     .panel ng-controller="ConstructorCtrl"
@@ -43,7 +60,7 @@
             span.choosed 1
             span.total ng-bind="category.list.length"
         .clearfix.ingredients-container
-          .floated ng-click="toggleIngredient($event.currentTarget)" ng-repeat="ingredient in category.list"
+          .floated ng-class="{'active':ingredient.active_ingredient}" ng-click="toggleIngredient(ingredient)" ng-repeat="ingredient in category.list | filterIngredients:custom_ingredients:'name'"
             .img style="background-image: url(#{asset_path('assets/img/ingredients/{{ingredient.imgUrl}}')})"
             p.name
               | {{ingredient.name}}

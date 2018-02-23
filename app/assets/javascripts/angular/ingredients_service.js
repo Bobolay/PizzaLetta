@@ -80,7 +80,7 @@ pizzaApp.factory("ingredientsService", function(){
                 {
                     name: "Шампіньйони",
                     imgUrl: "Letta-ingr-champinion.png",
-                    price: "22"
+                    price: "25"
                 },
                 {
                     name: "Помідори звичайні",

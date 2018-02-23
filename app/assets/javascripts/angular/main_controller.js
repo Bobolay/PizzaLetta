@@ -3,7 +3,7 @@
 
 //   L I S T   O F   I T E M S
 
-pizzaApp.controller("PizzaListCtrl", function ($scope, itemsService, cartService) {
+pizzaApp.controller("PizzaListCtrl", function ($scope, itemsService, cartService, customPizzaService) {
 
     //   Items list (we get them from ItemsService)
     $scope.pizza_list = itemsService.getPizzaItems();
@@ -27,7 +27,7 @@ pizzaApp.controller("PizzaListCtrl", function ($scope, itemsService, cartService
 
     //   Custom pizza
     $scope.addCustomPizza = function(pizza){
-        cartService.addCustomPizza(pizza);
+        customPizzaService.addCustomPizza(pizza);
     };
 
 });
@@ -64,11 +64,26 @@ pizzaApp.controller("CartCtrl", function ($scope, cartService) {
 })
 
 
-//   C U S T O M   P I Z Z A
-pizzaApp.controller("CustomPizzaCtrl", function ($scope, cartService) {
+pizzaApp.filter('filterIngredients', function($filter){
+        return function(list, arrayFilter, element){
+            if(arrayFilter){
+                return $filter("filter")(list, function(listItem){
+                    return arrayFilter.indexOf(listItem[element]) == -1;
+                });
+            } else {
+                console.log("smth goes wrong!");
+            }
+        };
+    });
+
+
+//   C U S T O M   P I Z Z A   C O N T R O L L E R
+pizzaApp.controller("CustomPizzaCtrl", function ($scope, cartService, customPizzaService, ingredientsService) {
+
+    $scope.custom_ingredients = customPizzaService.getCustomIngredients();
 
     //   Custom pizza
-    $scope.custom_pizza = cartService.getCustomPizza();
+    $scope.custom_pizza = customPizzaService.getCustomPizza();
     //   Decrease/increase quantity in cart only
     $scope.decrease = function(ingredient){
         if (ingredient.qnty == 1 ) {
@@ -79,32 +94,23 @@ pizzaApp.controller("CustomPizzaCtrl", function ($scope, cartService) {
     },
     $scope.increase = function(ingredient){
         ingredient.qnty++;
+    },
+    $scope.toggleIngredient = function(ingredient){
+        customPizzaService.toggleIngredient(ingredient)
     }
 
 })
 
 
-
-//   S E R V I C E S
-
-//   C A R T   F U N C T I O N A L
-
-pizzaApp.factory("cartService", function(){
-
-    var cart = [];
-    var pizza_qnty = cart.length;
+//   C U S T O M   P I Z Z A   S E R V I C E
+pizzaApp.factory("customPizzaService", function(){
 
     var custom_pizza = {};
+    var custom_ingredients = [];
 
     return {
-        getCart: function () {
-            return cart;
-        },
         getCustomPizza: function () {
             return custom_pizza;
-        },
-        getPizzaQnty: function () {
-            return pizza_qnty;
         },
         addCustomPizza: function (pizza) {
             if (typeof pizza === 'object') {
@@ -113,15 +119,58 @@ pizzaApp.factory("cartService", function(){
                 custom_pizza.qnty = pizza.qnty;
                 custom_pizza.ingredients = pizza.ingredients;
             } else {
-                return false
+                return false;
             }
         },
+        // Add or remove ingredient from out custom pizza
+        toggleIngredient: function(ingredient){
+            var existent_ingredient = custom_ingredients.find(function(matched){
+                return matched.name === ingredient.name;
+            });
+            if (existent_ingredient) {
+                var target = custom_ingredients.indexOf(ingredient);
+                if(target != -1) {
+                    // We don't want eat this shit
+                    custom_ingredients.splice(target, 1);
+                    // So let's remove 'active' class by doing this
+                    ingredient.active_ingredient = false;
+                }
+            } else {
+                // This ingredient isn't choosen still - throw it into our pizza
+                custom_ingredients.push(ingredient);
+                // Highlight this ingredient (it receives 'active' class)
+                ingredient.active_ingredient = true;
+            }
+        },
+        getCustomIngredients: function(){
+            return custom_ingredients;
+        }
+
+    }
+
+});
+
+
+//   C A R T
+
+pizzaApp.factory("cartService", function(){
+
+    var cart = [];
+    var pizza_qnty = cart.length;
+
+    return {
+        getCart: function () {
+            return cart;
+        },
+        getPizzaQnty: function () {
+            return pizza_qnty;
+        },
         addToCart: function (pizza) {
-            var clone = cart.find(function(matched){
+            var existent_pizza = cart.find(function(matched){
                 return matched.name === pizza.name;
             });
-            if (clone) {
-                clone.qnty += pizza.qnty || 0;
+            if (existent_pizza) {
+                existent_pizza.qnty += pizza.qnty || 0;
             } else {
                 cart.push({
                     'imgUrl': pizza.imgUrl,
@@ -144,6 +193,7 @@ pizzaApp.factory("cartService", function(){
     }
 
 });
+
 
 
 //   S E N D   O R D E R
