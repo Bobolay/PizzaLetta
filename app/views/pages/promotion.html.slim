@@ -8,8 +8,8 @@
         .img-holder
 
           / prev and next promotion navigation
-          .btn-prev = inline_svg "icons/play-button.svg"
-          .btn-next = inline_svg "icons/play-button.svg"
+          a.btn-prev href=promotion_path(1) = inline_svg "icons/play-button.svg"
+          a.btn-next href=promotion_path(1) = inline_svg "icons/play-button.svg"
 
           / promotion image
           .img-bg style="background-image: url(#{@promotion.image})"
@@ -27,28 +27,28 @@
 
   .clearfix
     - if @previous
-      a.floated
+      a.floated href=promotion_path(1)
         .img.dib
           .img-bg style="background-image: url(#{@previous.image})"
         .dib.inner-text
           p.subtitle попередня акція
           p.title = @previous.title
     -else
-      a.floated
+      a.floated href=promotion_path(1)
         .img.dib
           .img-bg style="background-image: url(#{@last.image})"
         .dib.inner-text
           p.subtitle попередня акція
           p.title = @last.title
     - if @next
-      a.floated
+      a.floated href=promotion_path(1)
         .dib.inner-text
           p.subtitle  наступна акція
           p.title = @next.title
         .img.dib
           .img-bg style="background-image: url(#{@next.image})"
     - else
-      a.floated
+      a.floated href=promotion_path(1)
         .dib.inner-text
           p.subtitle  наступна акція
           p.title = @first.title

@@ -12,9 +12,9 @@ setClosingTimeout = ()->
   visibility_duration = 3000
   window.top_nav_timeout =  setTimeout(
     ()->
-      #alert("setClosingTimeout")
+#alert("setClosingTimeout")
       window.top_nav_timeout = false
-      if !window.top_nav_locked
+      if !window.top_nav_locked && !$('body').hasClass('menu-opened')
 
         $top_nav.removeClass(classes.scrolled)
 
@@ -46,7 +46,7 @@ handle_scroll = (e)->
     delta = e
 
   $("body").attr("header_timeout")
-  #console.log "delta: ", delta
+
   if scroll_top > banner_height && delta < 0 && !$("body").hasClass("navigation_move")
     $top_nav.addClass(scrolled_class)
     if window.top_nav_timeout
@@ -60,9 +60,6 @@ handle_scroll = (e)->
     $top_nav.addClass(visible_class)
   else
     $top_nav.removeClass(visible_class)
-
-
-
 
 
   # top banner
