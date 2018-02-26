@@ -60,7 +60,7 @@
             span.choosed 1
             span.total ng-bind="category.list.length"
         .clearfix.ingredients-container
-          .floated ng-class="{'active':ingredient.active_ingredient}" ng-click="toggleIngredient(ingredient)" ng-repeat="ingredient in category.list | filterIngredients:custom_ingredients:'ingredient.name'"
+          .floated ng-class="{'active':ingredient.active_ingredient}" ng-click="toggleIngredient(ingredient)" ng-repeat="ingredient in category.list | filterIngredients:custom_pizza_ingredients:'name'"
             .img style="background-image: url(#{asset_path('assets/img/ingredients/{{ingredient.imgUrl}}')})"
             p.name
               | {{ingredient.name}}
