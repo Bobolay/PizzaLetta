@@ -233,7 +233,21 @@
 
 .social-wrap
   position: relative
-  margin: 100px 0
+  padding: 150px 0 100px
+  overflow: hidden
+  .label
+    +x-align
+    width: 200px
+    height: 200px
+    border-radius: 50%
+    background: $dark
+    top: -100px
+    svg
+      position: absolute
+      width: 90px
+      bottom: 30px
+      left: 50%
+      +translate(-50%,0)
   .main-text
     width: 400px
     max-width: 100%
