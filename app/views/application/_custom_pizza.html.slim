@@ -58,10 +58,11 @@
             | {{category.ingredient_category}}
           .qnty
             span.choosed
-              | {{category.list}}
-            span.total ng-bind="category.list.length"
+              | 1
+            span.total
+              | {{category.list.length}}
         .clearfix.ingredients-container
-          .floated ng-class="{'active':ingredient.active_ingredient}" ng-click="toggleIngredient(ingredient)" ng-repeat="ingredient in category.list"
+          .floated ng-class="{'active':ingredient.active_ingredient}" ng-click="toggleIngredient(ingredient,category)" ng-repeat="ingredient in category.list"
             .img style="background-image: url(#{asset_path('assets/img/ingredients/{{ingredient.imgUrl}}')})"
             p
               | {{ingredient.active_ingredient.length}}
@@ -75,9 +76,22 @@
 
 
   / Total price and comfirmation
-  .order-confirmation.clearfix
-    .floated.price
+  .add-to-cart
+
+    .quantity.on-red-bg
+      .decrease ng-click="decrease(custom_pizza)"
+        = inline_svg "icons/remove.svg"
+      .number ng-bind="custom_pizza.qnty"
+      .increase ng-click="increase(custom_pizza)"
+        = inline_svg "icons/add.svg"
+
+    .add-to-cart-btn ng-click="addToCart(pizza)" add to cart
+
+    .total-price
       span &#8372
-      | 123 example
-    a.floated.btn.red href=checkout_path
-      | Додати в корзину
+      | {{total}}
+      /| {{custom_pizza.qnty*custom_pizza.price+ingPrice}}
+      /span
+      /  | :{{custom_pizza.qnty}}
+      /span
+      /  | :{{ingPrice}}

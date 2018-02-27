@@ -104,23 +104,39 @@ pizzaApp.controller("CustomPizzaCtrl", function ($scope, cartService, customPizz
     //   All ingredients
     $scope.custom_ingredients = customPizzaService.getCustomIngredients();
 
-    //   Decrease/increase quantity in cart only
+    // Total price for pizza + ingredients
+    $scope.total = customPizzaService.getTotal();
+
+    $scope.ingPrice = 0;
+
+    //   Decrease/increase
+    // $scope.decrease = function(ingredient){
+    //     if (ingredient.qnty == 1 ) {
+    //         return;
+    //     } else {
+    //         ingredient.qnty--;
+    //         $scope.ingPrice = $scope.ingPrice - ingredient.price;
+    //     }
+    // },
+    // $scope.increase = function(ingredient){
+    //     ingredient.qnty++;
+    //     $scope.ingPrice = $scope.ingPrice + ingredient.price;
+    // },
     $scope.decrease = function(ingredient){
-        console.log(ingredient);
-        if (ingredient.qnty == 1 ) {
-            return;
-        } else {
-            ingredient.qnty--;
-            console.log('decrease');
-        }
-    },
+        customPizzaService.decrease(ingredient)
+    };
     $scope.increase = function(ingredient){
-        console.log(ingredient);
-        ingredient.qnty++;
-        console.log('increase');
-    },
+        customPizzaService.increase(ingredient)
+    };
+
+    // Add or remove ingredient from pizza
     $scope.toggleIngredient = function(ingredient){
         customPizzaService.toggleIngredient(ingredient)
+    };
+
+    // Add custom pizza to cart
+    $scope.customPizzaAddToCart = function(pizza){
+        console.log(pizza);
     }
 
 })
@@ -129,25 +145,49 @@ pizzaApp.controller("CustomPizzaCtrl", function ($scope, cartService, customPizz
 //   C U S T O M   P I Z Z A   S E R V I C E
 pizzaApp.factory("customPizzaService", function(){
 
-    // Choosed pizza for customization
-    var custom_pizza = {};
-    var custom_pizza_ingredients = [];
     // List of all ingredients
     var custom_ingredients = [];
+
+    // Choosed pizza for customization
+    var custom_pizza = {};
+    // var pizza_price = 0;
+    // var custom_pizza_ingredients = [];
+    var qwerty = 0;
 
     return {
         getCustomPizza: function () {
             return custom_pizza;
         },
-        getCustomPizzaIngredients: function () {
-            return custom_pizza_ingredients;
+        decrease: function(ingredient){
+            if (ingredient.qnty == 1 ) {
+                return;
+            } else {
+                ingredient.qnty--;
+                qwerty -= ingredient.price;
+                console.log(qwerty);
+                // $scope.ingPrice = $scope.ingPrice - ingredient.price;
+            }
         },
+        increase: function(ingredient){
+            ingredient.qnty++;
+            qwerty += ingredient.price;
+            console.log(qwerty);
+        },
+        getTotal: function(){
+            return qwerty;
+        },
+        // getCustomPizzaIngredients: function () {
+        //     return custom_pizza_ingredients;
+        // },
         addCustomPizza: function (pizza) {
             if (typeof pizza === 'object') {
                 custom_pizza.imgUrl = pizza.imgUrl;
                 custom_pizza.name = pizza.name;
                 custom_pizza.qnty = pizza.qnty;
                 custom_pizza.ingredients = pizza.ingredients;
+                custom_pizza.price = pizza.price;
+                // pizza_price = pizza.price;
+                // console.log(pizza_price);
             } else {
                 return false;
             }
@@ -167,17 +207,20 @@ pizzaApp.factory("customPizzaService", function(){
                     custom_ingredients.splice(target, 1);
                     // So let's remove 'active' class by doing this
                     ingredient.active_ingredient = false;
+                    qwerty -= ingredient.price;
                 }
             } else {
                 // This ingredient isn't choosen still - throw it into our pizza
                 custom_ingredients.push(ingredient);
                 // Highlight this ingredient (it receives 'active' class)
                 ingredient.active_ingredient = true;
+                qwerty += ingredient.price;
             }
         },
         getCustomIngredients: function(){
             return custom_ingredients;
         }
+
 
     }
 
@@ -286,6 +329,8 @@ pizzaApp.controller("ConstructorCtrl", function ($scope, ingredientsService) {
         ingredients: []
 
     };
+
+    $scope.choosed_in_category = 0;
 
     // $scope.toggleIngredient = function (item) {
     //     console.log(angular.element(item).find('.name'));
