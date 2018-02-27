@@ -29,6 +29,7 @@ class PagesController < ApplicationController
   def policy
     @policy = Oferta.first
   end
+
   def promotion
     @promotion = Gift.find(params[:format])
     @next = Gift.where(["id > ?", params[:format]]).show.first
@@ -36,4 +37,9 @@ class PagesController < ApplicationController
     @last = Gift.show.last
     @first = Gift.show.first
   end
+
+  def stub
+    render layout: false
+  end
+
 end
