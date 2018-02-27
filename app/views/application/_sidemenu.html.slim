@@ -24,7 +24,7 @@
       .sprite.img style="background-image: url(#{asset_path('icons/1.png')})"
 
   .socials
-    a href="https://www.instagram.com/sexifitness/?hl=uk" target="_blank"
+    a href="#{Contact.first.instagram}" target="_blank"
       = inline_svg ('icons/instagram.svg')
-    a href="https://www.facebook.com/fcplyazh/" target="_blank"
+    a href="#{Contact.first.facebook}" target="_blank"
       = inline_svg ('icons/facebook.svg')
