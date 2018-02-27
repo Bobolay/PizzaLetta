@@ -57,11 +57,14 @@
           p.subtitle
             | {{category.ingredient_category}}
           .qnty
-            span.choosed 1
+            span.choosed
+              | {{category.list}}
             span.total ng-bind="category.list.length"
         .clearfix.ingredients-container
-          .floated ng-class="{'active':ingredient.active_ingredient}" ng-click="toggleIngredient(ingredient)" ng-repeat="ingredient in category.list | filterIngredients:custom_ingredients:'ingredient.name'"
+          .floated ng-class="{'active':ingredient.active_ingredient}" ng-click="toggleIngredient(ingredient)" ng-repeat="ingredient in category.list"
             .img style="background-image: url(#{asset_path('assets/img/ingredients/{{ingredient.imgUrl}}')})"
+            p
+              | {{ingredient.active_ingredient.length}}
             p.name
               | {{ingredient.name}}
             p.price

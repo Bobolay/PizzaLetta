@@ -64,36 +64,60 @@ pizzaApp.controller("CartCtrl", function ($scope, cartService) {
 })
 
 
-pizzaApp.filter('filterIngredients', function($filter){
+angular.module('Test', [])
+    .filter('inArray', function($filter){
         return function(list, arrayFilter, element){
             if(arrayFilter){
+                console.log("Arr filter: ", arrayFilter);
                 return $filter("filter")(list, function(listItem){
+                    console.log(listItem[element]);
                     return arrayFilter.indexOf(listItem[element]) == -1;
                 });
-            } else {
-                console.log("smth goes wrong!");
             }
         };
     });
 
 
+// pizzaApp
+//     .filter('filterIngredients', function($filter){
+//         return function(list, arrayFilter, name){
+//             if(arrayFilter){
+//                 console.log(arrayFilter);
+//                 return $filter("filter")(list, function(listItem){
+//                     // console.log(listItem[name]);
+//                     return arrayFilter.indexOf(listItem[name]) == -1;
+//                 });
+//             } else {
+//                 console.log("nothing to compare with!");
+//             }
+//         };
+//     });
+
+
 //   C U S T O M   P I Z Z A   C O N T R O L L E R
 pizzaApp.controller("CustomPizzaCtrl", function ($scope, cartService, customPizzaService, ingredientsService) {
 
-    $scope.custom_ingredients = customPizzaService.getCustomIngredients();
-
     //   Custom pizza
     $scope.custom_pizza = customPizzaService.getCustomPizza();
+    // $scope.custom_pizza_ingredients = customPizzaService.getCustomPizzaIngredients();
+
+    //   All ingredients
+    $scope.custom_ingredients = customPizzaService.getCustomIngredients();
+
     //   Decrease/increase quantity in cart only
     $scope.decrease = function(ingredient){
+        console.log(ingredient);
         if (ingredient.qnty == 1 ) {
             return;
         } else {
             ingredient.qnty--;
+            console.log('decrease');
         }
     },
     $scope.increase = function(ingredient){
+        console.log(ingredient);
         ingredient.qnty++;
+        console.log('increase');
     },
     $scope.toggleIngredient = function(ingredient){
         customPizzaService.toggleIngredient(ingredient)
@@ -105,12 +129,18 @@ pizzaApp.controller("CustomPizzaCtrl", function ($scope, cartService, customPizz
 //   C U S T O M   P I Z Z A   S E R V I C E
 pizzaApp.factory("customPizzaService", function(){
 
+    // Choosed pizza for customization
     var custom_pizza = {};
+    var custom_pizza_ingredients = [];
+    // List of all ingredients
     var custom_ingredients = [];
 
     return {
         getCustomPizza: function () {
             return custom_pizza;
+        },
+        getCustomPizzaIngredients: function () {
+            return custom_pizza_ingredients;
         },
         addCustomPizza: function (pizza) {
             if (typeof pizza === 'object') {
@@ -121,7 +151,10 @@ pizzaApp.factory("customPizzaService", function(){
             } else {
                 return false;
             }
+            custom_pizza_ingredients = pizza.ingredients.map(function(prop) {return prop.name;});
+            console.log("Ingredients of custom pizza: ", custom_pizza_ingredients);
         },
+
         // Add or remove ingredient from out custom pizza
         toggleIngredient: function(ingredient){
             var existent_ingredient = custom_ingredients.find(function(matched){
