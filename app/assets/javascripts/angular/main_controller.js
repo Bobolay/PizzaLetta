@@ -64,50 +64,34 @@ pizzaApp.controller("CartCtrl", function ($scope, cartService) {
 })
 
 
-// angular.module('Test', [])
-//     .filter('inArray', function($filter){
-//         return function(list, arrayFilter, element){
-//             if(arrayFilter){
-//                 console.log("Arr filter: ", arrayFilter);
-//                 return $filter("filter")(list, function(listItem){
-//                     console.log(listItem[element]);
-//                     return arrayFilter.indexOf(listItem[element]) == -1;
-//                 });
-//             }
-//         };
-//     });
-//
-// function Ctrl($scope) {
-//     $scope.letters = [
-//         {
-//             name: 'a',
-//             number: '2'
-//         },
-//         {name: 'b'},
-//         {name: 'c'},
-//         {name: 'd'},
-//         {name: 'e'}
-//     ];
-//
-//     $scope.filterBy = ['b', 'c', 'd'];
-// }
-
-
-
-pizzaApp
-    .filter('filterIngredients', function($filter){
-        return function(list, arrayFilter, name){
+angular.module('Test', [])
+    .filter('inArray', function($filter){
+        return function(list, arrayFilter, element){
             if(arrayFilter){
-                console.log(arrayFilter);
+                console.log("Arr filter: ", arrayFilter);
                 return $filter("filter")(list, function(listItem){
-                    // console.log(listItem[name]);
-                    return arrayFilter.indexOf(listItem[name]) == -1;
+                    console.log(listItem[element]);
+                    return arrayFilter.indexOf(listItem[element]) == -1;
                 });
-            } else {
-                console.log("nothing to compare with!");
             }
         };
     });
+
+
+// pizzaApp
+//     .filter('filterIngredients', function($filter){
+//         return function(list, arrayFilter, name){
+//             if(arrayFilter){
+//                 console.log(arrayFilter);
+//                 return $filter("filter")(list, function(listItem){
+//                     // console.log(listItem[name]);
+//                     return arrayFilter.indexOf(listItem[name]) == -1;
+//                 });
+//             } else {
+//                 console.log("nothing to compare with!");
+//             }
+//         };
+//     });
 
 
 //   C U S T O M   P I Z Z A   C O N T R O L L E R
@@ -115,21 +99,25 @@ pizzaApp.controller("CustomPizzaCtrl", function ($scope, cartService, customPizz
 
     //   Custom pizza
     $scope.custom_pizza = customPizzaService.getCustomPizza();
-    $scope.custom_pizza_ingredients = customPizzaService.getCustomPizzaIngredients();
+    // $scope.custom_pizza_ingredients = customPizzaService.getCustomPizzaIngredients();
 
     //   All ingredients
     $scope.custom_ingredients = customPizzaService.getCustomIngredients();
 
     //   Decrease/increase quantity in cart only
     $scope.decrease = function(ingredient){
+        console.log(ingredient);
         if (ingredient.qnty == 1 ) {
             return;
         } else {
             ingredient.qnty--;
+            console.log('decrease');
         }
     },
     $scope.increase = function(ingredient){
+        console.log(ingredient);
         ingredient.qnty++;
+        console.log('increase');
     },
     $scope.toggleIngredient = function(ingredient){
         customPizzaService.toggleIngredient(ingredient)

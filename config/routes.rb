@@ -19,6 +19,8 @@ Rails.application.routes.draw do
     get "shipping", action: "shipping"
     get "policy", action: "policy"
 
+    get "stub", action: "stub"
+
   end
   match "*url", to: "application#render_not_found", via: [:get, :post, :path, :put, :update, :delete]
 end
