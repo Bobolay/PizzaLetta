@@ -38,7 +38,7 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
-   config.included_models = [Order,Ordersphone,Ordersemail,Call,Subscribe,Pizza,Contact,Ingridient,Drink,Gift,About,Shipping,Oferta,Aboutimage,Giftdescription]
+   config.included_models = [Order,Ordersphone,Ordersemail,Call,Subscribe,Pizza,Contact,Ingredient,Drink,Gift,About,Shipping,Oferta,Aboutimage,Giftdescription]
   config.model Shipping do
    label "Доставка"
    include_fields :time_of_shipping, :description, :first_address, :first_address_map, :second_address, :second_address_map, :payment_description, :image
@@ -80,7 +80,7 @@ RailsAdmin.config do |config|
       enum ["Безалкогольні","Алкогольні","Лимонади"]
     end
   end
-  config.model Ingridient do
+  config.model Ingredient do
     navigation_label "Меню"
     label "Інгрідієнти"
     include_fields :name, :price, :image, :show
@@ -96,7 +96,8 @@ RailsAdmin.config do |config|
   config.model Pizza do
     navigation_label "Меню"
     label "Піца"
-    include_fields :name, :image, :ingridients, :pricesmall, :pricebig, :meat, :cheese, :fish, :vegeterian, :show
+    field :ingredients
+    include_fields :name, :image, :pricesmall, :pricebig, :meat, :cheese, :fish, :vegeterian, :show
   end
   config.model Order do
     navigation_label "Замовлення"
@@ -104,22 +105,22 @@ RailsAdmin.config do |config|
     include_fields :type_of_shipping, :name, :phone, :email, :subscribe, :city, :street, :building, :flat, :date_of_shipping, :fast_or_not, :type_of_pay, :rest, :comment, :pick_up_from, :date_of_picking, :time_of_picking
   end
   config.model Ordersphone do
-    navigation_label "Замовлення"
+    navigation_label "Користувачі"
     label "Номера клієнтів"
     include_fields :phone
   end
   config.model Ordersemail do
-    navigation_label "Замовлення"
+    navigation_label "Користувачі"
     label "Пошти клієнтів"
     include_fields :email
   end
   config.model Call do
-    navigation_label "Замовлення"
+    navigation_label "Користувачі"
     label "Замовлення звінка"
     include_fields :phone
   end
   config.model Subscribe do
-    navigation_label "Замовлення"
+    navigation_label "Користувачі"
     label "Підписка на новини"
     include_fields :phone
   end
