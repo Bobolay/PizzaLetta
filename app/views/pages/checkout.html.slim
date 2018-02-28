@@ -1,4 +1,4 @@
-.section-indent.checkout-wrap ng-controller="postController"
+.section-indent.checkout-wrap
 
   form ng-submit="submitForm()"
 
@@ -174,7 +174,7 @@
 
       / ORDER SUMMARY
       .columns.large-4
-        .panel.order-summary.width-style-1
+        .panel.order-summary.width-style-1 ng-controller="CartCtrl"
 
           p.title ваше замовлення
 
@@ -185,44 +185,18 @@
 
           ul.item-list
 
-            li.order-item.clearfix
+            li.order-item.clearfix ng-repeat="item in cart"
               .floated
                 .img-holder
-                  .img-bg style="background-image: url(#{asset_path('img/Test-pizza.png')})"
-                p.name.dib
-                  | Карбонара
+                  .img-bg style="background-image: url(#{asset_path('assets/img/items/{{item.imgUrl}}')})"                p.name.dib
+                  | {{item.name}}
               .floated
-                p.quantity.dib 2
+                p.quantity.dib
+                  | {{item.qnty}}
               .floated
                 p.price.dib
                   span &#8372
-                  | 253
-
-            li.order-item.clearfix
-              .floated
-                .img-holder
-                  .img-bg style="background-image: url(#{asset_path('img/Test-pizza.png')})"
-                p.name.dib
-                  | Карбонара
-              .floated
-                p.quantity.dib 2
-              .floated
-                p.price.dib
-                  span &#8372
-                  | 253
-
-            li.order-item.clearfix
-              .floated
-                .img-holder
-                  .img-bg style="background-image: url(#{asset_path('img/Test-drinks.png')})"
-                p.name.dib
-                  | Карбонара
-              .floated
-                p.quantity.dib 2
-              .floated
-                p.price.dib
-                  span &#8372
-                  | 253
+                  | {{item.qnty * item.price}}
 
           .input-field
             input

@@ -10,26 +10,25 @@ pizzaApp.factory("cartService", function(){
         getPizzaQnty: function () {
             return pizza_qnty;
         },
-        addToCart: function (pizza) {
-            var existent_pizza = cart.find(function(matched){
-                return matched.name === pizza.name;
+        addToCart: function (item) {
+            var existent_item = cart.find(function(matched){
+                return matched.name === item.name;
             });
-            if (existent_pizza) {
-                existent_pizza.qnty += pizza.qnty || 0;
+            if (existent_item) {
+                existent_item.qnty += item.qnty || 0;
             } else {
                 cart.push({
-                    'imgUrl': pizza.imgUrl,
-                    'name': pizza.name,
-                    'qnty': pizza.qnty,
-                    'price': pizza.price,
-                    'ingredients': pizza.ingredients
+                    'imgUrl': item.imgUrl,
+                    'name': item.name,
+                    'qnty': item.qnty,
+                    'price': item.price,
+                    'ingredients': item.ingredients,
+                    'litre': item.litre
                 });
             }
         },
-        remove: function(pizza){
-            cart.splice(pizza,1);
-            pizza_qnty--;
-            console.log(pizza_qnty);
+        remove: function(item){
+            cart.splice(item,1);
         },
         buy: function (pizza) {
             alert("Thank's for buying: ", pizza.name);

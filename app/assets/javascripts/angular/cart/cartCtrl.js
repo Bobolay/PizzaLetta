@@ -4,15 +4,15 @@ pizzaApp.controller("CartCtrl", function ($scope, cartService) {
     $scope.cart = cartService.getCart();
 
     //   Decrease/increase quantity in cart only
-    $scope.decrease = function(pizza){
-        if (pizza.qnty == 1 ) {
+    $scope.decrease = function(item){
+        if (item.qnty == 1 ) {
             return;
         } else {
-            pizza.qnty--;
+            item.qnty--;
         }
     },
-    $scope.increase = function(pizza){
-        pizza.qnty++;
+    $scope.increase = function(item){
+        item.qnty++;
     },
 
     // Remove item from cart

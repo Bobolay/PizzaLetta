@@ -139,8 +139,15 @@
     z-index: 1
     background: $dark
     color: white
+    text-align: center
+    opacity: 0
+    pointer-events: none
+    +transition(.25s)
+    &.visible
+      opacity: 1
+      pointer-events: initial
     svg
-      width: 50px
+      width: 30px
       fill: white
 
 // Live video

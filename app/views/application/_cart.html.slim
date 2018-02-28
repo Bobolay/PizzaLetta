@@ -11,7 +11,7 @@
       li.cart-item ng-repeat="item in cart"
 
         .img-holder
-          .img-bg style="background-image: url(#{asset_path('assets/img/carousel/{{item.imgUrl}}')})"
+          .img-bg style="background-image: url(#{asset_path('assets/img/items/{{item.imgUrl}}')})"
 
         p.name
           | {{item.name}}
@@ -27,17 +27,22 @@
 
         ul.ingredients
           li ng-repeat="ingredient in item.ingredients"
-            | {{ingredient}}
+            | {{ingredient.name}}
 
-        .bonus ng-if="pizza.bonus"
+        / Bonus to pizza
+        .bonus ng-if="item.bonus"
           p.special-offer
             | gift
           p.ingredients
             | {{item.bonus.name}},&nbsp;
             span
               | {{item.bonus.attribute}}
+        /Drink litre
+        .litre ng-if="item.litre"
+          p.ingredients
+            | {{item.litre}} л
 
-        p.clear-btn ng-click="remove(pizza)"
+        p.clear-btn ng-click="remove(item)"
           = inline_svg "icons/close.svg"
           | видалити
 
