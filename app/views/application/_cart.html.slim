@@ -8,36 +8,38 @@
   .scroll-container
     ul.item-list
 
-      li.cart-item ng-repeat="pizza in cart"
+      li.cart-item ng-repeat="item in cart"
 
         .img-holder
-          .img-bg style="background-image: url(#{asset_path('assets/img/carousel/{{pizza.imgUrl}}')})"
+          .img-bg style="background-image: url(#{asset_path('assets/img/carousel/{{item.imgUrl}}')})"
 
         p.name
-          | {{pizza.name}}
+          | {{item.name}}
 
         p.price
           span &#8372
-          | {{pizza.qnty * pizza.price}}
+          | {{item.qnty * item.price}}
 
         .quantity.on-white-bg
-          .decrease ng-click="decrease(pizza)" = inline_svg "icons/remove.svg"
-          .number ng-bind="pizza.qnty"
-          .increase ng-click="increase(pizza)" = inline_svg "icons/add.svg"
+          .decrease ng-click="decrease(item)" = inline_svg "icons/remove.svg"
+          .number ng-bind="item.qnty"
+          .increase ng-click="increase(item)" = inline_svg "icons/add.svg"
 
         ul.ingredients
-          li ng-repeat="ingredient in pizza.ingredients"
+          li ng-repeat="ingredient in item.ingredients"
             | {{ingredient}}
 
         .bonus ng-if="pizza.bonus"
           p.special-offer
             | gift
           p.ingredients
-            | {{pizza.bonus.name}},&nbsp;
+            | {{item.bonus.name}},&nbsp;
             span
-              | {{pizza.bonus.attribute}}
+              | {{item.bonus.attribute}}
 
-        .remove ng-click="remove(pizza)" X
+        p.clear-btn ng-click="remove(pizza)"
+          = inline_svg "icons/close.svg"
+          | видалити
 
 
     / Choose additional sauce

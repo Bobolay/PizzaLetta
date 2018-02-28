@@ -28,7 +28,21 @@
 #= require angular/app
 # require angular/config
 
-#= require angular/items_service
+#= require angular/pizza/pizzaCtrl.js
+#= require angular/pizza/pizzaService.js
+
+#= require angular/pizzaCustom/customPizzaCtrl.js
+#= require angular/pizzaCustom/customPizzaService.js
+
+#= require angular/constructor/constructorCtrl.js
+#= require angular/constructor/constructorService.js
+
+#= require angular/drinks/drinksCtrl.js
+#= require angular/drinks/drinksService.js
+
+#= require angular/cart/cartCtrl.js
+#= require angular/cart/cartService.js
+
 #= require angular/ingredients_service
 
 #= require angular/header_controller
