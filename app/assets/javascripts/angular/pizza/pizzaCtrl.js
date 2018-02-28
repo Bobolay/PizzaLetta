@@ -22,9 +22,9 @@ pizzaApp.controller("PizzaListCtrl", function ($scope, itemsService, cartService
         cartService.addToCart(pizza);
     };
 
-    // //   Custom pizza
-    // $scope.addCustomPizza = function(pizza){
-    //     customPizzaService.addCustomPizza(pizza);
-    // };
+    //   Custom pizza
+    $scope.addCustomPizza = function(pizza){
+        customPizzaService.addCustomPizza(pizza);
+    };
 
 });
