@@ -16,6 +16,7 @@
         .floated к-сть
         .floated ціна
 
+      / Ingredients of custom pizza
       ul.pizza-ingredients
 
         li.order-item.clearfix ng-repeat="ingredient in custom_pizza.ingredients"
@@ -33,9 +34,10 @@
               span &#8372
               | {{ingredient.price}}
 
+      / Additional ingredients that we can add
       ul
 
-        li.order-item.clearfix ng-repeat="ingredient in custom_ingredients"
+        li.order-item.clearfix ng-repeat="ingredient in custom_ingredients | inArray:custom_pizza_ingredients:'name'"
           .floated
             .img-holder
               .img-bg style="background-image: url(#{asset_path('assets/img/ingredients/{{ingredient.imgUrl}}')})"

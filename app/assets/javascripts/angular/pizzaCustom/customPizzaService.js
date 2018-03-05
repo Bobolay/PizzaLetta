@@ -6,7 +6,7 @@ pizzaApp.factory("customPizzaService", function(){
     // Choosed pizza for customization
     var custom_pizza = {};
     // var pizza_price = 0;
-    // var custom_pizza_ingredients = [];
+    var custom_pizza_ingredients = [];
     var qwerty = 0;
 
     return {
@@ -31,9 +31,9 @@ pizzaApp.factory("customPizzaService", function(){
         getTotal: function(){
             return qwerty;
         },
-        // getCustomPizzaIngredients: function () {
-        //     return custom_pizza_ingredients;
-        // },
+        getCustomPizzaIngredients: function () {
+            return custom_pizza_ingredients;
+        },
         addCustomPizza: function (pizza) {
             if (typeof pizza === 'object') {
                 custom_pizza.imgUrl = pizza.imgUrl;

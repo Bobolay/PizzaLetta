@@ -1,10 +1,9 @@
-angular.module('Test', [])
+pizzaApp
     .filter('inArray', function($filter){
         return function(list, arrayFilter, element){
             if(arrayFilter){
-                console.log("Arr filter: ", arrayFilter);
+                console.log(arrayFilter);
                 return $filter("filter")(list, function(listItem){
-                    console.log(listItem[element]);
                     return arrayFilter.indexOf(listItem[element]) == -1;
                 });
             }
@@ -12,28 +11,13 @@ angular.module('Test', [])
     });
 
 
-// pizzaApp
-//     .filter('filterIngredients', function($filter){
-//         return function(list, arrayFilter, name){
-//             if(arrayFilter){
-//                 console.log(arrayFilter);
-//                 return $filter("filter")(list, function(listItem){
-//                     // console.log(listItem[name]);
-//                     return arrayFilter.indexOf(listItem[name]) == -1;
-//                 });
-//             } else {
-//                 console.log("nothing to compare with!");
-//             }
-//         };
-//     });
-
 
 //   C U S T O M   P I Z Z A   C O N T R O L L E R
 pizzaApp.controller("CustomPizzaCtrl", function ($scope, cartService, customPizzaService, ingredientsService) {
 
     //   Custom pizza
     $scope.custom_pizza = customPizzaService.getCustomPizza();
-    // $scope.custom_pizza_ingredients = customPizzaService.getCustomPizzaIngredients();
+    $scope.custom_pizza_ingredients = customPizzaService.getCustomPizzaIngredients();
 
     //   All ingredients
     $scope.custom_ingredients = customPizzaService.getCustomIngredients();
