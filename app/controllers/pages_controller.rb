@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
- Contact.first
+  before_action :instagram
 
   def index
   end
@@ -40,6 +40,12 @@ class PagesController < ApplicationController
 
   def stub
     render layout: false
+  end
+  private
+  def instagram
+    url="https://api.instagram.com/v1/users/self/media/recent/?access_token=5421929898.1677ed0.02b11596b2d4432aac9c495a152b9288"
+    @json=JSON.parse(open(url).read)["data"][0..2]
+
   end
 
 end
