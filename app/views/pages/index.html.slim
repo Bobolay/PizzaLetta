@@ -135,26 +135,18 @@
         p.smaller Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         .btn.dark
           = inline_svg ("icons/instagram.svg")
-          span pizzaletta
+          span #pizzaletta
         .btn.dark
           = inline_svg ("icons/instagram.svg")
-          span lovemypizza
+          span #lovemypizza
   .row.columns-left
 
     / Post from socials
-    .columns.medium-6.large-4
-      .square
-        .img-bg style="background-image: url(#{asset_path('img/pexels-photo-280453.jpeg')})"
-      span.heart-icon = inline_svg "icons/heart.svg"
-      span.likes 45
-      p.title Pizzaletta
-      p.smaller Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-
-    / Post from socials
-    .columns.medium-6.large-4
-      .square
-        .img-bg style="background-image: url(#{asset_path('img/pexels-photo-688012.jpeg')})"
-      span.heart-icon = inline_svg "icons/heart.svg"
-      span.likes 45
-      p.title Lovemypizza
-      p.smaller Sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    -@json.each do |json|
+      .columns.medium-6.large-4
+        .square
+          a.img-bg href="#{json["link"]}" rel="nofollow" style="background-image: url(#{json["images"]["standard_resolution"]["url"]})"
+        span.heart-icon = inline_svg "icons/heart.svg"
+        span.likes =json["likes"]["count"]
+        p.title =json["user"]["username"]
+        p.smaller =json["caption"]["text"]

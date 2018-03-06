@@ -327,6 +327,7 @@ DEPENDENCIES
   rails_admin
   rails_admin-i18n
   rails_admin_nestable
+  responders
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   simple_form
