@@ -12,43 +12,43 @@ pizzaApp.factory("itemsService", function(){
                 {
                     name: "Шампіньйони",
                     imgUrl: "Letta-ingr-champinion.png",
-                    price: "25",
-                    qnty: "1"
+                    price: 25,
+                    qnty: 1
                 },
                 {
                     name: "Помідори звичайні",
                     imgUrl: "Letta-ingr-tomato.png",
-                    price: "22",
-                    qnty: "1"
+                    price: 22,
+                    qnty: 1
                 },
                 {
                     name: "Помідори чері",
                     imgUrl: "Letta-ingr-tomato-cherri.png",
-                    price: "24",
-                    qnty: "1"
+                    price: 24,
+                    qnty: 1
                 },
                 {
                     name: "Пармезан",
                     imgUrl: "Letta-ingr-parmesan.png",
-                    price: "22",
-                    qnty: "1"
+                    price: 22,
+                    qnty: 1
                 },
                 {
                     name: "Перець гострий",
                     imgUrl: "Letta-ingr-chili-papper.png",
-                    price: "22",
-                    qnty: "1"
+                    price: 22,
+                    qnty: 1
                 },
                 {
                     name: "Цибуля",
                     imgUrl: "Letta-ingr-onion.png",
-                    price: "22",
-                    qnty: "1"
+                    price: 22,
+                    qnty: 1
                 }
             ],
-            price: "112",
+            price: 112,
             qnty: 1,
-            discount: "134",
+            discount: 134,
             bonus: {
                 name: "Coca-cola",
                 attribute: "0.3l"
@@ -62,35 +62,35 @@ pizzaApp.factory("itemsService", function(){
                 {
                     name: "Шинка",
                     imgUrl: "Letta-ingr-ham.png",
-                    price: "15",
-                    qnty: "1"
+                    price: 15,
+                    qnty: 1
                 },
                 {
                     name: "Мисливські ковбаски",
                     imgUrl: "Letta-ingr-sosauge.png",
-                    price: "12",
-                    qnty: "1"
+                    price: 12,
+                    qnty: 1
                 },
                 {
                     name: "Лосось",
                     imgUrl: "Letta-ingr-salomon.png",
-                    price: "22",
-                    qnty: "1"
+                    price: 22,
+                    qnty: 1
                 },
                 {
                     name: "Пармезан",
                     imgUrl: "Letta-ingr-parmesan.png",
-                    price: "22",
-                    qnty: "1"
+                    price: 22,
+                    qnty: 1
                 },
                 {
                     name: "Пепероні",
                     imgUrl: "Letta-ingr-parmesan.png",
-                    price: "22",
-                    qnty: "1"
+                    price: 22,
+                    qnty: 1
                 }
             ],
-            price: "87",
+            price: 87,
             qnty: 1
         },
         {
@@ -101,41 +101,41 @@ pizzaApp.factory("itemsService", function(){
                 {
                     name: "Лосось",
                     imgUrl: "Letta-ingr-salomon.png",
-                    price: "22",
-                    qnty: "1"
+                    price: 22,
+                    qnty: 1
                 },
                 {
                     name: "Анчоуси",
                     imgUrl: "Letta-ingr-anchouses.png",
-                    price: "19",
-                    qnty: "1"
+                    price: 19,
+                    qnty: 1
                 },
                 {
                     name: "Перець солодкий",
                     imgUrl: "Letta-ingr-sweet-papper.png",
-                    price: "22",
-                    qnty: "1"
+                    price: 22,
+                    qnty: 1
                 },
                 {
                     name: "Перець гострий",
                     imgUrl: "Letta-ingr-chili-papper.png",
-                    price: "22",
-                    qnty: "1"
+                    price: 22,
+                    qnty: 1
                 },
                 {
                     name: "Пармезан",
                     imgUrl: "Letta-ingr-parmesan.png",
-                    price: "22",
-                    qnty: "1"
+                    price: 22,
+                    qnty: 1
                 },
                 {
                     name: "Пепероні",
                     imgUrl: "Letta-ingr-parmesan.png",
-                    price: "22",
-                    qnty: "1"
+                    price: 22,
+                    qnty: 1
                 }
             ],
-            price: "105",
+            price: 105,
             qnty: 1
         },
         {
@@ -146,41 +146,41 @@ pizzaApp.factory("itemsService", function(){
                 {
                     name: "Пармезан",
                     imgUrl: "Letta-ingr-parmesan.png",
-                    price: "22",
-                    qnty: "1"
+                    price: 22,
+                    qnty: 1
                 },
                 {
                     name: "Моцарела",
                     imgUrl: "Letta-ingr-motsarella.png",
-                    price: "22",
-                    qnty: "1"
+                    price: 22,
+                    qnty: 1
                 },
                 {
                     name: "Пепероні",
                     imgUrl: "Letta-ingr-parmesan.png",
-                    price: "22",
-                    qnty: "1"
+                    price: 22,
+                    qnty: 1
                 },
                 {
                     name: "Зелень",
                     imgUrl: "Letta-ingr-green.png",
-                    price: "22",
-                    qnty: "1"
+                    price: 22,
+                    qnty: 1
                 },
                 {
                     name: "Оливки",
                     imgUrl: "Letta-ingr-olive.png",
-                    price: "22",
-                    qnty: "1"
+                    price: 22,
+                    qnty: 1
                 },
                 {
                     name: "Помідори чері",
                     imgUrl: "Letta-ingr-tomato-cherri.png",
-                    price: "24",
-                    qnty: "1"
+                    price: 24,
+                    qnty: 1
                 },
             ],
-            price: "100",
+            price: 100,
             qnty: 1
         },
         {
@@ -191,35 +191,35 @@ pizzaApp.factory("itemsService", function(){
                 {
                     name: "Шинка",
                     imgUrl: "Letta-ingr-ham.png",
-                    price: "15",
-                    qnty: "1"
+                    price: 15,
+                    qnty: 1
                 },
                 {
                     name: "Мисливські ковбаски",
                     imgUrl: "Letta-ingr-sosauge.png",
-                    price: "12",
-                    qnty: "1"
+                    price: 12,
+                    qnty: 1
                 },
                 {
                     name: "Лосось",
                     imgUrl: "Letta-ingr-salomon.png",
-                    price: "22",
-                    qnty: "1"
+                    price: 22,
+                    qnty: 1
                 },
                 {
                     name: "Пармезан",
                     imgUrl: "Letta-ingr-parmesan.png",
-                    price: "22",
-                    qnty: "1"
+                    price: 22,
+                    qnty: 1
                 },
                 {
                     name: "Пепероні",
                     imgUrl: "Letta-ingr-parmesan.png",
-                    price: "22",
-                    qnty: "1"
+                    price: 22,
+                    qnty: 1
                 }
             ],
-            price: "87",
+            price: 87,
             qnty: 1
         },
         {
@@ -230,43 +230,43 @@ pizzaApp.factory("itemsService", function(){
                 {
                     name: "Шампіньйони",
                     imgUrl: "Letta-ingr-champinion.png",
-                    price: "25",
-                    qnty: "1"
+                    price: 25,
+                    qnty: 1
                 },
                 {
                     name: "Помідори звичайні",
                     imgUrl: "Letta-ingr-tomato.png",
-                    price: "22",
-                    qnty: "1"
+                    price: 22,
+                    qnty: 1
                 },
                 {
                     name: "Помідори чері",
                     imgUrl: "Letta-ingr-tomato-cherri.png",
-                    price: "24",
-                    qnty: "1"
+                    price: 24,
+                    qnty: 1
                 },
                 {
                     name: "Пармезан",
                     imgUrl: "Letta-ingr-parmesan.png",
-                    price: "22",
-                    qnty: "1"
+                    price: 22,
+                    qnty: 1
                 },
                 {
                     name: "Перець гострий",
                     imgUrl: "Letta-ingr-chili-papper.png",
-                    price: "22",
-                    qnty: "1"
+                    price: 22,
+                    qnty: 1
                 },
                 {
                     name: "Цибуля",
                     imgUrl: "Letta-ingr-onion.png",
-                    price: "22",
-                    qnty: "1"
+                    price: 22,
+                    qnty: 1
                 }
             ],
-            price: "112",
+            price: 112,
             qnty: 1,
-            discount: "134",
+            discount: 134,
             bonus: {
                 name: "Coca-cola",
                 attribute: "0.3l"

@@ -1,38 +1,65 @@
 / FILTER
-.indent
-  .row
-    .columns
-      .filter-wrap.clearfix
-        .floated
-          .dib.regular фільтрування
-          .dib.clearfix
-            .floated.filter data-filter="all"
-              = inline_svg ('icons/navtabs/540269.svg')
-              span Всі
-            .floated.filter data-filter=".vegetarian"
-              = inline_svg ('icons/navtabs/135463.svg')
-              span Вегетаріанська
-            .floated.filter data-filter=".meat"
-              = inline_svg ('icons/navtabs/135397.svg')
-              span М'ясо
-            .floated.filter data-filter=".seafood"
-              = inline_svg ('icons/navtabs/135446.svg')
-              span Морепродукти
-            .floated.filter data-filter=".cheese"
-              = inline_svg ('icons/navtabs/135421.svg')
-              span Сирна
-        .floated-right
-          .dib.regular сортування
-          .dib
-            select.sorting
-              option Ціна: зростання
-              option Ціна: спадання
+.row
+  .columns
+    .filter-wrap.clearfix
+      / Filtering
+      .floated
+        .dib.regular фільтрування
+        .dib.clearfix
+          .floated.filter data-filter="all"
+            = inline_svg ('icons/navtabs/540269.svg')
+            span Всі
+          .floated.filter data-filter=".alcohol"
+            = inline_svg ('icons/navtabs/135463.svg')
+            span Алкогольні
+          .floated.filter data-filter=".non-alcohol"
+            = inline_svg ('icons/navtabs/135397.svg')
+            span Безалкогольні
+          .floated.filter data-filter=".lemonad"
+            = inline_svg ('icons/navtabs/135446.svg')
+            span Лимонади
+      / Sorting
+      .floated-right
+        .dib.regular сортування
+        .dib
+          select.sorting
+            option Ціна: зростання
+            option Ціна: спадання
 
 
-/ BEVERAGES LIST
-/ differences: price regular or reduced
-.indent.item-list
+/ BEVERAGES (DRINKS) LIST
+.indent.item-list.mix-container ng-controller="DrinksCtrl"
   .row.columns-left
-    = render "list_item_drink"
-    = render "list_item_drink"
-    = render "list_item_drink"
+    .columns.medium-6.large-4.mix ng-repeat="drink in drinks" class="{{drink.category}}"
+
+      .square
+        .fullsize.item
+
+          / img size: 500x500#
+          .drink-img-wrap
+            .img-bg style="background-image: url(#{asset_path('assets/img/items/{{drink.imgUrl}}')})"
+          .info-panel.dark
+
+            p.ingredients
+              | {{drink.category_ukr}} | {{drink.litre}} л
+            p.name
+              | {{drink.name}}
+
+            .red-price.small-circle
+              .inner-text
+                span &#8372
+                | {{drink.price}}
+
+            .add-to-cart
+
+              .quantity.on-red-bg
+                .decrease ng-click="decrease(drink)" = inline_svg "icons/remove.svg"
+                .number
+                  | {{drink.qnty}}
+                .increase ng-click="increase(drink)" = inline_svg "icons/add.svg"
+
+              .add-to-cart-btn ng-click="addToCart(drink)" add to cart
+
+              .total-price
+                span &#8372
+                | {{drink.price}}

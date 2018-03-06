@@ -40,7 +40,7 @@
         .fullsize.item
 
           / img size: 500x500#
-          .img-bg style="background-image: url(#{asset_path('assets/img/carousel/{{pizza.imgUrl}}')})"
+          .img-bg style="background-image: url(#{asset_path('assets/img/items/{{pizza.imgUrl}}')})"
 
           .info-panel.white
 
@@ -60,6 +60,7 @@
                 span &#8372
                 span.price
                   | {{pizza.price}}
+
                 / For version 2.0 (size)
                 /.price ng-show="size == 'small'"
                 /  | {{pizza.price[0]}}
@@ -91,6 +92,8 @@
                 span &#8372
                 | {{pizza.qnty * pizza.price}}
 
+              .success-message
+                span = inline_svg "icons/done.svg"
 
 
 / LIVE VIDEO
