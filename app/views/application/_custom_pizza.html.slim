@@ -37,7 +37,7 @@
       / Additional ingredients that we can add
       ul
 
-        li.order-item.clearfix ng-repeat="ingredient in custom_ingredients | inArray:custom_pizza_ingredients:'name'"
+        li.order-item.clearfix ng-repeat="ingredient in custom_ingredients"
           .floated
             .img-holder
               .img-bg style="background-image: url(#{asset_path('assets/img/ingredients/{{ingredient.imgUrl}}')})"
@@ -60,14 +60,12 @@
             | {{category.ingredient_category}}
           .qnty
             span.choosed
-              | 1
+              | {{ (filtered | filter:{active_ingredient: true}).length }}
             span.total
-              | {{category.list.length}}
+              | {{filtered.length}}
         .clearfix.ingredients-container
-          .floated ng-class="{'active':ingredient.active_ingredient}" ng-click="toggleIngredient(ingredient,category)" ng-repeat="ingredient in category.list"
+          .floated ng-class="{'active':ingredient.active_ingredient}" ng-click="toggleIngredient(ingredient,category)" ng-repeat="ingredient in category.list | filterInArray:custom_pizza_ingredients:'name' as filtered"
             .img style="background-image: url(#{asset_path('assets/img/ingredients/{{ingredient.imgUrl}}')})"
-            p
-              | {{ingredient.active_ingredient.length}}
             p.name
               | {{ingredient.name}}
             p.price
@@ -91,7 +89,7 @@
 
     .total-price
       span &#8372
-      | {{total}}
+      | {{total || 0}}
       /| {{custom_pizza.qnty*custom_pizza.price+ingPrice}}
       /span
       /  | :{{custom_pizza.qnty}}

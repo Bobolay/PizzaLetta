@@ -1,39 +1,56 @@
-pizzaApp.controller("ConstructorCtrl", function ($scope, ingredientsService) {
+pizzaApp.controller("ConstructorCtrl", function ($scope, ingredientsService, constructorService) {
+
+    //   Constructed pizza
+    $scope.constructed_pizza = constructorService.getCustomPizza();
 
     //   Ingredients list (we get them from ItemsService)
     $scope.ingredients_list = ingredientsService.getIngredients();
 
-    //   Set size option
-    $scope.size = "big";
-    $scope.getSize = function(size) {
-        $scope.size = size;
+    //   Additional ingredients
+    $scope.custom_ingredients = constructorService.getCustomIngredients();
+
+    // Increase / decrease
+    $scope.decrease = function(ingredient){
+        constructorService.decrease(ingredient)
+    };
+    $scope.increase = function(ingredient){
+        constructorService.increase(ingredient)
     };
 
-    //   Set sauce option
-    $scope.sauce = "red";
-    $scope.getSauce = function(sauce) {
-        $scope.sauce = sauce;
+    // Add or remove ingredient from pizza
+    $scope.toggleIngredient = function(ingredient){
+        constructorService.toggleIngredient(ingredient)
     };
-
-    var custom_pizza = {
-        pizzaImgUrl: "pizza-contructor.png",
-        name: "DIY pizza",
-        size: $scope.size,
-        sauce: $scope.sauce,
-        ingredients: []
-
-    };
-
-    $scope.choosed_in_category = 0;
-
-    // $scope.toggleIngredient = function (item) {
-    //     console.log(angular.element(item).find('.name'));
-    // };
-
-    // $scope.toggleIngredient = function($event){
-    //     console.log($event.currentTarget)
-    //     custom_pizza.ingredients.push(this);
-    //     console.log(custom_pizza);
-    // }
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//   Set sauce option
+// $scope.sauce = "red";
+// $scope.getSauce = function(sauce) {
+//     $scope.sauce = sauce;
+// };

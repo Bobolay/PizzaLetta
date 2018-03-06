@@ -1,39 +1,35 @@
 pizzaApp.factory("customPizzaService", function(){
 
-    // List of all ingredients
-    var custom_ingredients = [];
-
     // Choosed pizza for customization
     var custom_pizza = {};
-    // var pizza_price = 0;
+    // Custom pizza ingredients only
     var custom_pizza_ingredients = [];
-    var qwerty = 0;
+
+    // List of additional ingredients
+    var custom_ingredients = [];
 
     return {
+
         getCustomPizza: function () {
             return custom_pizza;
         },
+
         decrease: function(ingredient){
             if (ingredient.qnty == 1 ) {
                 return;
             } else {
                 ingredient.qnty--;
-                qwerty -= ingredient.price;
-                console.log(qwerty);
-                // $scope.ingPrice = $scope.ingPrice - ingredient.price;
             }
         },
         increase: function(ingredient){
             ingredient.qnty++;
-            qwerty += ingredient.price;
-            console.log(qwerty);
         },
-        getTotal: function(){
-            return qwerty;
-        },
+
+        // Return custom pizza ingredients only
         getCustomPizzaIngredients: function () {
             return custom_pizza_ingredients;
         },
+
         addCustomPizza: function (pizza) {
             if (typeof pizza === 'object') {
                 custom_pizza.imgUrl = pizza.imgUrl;
@@ -41,11 +37,10 @@ pizzaApp.factory("customPizzaService", function(){
                 custom_pizza.qnty = pizza.qnty;
                 custom_pizza.ingredients = pizza.ingredients;
                 custom_pizza.price = pizza.price;
-                // pizza_price = pizza.price;
-                // console.log(pizza_price);
             } else {
                 return false;
             }
+            // Create arr from ingredients of custom pizza
             custom_pizza_ingredients = pizza.ingredients.map(function(prop) {return prop.name;});
             console.log("Ingredients of custom pizza: ", custom_pizza_ingredients);
         },
@@ -62,20 +57,19 @@ pizzaApp.factory("customPizzaService", function(){
                     custom_ingredients.splice(target, 1);
                     // So let's remove 'active' class by doing this
                     ingredient.active_ingredient = false;
-                    qwerty -= ingredient.price;
                 }
             } else {
                 // This ingredient isn't choosen still - throw it into our pizza
                 custom_ingredients.push(ingredient);
                 // Highlight this ingredient (it receives 'active' class)
                 ingredient.active_ingredient = true;
-                qwerty += ingredient.price;
             }
         },
+
+        // Get additional ingredients
         getCustomIngredients: function(){
             return custom_ingredients;
         }
-
     }
 
 });
