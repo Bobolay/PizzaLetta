@@ -38,7 +38,6 @@ pizzaApp.controller("CustomPizzaCtrl", function ($rootScope, $scope, cartService
     $scope.toggleIngredient = function(ingredient){
         customPizzaService.toggleIngredient(ingredient);
         $scope.totalPrice = customPizzaService.getCustomPizzaTotal();
-
     };
 
     // Add custom pizza to cart
