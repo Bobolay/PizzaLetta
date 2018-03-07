@@ -22,5 +22,13 @@ Rails.application.routes.draw do
     get "stub", action: "stub"
 
   end
+  namespace :api do
+      namespace :v1 do
+        resources :ingredients, only: [:index]
+        resources :drinks, only: [:index]
+        resources :pizzas, only: [:index]
+      end
+    end
   match "*url", to: "application#render_not_found", via: [:get, :post, :path, :put, :update, :delete]
+
 end

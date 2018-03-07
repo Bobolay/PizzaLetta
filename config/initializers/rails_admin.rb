@@ -97,7 +97,7 @@ RailsAdmin.config do |config|
     navigation_label "Меню"
     label "Піца"
     field :ingredients
-    include_fields :name, :image, :pricesmall, :pricebig, :meat, :cheese, :fish, :vegeterian, :show
+    include_fields :name, :image, :pricesmall, :pricebig, :meat, :cheese, :fish, :vegeterian, :show, :discountsmall, :discountbig, :bonus_name, :bonus_description
   end
   config.model Order do
     navigation_label "Замовлення"

@@ -95,14 +95,9 @@ gem 'figaro'
 # gem 'require_reloader'
 
 gem 'thin'
-
 gem 'puma'
-
 gem 'angularjs-rails', '1.6'
-
-
-
-
+gem 'responders'
 gem 'rails_admin'
 gem 'carrierwave'
 gem 'devise'
@@ -111,10 +106,8 @@ gem 'simple_form'
 gem 'rails_admin-i18n'
 gem 'ckeditor'
 gem 'mini_magick'
-
 gem 'protected_attributes'
 gem 'rails_admin_nestable'
-
 gem 'htmlcompressor'
 gem 'rack-page_caching'
 gem 'ace-rails-ap'
