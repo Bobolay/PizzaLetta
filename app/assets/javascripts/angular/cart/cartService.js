@@ -3,12 +3,12 @@ pizzaApp.factory("cartService", function(){
     var cart = [];
     var pizza_qnty = cart.length;
 
-    var total = 0;
-
     return {
         getCart: function () {
             return cart;
         },
+        newcart: [],
+        total: 0,
         getPizzaQnty: function () {
             return pizza_qnty;
         },

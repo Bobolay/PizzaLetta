@@ -18,9 +18,9 @@ pizzaApp.controller("ConstructorCtrl", function ($scope, ingredientsService, con
     };
 
     // Add or remove ingredient from pizza
-    $scope.toggleIngredient = function(ingredient){
-        constructorService.toggleIngredient(ingredient)
-    };
+    // $scope.toggleIngredient = function(ingredient){
+    //     constructorService.toggleIngredient(ingredient)
+    // };
 
 });
 

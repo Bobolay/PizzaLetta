@@ -85,13 +85,8 @@
       .increase ng-click="increase(custom_pizza)"
         = inline_svg "icons/add.svg"
 
-    .add-to-cart-btn ng-click="addToCart(pizza)" add to cart
+    .add-to-cart-btn ng-click="customPizzaAddToCart(pizza)" add to cart
 
     .total-price
       span &#8372
-      | {{total || 0}}
-      /| {{custom_pizza.qnty*custom_pizza.price+ingPrice}}
-      /span
-      /  | :{{custom_pizza.qnty}}
-      /span
-      /  | :{{ingPrice}}
+      | {{totalPrice}}
