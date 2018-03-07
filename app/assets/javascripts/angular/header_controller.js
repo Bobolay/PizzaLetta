@@ -6,7 +6,7 @@ pizzaApp.controller("HeaderCtrl", function ($rootScope, $scope, cartService) {
     // Get pizza qnty from cart
     $scope.pizza_qnty = cartService.getPizzaQnty();
 
-    $rootScope.$on('pizzaIngrediants', function ($event) {
+    $rootScope.$on('pizzaIngredients', function ($event) {
       $scope.totalPrice = cartService.total;
     })
 });

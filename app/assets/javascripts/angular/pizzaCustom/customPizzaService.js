@@ -4,27 +4,16 @@ pizzaApp.factory("customPizzaService", function(cartService){
     var custom_pizza = {};
     // Custom pizza ingredients only
     var custom_pizza_ingredients = [];
-    console.log(cartService.total);
-    // List of additional ingredients
+    // List of additional ingredients that we choose (with toggleIngredient)
     var custom_ingredients = [];
+
+    var custom_pizza_total = 0;
 
     return {
 
+        // Get pizza that we cant to customize
         getCustomPizza: function () {
             return custom_pizza;
-        },
-
-        decrease: function(ingredient){
-            if (ingredient.qnty == 1 ) {
-                return;
-            } else {
-                ingredient.qnty--;
-                cartService.total -= ingredient.price;
-            }
-        },
-        increase: function(ingredient){
-            ingredient.qnty++;
-            cartService.total += ingredient.price;
         },
 
         // Return custom pizza ingredients only
@@ -32,6 +21,25 @@ pizzaApp.factory("customPizzaService", function(cartService){
             return custom_pizza_ingredients;
         },
 
+        getCustomPizzaTotal: function(){
+            return custom_pizza_total;
+        },
+
+        // Decrease / increase qnty of ingredient
+        decrease: function(ingredient){
+            if (ingredient.qnty == 1 ) {
+                return;
+            } else {
+                ingredient.qnty--;
+                custom_pizza_total -= ingredient.price;
+            }
+        },
+        increase: function(ingredient){
+            ingredient.qnty++;
+            custom_pizza_total += ingredient.price;
+        },
+
+        // Adding choosen pizza to this service from PizzaCrtl
         addCustomPizza: function (pizza) {
             if (typeof pizza === 'object') {
                 custom_pizza.imgUrl = pizza.imgUrl;
@@ -43,13 +51,10 @@ pizzaApp.factory("customPizzaService", function(cartService){
                 return false;
             }
             // Create arr from ingredients of custom pizza
-            cartService.total += pizza.price;
             custom_pizza_ingredients = pizza.ingredients.map(function(prop) {return prop.name;});
             console.log("Ingredients of custom pizza: ", custom_pizza_ingredients);
-        },
-
-        getCustomPizza: function(){
-            return custom_pizza;
+            custom_pizza_total = 0;
+            custom_pizza_total += pizza.price * pizza.qnty;
         },
 
         // Add or remove ingredient from out custom pizza
@@ -61,26 +66,27 @@ pizzaApp.factory("customPizzaService", function(cartService){
             if (existent_ingredient) {
                 var target = custom_ingredients.indexOf(ingredient);
                 if(target != -1) {
-                    cartService.total -= ingredient.price;
-
                     // We don't want eat this shit
                     custom_ingredients.splice(target, 1);
                     // So let's remove 'active' class by doing this
                     ingredient.active_ingredient = false;
+                    // Removing ingredient price to custom pizza total price
+                    custom_pizza_total -= ingredient.price;
                 }
             } else {
-                console.log(custom_ingredients);
-                cartService.total += ingredient.price;
                 // This ingredient isn't choosen still - throw it into our pizza
                 custom_ingredients.push(ingredient);
                 // Highlight this ingredient (it receives 'active' class)
                 ingredient.active_ingredient = true;
-                console.log(custom_ingredients);
+                // Adding ingredient price to custom pizza total price
+                console.log(custom_pizza_total);
+                custom_pizza_total += ingredient.price;
+                console.log(custom_pizza_total);
 
             }
         },
 
-        // Get additional ingredients
+        // Return additional ingredients (it stores in separate array from all ingredients)
         getCustomIngredients: function(){
             return custom_ingredients;
         }
