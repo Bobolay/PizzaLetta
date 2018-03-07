@@ -87,6 +87,7 @@
 
     .add-to-cart-btn ng-click="customPizzaAddToCart()" add to cart
 
+    /Show total price, but only here (this total price will appear in header what we add custom pizza to cart
     .total-price
       span &#8372
-      | {{totalPrice}}
+      | {{ custom_pizza.qnty * totalPrice }}

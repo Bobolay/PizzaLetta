@@ -26,19 +26,26 @@ pizzaApp.factory("customPizzaService", function(cartService){
         },
 
         // Decrease / increase qnty of ingredient
-        decrease: function(ingredient){
-            if (ingredient.qnty == 1 ) {
+        decrease: function(element){
+            if (element.qnty == 1 ) {
                 return;
             } else {
-                ingredient.qnty--;
-                custom_pizza_total -= ingredient.price;
+                if (element.hasOwnProperty('ingredients')){
+                    element.qnty--;
+                } else {
+                    element.qnty--;
+                    custom_pizza_total -= element.price;
+                }
             }
         },
-        increase: function(ingredient){
-            ingredient.qnty++;
-            custom_pizza_total += ingredient.price;
+        increase: function(element){
+            if (element.hasOwnProperty('ingredients')){
+                element.qnty++;
+            } else {
+                element.qnty++;
+                custom_pizza_total += element.price;
+            }
         },
-
         // Adding choosen pizza to this service from PizzaCrtl
         addCustomPizza: function (pizza) {
             if (typeof pizza === 'object') {
@@ -79,10 +86,7 @@ pizzaApp.factory("customPizzaService", function(cartService){
                 // Highlight this ingredient (it receives 'active' class)
                 ingredient.active_ingredient = true;
                 // Adding ingredient price to custom pizza total price
-                console.log(custom_pizza_total);
                 custom_pizza_total += ingredient.price;
-                console.log(custom_pizza_total);
-
             }
         },
 
