@@ -43,11 +43,13 @@ pizzaApp.controller("CustomPizzaCtrl", function ($rootScope, $scope, cartService
 
     // Add custom pizza to cart
     $scope.customPizzaAddToCart = function(){
-        var customized_pizza = customPizzaService.getCustomPizza();
-        console.log("cumzd piza ",customized_pizza);
-        console.log("before cart ",cartService.appCart);
-        cartService.appCart.push(customized_pizza);
-        console.log(" after cart ",cartService.appCart);
+        var customized_pizza = customPizzaService.createCustomPizza();
+        var pizza_to_cart = {};
+        for (key in customized_pizza) {
+            pizza_to_cart[key] = customized_pizza[key];
+        }
+        cartService.appCart.push(pizza_to_cart);
+        console.log("cart ",cartService.appCart);
     };
 
 })

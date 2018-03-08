@@ -2,6 +2,8 @@ pizzaApp.factory("customPizzaService", function(cartService){
 
     // Choosed pizza for customization
     var custom_pizza = {};
+    // Custom pizza + custom ingredients that goes into cart
+    var custom_pizza_for_cart = {};
     // Custom pizza ingredients only
     var custom_pizza_ingredients = [];
     // List of additional ingredients that we choose (with toggleIngredient)
@@ -21,11 +23,16 @@ pizzaApp.factory("customPizzaService", function(cartService){
             return custom_pizza_ingredients;
         },
 
-        // createCustomPizza: function () {
-        //     var joint_ingredients = custom_pizza.ingredients.concat(custom_ingredients);
-        //     custom_pizza.ingredients = joint_ingredients;
-        //     return custom_pizza;
-        // },
+        createCustomPizza: function () {
+            for (var key in custom_pizza){
+                custom_pizza_for_cart[key] = custom_pizza[key];
+            }
+            var joint_ingredients = custom_pizza_for_cart.ingredients.concat(custom_ingredients);
+            custom_pizza_for_cart.ingredients = joint_ingredients;
+            custom_pizza_for_cart['total_price'] = custom_pizza_total * custom_pizza_for_cart.qnty;
+            // console.log("custom_pizza_for_cart ",custom_pizza_for_cart);
+            return custom_pizza_for_cart;
+        },
 
         getCustomPizzaTotal: function(){
             return custom_pizza_total;
@@ -106,6 +113,7 @@ pizzaApp.factory("customPizzaService", function(cartService){
         resetIngredients: function(){
             return custom_ingredients = [];
         }
+
     }
 
 });
