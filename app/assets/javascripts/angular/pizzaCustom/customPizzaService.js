@@ -21,6 +21,12 @@ pizzaApp.factory("customPizzaService", function(cartService){
             return custom_pizza_ingredients;
         },
 
+        // createCustomPizza: function () {
+        //     var joint_ingredients = custom_pizza.ingredients.concat(custom_ingredients);
+        //     custom_pizza.ingredients = joint_ingredients;
+        //     return custom_pizza;
+        // },
+
         getCustomPizzaTotal: function(){
             return custom_pizza_total;
         },
@@ -49,6 +55,7 @@ pizzaApp.factory("customPizzaService", function(cartService){
         // Adding choosen pizza to this service from PizzaCrtl
         addCustomPizza: function (pizza) {
             if (typeof pizza === 'object') {
+                custom_pizza.type = "Custom"
                 custom_pizza.imgUrl = pizza.imgUrl;
                 custom_pizza.name = pizza.name;
                 custom_pizza.qnty = pizza.qnty;
@@ -59,7 +66,7 @@ pizzaApp.factory("customPizzaService", function(cartService){
             }
             // Create arr from ingredients of custom pizza
             custom_pizza_ingredients = pizza.ingredients.map(function(prop) {return prop.name;});
-            console.log("Ingredients of custom pizza: ", custom_pizza_ingredients);
+            // console.log("Ingredients of custom pizza: ", custom_pizza_ingredients);
             custom_pizza_total = 0;
             custom_pizza_total += pizza.price * pizza.qnty;
         },
@@ -93,6 +100,11 @@ pizzaApp.factory("customPizzaService", function(cartService){
         // Return additional ingredients (it stores in separate array from all ingredients)
         getCustomIngredients: function(){
             return custom_ingredients;
+        },
+
+        // Clear additional ingredients list when we choose another pizza for customization
+        resetIngredients: function(){
+            return custom_ingredients = [];
         }
     }
 

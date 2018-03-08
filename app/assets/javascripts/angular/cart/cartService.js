@@ -7,7 +7,7 @@ pizzaApp.factory("cartService", function(){
         getCart: function () {
             return cart;
         },
-        newcart: [],
+        appCart: [],
         total: 0,
         getPizzaQnty: function () {
             return pizza_qnty;

@@ -19,6 +19,7 @@ pizzaApp.controller("CustomPizzaCtrl", function ($rootScope, $scope, cartService
     $rootScope.$on('pizzaIngredients', function($event) {
         $scope.custom_pizza_ingredients = customPizzaService.getCustomPizzaIngredients();
         $scope.totalPrice = customPizzaService.getCustomPizzaTotal();
+        $scope.custom_ingredients = customPizzaService.resetIngredients();
     });
 
     //   Additional ingredients that we choose from all list
@@ -42,7 +43,11 @@ pizzaApp.controller("CustomPizzaCtrl", function ($rootScope, $scope, cartService
 
     // Add custom pizza to cart
     $scope.customPizzaAddToCart = function(){
-        cartService.newcart.push(customPizzaService.getCustomPizza());
+        var customized_pizza = customPizzaService.getCustomPizza();
+        console.log("cumzd piza ",customized_pizza);
+        console.log("before cart ",cartService.appCart);
+        cartService.appCart.push(customized_pizza);
+        console.log(" after cart ",cartService.appCart);
     };
 
 })
