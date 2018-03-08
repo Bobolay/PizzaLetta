@@ -1,13 +1,10 @@
-pizzaApp.controller("ConstructorCtrl", function ($scope, ingredientsService, constructorService) {
-
-    // Constructed pizza
-    // $scope.constructed_pizza = constructorService.getCustomPizza();
+pizzaApp.controller("ConstructorCtrl", function ($rootScope, $scope, ingredientsService, constructorService) {
 
     // Ingredients list (we get them from ItemsService)
     $scope.ingredients_list = ingredientsService.getIngredients();
 
-    // Additional ingredients
-    $scope.custom_ingredients = constructorService.getCustomIngredients();
+    // Ingredients we choose yo put inside constructor pizza
+    $scope.custom_ingredients = constructorService.getConstructorIngredients();
 
     // Total price of constructor pizza
     $scope.total_price = constructorService.getConstructorPizzaTotal();

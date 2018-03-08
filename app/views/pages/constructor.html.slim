@@ -25,8 +25,7 @@
         input#sauce-red type="radio" name="sauce" checked="checked" ng-model='sauce' ng-value="'red'" ng-click="getSauce(sauce)"
         label.red for="sauce-red"
 
-    / Choose ingredients
-    / Meet
+    / All ingredients list
     .ingredient-type-wrap ng-repeat="category in ingredients_list"
       .ingredient-type
         p.subtitle
@@ -55,6 +54,7 @@
 
 
   /   C O N S T R U C T E D   P I Z Z A
+
   .panel.order-summary.width-style-2 ng-show="showDetails"
 
     p.title.go-back ng-click="showDetails = ! showDetails"
@@ -66,7 +66,7 @@
       .floated к-сть
       .floated ціна
 
-    / Additional ingredients that we can add
+    / Additional ingredients that we can add displays here
     ul
 
     li.order-item.clearfix ng-repeat="ingredient in custom_ingredients"
@@ -77,7 +77,7 @@
           | {{ingredient.name}}
       .floated.quantity.on-white-bg
         .decrease ng-click="decrease(ingredient)" = inline_svg "icons/remove.svg"
-        .number ng-bind="ingredient.qnty || 1"
+        .number ng-bind="ingredient.qnty"
         .increase ng-click="increase(ingredient)" = inline_svg "icons/add.svg"
       .floated
         p.price.dib.kostyl
