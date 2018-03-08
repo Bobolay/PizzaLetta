@@ -59,6 +59,7 @@ pizzaApp.factory("customPizzaService", function(cartService){
                 custom_pizza_total += element.price;
             }
         },
+
         // Adding choosen pizza to this service from PizzaCrtl
         addCustomPizza: function (pizza) {
             if (typeof pizza === 'object') {

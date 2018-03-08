@@ -22,6 +22,9 @@ pizzaApp.controller("CustomPizzaCtrl", function ($rootScope, $scope, cartService
         $scope.custom_ingredients = customPizzaService.resetIngredients();
     });
 
+    //   Ingredients list (we get them from ItemsService)
+    $scope.ingredients_list = ingredientsService.getIngredients();
+
     //   Additional ingredients that we choose from all list
     $scope.custom_ingredients = customPizzaService.getCustomIngredients();
 

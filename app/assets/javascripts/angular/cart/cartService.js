@@ -5,10 +5,6 @@ pizzaApp.factory("cartService", function(){
 
     return {
 
-        getCart: function () {
-            return cart;
-        },
-
         appCart: [],
         total: 0,
 
