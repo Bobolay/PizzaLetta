@@ -4,7 +4,7 @@ pizzaApp.factory("constructorService", function(cartService){
     var constructor_ingredients = [];
 
     // Total price of construcred pizza
-    var constructor_pizza_total = 100;
+    var constructor_pizza_total = 50;
 
     return {
 
@@ -12,17 +12,26 @@ pizzaApp.factory("constructorService", function(cartService){
             return constructor_pizza_total;
         },
 
-        decrease: function(ingredient){
-            if (ingredient.qnty == 1 ) {
+        // Decrease / increase qnty of ingredient
+        decrease: function(element){
+            if (element.qnty == 1 ) {
                 return;
             } else {
-                ingredient.qnty--;
-                constructor_pizza_total -= ingredient.price;
+                if (element.hasOwnProperty('ingredients')){
+                    element.qnty--;
+                } else {
+                    element.qnty--;
+                    constructor_pizza_total -= element.price;
+                }
             }
         },
-        increase: function(ingredient){
-            ingredient.qnty++;
-            constructor_pizza_total += ingredient.price;
+        increase: function (element) {
+            if (element.hasOwnProperty('ingredients')){
+                element.qnty++;
+            } else {
+                element.qnty++;
+                constructor_pizza_total += element.price;
+            }
         },
 
         // Add or remove ingredient from out custom pizza
@@ -52,9 +61,10 @@ pizzaApp.factory("constructorService", function(cartService){
         },
 
         // Get additional ingredients
-        getConstructorIngredients: function(){
+        getConstructorIngredients: function () {
             return constructor_ingredients;
-        }
+        },
+        
     }
 
 });

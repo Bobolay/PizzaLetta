@@ -34,7 +34,7 @@ pizzaApp.factory("customPizzaService", function(cartService){
             return custom_pizza_for_cart;
         },
 
-        getCustomPizzaTotal: function(){
+        getCustomPizzaTotal: function () {
             return custom_pizza_total;
         },
 
@@ -51,7 +51,7 @@ pizzaApp.factory("customPizzaService", function(cartService){
                 }
             }
         },
-        increase: function(element){
+        increase: function (element) {
             if (element.hasOwnProperty('ingredients')){
                 element.qnty++;
             } else {
@@ -80,7 +80,7 @@ pizzaApp.factory("customPizzaService", function(cartService){
         },
 
         // Add or remove ingredient from out custom pizza
-        toggleIngredient: function(ingredient){
+        toggleIngredient: function (ingredient) {
 
             var existent_ingredient = custom_ingredients.find(function(matched){
                 return matched.name === ingredient.name;
@@ -106,12 +106,12 @@ pizzaApp.factory("customPizzaService", function(cartService){
         },
 
         // Return additional ingredients (it stores in separate array from all ingredients)
-        getCustomIngredients: function(){
+        getCustomIngredients: function () {
             return custom_ingredients;
         },
 
         // Clear additional ingredients list when we choose another pizza for customization
-        resetIngredients: function(){
+        resetIngredients: function () {
             return custom_ingredients = [];
         }
 

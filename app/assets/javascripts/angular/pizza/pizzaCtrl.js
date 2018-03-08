@@ -27,7 +27,7 @@ pizzaApp.controller("PizzaListCtrl", function ($rootScope, $scope, itemsService,
     $scope.pizzaAddToCart = function(pizza){
         pizza['total_price'] = pizza.qnty * pizza.price;
         cartService.appCart.push(pizza);
-        console.log("cart ",cartService.appCart);
+        console.log("Cart ",cartService.appCart);
     };
 
 });
