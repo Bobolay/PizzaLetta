@@ -37,23 +37,26 @@
       / Additional ingredients that we can add
       ul
 
-        li.order-item.clearfix ng-repeat="ingredient in custom_ingredients"
-          .floated
-            .img-holder
-              .img-bg style="background-image: url(#{asset_path('assets/img/ingredients/{{ingredient.imgUrl}}')})"
-            p.name.dib
-              | {{ingredient.name}}
-          .floated.quantity.on-white-bg
-            .decrease ng-click="decrease(ingredient)" = inline_svg "icons/remove.svg"
-            .number ng-bind="ingredient.qnty || 1"
-            .increase ng-click="increase(ingredient)" = inline_svg "icons/add.svg"
-          .floated
-            p.price.dib.kostyl
-              span &#8372
-              | {{ingredient.price}}
+        li.order-item ng-repeat="ingredient in custom_ingredients"
+          /.remove ng-click="toggleIngredient(ingredient)"
+            = inline_svg "icons/close.svg"
+          .clearfix
+            .floated
+              .img-holder
+                .img-bg style="background-image: url(#{asset_path('assets/img/ingredients/{{ingredient.imgUrl}}')})"
+              p.name.dib
+                | {{ingredient.name}}
+            .floated.quantity.on-white-bg
+              .decrease ng-click="decrease(ingredient)" = inline_svg "icons/remove.svg"
+              .number ng-bind="ingredient.qnty || 1"
+              .increase ng-click="increase(ingredient)" = inline_svg "icons/add.svg"
+            .floated
+              p.price.dib.kostyl
+                span &#8372
+                | {{ingredient.price}}
 
-    /   List of ingredients
-    .panel ng-controller="ConstructorCtrl"
+    /   List of all available ingredients
+    .panel
       .ingredient-type-wrap ng-repeat="category in ingredients_list"
         .ingredient-type
           p.subtitle
@@ -85,8 +88,9 @@
       .increase ng-click="increase(custom_pizza)"
         = inline_svg "icons/add.svg"
 
-    .add-to-cart-btn ng-click="customPizzaAddToCart()" add to cart
+    .add-to-cart-btn ng-click="customPizzaAddToCart()" в корзину
 
+    /Show total price, but only here (this total price will appear in header what we add custom pizza to cart
     .total-price
       span &#8372
-      | {{totalPrice}}
+      | {{ custom_pizza.qnty * totalPrice }}

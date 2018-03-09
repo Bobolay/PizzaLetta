@@ -19,30 +19,40 @@ pizzaApp.controller("CustomPizzaCtrl", function ($rootScope, $scope, cartService
     $rootScope.$on('pizzaIngredients', function($event) {
         $scope.custom_pizza_ingredients = customPizzaService.getCustomPizzaIngredients();
         $scope.totalPrice = customPizzaService.getCustomPizzaTotal();
+        $scope.custom_ingredients = customPizzaService.resetIngredients();
     });
+
+    //   Ingredients list (we get them from ItemsService)
+    $scope.ingredients_list = ingredientsService.getIngredients();
 
     //   Additional ingredients that we choose from all list
     $scope.custom_ingredients = customPizzaService.getCustomIngredients();
 
     // Increase / decrease
     $scope.decrease = function(ingredient){
-        customPizzaService.decrease(ingredient)
+        customPizzaService.decrease(ingredient);
         $scope.totalPrice = customPizzaService.getCustomPizzaTotal();
     };
     $scope.increase = function(ingredient){
-        customPizzaService.increase(ingredient)
+        customPizzaService.increase(ingredient);
         $scope.totalPrice = customPizzaService.getCustomPizzaTotal();
     };
 
     // Add or remove ingredient from pizza
     $scope.toggleIngredient = function(ingredient){
-        customPizzaService.toggleIngredient(ingredient)
+        customPizzaService.toggleIngredient(ingredient);
         $scope.totalPrice = customPizzaService.getCustomPizzaTotal();
     };
 
     // Add custom pizza to cart
     $scope.customPizzaAddToCart = function(){
-        cartService.newcart.push(customPizzaService.getCustomPizza());
+        var customized_pizza = customPizzaService.createCustomPizza();
+        var pizza_to_cart = {};
+        for (key in customized_pizza) {
+            pizza_to_cart[key] = customized_pizza[key];
+        }
+        cartService.appCart.push(pizza_to_cart);
+        console.log("cart ",cartService.appCart);
     };
 
 })

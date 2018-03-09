@@ -10,16 +10,16 @@ html
     = render "header"
     = render "sidemenu"
 
+
     / view all Your item You want to order
     = render "cart"
-    / here You can add some additional ingredients to Your pizza
-    
+    / make your very own custom pizza with additional ingredients
+    = render "custom_pizza"
 
     = render "success_message"
 
     .main-wrapper
       = yield
-      = render "custom_pizza"
       / ng-view
 
     - if @render_footer != false

@@ -58,8 +58,8 @@
                   | {{drink.qnty}}
                 .increase ng-click="increase(drink)" = inline_svg "icons/add.svg"
 
-              .add-to-cart-btn ng-click="addToCart(drink)" add to cart
+              .add-to-cart-btn ng-click="drinkAddToCart(drink)" в корзину
 
               .total-price
                 span &#8372
-                | {{drink.price}}
+                | {{ drink.price * drink.qnty }}

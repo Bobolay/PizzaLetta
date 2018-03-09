@@ -10,7 +10,7 @@ pizzaApp.factory("ingredientsService", function(){
                 {
                     name: "Шинка",
                     imgUrl: "Letta-ingr-ham.png",
-                    price: 15,
+                    price: 10,
                     qnty: 1
                 },
                 {
@@ -34,7 +34,7 @@ pizzaApp.factory("ingredientsService", function(){
                 {
                     name: "Курка печена",
                     imgUrl: "Letta-ingr-chiken.png",
-                    price: 11,
+                    price: 10,
                     qnty: 1
                 }
             ]
@@ -51,7 +51,7 @@ pizzaApp.factory("ingredientsService", function(){
                 {
                     name: "Анчоуси",
                     imgUrl: "Letta-ingr-anchouses.png",
-                    price: 19,
+                    price: 10,
                     qnty: 1
                 },
                 {

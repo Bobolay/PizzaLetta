@@ -2,6 +2,8 @@ pizzaApp.factory("customPizzaService", function(cartService){
 
     // Choosed pizza for customization
     var custom_pizza = {};
+    // Custom pizza + custom ingredients that goes into cart
+    var custom_pizza_for_cart = {};
     // Custom pizza ingredients only
     var custom_pizza_ingredients = [];
     // List of additional ingredients that we choose (with toggleIngredient)
@@ -21,27 +23,47 @@ pizzaApp.factory("customPizzaService", function(cartService){
             return custom_pizza_ingredients;
         },
 
-        getCustomPizzaTotal: function(){
+        createCustomPizza: function () {
+            for (var key in custom_pizza){
+                custom_pizza_for_cart[key] = custom_pizza[key];
+            }
+            var joint_ingredients = custom_pizza_for_cart.ingredients.concat(custom_ingredients);
+            custom_pizza_for_cart.ingredients = joint_ingredients;
+            custom_pizza_for_cart['total_price'] = custom_pizza_total * custom_pizza_for_cart.qnty;
+            // console.log("custom_pizza_for_cart ",custom_pizza_for_cart);
+            return custom_pizza_for_cart;
+        },
+
+        getCustomPizzaTotal: function () {
             return custom_pizza_total;
         },
 
         // Decrease / increase qnty of ingredient
-        decrease: function(ingredient){
-            if (ingredient.qnty == 1 ) {
+        decrease: function(element){
+            if (element.qnty == 1 ) {
                 return;
             } else {
-                ingredient.qnty--;
-                custom_pizza_total -= ingredient.price;
+                if (element.hasOwnProperty('ingredients')){
+                    element.qnty--;
+                } else {
+                    element.qnty--;
+                    custom_pizza_total -= element.price;
+                }
             }
         },
-        increase: function(ingredient){
-            ingredient.qnty++;
-            custom_pizza_total += ingredient.price;
+        increase: function (element) {
+            if (element.hasOwnProperty('ingredients')){
+                element.qnty++;
+            } else {
+                element.qnty++;
+                custom_pizza_total += element.price;
+            }
         },
 
         // Adding choosen pizza to this service from PizzaCrtl
         addCustomPizza: function (pizza) {
             if (typeof pizza === 'object') {
+                custom_pizza.type = "Custom"
                 custom_pizza.imgUrl = pizza.imgUrl;
                 custom_pizza.name = pizza.name;
                 custom_pizza.qnty = pizza.qnty;
@@ -52,13 +74,13 @@ pizzaApp.factory("customPizzaService", function(cartService){
             }
             // Create arr from ingredients of custom pizza
             custom_pizza_ingredients = pizza.ingredients.map(function(prop) {return prop.name;});
-            console.log("Ingredients of custom pizza: ", custom_pizza_ingredients);
+            // console.log("Ingredients of custom pizza: ", custom_pizza_ingredients);
             custom_pizza_total = 0;
             custom_pizza_total += pizza.price * pizza.qnty;
         },
 
         // Add or remove ingredient from out custom pizza
-        toggleIngredient: function(ingredient){
+        toggleIngredient: function (ingredient) {
 
             var existent_ingredient = custom_ingredients.find(function(matched){
                 return matched.name === ingredient.name;
@@ -79,17 +101,20 @@ pizzaApp.factory("customPizzaService", function(cartService){
                 // Highlight this ingredient (it receives 'active' class)
                 ingredient.active_ingredient = true;
                 // Adding ingredient price to custom pizza total price
-                console.log(custom_pizza_total);
                 custom_pizza_total += ingredient.price;
-                console.log(custom_pizza_total);
-
             }
         },
 
         // Return additional ingredients (it stores in separate array from all ingredients)
-        getCustomIngredients: function(){
+        getCustomIngredients: function () {
             return custom_ingredients;
+        },
+
+        // Clear additional ingredients list when we choose another pizza for customization
+        resetIngredients: function () {
+            return custom_ingredients = [];
         }
+
     }
 
 });

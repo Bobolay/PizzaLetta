@@ -62,7 +62,7 @@ pizzaApp.factory("itemsService", function(){
                 {
                     name: "Шинка",
                     imgUrl: "Letta-ingr-ham.png",
-                    price: 15,
+                    price: 10,
                     qnty: 1
                 },
                 {
@@ -90,7 +90,7 @@ pizzaApp.factory("itemsService", function(){
                     qnty: 1
                 }
             ],
-            price: 87,
+            price: 100,
             qnty: 1
         },
         {
@@ -191,7 +191,7 @@ pizzaApp.factory("itemsService", function(){
                 {
                     name: "Шинка",
                     imgUrl: "Letta-ingr-ham.png",
-                    price: 15,
+                    price: 10,
                     qnty: 1
                 },
                 {
@@ -219,7 +219,7 @@ pizzaApp.factory("itemsService", function(){
                     qnty: 1
                 }
             ],
-            price: 87,
+            price: 100,
             qnty: 1
         },
         {

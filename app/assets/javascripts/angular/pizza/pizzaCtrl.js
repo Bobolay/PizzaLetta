@@ -2,10 +2,10 @@
 
 pizzaApp.controller("PizzaListCtrl", function ($rootScope, $scope, itemsService, cartService, customPizzaService) {
 
-    //   Items list (we get them from ItemsService)
+    // Items list (we get them from ItemsService)
     $scope.pizza_list = itemsService.getPizzaItems();
 
-    //   Decrease/increase quantity in items list only
+    // Decrease/increase quantity in items list only
     $scope.decrease = function(pizza){
         if (pizza.qnty == 1 ) {
             return;
@@ -17,15 +17,17 @@ pizzaApp.controller("PizzaListCtrl", function ($rootScope, $scope, itemsService,
         pizza.qnty++;
     };
 
-    //   Add item to cart
-    $scope.addToCart = function(pizza){
-        cartService.addToCart(pizza);
-    };
-
-    //   Custom pizza
+    // Add custom pizza for customization process
     $scope.addCustomPizza = function(pizza){
         customPizzaService.addCustomPizza(pizza);
         $rootScope.$emit('pizzaIngredients');
+    };
+
+    // Add pizza to cart
+    $scope.pizzaAddToCart = function(pizza){
+        pizza['total_price'] = pizza.qnty * pizza.price;
+        cartService.appCart.push(pizza);
+        console.log("Cart ",cartService.appCart);
     };
 
 });

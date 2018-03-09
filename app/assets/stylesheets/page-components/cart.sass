@@ -140,6 +140,14 @@
   .order-item
     position: relative
     min-height: 60px
+    .remove
+      position: absolute
+      width: 12px
+      height: 12px
+      top: 10px
+      left: -15px
+      svg
+        stroke: $red
     .floated:first-child
       padding-left: 90px
     .img-holder
@@ -155,6 +163,8 @@
       -webkit-background-size: contain
       background-size: contain
     .name
+      position: relative
+      top: 6px
       font-size: 14px
       font-weight: 600
     .quantity
