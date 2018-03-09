@@ -29,23 +29,23 @@ pizzaApp.controller("CustomPizzaCtrl", function ($rootScope, $scope, cartService
     $scope.custom_ingredients = customPizzaService.getCustomIngredients();
 
     // Increase / decrease
-    $scope.decrease = function(ingredient){
+    $scope.decrease = function (ingredient) {
         customPizzaService.decrease(ingredient);
         $scope.totalPrice = customPizzaService.getCustomPizzaTotal();
     };
-    $scope.increase = function(ingredient){
+    $scope.increase = function (ingredient) {
         customPizzaService.increase(ingredient);
         $scope.totalPrice = customPizzaService.getCustomPizzaTotal();
     };
 
     // Add or remove ingredient from pizza
-    $scope.toggleIngredient = function(ingredient){
+    $scope.toggleIngredient = function (ingredient) {
         customPizzaService.toggleIngredient(ingredient);
         $scope.totalPrice = customPizzaService.getCustomPizzaTotal();
     };
 
     // Add custom pizza to cart
-    $scope.customPizzaAddToCart = function(){
+    $scope.customPizzaAddToCart = function () {
         var customized_pizza = customPizzaService.createCustomPizza();
         var pizza_to_cart = {};
         for (key in customized_pizza) {

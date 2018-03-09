@@ -1,9 +1,15 @@
 //   D R I N K S   C T R L
 
-pizzaApp.controller("DrinksCtrl", function ($scope, drinksService, cartService) {
+pizzaApp.controller("DrinksCtrl", function ($scope, drinksService, cartService, $http) {
 
     // Drinks list (we get them from DrinksService)
     $scope.drinks = drinksService.getDrinks();
+
+    // Get drinks list
+    // $http({method: 'GET', url: 'http://localhost:3000/api/v1/drinks.json'}).
+    // then(function success(response) {
+    //     $scope.drinks = response.data;
+    // });
 
     // Decrease/increase quantity in items list only
     $scope.decrease = function(drink){

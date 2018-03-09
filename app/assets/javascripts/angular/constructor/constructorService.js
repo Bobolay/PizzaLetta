@@ -1,4 +1,4 @@
-pizzaApp.factory("constructorService", function(cartService){
+pizzaApp.factory("constructorService", function(cartService, $http){
 
     // List of additional ingredients
     var constructor_ingredients = [];
@@ -7,6 +7,13 @@ pizzaApp.factory("constructorService", function(cartService){
     var constructor_pizza_total = 50;
 
     return {
+
+        getConstructorBase: function () {
+            return $http.get('http://localhost:3000/api/v1/constructor.json').then(function (response) {
+                console.log(response.data);
+                return response.data;
+            });
+        },
 
         getConstructorPizzaTotal: function(){
             return constructor_pizza_total;
