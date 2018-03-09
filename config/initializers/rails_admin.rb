@@ -38,7 +38,7 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
-   config.included_models = [Order,Ordersphone,Ordersemail,Call,Subscribe,Pizza,Contact,Ingredient,Drink,Gift,About,Shipping,Oferta,Aboutimage,Giftdescription]
+   config.included_models = [Constructor,Order,Ordersphone,Ordersemail,Call,Subscribe,Pizza,Contact,Ingredient,Drink,Gift,About,Shipping,Oferta,Aboutimage,Giftdescription]
   config.model Shipping do
    label "Доставка"
    include_fields :time_of_shipping, :description, :first_address, :first_address_map, :second_address, :second_address_map, :payment_description, :image
@@ -46,6 +46,11 @@ RailsAdmin.config do |config|
   config.model Oferta do
     label "Оферта"
     include_fields :image, :first_title,:first_description,:second_title, :second_description
+  end
+  config.model Constructor do
+    navigation_label "Меню"
+    label "Основи для піц"
+    include_fields :small_price, :big_price
   end
   config.model Aboutimage do
     navigation_label "Про нас"

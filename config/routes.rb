@@ -27,6 +27,7 @@ Rails.application.routes.draw do
         resources :ingredients, only: [:index]
         resources :drinks, only: [:index]
         resources :pizzas, only: [:index]
+        resources :constructor, only: [:index]
       end
     end
   match "*url", to: "application#render_not_found", via: [:get, :post, :path, :put, :update, :delete]
