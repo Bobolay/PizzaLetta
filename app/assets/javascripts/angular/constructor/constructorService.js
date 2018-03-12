@@ -1,18 +1,25 @@
-pizzaApp.factory("constructorService", function(cartService, $http){
+pizzaApp.factory("constructorService", function(cartService, $http, $q){
 
     // List of additional ingredients
     var constructor_ingredients = [];
 
-    // Total price of construcred pizza
-    var constructor_pizza_total = 50;
+    var constructor_pizza_total = 0;
 
     return {
 
         getConstructorBase: function () {
-            return $http.get('http://localhost:3000/api/v1/constructor.json').then(function (response) {
-                console.log(response.data);
-                return response.data;
+            var deferred = $q.defer();
+            $http({method: 'GET', url: 'http://localhost:3000/api/v1/constructor.json'}).
+            then(function success(response){
+                deferred.resolve(response.data);
+            }, function error(response){
+                deferred.reject(response.status);
             });
+            return deferred.promise;
+        },
+
+        setBasePrice: function (value) {
+            constructor_pizza_total = value.price_small;
         },
 
         getConstructorPizzaTotal: function(){
