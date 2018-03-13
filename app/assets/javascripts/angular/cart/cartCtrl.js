@@ -1,4 +1,4 @@
-pizzaApp.controller("CartCtrl", function ($scope, cartService) {
+pizzaApp.controller("CartCtrl", [ '$scope', 'cartService', function ($scope, cartService) {
 
     //   Items list in cart
     $scope.cart = cartService.appCart;
@@ -25,4 +25,4 @@ pizzaApp.controller("CartCtrl", function ($scope, cartService) {
         cartService.buy(pizza);
     }
 
-})
+}]);

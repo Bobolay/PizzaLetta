@@ -1,6 +1,6 @@
 //   D R I N K S   C T R L
 
-pizzaApp.controller("DrinksCtrl", function ($scope, drinksService, cartService, $http) {
+pizzaApp.controller("DrinksCtrl", [ '$scope', 'drinksService', 'cartService', '$http', function ($scope, drinksService, cartService, $http) {
 
     // Drinks list (we get them from DrinksService)
     // $scope.drinks = drinksService.getDrinks();
@@ -30,4 +30,4 @@ pizzaApp.controller("DrinksCtrl", function ($scope, drinksService, cartService, 
         console.log("cart ",cartService.appCart);
     };
 
-});
+}]);

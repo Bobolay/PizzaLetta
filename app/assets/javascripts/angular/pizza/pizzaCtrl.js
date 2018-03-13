@@ -1,6 +1,6 @@
 //   P I Z Z A   C T R L
 
-pizzaApp.controller("PizzaListCtrl", function ($rootScope, $scope, itemsService, cartService, customPizzaService) {
+pizzaApp.controller("PizzaListCtrl", [ '$rootScope', '$scope', 'itemsService', 'cartService', 'customPizzaService', function ($rootScope, $scope, itemsService, cartService, customPizzaService) {
 
     // Items list (we get them from ItemsService)
     $scope.pizza_list = itemsService.getPizzaItems();
@@ -30,4 +30,4 @@ pizzaApp.controller("PizzaListCtrl", function ($rootScope, $scope, itemsService,
         console.log("Cart ",cartService.appCart);
     };
 
-});
+}]);

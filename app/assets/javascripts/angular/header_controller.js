@@ -1,4 +1,4 @@
-pizzaApp.controller("HeaderCtrl", function ($rootScope, $scope, cartService) {
+pizzaApp.controller("HeaderCtrl", [ '$rootScope', '$scope', 'cartService', function ($rootScope, $scope, cartService) {
 
     // Header title depends from current page
     $scope.title = "Header_title_angular";
@@ -9,4 +9,4 @@ pizzaApp.controller("HeaderCtrl", function ($rootScope, $scope, cartService) {
     $rootScope.$on('pizzaIngredients', function ($event) {
       $scope.totalPrice = cartService.total;
     })
-});
+}]);

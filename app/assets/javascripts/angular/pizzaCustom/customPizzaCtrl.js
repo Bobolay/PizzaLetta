@@ -11,7 +11,7 @@ pizzaApp.filter('filterInArray', function($filter){
     });
 
 //   C U S T O M   P I Z Z A   C O N T R O L L E R
-pizzaApp.controller("CustomPizzaCtrl", function ($rootScope, $scope, cartService, customPizzaService, ingredientsService) {
+pizzaApp.controller("CustomPizzaCtrl", [ '$rootScope', '$scope', 'cartService', 'customPizzaService', 'ingredientsService', function ($rootScope, $scope, cartService, customPizzaService, ingredientsService) {
 
     //   Custom pizza
     $scope.custom_pizza = customPizzaService.getCustomPizza();
@@ -55,4 +55,4 @@ pizzaApp.controller("CustomPizzaCtrl", function ($rootScope, $scope, cartService
         console.log("cart ",cartService.appCart);
     };
 
-})
+}]);

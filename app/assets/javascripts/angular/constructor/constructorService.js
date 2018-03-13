@@ -1,4 +1,4 @@
-pizzaApp.factory("constructorService", function(cartService, $http, $q){
+pizzaApp.factory("constructorService", [ 'cartService', '$http', '$q', function(cartService, $http, $q){
 
     // List of additional ingredients
     var constructor_ingredients = [];
@@ -81,4 +81,4 @@ pizzaApp.factory("constructorService", function(cartService, $http, $q){
         
     }
 
-});
+}]);
