@@ -32,7 +32,7 @@
 
 / PIZZA LIST
 .indent.item-list.mix-container ng-controller="PizzaListCtrl"
-  .row.columns-left
+  .row.columns-left ng-if="ready"
 
     .columns.medium-6.large-4.mix ng-repeat="(index, pizza) in pizza_list" ng-class="{vegetarian: pizza.vegeterian, meat: pizza.meat, seafood: pizza.fish, cheese: pizza.chesee }"
 

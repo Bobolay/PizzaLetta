@@ -2,6 +2,8 @@
 
 pizzaApp.controller("DrinksCtrl", [ '$scope', 'drinksService', 'cartService', '$http', function ($scope, drinksService, cartService, $http) {
 
+    $scope.ready = false;
+
     // Drinks list (we get them from DrinksService)
     // $scope.drinks = drinksService.getDrinks();
 
@@ -9,6 +11,7 @@ pizzaApp.controller("DrinksCtrl", [ '$scope', 'drinksService', 'cartService', '$
     $http({method: 'GET', url: '/api/v1/drinks.json'}).
     then(function success(response) {
         $scope.drinks = response.data;
+        $scope.ready = true;
     });
 
     // Decrease/increase quantity in items list only
