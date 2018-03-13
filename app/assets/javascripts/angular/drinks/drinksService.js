@@ -1,8 +1,16 @@
 //   A L L   I T E M S   S E R V I C E
 
-pizzaApp.factory("drinksService", function(){
+pizzaApp.factory("drinksService", function($http){
 
     //   ITEMS collection
+
+    // var drinks;
+    //
+    // $http({method: 'GET', url: 'http://localhost:3000/api/v1/drinks.json'}).
+    // then(function success(response) {
+    //     var drinks = response.data;
+    // });
+
     var drinks = [
         {
             imgUrl: "blueberry-lemonade-hero.png",
@@ -68,6 +76,7 @@ pizzaApp.factory("drinksService", function(){
             qnty: 1
         }
     ]
+
     //   Return all items from ITEMS collection
     return {
         getDrinks: function () {

@@ -45,6 +45,10 @@ class PagesController < ApplicationController
   def instagram
     url="https://api.instagram.com/v1/users/self/media/recent/?access_token=5421929898.1677ed0.02b11596b2d4432aac9c495a152b9288"
     @json=JSON.parse(open(url).read)["data"][0..2]
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5b24b6e23882542794b8d9fa4ed8d3b22f728c65
   end
 
 end
