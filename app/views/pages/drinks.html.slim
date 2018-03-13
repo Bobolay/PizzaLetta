@@ -19,7 +19,7 @@
             = inline_svg ('icons/navtabs/135446.svg')
             span Лимонади
       / Sorting
-      .floated-right
+      /.floated-right
         .dib.regular сортування
         .dib
           select.sorting
@@ -29,7 +29,7 @@
 
 / BEVERAGES (DRINKS) LIST
 .indent.item-list.mix-container ng-controller="DrinksCtrl"
-  .row.columns-left ng-if="ready"
+  .row.columns-left.container ng-if="ready" mixitup='mixitup' entities='drinks'
     .columns.medium-6.large-4.mix ng-repeat="drink in drinks" class="{{drink.category}}"
 
       .square

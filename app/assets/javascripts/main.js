@@ -115,19 +115,16 @@
             owl.trigger('prev.owl.carousel');
         })
 
-
         // MIX IT UP up initialize (for items: pizza and drinks)
-        $('.mix-container').mixItUp({
-            callbacks: {
-                onMixLoad: function (state, futureState) {
-                    $('.mix-container .mix').addClass('display-none');
-                }
-            }
-        });
+        // $('.mix-container').mixItUp({
+        //     callbacks: {
+        //         onMixLoad: function (state, futureState) {
+        //             $('.mix-container .mix').addClass('display-none');
+        //         }
+        //     }
+        // });
 
-
-        // Choose only ONE option (like sauce type)
-
+        // $('.mix-container').mixItUp();
 
     });
 

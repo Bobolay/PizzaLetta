@@ -14,7 +14,6 @@
 # require plugins/datepick
 # require plugins/form
 #= require plugins/owl.carousel.min
-# require plugins/lightgallery.min
 #= require plugins/jquery.nice-select.min
 #= require plugins/mixitup-2.1.1.min
 
@@ -25,6 +24,8 @@
 #= require tabs
 
 #     A N G U L A R
+
+# require mixitup/dist/mixitup
 
 #= require angular/app
 # require angular/config
@@ -47,3 +48,5 @@
 #= require angular/ingredients_service
 
 #= require angular/header_controller
+
+# require mixitup-init

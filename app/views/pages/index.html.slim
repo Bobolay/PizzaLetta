@@ -22,24 +22,26 @@
             = inline_svg ('icons/navtabs/135421.svg')
             span Сирна
       / Sorting
-      .floated-right
+      /.floated-right
+        .sort data-sort="myorder:asc" asc
+        .sort data-sort="myorder:desc" desc
         .dib.regular сортування
         .dib
           select.sorting
-            option Ціна: зростання
-            option Ціна: спадання
+            option.sort data-sort="myorder:asc" Ціна: зростання
+            option.sort data-sort="myorder:desc" Ціна: спадання
 
 
 / PIZZA LIST
 .indent.item-list.mix-container ng-controller="PizzaListCtrl"
-  .row.columns-left ng-if="ready"
+  /.row.columns-left.container ng-if="ready"
+  .row.columns-left.container ng-if="ready" mixitup='mixitup' entities='pizza_list'
 
-    .columns.medium-6.large-4.mix ng-repeat="(index, pizza) in pizza_list" ng-class="{vegetarian: pizza.vegeterian, meat: pizza.meat, seafood: pizza.fish, cheese: pizza.chesee }"
+    .columns.medium-6.large-4.mix ng-repeat="(index, pizza) in pizza_list" ng-class="{vegetarian: pizza.vegeterian, meat: pizza.meat, seafood: pizza.fish, cheese: pizza.chesee }" data-myorder="{{pizza.pricesmall}}"
 
       .square
         .fullsize.item
 
-          /.img-bg style="background-image: url(#{asset_path('assets/img/items/{{pizza.imgUrl}}')})"
           .img-bg style="background-image: url('{{pizza.imgUrl}}')"
 
           .info-panel.white
@@ -61,7 +63,7 @@
                   | {{pizza.discount}}
                 span &#8372
                 span.price
-                  | {{ pizza.price }}
+                  | {{ pizza.pricesmall }}
 
                 / For version 2.0 (size)
                 /.price ng-show="size == 'small'"
@@ -92,7 +94,7 @@
 
               .total-price
                 span &#8372
-                | {{pizza.qnty * pizza.price}}
+                | {{pizza.qnty * pizza.pricesmall}}
 
               .success-message
                 span = inline_svg "icons/done.svg"

@@ -3,6 +3,7 @@
   "dependencies": {
     "foundation-sites": "6.2.3",
     "sass-css3-mixins": "latest",
-    "jquery-ui": "latest"
+    "jquery-ui": "latest",
+    "mixitup": "latest"
   }
 }

@@ -12,6 +12,7 @@ pizzaApp.controller("DrinksCtrl", [ '$scope', 'drinksService', 'cartService', '$
     then(function success(response) {
         $scope.drinks = response.data;
         $scope.ready = true;
+        console.log("Get drinks list");
     });
 
     // Decrease/increase quantity in items list only
