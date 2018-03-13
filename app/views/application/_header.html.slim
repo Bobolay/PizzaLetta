@@ -1,7 +1,8 @@
 .header-container ng-controller="HeaderCtrl"
 
   p.title
-    | {{title}}
+    /| {{title}}
+    | PizzaLetta
 
   .right-part
 
@@ -25,7 +26,8 @@
             input placeholder="Телефон"
           button Передзвоніть мені
 
-    .dib.cart
+    /.dib.cart
+    .dib.cart.hide
       .dib.cart-icon = inline_svg ('icons/basket.svg')
       .dib.order-quantity
         | {{pizza_qnty}}
