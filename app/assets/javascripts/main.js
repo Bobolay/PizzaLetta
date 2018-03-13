@@ -17,6 +17,17 @@
 
 
         // Show/hide cart
+        $('.menu-btn').on('click', function(){
+            if ($('.menu-wrap').hasClass('visible')){
+                $('.menu-wrap').removeClass('visible');
+                // $('body').removeClass('overflow-hidden');
+            } else {
+                $('.menu-wrap').addClass('visible');
+                // $('body').addClass('overflow-hidden');
+            }
+        })
+
+        // Show/hide menu on mobile
         $('.cart-icon').on('click', function(){
             if ($('.cart-container').hasClass('visible')){
                 $('.cart-container').removeClass('visible');
@@ -26,7 +37,6 @@
                 $('body').addClass('overflow-hidden');
             }
         })
-
 
         // Show/hide custom pizza menu
         $('.add-ingredient-btn').on('click', function(){

@@ -65,9 +65,11 @@
     .name, .ingredients
       color: white
   .name
-    font-size: 21px
+    font-size: 18px
     font-weight: 900
     margin-bottom: 10px
+    @media #{$large-up}
+      font-size: 24px
     @media only screen and (min-width: 1920px)
       font-size: 24px
   .ingredients
@@ -247,6 +249,8 @@
     svg
       width: 10px
       height: 10px
+  @media #{$small-only}
+    padding: 40px 0
 
 
 

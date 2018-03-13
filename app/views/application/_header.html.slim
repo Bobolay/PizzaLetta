@@ -1,5 +1,8 @@
 .header-container ng-controller="HeaderCtrl"
 
+  .menu-btn
+    = inline_svg ('icons/menu.svg')
+
   p.title
     /| {{title}}
     | PizzaLetta
@@ -9,6 +12,9 @@
     .dib.webcam
       = inline_svg ('icons/camera.svg')
       span live
+
+    a.dib.mobile-phone href="tel:#{Contact.first.first_number}"
+      = inline_svg ('icons/phone.svg')
 
     .dib.contact
       a.numbers href="tel:#{Contact.first.first_number}" = Contact.first.first_number

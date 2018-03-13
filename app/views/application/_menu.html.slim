@@ -1,17 +1,21 @@
-.sidemenu-wrap
-
-  a.logo href=root_path
+.menu-wrap
+  
+  .menu-logo
     = inline_svg ('icons/logo.svg')
 
-  ul.sidenav
+  .close-btn.menu-btn
+    = inline_svg ('icons/cross.svg')
+
+  ul.menu-list
     li
-      a.active href=root_path
+      a href=root_path
         = inline_svg ('icons/pizza.svg')
-        span Pizza
+        span піца
     li
       a href=drinks_path
         = inline_svg ('icons/349825.svg')
-        span Напої
+        span напої
+
     /li
       a href=promotions_path
         = inline_svg ('icons/15172.svg')
@@ -21,8 +25,10 @@
         = inline_svg ('icons/constructor.svg')
         span Конструкор
 
-  .socials
-    a href="#{Contact.first.instagram}" target="_blank"
-      = inline_svg ('icons/instagram.svg')
-    a href="#{Contact.first.facebook}" target="_blank"
-      = inline_svg ('icons/facebook.svg')
+  ul.bottom-menu
+    li
+      a href=about_path Про нас
+    li
+      a href=shipping_path Доставка
+    li
+      a href=policy_path Оферта
