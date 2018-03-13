@@ -6,7 +6,7 @@ pizzaApp.controller("DrinksCtrl", [ '$scope', 'drinksService', 'cartService', '$
     // $scope.drinks = drinksService.getDrinks();
 
     // Get drinks list
-    $http({method: 'GET', url: 'http://localhost:3000/api/v1/drinks.json'}).
+    $http({method: 'GET', url: '/api/v1/drinks.json'}).
     then(function success(response) {
         $scope.drinks = response.data;
     });

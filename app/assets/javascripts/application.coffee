@@ -47,5 +47,3 @@
 #= require angular/ingredients_service
 
 #= require angular/header_controller
-
-#= require test
