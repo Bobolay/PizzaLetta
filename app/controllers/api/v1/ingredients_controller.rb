@@ -12,10 +12,14 @@ class Api::V1::IngredientsController < Api::V1::BaseController
     @cheese = Ingredient.where(category: "Сири").map do |u|
       { :name => u.name, :price => u.price, :imgURL => u.image.url, :quantity => 1 }
     end
+    @specii = Ingredient.where(category: "Спеції").map do |u|
+      { :name => u.name, :price => u.price, :imgURL => u.image.url, :quantity => 1 }
+    end
   @json=[{:ingredient_category => "Мясо", :list => @meat},
          {:ingredient_category => "Овочі", :list => @vegetable},
          {:ingredient_category => "Овочі", :list => @seafood},
-         {:ingredient_category => "Овочі", :list => @cheese}]
+         {:ingredient_category => "Овочі", :list => @cheese},
+         {:ingredient_category => "Спеції", :list => @specii}]
     # @ingredients_by_vcategory = @ingredients.group_by{|i| i.category }
     respond_with @json
   end

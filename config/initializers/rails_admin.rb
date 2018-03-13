@@ -90,7 +90,7 @@ RailsAdmin.config do |config|
     label "Інгрідієнти"
     include_fields :name, :price, :image, :show
     field :category, :enum do
-      enum ["Мясо","Морепродукти","Сири","Овочі"]
+      enum ["Мясо","Морепродукти","Сири","Овочі","Cпеції"]
     end
   end
   config.model Contact do
