@@ -1,6 +1,6 @@
 // Filter ingredients Function
 
-pizzaApp.filter('filterInArray', function($filter){
+pizzaApp.filter('filterInArray', [ '$filter', function($filter){
         return function(list, arrayFilter, element){
             if(arrayFilter){
                 return $filter("filter")(list, function(listItem){
@@ -8,7 +8,7 @@ pizzaApp.filter('filterInArray', function($filter){
                 });
             }
         };
-    });
+    }]);
 
 //   C U S T O M   P I Z Z A   C O N T R O L L E R
 pizzaApp.controller("CustomPizzaCtrl", [ '$rootScope', '$scope', 'cartService', 'customPizzaService', 'ingredientsService', function ($rootScope, $scope, cartService, customPizzaService, ingredientsService) {

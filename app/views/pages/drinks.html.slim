@@ -29,7 +29,7 @@
 
 / BEVERAGES (DRINKS) LIST
 .indent.item-list.mix-container ng-controller="DrinksCtrl"
-  .row.columns-left
+  .row.columns-left ng-if="ready"
     .columns.medium-6.large-4.mix ng-repeat="drink in drinks" class="{{drink.category}}"
 
       .square

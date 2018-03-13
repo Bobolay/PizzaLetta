@@ -120,7 +120,7 @@
         $('.mix-container').mixItUp({
             callbacks: {
                 onMixLoad: function (state, futureState) {
-                    $('.mix-container .mix').addClass('display-none')
+                    $('.mix-container .mix').addClass('display-none');
                 }
             }
         });
