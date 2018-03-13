@@ -35,23 +35,22 @@
       .square
         .fullsize.item
 
-          / img size: 500x500#
           .drink-img-wrap
-            .img-bg style="background-image: url(#{asset_path('assets/img/items/{{drink.imgUrl}}')})"
             /.img-bg style="background-image: url(#{asset_path('assets/img/items/{{drink.imgUrl}}')})"
+            .img-bg style="background-image: url('{{drink.imgUrl}}')"
           .info-panel.dark
 
             p.ingredients
-              | {{drink.category_ukr}} | {{drink.litre}} л
+              | {{drink.category_ukr}} | {{drink.volume}} л
             p.name
               | {{drink.name}}
 
-            .red-price.small-circle
+            /.red-price.small-circle
               .inner-text
                 span &#8372
                 | {{drink.price}}
 
-            .add-to-cart
+            /.add-to-cart
 
               .quantity.on-red-bg
                 .decrease ng-click="decrease(drink)" = inline_svg "icons/remove.svg"

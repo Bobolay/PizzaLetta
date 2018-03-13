@@ -10,6 +10,7 @@
 #     P L U G I N S
 
 #= require plugins/clickout
+
 # require plugins/datepick
 # require plugins/form
 #= require plugins/owl.carousel.min
@@ -46,6 +47,5 @@
 #= require angular/ingredients_service
 
 #= require angular/header_controller
-#= require angular/main_controller
 
 #= require test
