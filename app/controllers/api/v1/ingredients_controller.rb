@@ -1,19 +1,19 @@
 class Api::V1::IngredientsController < Api::V1::BaseController
   def index
     @meat = Ingredient.where(category: "Мясо").map do |u|
-      { :name => u.name, :price => u.price, :imgURL => u.image.url, :quantity => 1 }
+      { :name => u.name, :price => u.price, :imgUrl => u.image.url, :quantity => 1 }
     end
     @vegetable = Ingredient.where(category: "Овочі").map do |u|
-      { :name => u.name, :price => u.price, :imgURL => u.image.url, :quantity => 1 }
+      { :name => u.name, :price => u.price, :imgUrl => u.image.url, :quantity => 1 }
     end
     @seafood = Ingredient.where(category: "Морепродукти").map do |u|
-      { :name => u.name, :price => u.price, :imgURL => u.image.url, :quantity => 1 }
+      { :name => u.name, :price => u.price, :imgUrl => u.image.url, :quantity => 1 }
     end
     @cheese = Ingredient.where(category: "Сири").map do |u|
-      { :name => u.name, :price => u.price, :imgURL => u.image.url, :quantity => 1 }
+      { :name => u.name, :price => u.price, :imgUrl => u.image.url, :quantity => 1 }
     end
     @specii = Ingredient.where(category: "Спеції").map do |u|
-      { :name => u.name, :price => u.price, :imgURL => u.image.url, :quantity => 1 }
+      { :name => u.name, :price => u.price, :imgUrl => u.image.url, :quantity => 1 }
     end
   @json=[{:ingredient_category => "Мясо", :list => @meat},
          {:ingredient_category => "Овочі", :list => @vegetable},

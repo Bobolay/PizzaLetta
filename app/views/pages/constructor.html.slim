@@ -3,12 +3,14 @@
   .pizza-preview style="background-image: url(#{asset_path('img/pizza_PNG7122.png')})"
 
   .ingredients-preview
+    / Constructed pizza price
     .red-price.big-circle
       .inner-text
         span &#8372
         | {{ totalPrice * constructed_pizza.qnty }}
+    / Constructed pizza ingredients
     ul.ingredients-list
-      li ng-repeat="ingredient in custom_ingredients"
+      li ng-repeat="ingredient in constructor_ingredients"
         .img-bg style="background-image: url(#{asset_path('assets/img/ingredients/{{ingredient.imgUrl}}')})"
 
   .panel
@@ -69,10 +71,10 @@
     / Additional ingredients that we can add displays here
     ul
 
-      li.order-item.clearfix ng-repeat="ingredient in custom_ingredients"
+      li.order-item.clearfix ng-repeat="ingredient in constructor_ingredients"
         .floated
           .img-holder
-            .img-bg style="background-image: url(#{asset_path('assets/img/ingredients/{{ingredient.imgUrl}}')})"
+            .img-bg style="background-image: url('{{ingredient.imgUrl}}')"
           p.name.dib
             | {{ingredient.name}}
         .floated.quantity.on-white-bg

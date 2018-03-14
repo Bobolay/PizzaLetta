@@ -1,21 +1,29 @@
 pizzaApp.controller("ConstructorCtrl", [ '$rootScope', '$scope', '$http', 'ingredientsService', 'constructorService', 'cartService', function ($rootScope, $scope, $http, ingredientsService, constructorService, cartService) {
 
-    // Ingredients list (we get them from ItemsService)
-    $scope.ingredients_list = ingredientsService.getIngredients();
+    // All ingredients to choose from (we get them from ItemsService)
+    // $scope.ingredients_list = ingredientsService.getIngredients();
+    $http({method: 'GET', url: '/api/v1/ingredients.json'}).
+        then(function success(response) {
+            $scope.ingredients_list = response.data;
+    });
 
     // Ingredients we choose to put inside constructor pizza
-    $scope.custom_ingredients = constructorService.getConstructorIngredients();
+    $scope.constructor_ingredients = constructorService.getConstructorIngredients();
 
     // Get base constructor
     var promiseObj = constructorService.getConstructorBase();
     promiseObj.then(function(value) {
         $scope.constructed_pizza = value;
-        console.log($scope.constructed_pizza);
+        console.log("Base for constructor: ",$scope.constructed_pizza);
         constructorService.setBasePrice(value);
     });
 
     // Total price of constructor pizza
     $scope.totalPrice = constructorService.getConstructorPizzaTotal();
+
+    // $scope.$watch('myVar', function() {
+    //     alert('hey, myVar has changed!');
+    // });
 
     // Set sauce option
     $scope.sauce = "red";
@@ -40,8 +48,10 @@ pizzaApp.controller("ConstructorCtrl", [ '$rootScope', '$scope', '$http', 'ingre
     };
 
     $scope.resetIngredients = function () {
-        $scope.custom_ingredients = [];
-        // $scope.totalPrice = constructorService.constructor_pizza_total;
+        $scope.constructor_ingredients = constructorService.resetConstructorIngredients();
+        $scope.totalPrice = constructorService.resetConstructorPizzaTotal();
+        $scope.ingredients_list = [];
+        $scope.ingredients_list = ingredientsService.getIngredients();
     };
 
     $scope.constructorPizzaAddToCart = function () {
