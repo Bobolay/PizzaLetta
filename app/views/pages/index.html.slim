@@ -49,7 +49,7 @@
             p.name
               | {{pizza.name}}
             ul.ingredients
-              li ng-repeat="ingredient in pizza.ingredients"
+              li ng-repeat="ingredient in pizza.ingredients" ng-class='{first:$first}'
                 | {{ingredient.name}}
 
             /Add custom ingredient btn

@@ -78,7 +78,8 @@
     margin-bottom: 10px
     li
       display: inline-block
-      text-transform: capitalize
+      &.first
+        text-transform: capitalize
       &:after
         content: '\002C'
         margin-right: 5px
@@ -364,6 +365,7 @@
 .about-wrap
   overflow: hidden
   background: white
+  padding: 100px 0
 
   .logo-icon
     width: 200px
@@ -468,7 +470,6 @@
 
 .blockquotes
   position: relative
-  margin-top: 100px
   background: $red
   padding: 100px 0 120px
   .bg-pattern
