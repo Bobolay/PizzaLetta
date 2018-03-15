@@ -25,8 +25,6 @@
 
 #     A N G U L A R
 
-# require mixitup/dist/mixitup
-
 #= require angular/app
 # require angular/config
 
