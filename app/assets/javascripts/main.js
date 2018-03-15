@@ -20,10 +20,8 @@
         $('.menu-btn').on('click', function(){
             if ($('.menu-wrap').hasClass('visible')){
                 $('.menu-wrap').removeClass('visible');
-                // $('body').removeClass('overflow-hidden');
             } else {
                 $('.menu-wrap').addClass('visible');
-                // $('body').addClass('overflow-hidden');
             }
         })
 

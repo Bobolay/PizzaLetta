@@ -24,18 +24,18 @@ $(document).ready(function() {
 
   //     v a l i d a t e
 
-  $("form").validate({
-    rules: {
-      name: {
-        required: true,
-        minlength: 3
-      },
-      email: {
-        required: true,
-        email: true
-      }
-    }
-  });
+  // $("form").validate({
+  //   rules: {
+  //     name: {
+  //       required: true,
+  //       minlength: 3
+  //     },
+  //     email: {
+  //       required: true,
+  //       email: true
+  //     }
+  //   }
+  // });
 
 
 
