@@ -13,7 +13,9 @@
       li ng-repeat="ingredient in constructor_ingredients"
         .img-bg style="background-image: url(#{asset_path('assets/img/ingredients/{{ingredient.imgUrl}}')})"
 
-  .panel
+  .panel.qwerty
+
+    p ng-click="triper()" triper
 
     p.title виберіть інгредієнти
 
@@ -39,7 +41,7 @@
             | {{filtered.length}}
       .clearfix.ingredients-container
         .floated ng-class="{'active':ingredient.active_ingredient}" ng-click="toggleIngredient(ingredient,category)" ng-repeat="ingredient in category.list as filtered"
-          .img style="background-image: url(#{asset_path('assets/img/ingredients/{{ingredient.imgUrl}}')})"
+          .img style="background-image: url('{{ingredient.imgUrl}}')"
           p.name
             | {{ingredient.name}}
           p.price

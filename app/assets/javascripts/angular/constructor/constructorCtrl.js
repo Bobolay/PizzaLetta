@@ -47,11 +47,18 @@ pizzaApp.controller("ConstructorCtrl", [ '$rootScope', '$scope', '$http', 'ingre
         $scope.totalPrice = constructorService.getConstructorPizzaTotal();
     };
 
+    $scope.triper = function () {
+        console.log('works');
+        angular.forEach(document.querySelector(".floated"), function (k,v) {
+            alert('asd');
+            this.removeClass('active');
+        });
+    };
+
     $scope.resetIngredients = function () {
         $scope.constructor_ingredients = constructorService.resetConstructorIngredients();
         $scope.totalPrice = constructorService.resetConstructorPizzaTotal();
-        $scope.ingredients_list = [];
-        $scope.ingredients_list = ingredientsService.getIngredients();
+        // angular.element(document.querySelector(".total")).removeClass("active");
     };
 
     $scope.constructorPizzaAddToCart = function () {
