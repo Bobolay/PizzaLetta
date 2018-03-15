@@ -429,11 +429,6 @@ p.clear-btn
       line
         stroke: white
 
-//.mix-container .mix
-//  display: inline-block
-//.mix-container .mix.display-none
-//  display: none
-
 .container .mix
   display: none
 
@@ -459,3 +454,30 @@ p.clear-btn
 
 .hide
   display: none
+
+.empty-indent
+  height: 120px
+.alert-label
+  position: relative
+  background: $red
+  padding: 20px
+  padding-right: 50px
+  p
+    color: white
+  .qwerty
+    font-weight: 600
+    margin-bottom: 10px
+  .asdfgh
+    font-size: 14px
+    line-height: 1.25
+  span
+    +y-align
+    right: 20px
+    cursor: pointer
+    svg
+      width: 20px
+      height: 20px
+      fill: white
+      +transition(.25s)
+      &:hover
+        fill: $dark

@@ -1,3 +1,12 @@
+.row
+  .columns
+    .empty-indent
+    .alert-label
+      span
+        = inline_svg ('icons/cross.svg')
+      p.qwerty Сайт працює в тестовому режимі.
+      p.asdfgh Повідомляємо Вас, що у період з 13 до 27 березня наш заклад працює у тестовому режимі. Це означає, що Ви маєте змогу насолодитись нашими піцами, сплачуючи тільки 50% вартості, яка вказана на сайті. Смачного!)
+
 / FILTER
 .row
   .columns
@@ -34,7 +43,7 @@
 
 / PIZZA LIST
 .indent.item-list.mix-container ng-controller="PizzaListCtrl"
-  /.row.columns-left.container ng-if="ready"
+
   .row.columns-left.container ng-if="ready" mixitup='mixitup' entities='pizza_list'
 
     .columns.medium-6.large-4.mix ng-repeat="(index, pizza) in pizza_list" ng-class="{vegetarian: pizza.vegeterian, meat: pizza.meat, seafood: pizza.fish, cheese: pizza.chesee }" data-myorder="{{pizza.pricesmall}}"
@@ -149,7 +158,7 @@
   .row.columns-left
 
     / Post from socials
-    / -@json.each do |json|
+    -@json.each do |json|
       .columns.medium-6.large-4
         .square
           a.img-bg href="#{json["link"]}" rel="nofollow" style="background-image: url(#{json["images"]["standard_resolution"]["url"]})"
