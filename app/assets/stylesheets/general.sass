@@ -2,7 +2,6 @@ html
   height: 100%
 body
   min-height: 100%
-  //padding-top: 74px
   padding-left: 80px
   display: -webkit-flex
   display: -moz-flex
@@ -25,6 +24,8 @@ body
     opacity: 0
     pointer-events: none
 
+  &.prevent-scroll
+    overflow: hidden
   &.overflow-hidden
     overflow: hidden
     &:before

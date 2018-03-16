@@ -20,8 +20,10 @@
         $('.menu-btn').on('click', function(){
             if ($('.menu-wrap').hasClass('visible')){
                 $('.menu-wrap').removeClass('visible');
+                $('body').removeClass('prevent-scroll');
             } else {
                 $('.menu-wrap').addClass('visible');
+                $('body').addClass('prevent-scroll');
             }
         })
 

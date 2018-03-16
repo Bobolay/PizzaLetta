@@ -33,8 +33,11 @@
     height: 30px
     vertical-align: middle
     fill: rgba(0,0,0,0.5)
-    margin-right: 10px
     +transition(.25s)
+    @media #{$medium-up}
+      margin-right: 10px
   span
     color: rgba(0,0,0,0.5)
     +transition(.25s)
+    @media #{$small-only}
+      display: none

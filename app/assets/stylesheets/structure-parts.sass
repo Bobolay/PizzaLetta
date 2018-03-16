@@ -457,6 +457,8 @@ p.clear-btn
 
 .empty-indent
   height: 120px
+  @media #{$small-only}
+    height: 80px
 .alert-label
   position: relative
   background: $red
@@ -471,7 +473,8 @@ p.clear-btn
     font-size: 14px
     line-height: 1.25
   span
-    +y-align
+    position: absolute
+    top: 20px
     right: 20px
     cursor: pointer
     svg
