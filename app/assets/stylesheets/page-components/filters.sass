@@ -5,11 +5,14 @@
   //margin: 150px 0 30px
   margin: 30px 0
   .regular
+    display: inline-block
     font-size: 14px
     text-transform: uppercase
     margin-right: 20px
     font-weight: 600
     margin-bottom: 20px
+    @media #{$small-only}
+      display: block
     @media #{$xlarge-up}
       margin-bottom: 0
   .filter

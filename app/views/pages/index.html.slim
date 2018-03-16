@@ -13,28 +13,28 @@
     .filter-wrap.clearfix
       / Filtering
       .floated
-        .dib.regular фільтрування
+        .regular фільтрування
         .dib.clearfix
           .floated.filter data-filter="all"
-            = inline_svg ('icons/navtabs/540269.svg')
+            = inline_svg ('icons/filter_icons/Pizza-Letta-all-pizza.svg')
             span Всі
           .floated.filter data-filter=".vegetarian"
-            = inline_svg ('icons/navtabs/135463.svg')
+            = inline_svg ('icons/filter_icons/Pizza-Letta-vegy.svg')
             span Вегетаріанська
           .floated.filter data-filter=".meat"
-            = inline_svg ('icons/navtabs/135397.svg')
+            = inline_svg ('icons/filter_icons/Pizza-Letta-meat.svg')
             span М'ясо
           .floated.filter data-filter=".seafood"
-            = inline_svg ('icons/navtabs/135446.svg')
+            = inline_svg ('icons/filter_icons/Pizza-Letta-fish.svg')
             span Морепродукти
           .floated.filter data-filter=".cheese"
-            = inline_svg ('icons/navtabs/135421.svg')
+            = inline_svg ('icons/filter_icons/Pizza-Letta-cheese.svg')
             span Сирна
       / Sorting
       /.floated-right
         .sort data-sort="myorder:asc" asc
         .sort data-sort="myorder:desc" desc
-        .dib.regular сортування
+        .regular сортування
         .dib
           select.sorting
             option.sort data-sort="myorder:asc" Ціна: зростання
@@ -66,10 +66,10 @@
               span = inline_svg "icons/plus.svg"
               | додати інгредієнт
 
-            .red-price.small-circle ng-class="{reduced: pizza.discount}"
+            .red-price.small-circle ng-class="{reduced: pizza.discountsmall}"
               .inner-text
-                span ng-if="pizza.discount"
-                  | {{pizza.discount}}
+                span ng-if="pizza.discountsmall"
+                  | {{pizza.discountsmall}}
                 span &#8372
                 span.price
                   | {{ pizza.pricesmall }}

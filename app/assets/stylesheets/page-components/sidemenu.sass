@@ -37,6 +37,7 @@
         color: white
         opacity: 0
         +transition(.25s)
+        font-size: 12px
       &:hover
         span
           opacity: 1
@@ -68,3 +69,26 @@
         width: 14px
         height: 14px
         fill: white
+
+.pizza
+  background-image: asset_url('icons/sprite_icons/Pizza-Letta-pizza-icon.png')
+.drinks
+  background-image: asset_url('icons/sprite_icons/Pizza-Letta-bottle-icon.png')
+.salads
+  background-image: asset_url('icons/sprite_icons/Pizza-Letta-salad-icon.png')
+.gifts
+  background-image: asset_url('icons/sprite_icons/Pizza-Letta-box-icon.png')
+.constructor
+  background-image: asset_url('icons/sprite_icons/Pizza-Letta-constructor-icon.png')
+.pizza, .drinks, .salads, .gifts, .constructor
+  width: 53px
+  height: 53px
+  margin: 0 auto
+  background-position: top center
+.sidenav a:hover
+  .pizza, .drinks, .salads, .gifts, .constructor
+    animation: play .8s steps(10) normal forwards
+
+@keyframes play
+  100%
+    background-position-y: -528px
