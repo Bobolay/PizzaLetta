@@ -11,7 +11,7 @@
     / Constructed pizza ingredients
     ul.ingredients-list
       li ng-repeat="ingredient in constructor_ingredients"
-        .img-bg style="background-image: url(#{asset_path('assets/img/ingredients/{{ingredient.imgUrl}}')})"
+        .img-bg style="background-image: url('{{ingredient.imgUrl}}')"
 
   .panel.qwerty
 

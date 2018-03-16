@@ -18,7 +18,7 @@ pizzaApp.controller("CartCtrl", [ '$scope', 'cartService', function ($scope, car
     // Remove item from cart
     $scope.remove = function(pizza) {
         cartService.remove(pizza);
-    };
+    },
 
     //   Buy items
     $scope.buy = function(pizza){

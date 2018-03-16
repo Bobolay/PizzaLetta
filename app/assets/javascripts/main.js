@@ -116,6 +116,7 @@
                 }
             }
         })
+
         $(".owl-btn-next").click(function(){
             owl.trigger('next.owl.carousel');
         })
@@ -123,8 +124,14 @@
             owl.trigger('prev.owl.carousel');
         })
 
+        // Temporary (alert label)
         $('.alert-label span').on('click', function(){
             $('.alert-label').fadeOut();
+        })
+
+        // Remove active class from ingredients
+        $('.clear-btn').on('click', function(){
+            $('.floated').removeClass('active');
         })
 
     });
