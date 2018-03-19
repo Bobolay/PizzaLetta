@@ -18,7 +18,7 @@
 
         p.price
           span &#8372
-          | {{item.qnty * item.price}}
+          | {{item.qnty * item.price_small}}
 
         .quantity.on-white-bg
           .decrease ng-click="decrease(item)" = inline_svg "icons/remove.svg"

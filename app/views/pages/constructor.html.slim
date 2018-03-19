@@ -15,8 +15,6 @@
 
   .panel.qwerty
 
-    p ng-click="triper()" triper
-
     p.title виберіть інгредієнти
 
     / Choose size and sauce
@@ -107,4 +105,4 @@
         .increase ng-click="increase(constructed_pizza)"
           = inline_svg "icons/add.svg"
 
-      .add-to-cart-btn ng-click="constructorPizzaAddToCart" в корзину
+      .add-to-cart-btn ng-click="constructorPizzaAddToCart()" в корзину

@@ -1,7 +1,8 @@
 pizzaApp.controller("CartCtrl", [ '$scope', 'cartService', function ($scope, cartService) {
 
     //   Items list in cart
-    $scope.cart = cartService.appCart;
+    // $scope.cart = cartService.appCart;
+    $scope.cart = cartService.getData();
 
     //   Decrease/increase quantity in cart only
     $scope.decrease = function(item){

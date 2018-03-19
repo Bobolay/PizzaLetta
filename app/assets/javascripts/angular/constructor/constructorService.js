@@ -1,12 +1,28 @@
-pizzaApp.factory("constructorService", [ 'cartService', '$http', '$q', function(cartService, $http, $q){
+pizzaApp.factory("constructorService", [ '$window', 'cartService', '$http', '$q', function($window, cartService, $http, $q){
 
     // List of additional ingredients
     var constructor_ingredients = [];
 
     var constructor_pizza_total = 0;
 
+    // function getConstructorBase () {
+    //     var deferred = $q.defer();
+    //     $http({method: 'GET', url: '/api/v1/constructor.json'}).
+    //     then(function success(response){
+    //         deferred.resolve(response.data);
+    //     }, function error(response){
+    //         deferred.reject(response.status);
+    //     });
+    //     var promiseObj = deferred.promise;
+    //     promiseObj.then(function(value) {
+    //         constructed_pizza = value;
+    //         // console.log("Base for constructor: ",constructed_pizza);
+    //     });
+    // });
+
     return {
 
+        // Get basic data of constructor pizza
         getConstructorBase: function () {
             var deferred = $q.defer();
             $http({method: 'GET', url: '/api/v1/constructor.json'}).
@@ -15,6 +31,7 @@ pizzaApp.factory("constructorService", [ 'cartService', '$http', '$q', function(
             }, function error(response){
                 deferred.reject(response.status);
             });
+            constructor_pizza = deferred.promise;
             return deferred.promise;
         },
 
@@ -22,14 +39,17 @@ pizzaApp.factory("constructorService", [ 'cartService', '$http', '$q', function(
             constructor_pizza_total = value.price_small;
         },
 
+        // Get / update pizza total
         getConstructorPizzaTotal: function(){
             return constructor_pizza_total;
         },
 
+        // Reset total
         resetConstructorPizzaTotal: function () {
             return constructor_pizza_total = 0;
         },
 
+        // Reset constructor ingredient
         resetConstructorIngredients: function () {
             return constructor_ingredients = [];
         },
@@ -85,17 +105,6 @@ pizzaApp.factory("constructorService", [ 'cartService', '$http', '$q', function(
         // Get additional ingredients
         getConstructorIngredients: function () {
             return constructor_ingredients;
-        },
-
-        createConstructorPizza: function () {
-            for (var key in custom_pizza){
-                custom_pizza_for_cart[key] = custom_pizza[key];
-            }
-            var joint_ingredients = custom_pizza_for_cart.ingredients.concat(custom_ingredients);
-            custom_pizza_for_cart.ingredients = joint_ingredients;
-            custom_pizza_for_cart['total_price'] = custom_pizza_total * custom_pizza_for_cart.qnty;
-            // console.log("custom_pizza_for_cart ",custom_pizza_for_cart);
-            return custom_pizza_for_cart;
         },
         
     }

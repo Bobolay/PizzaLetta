@@ -1,4 +1,12 @@
-pizzaApp.factory("cartService", function(){
+// Functions to manage objects in Local Storage
+Storage.prototype.setObj = function(key, obj) {
+    return this.setItem(key, JSON.stringify(obj))
+}
+Storage.prototype.getObj = function(key) {
+    return JSON.parse(this.getItem(key))
+}
+
+pizzaApp.factory("cartService", ['$window', function($window){
 
     var cart = [];
     var pizza_qnty = cart.length;
@@ -33,8 +41,19 @@ pizzaApp.factory("cartService", function(){
         },
         buy: function (pizza) {
             alert("Thank's for buying: ", pizza.name);
+        },
+
+        // Set item to local storage
+        setData: function(item) {
+            window.localStorage.setObj('custom_pizza', item);
+            return this;
+        },
+        // Get items from local storage
+        getData: function() {
+            window.localStorage.getObj();
+            return this;
         }
 
     }
 
-});
+}]);
