@@ -18,7 +18,7 @@
     top: 20px
     left: 20px
     svg
-      width: 80px
+      width: 120px
 
   .close-btn
     position: absolute
@@ -34,6 +34,9 @@
     left: 10px
     li
       margin-bottom: 30px
+      &.disable
+        pointer-events: none
+        opacity: 0.3
     a
       padding: 10px
     svg
@@ -80,23 +83,26 @@
   bottom: 0
   left: 0
   background: $dark
-  z-index: 1
+  z-index: 3
   @media #{$medium-up}
     display: none
   ul
     li
       display: inline-block
       position: relative
-      width: 25%
+      width: 20%
       text-align: center
+      &.disable
+        pointer-events: none
+        opacity: 0.3
     a
       display: block
-      height: 50px
+      height: 70px
     svg
       position: relative
-      top: 4px
-      width: 26px
-      height: 26px
+      top: 10px
+      width: 30px
+      height: 30px
       fill: rgba(white, 0.5)
       +transition(.25s)
       +translate(0,8px)
@@ -109,8 +115,9 @@
       opacity: 0
       +transition(.25s)
       +x-align
-      bottom: 6px
+      bottom: 10px
     a.active
+      background: $red
       span
         opacity: 1
       svg

@@ -7,21 +7,28 @@
   background: $dark
   @media #{$small-only}
     display: none
+  @media only screen and (min-width: 1440px)
+    width: 180px
 
   .logo
     display: block
-    width: 60px
-    margin: 20px 10px
+    width: 70px
+    margin: 20px auto 10px
+    @media only screen and (min-width: 1440px)
+      width: 140px
 
   .beta-icon
     width: 60px
     position: relative
-    left: 10px
+    margin: 0 auto
 
   .sidenav
     +y-align
     width: 100%
     li
+      &.disable
+        pointer-events: none
+        opacity: 0.3
     a
       display: block
       height: 80px
@@ -38,6 +45,8 @@
         opacity: 0
         +transition(.25s)
         font-size: 12px
+        @media only screen and (min-width: 1440px)
+          opacity: 1
       &:hover
         span
           opacity: 1
@@ -49,6 +58,18 @@
           opacity: 1
         svg
           fill: white
+      @media only screen and (min-width: 1440px)
+        height: 70px
+        padding-top: 6px
+        padding-left: 10px
+        text-align: left
+        span
+          display: inline-block
+          margin-left: 10px
+          position: relative
+          top: -20px
+          font-weight: 600
+          text-transform: uppercase
 
   .socials
     position: absolute
@@ -69,6 +90,8 @@
         width: 14px
         height: 14px
         fill: white
+    @media only screen and (min-width: 1440px)
+      +x-align
 
 .pizza
   background-image: asset_url('icons/sprite_icons/Pizza-Letta-pizza-icon.png')
@@ -78,13 +101,18 @@
   background-image: asset_url('icons/sprite_icons/Pizza-Letta-salad-icon.png')
 .gifts
   background-image: asset_url('icons/sprite_icons/Pizza-Letta-box-icon.png')
+  position: relative
+  left: 6px
 .constructor
   background-image: asset_url('icons/sprite_icons/Pizza-Letta-constructor-icon.png')
 .pizza, .drinks, .salads, .gifts, .constructor
+  display: inline-block
   width: 53px
   height: 53px
   margin: 0 auto
   background-position: top center
+  @media only screen and (min-width: 1440px)
+
 .sidenav a:hover
   .pizza, .drinks, .salads, .gifts, .constructor
     animation: play .8s steps(10) normal forwards

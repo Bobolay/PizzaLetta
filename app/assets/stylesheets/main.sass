@@ -19,7 +19,30 @@
       //+translate(0,0)
     .add-ingredient-btn
       opacity: 1
-
+  &:before
+    content: ''
+    display: block
+    width: 180px
+    height: 180px
+    border-radius: 50%
+    background: $dark
+    position: absolute
+    top: -100px
+    right: -75px
+    z-index: 1
+  &:after
+    content: ''
+    display: block
+    position: absolute
+    top: 10px
+    right: 0
+    width: 74px
+    height: 44px
+    background-image: asset_url('icons/logo.svg')
+    -webkit-background-size: contain
+    background-size: contain
+    background-repeat: no-repeat
+    z-index: 2
 
 .drink-img-wrap
   position: absolute
@@ -161,6 +184,26 @@
     svg
       width: 30px
       fill: white
+
+
+//BRANDING SECTION
+
+.branding
+  position: relative
+  background: $dark
+  &:before
+    content: ''
+    display: block
+    padding-top: 50%
+  @media #{$medium-up}
+    &:before
+      padding-top: 25%
+  .icon
+    +xy-align
+    width: 200px
+  svg
+    width: 100%
+
 
 // Live video
 

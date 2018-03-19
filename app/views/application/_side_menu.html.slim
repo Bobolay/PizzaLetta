@@ -17,17 +17,16 @@
         .drinks
         /= inline_svg ('icons/349825.svg')
         span Напої
-    /li
-      a href=drinks_path class=('active' if current_page?(drinks_path))
+    li.disable
+      a
         .salads
-        = inline_svg ('icons/349825.svg')
         span салати
-    /li
+    li.disable
       a href=promotions_path class=('active' if current_page?(promotions_path))
         .gifts
         /= inline_svg ('icons/15172.svg')
         span Подарунки
-    /li
+    li.disable
       a href=constructor_path class=('active' if current_page?(constructor_path))
         .constructor
         /= inline_svg ('icons/constructor.svg')
