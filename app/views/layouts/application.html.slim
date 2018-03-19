@@ -2,14 +2,17 @@ doctype html
 html
   head
 
-    / = seo_tags
     meta name="viewport" content="width=device-width, initial-scale=1.0"
     title Швидка доставка піци та напоїв виготовлених за унікальними рецептами
     = stylesheet_link_tag "application", media: 'all'
     = csrf_meta_tags
     = render "favicons"
 
+    /= inline_css("preloader")
+
   body ng-app="pizzaApp"
+
+    = render "preloader"
 
     = render "header"
     = render "side_menu"
@@ -25,7 +28,6 @@ html
 
     .main-wrapper
       = yield
-      / ng-view
 
     - if @render_footer != false
       = render "footer"
