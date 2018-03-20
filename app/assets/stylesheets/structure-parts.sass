@@ -65,12 +65,14 @@
   line-height: 48px
   font-size: 14px
   font-weight: 900
-  padding: 0px 22px
+  padding: 0 22px
   color: #fff
   text-transform: uppercase
   text-align: center
   margin-right: 10px
   cursor: pointer
+  @media #{$small-only}
+    padding: 0 16px
   &:last-child
     margin-right: 0
   svg
@@ -348,14 +350,14 @@ p.clear-btn
     border-radius: 50%
   .inner-text
     +xy-align
-    font-size: 24px
-    font-weight: 900
-  span
-    font-weight: initial
+    font-size: 21px
+  span.price
+    font-weight: 700
+
   &.reduced
     span:first-child
       display: block
-      font-size: 16px
+      font-size: 14px
       text-decoration: line-through
       text-align: center
 

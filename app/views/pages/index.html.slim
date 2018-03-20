@@ -108,6 +108,8 @@
               .success-message
                 span = inline_svg "icons/done.svg"
 
+
+/ BRAND LOGO
 .branding
   .icon = inline_svg ('icons/logo.svg')
 
@@ -131,15 +133,15 @@
     .columns.medium-10.large-9.large-centered.xlarge-8
       .row
         .columns.medium-6.large-5
-          p.large Get the latest
-          p.small Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          p.large Будьте в курсі новин
+          p.smaller Щоб бути в курсі найсвіжіших новин та акційних пропозицій &mdash; підпишіться на емейл-розсилку.
         .columns.medium-6
           form
             .input-field
-              input placeholder="Email address"
+              input placeholder="Електронна скринька"
             button
               = inline_svg ("icons/pizza_part.svg")
-              span Join
+              span Підписатися
 
 
 / SOCIAL AND FEEDBACKS
@@ -150,22 +152,19 @@
     .columns
       / Title and social buttons
       .main-text
-        p.large-title Follow us
-        p.smaller Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        .btn.dark
+        p.large-title Слідкуйте за нами
+        p.smaller Нові піци та кльові обновлення. Слідкуйте за нами в Instagram, щоб не пропустити жодної дрібниці!
+        a.btn.dark href="https://www.instagram.com/pizza_letta" target="_blank"
           = inline_svg ("icons/instagram.svg")
-          span #pizzaletta
-        .btn.dark
-          = inline_svg ("icons/instagram.svg")
-          span #lovemypizza
+          span pizza_letta
   .row.columns-left
 
     / Post from socials
     -@json.each do |json|
-      .columns.medium-6.large-4
+      .columns.small-6.large-4
         .square
           a.img-bg href="#{json["link"]}" rel="nofollow" style="background-image: url(#{json["images"]["standard_resolution"]["url"]})"
         span.heart-icon = inline_svg "icons/heart.svg"
         span.likes =json["likes"]["count"]
         p.title =json["user"]["username"]
-        p.smaller =json["caption"]["text"]
+        p.smaller.post-description =json["caption"]["text"]

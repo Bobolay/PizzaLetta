@@ -15,7 +15,7 @@
             // Initialize nice select
             setTimeout(function(){
                 $('.preloader-wrap').fadeOut();
-            }, 500);
+            }, 1000);
 
         });
 

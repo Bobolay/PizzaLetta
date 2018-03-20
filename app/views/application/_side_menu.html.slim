@@ -11,7 +11,7 @@
       a href=root_path class=('active' if current_page?(root_path))
         .pizza
         /= inline_svg ('icons/pizza.svg')
-        span Pizza
+        span Піца
     li
       a href=drinks_path class=('active' if current_page?(drinks_path))
         .drinks
@@ -20,12 +20,12 @@
     li.disable
       a
         .salads
-        span салати
+        span Салати
     li.disable
       a href=promotions_path class=('active' if current_page?(promotions_path))
         .gifts
         /= inline_svg ('icons/15172.svg')
-        span Подарунки
+        span Акції
     li.disable
       a href=constructor_path class=('active' if current_page?(constructor_path))
         .constructor

@@ -13,7 +13,7 @@
       .logo-icon = inline_svg "icons/logo2.svg"
     .columns.medium-8
       .article-container
-        p = raw @about.description
+        = raw @about.description
 
     / Carousel
     .columns
@@ -22,7 +22,7 @@
           - @images.each do |i|
             .item
               img src=i.image
-        .custom-controls
+        /.custom-controls
           .owl-btn-prev = inline_svg "icons/arrows/Arrow-left-01.svg"
           .owl-btn-next = inline_svg "icons/arrows/Arrow-right-01.svg"
 
@@ -37,11 +37,11 @@
           p = raw @about.fast_work
         li
           p = raw @about.clean_truth
-          .camera
+          /.camera
             span
               = inline_svg "icons/pizza_part.svg"
             | Перша камера
-          .camera
+          /.camera
             span
               = inline_svg "icons/pizza_part.svg"
             | Друга камера
