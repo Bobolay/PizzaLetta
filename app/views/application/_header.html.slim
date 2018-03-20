@@ -3,12 +3,12 @@
   .menu-btn
     = inline_svg ('icons/menu.svg')
 
-  .logo-mobile
+  a.logo-mobile href=root_path
     = inline_svg ('icons/Pizza-Letta-logo-horizontal.svg')
 
   p.title
     /| {{title}}
-    | PizzaLetta
+    = @title
 
   .right-part
 
