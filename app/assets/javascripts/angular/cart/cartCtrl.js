@@ -1,8 +1,13 @@
-pizzaApp.controller("CartCtrl", [ '$scope', 'cartService', function ($scope, cartService) {
+pizzaApp.controller("CartCtrl", [ '$window', '$rootScope', '$scope', 'cartService', function ($window, $rootScope, $scope, cartService) {
 
     //   Items list in cart
     // $scope.cart = cartService.appCart;
-    $scope.cart = cartService.getData();
+    // $scope.cart = cartService.getData();
+
+    $scope.$watch('cartService.getData()', function(newVal) {
+        console.log("New Data: " , newVal);
+        $scope.cart = newVal;
+    });
 
     //   Decrease/increase quantity in cart only
     $scope.decrease = function(item){

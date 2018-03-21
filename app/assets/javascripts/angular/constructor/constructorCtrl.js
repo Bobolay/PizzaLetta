@@ -55,12 +55,8 @@ pizzaApp.controller("ConstructorCtrl", [ '$rootScope', '$scope', '$http', 'ingre
         }
         pizza_to_cart.ingredients = constructorService.getConstructorIngredients();
         pizza_to_cart.sauce = $scope.sauce;
-        // console.log("pizza to cart: ",pizza_to_cart);
-        cartService.appCart.push(pizza_to_cart);
-        // console.log("cart ",cartService.appCart);
         constructorService.resetConstructorIngredients();
         cartService.setData(pizza_to_cart);
-
     }
 
 }]);
