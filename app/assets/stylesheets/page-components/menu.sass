@@ -1,15 +1,17 @@
 .menu-wrap
   position: fixed
-  z-index: 11
-  width: 100%
+  z-index: 10
+  //width: 100%
+  width: 300px
   height: 100vh
   top: 0
   left: 0
   overflow: hidden
-  display: none
+  +transition(.5s)
+  +translate(-100%,0)
   background: $dark
   &.visible
-    display: block
+    +translate(0,0)
   @media #{$medium-up}
     display: none
 
@@ -30,10 +32,11 @@
       fill: $red
 
   .menu-list
-    +y-align
-    left: 10px
+    position: relative
+    margin-top: 100px
+    margin-left: 10px
     li
-      margin-bottom: 30px
+      margin-bottom: 20px
       &.disable
         pointer-events: none
         opacity: 0.3
@@ -55,14 +58,10 @@
       color: white
 
   .bottom-menu
-    position: absolute
-    bottom: 20px
-    left: 0
     width: 100%
     li
-      display: inline-block
       position: relative
-      &:after
+      //&:after
         content: ''
         display: block
         position: absolute
@@ -71,12 +70,19 @@
         width: 2px
         height: 16px
         background: rgba(255,255,255,0.25)
-      &:last-child
+      //&:last-child
         &:after
           display: none
     a
+      display: inline-block
+      font-size: 14px
       color: white
-      padding: 20px
+      padding: 10px 20px
+
+.socials
+  position: relative
+  margin-top: 30px
+  margin-left: 20px
 
 .bottom-menu-wrap
   position: fixed

@@ -19,11 +19,13 @@
         // Show/hide cart
         $('.menu-btn').on('click', function(){
             if ($('.menu-wrap').hasClass('visible')){
+                $(this).removeClass('is-active');
                 $('.menu-wrap').removeClass('visible');
-                $('body').removeClass('prevent-scroll');
+                $('body').removeClass('overflow-hidden');
             } else {
+                $(this).addClass('is-active');
                 $('.menu-wrap').addClass('visible');
-                $('body').addClass('prevent-scroll');
+                $('body').addClass('overflow-hidden');
             }
         })
 

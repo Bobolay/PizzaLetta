@@ -21,12 +21,17 @@ body
   &:before
     content: ''
     display: block
-    +fullsize
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
     background: rgba(0,0,0,0.75)
     z-index: 30
     +transition(.5s)
     opacity: 0
     pointer-events: none
+    z-index: 5
 
   &.prevent-scroll
     overflow: hidden

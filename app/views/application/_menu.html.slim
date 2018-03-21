@@ -1,9 +1,9 @@
 .menu-wrap
   
-  a.menu-logo href=root_path
+  /a.menu-logo href=root_path
     = inline_svg ('icons/logo.svg')
 
-  .close-btn.menu-btn
+  /.close-btn.menu-btn
     = inline_svg ('icons/cross.svg')
 
   ul.menu-list
@@ -35,3 +35,9 @@
       a href=shipping_path Доставка
     li
       a href=policy_path Оферта
+
+  .socials
+    a href="#{Contact.first.instagram}" target="_blank"
+      = inline_svg ('icons/instagram.svg')
+    a href="#{Contact.first.facebook}" target="_blank"
+      = inline_svg ('icons/facebook.svg')

@@ -1,10 +1,14 @@
 .header-container ng-controller="HeaderCtrl"
 
-  .menu-btn
+  /.menu-btn
     = inline_svg ('icons/menu.svg')
 
+  .menu-btn.hamburger.hamburger--collapse
+    .hamburger-box
+      .hamburger-inner
+
   a.logo-mobile href=root_path
-    = inline_svg ('icons/Pizza-Letta-logo-horizontal.svg')
+    = inline_svg ('icons/Pizza-Letta-logo-horizontal2.svg')
 
   p.title
     /| {{title}}
