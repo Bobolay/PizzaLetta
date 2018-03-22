@@ -162,15 +162,19 @@
     .remove
       position: absolute
       padding: 13px
-      width: 34px
-      height: 34px
+      width: 36px
+      height: 36px
       top: -7px
       left: -24px
       +transition(.25s)
       svg
+        +transition(.25s)
         stroke: $red
       @media #{$xlarge-up}
         opacity: 0
+      &:hover
+        svg
+          +scale(1.5)
     .floated:first-child
       padding-left: 74px
     .img-holder

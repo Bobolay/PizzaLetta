@@ -56,6 +56,8 @@ pizzaApp.controller("ConstructorCtrl", [ '$rootScope', '$scope', '$http', 'ingre
         pizza_to_cart.ingredients = constructorService.getConstructorIngredients();
         pizza_to_cart.sauce = $scope.sauce;
         constructorService.resetConstructorIngredients();
+
+        $rootScope.$emit('addPizza');
         cartService.setData(pizza_to_cart);
     }
 

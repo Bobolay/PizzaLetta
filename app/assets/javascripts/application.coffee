@@ -27,7 +27,6 @@
 #     A N G U L A R
 
 #= require angular/app
-# require angular/config
 
 #= require angular/pizza/pizzaCtrl.js
 #= require angular/pizza/pizzaService.js

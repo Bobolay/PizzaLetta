@@ -14,6 +14,7 @@ pizzaApp.controller("PizzaListCtrl", [ '$rootScope', '$scope', 'itemsService', '
     //     $scope.ready = true;
     // });
 
+    // Get pizza list from service
     var promiseObj = itemsService.getPizzaList();
     promiseObj.then(function(value) {
         $scope.pizza_list = value;
@@ -34,8 +35,9 @@ pizzaApp.controller("PizzaListCtrl", [ '$rootScope', '$scope', 'itemsService', '
 
     // Add custom pizza for customization process
     $scope.addCustomPizza = function(pizza){
-        var qwerty = angular.element(document.querySelector(".custom-pizza-container"));
-        qwerty.addClass('visible');
+        angular.element(document.querySelector("body")).addClass('overflow-hidden');
+        var custom_pizza_container = angular.element(document.querySelector(".custom-pizza-container"));
+        custom_pizza_container.addClass('visible');
         customPizzaService.addCustomPizza(pizza);
         $rootScope.$emit('pizzaIngredients');
     };

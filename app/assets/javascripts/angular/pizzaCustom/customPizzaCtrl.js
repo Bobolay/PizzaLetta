@@ -55,8 +55,9 @@ pizzaApp.controller("CustomPizzaCtrl", [ '$http', '$rootScope', '$scope', 'cartS
         for (key in customized_pizza) {
             pizza_to_cart[key] = customized_pizza[key];
         }
-        cartService.appCart.push(pizza_to_cart);
-        console.log("cart ",cartService.appCart);
+        cartService.setData(pizza_to_cart);
+        // cartService.appCart.push(pizza_to_cart);
+        // console.log("cart ",cartService.appCart);
     };
 
 }]);
