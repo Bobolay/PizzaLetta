@@ -63,12 +63,12 @@ pizzaApp.factory("customPizzaService", function(cartService){
         // Adding choosen pizza to this service from PizzaCrtl
         addCustomPizza: function (pizza) {
             if (typeof pizza === 'object') {
-                custom_pizza.type = "Custom"
+                custom_pizza.type = "Особлива"
                 custom_pizza.imgUrl = pizza.imgUrl;
                 custom_pizza.name = pizza.name;
                 custom_pizza.qnty = pizza.qnty;
                 custom_pizza.ingredients = pizza.ingredients;
-                custom_pizza.price = pizza.price;
+                custom_pizza.price = pizza.pricesmall;
             } else {
                 return false;
             }
@@ -76,7 +76,7 @@ pizzaApp.factory("customPizzaService", function(cartService){
             custom_pizza_ingredients = pizza.ingredients.map(function(prop) {return prop.name;});
             // console.log("Ingredients of custom pizza: ", custom_pizza_ingredients);
             custom_pizza_total = 0;
-            custom_pizza_total += pizza.price * pizza.qnty;
+            custom_pizza_total += pizza.pricesmall * pizza.qnty;
         },
 
         // Add or remove ingredient from out custom pizza

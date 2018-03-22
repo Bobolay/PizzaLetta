@@ -8,9 +8,15 @@ pizzaApp.controller("PizzaListCtrl", [ '$rootScope', '$scope', 'itemsService', '
     // $scope.pizza_list = itemsService.getPizzaItems();
 
     // Get pizza list
-    $http({method: 'GET', url: '/api/v1/pizzas.json'}).
-    then(function success(response) {
-        $scope.pizza_list = response.data;
+    // $http({method: 'GET', url: '/api/v1/pizzas.json'}).
+    // then(function success(response) {
+    //     $scope.pizza_list = response.data;
+    //     $scope.ready = true;
+    // });
+
+    var promiseObj = itemsService.getPizzaList();
+    promiseObj.then(function(value) {
+        $scope.pizza_list = value;
         $scope.ready = true;
     });
 
@@ -28,6 +34,8 @@ pizzaApp.controller("PizzaListCtrl", [ '$rootScope', '$scope', 'itemsService', '
 
     // Add custom pizza for customization process
     $scope.addCustomPizza = function(pizza){
+        var qwerty = angular.element(document.querySelector(".custom-pizza-container"));
+        qwerty.addClass('visible');
         customPizzaService.addCustomPizza(pizza);
         $rootScope.$emit('pizzaIngredients');
     };

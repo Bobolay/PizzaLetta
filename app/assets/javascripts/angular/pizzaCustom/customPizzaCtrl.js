@@ -11,7 +11,7 @@ pizzaApp.filter('filterInArray', [ '$filter', function($filter){
     }]);
 
 //   C U S T O M   P I Z Z A   C O N T R O L L E R
-pizzaApp.controller("CustomPizzaCtrl", [ '$rootScope', '$scope', 'cartService', 'customPizzaService', 'ingredientsService', function ($rootScope, $scope, cartService, customPizzaService, ingredientsService) {
+pizzaApp.controller("CustomPizzaCtrl", [ '$http', '$rootScope', '$scope', 'cartService', 'customPizzaService', 'ingredientsService', function ($http, $rootScope, $scope, cartService, customPizzaService, ingredientsService) {
 
     //   Custom pizza
     $scope.custom_pizza = customPizzaService.getCustomPizza();
@@ -23,7 +23,11 @@ pizzaApp.controller("CustomPizzaCtrl", [ '$rootScope', '$scope', 'cartService', 
     });
 
     //   Ingredients list (we get them from ItemsService)
-    $scope.ingredients_list = ingredientsService.getIngredients();
+    // $scope.ingredients_list = ingredientsService.getIngredients();
+    $http({method: 'GET', url: '/api/v1/ingredients.json'}).
+    then(function success(response) {
+        $scope.ingredients_list = response.data;
+    });
 
     //   Additional ingredients that we choose from all list
     $scope.custom_ingredients = customPizzaService.getCustomIngredients();

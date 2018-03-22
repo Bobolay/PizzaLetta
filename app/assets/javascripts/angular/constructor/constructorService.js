@@ -105,7 +105,7 @@ pizzaApp.factory("constructorService", [ '$window', 'cartService', '$http', '$q'
         // Get additional ingredients
         getConstructorIngredients: function () {
             return constructor_ingredients;
-        },
+        }
         
     }
 

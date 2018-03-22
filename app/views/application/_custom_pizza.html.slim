@@ -22,7 +22,7 @@
         li.order-item.clearfix ng-repeat="ingredient in custom_pizza.ingredients"
           .floated
             .img-holder
-              .img-bg style="background-image: url(#{asset_path('assets/img/ingredients/{{ingredient.imgUrl}}')})"
+              .img-bg style="background-image: url('{{ingredient.imgUrl}}')"
             p.name.dib
               | {{ingredient.name}}
           .floated.quantity.on-white-bg
@@ -38,12 +38,12 @@
       ul
 
         li.order-item ng-repeat="ingredient in custom_ingredients"
-          /.remove ng-click="toggleIngredient(ingredient)"
+          .remove ng-click="toggleIngredient(ingredient)"
             = inline_svg "icons/close.svg"
           .clearfix
             .floated
               .img-holder
-                .img-bg style="background-image: url(#{asset_path('assets/img/ingredients/{{ingredient.imgUrl}}')})"
+                .img-bg style="background-image: url('{{ingredient.imgUrl}}')"
               p.name.dib
                 | {{ingredient.name}}
             .floated.quantity.on-white-bg
@@ -68,7 +68,7 @@
               | {{filtered.length}}
         .clearfix.ingredients-container
           .floated ng-class="{'active':ingredient.active_ingredient}" ng-click="toggleIngredient(ingredient,category)" ng-repeat="ingredient in category.list | filterInArray:custom_pizza_ingredients:'name' as filtered"
-            .img style="background-image: url(#{asset_path('assets/img/ingredients/{{ingredient.imgUrl}}')})"
+            .img style="background-image: url('{{ingredient.imgUrl}}')"
             p.name
               | {{ingredient.name}}
             p.price

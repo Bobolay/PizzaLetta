@@ -46,7 +46,7 @@
 
   .row.columns-left.container ng-if="ready" mixitup='mixitup' entities='pizza_list'
 
-    .columns.medium-6.large-4.mix ng-repeat="(index, pizza) in pizza_list" ng-class="{vegetarian: pizza.vegeterian, meat: pizza.meat, seafood: pizza.fish, cheese: pizza.chesee }" data-myorder="{{pizza.pricesmall}}"
+    .columns.medium-6.xlarge-4.mix ng-repeat="(index, pizza) in pizza_list" ng-class="{vegetarian: pizza.vegeterian, meat: pizza.meat, seafood: pizza.fish, cheese: pizza.chesee }" data-myorder="{{pizza.pricesmall}}"
 
       .square
         .fullsize.item
@@ -62,7 +62,7 @@
                 | {{ingredient.name}}
 
             /Add custom ingredient btn
-            /.add-ingredient-btn ng-click="addCustomPizza(pizza)"
+            .add-ingredient-btn ng-click="addCustomPizza(pizza)"
               span = inline_svg "icons/plus.svg"
               | додати інгредієнт
 
@@ -90,7 +90,7 @@
             /      input type="radio" name="size-{{index+1}}" value="big" ng-model="size" ng-checked="true"
             /      .checkmark 40
 
-            /.add-to-cart
+            .add-to-cart
 
               .quantity.on-red-bg
                 .decrease ng-click="decrease(pizza)"

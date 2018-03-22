@@ -5,7 +5,7 @@ pizzaApp.controller("CartCtrl", [ '$window', '$rootScope', '$scope', 'cartServic
     // $scope.cart = cartService.getData();
 
     $scope.$watch('cartService.getData()', function(newVal) {
-        console.log("New Data: " , newVal);
+        // console.log("New Data: " , newVal);
         $scope.cart = newVal;
     });
 

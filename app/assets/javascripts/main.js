@@ -25,6 +25,7 @@
             }
         })
 
+
         // Show/hide menu on mobile
         $('.cart-icon').on('click', function(){
             if ($('.cart-container').hasClass('visible')){
@@ -36,8 +37,12 @@
             }
         })
 
+        $('.qwerty').on('click', function(){
+            alert('asd');
+        })
         // Show/hide custom pizza menu
         $('.add-ingredient-btn').on('click', function(){
+            console.log('works');
             if ($('.custom-pizza-container').hasClass('visible')){
                 $('.custom-pizza-container').removeClass('visible');
                 $('body').removeClass('overflow-hidden');
@@ -53,12 +58,12 @@
             $('.side-container').removeClass('visible');
             $('body').removeClass('overflow-hidden');
         })
-        $.clickOut('.side-container.visible',
-            function(){
-                $('.side-container').removeClass('visible');
-                $('body').removeClass('overflow-hidden');
-            },{except: '.side-container, .cart-icon, .add-ingredient-btn'}
-        )
+        // $.clickOut('.side-container.visible',
+        //     function(){
+        //         $('.side-container').removeClass('visible');
+        //         $('body').removeClass('overflow-hidden');
+        //     },{except: '.side-container, .cart-icon, .add-ingredient-btn, .remove'}
+        // )
 
 
         // Show contact box
