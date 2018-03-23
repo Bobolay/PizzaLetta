@@ -4,16 +4,6 @@ pizzaApp.controller("PizzaListCtrl", [ '$rootScope', '$scope', 'itemsService', '
 
     $scope.ready = false;
 
-    // Items list (we get them from ItemsService)
-    // $scope.pizza_list = itemsService.getPizzaItems();
-
-    // Get pizza list
-    // $http({method: 'GET', url: '/api/v1/pizzas.json'}).
-    // then(function success(response) {
-    //     $scope.pizza_list = response.data;
-    //     $scope.ready = true;
-    // });
-
     // Get pizza list from service
     var promiseObj = itemsService.getPizzaList();
     promiseObj.then(function(value) {
@@ -42,11 +32,15 @@ pizzaApp.controller("PizzaListCtrl", [ '$rootScope', '$scope', 'itemsService', '
         $rootScope.$emit('pizzaIngredients');
     };
 
-    // Add pizza to cart
-    $scope.pizzaAddToCart = function(pizza){
-        pizza['total_price'] = pizza.qnty * pizza.price;
-        cartService.appCart.push(pizza);
-        console.log("Cart ",cartService.appCart);
+    $scope.pizzaAddToCart = function (pizza) {
+        var pizza_to_cart = {};
+        for (key in pizza) {
+            pizza_to_cart[key] = pizza[key];
+        }
+
+        cartService.setData(pizza);
+        $rootScope.$emit('addPizza');
+        pizza.qnty = 1;
     };
 
 }]);

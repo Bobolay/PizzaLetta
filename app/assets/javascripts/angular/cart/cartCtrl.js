@@ -1,13 +1,11 @@
 pizzaApp.controller("CartCtrl", [ '$window', '$rootScope', '$scope', 'cartService', function ($window, $rootScope, $scope, cartService) {
 
-    //   Items list in cart
-    $scope.cart = cartService.getData();
-
     // $scope.$watch('cartService.getData()', function(newVal) {
     //     // console.log("New Data: " , newVal);
     //     $scope.cart = newVal;
     // });
 
+    // Items list in cart
     $rootScope.$on('addPizza', function($event) {
         $scope.cart = cartService.getData();
     });
@@ -18,20 +16,19 @@ pizzaApp.controller("CartCtrl", [ '$window', '$rootScope', '$scope', 'cartServic
             return;
         } else {
             item.qnty--;
+            cartService.pizza_qnty--;
         }
     },
     $scope.increase = function(item){
         item.qnty++;
+        cartService.pizza_qnty++;
     },
 
     // Remove item from cart
     $scope.removeItem = function(item) {
         cartService.removeItem(item);
+        $scope.cart = cartService.getData();
+        $rootScope.$emit('addPizza');
     }
-
-    //   Buy items
-    // $scope.buy = function(pizza){
-    //     cartService.buy(pizza);
-    // }
 
 }]);

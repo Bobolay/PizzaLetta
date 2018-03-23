@@ -3,11 +3,18 @@ pizzaApp.controller("HeaderCtrl", [ '$rootScope', '$scope', 'cartService', funct
     // Header title depends from current page
 
     // Get pizza qnty from cart
-    $scope.pizza_qnty = cartService.getPizzaQnty();
+    angular.element(document).ready(function () {
+        $scope.pizza_qnty = cartService.getData();
+        $scope.pizza_qnty = cartService.getPizzaQnty();
+    });
 
     $rootScope.$on('pizzaIngredients', function ($event) {
-      $scope.totalPrice = cartService.total;
-    })
+        $scope.totalPrice = cartService.total;
+    });
+
+    $rootScope.$on('addPizza', function ($event) {
+        $scope.pizza_qnty = cartService.getPizzaQnty();
+    });
 
     // Send event to show Cart (getData from LS)
     $scope.showCart = function () {
