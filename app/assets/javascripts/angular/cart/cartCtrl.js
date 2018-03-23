@@ -1,8 +1,6 @@
 pizzaApp.controller("CartCtrl", [ '$window', '$rootScope', '$scope', 'cartService', function ($window, $rootScope, $scope, cartService) {
 
     //   Items list in cart
-    // $scope.cart = [{name: "bob"},{name: "drunk"}];
-
     $scope.cart = cartService.getData();
 
     // $scope.$watch('cartService.getData()', function(newVal) {
@@ -10,9 +8,9 @@ pizzaApp.controller("CartCtrl", [ '$window', '$rootScope', '$scope', 'cartServic
     //     $scope.cart = newVal;
     // });
 
-    // $rootScope.$on('addPizza', function($event) {
-    //     $scope.cart = cartService.getData();
-    // });
+    $rootScope.$on('addPizza', function($event) {
+        $scope.cart = cartService.getData();
+    });
 
     //   Decrease/increase quantity in cart only
     $scope.decrease = function(item){
@@ -24,12 +22,12 @@ pizzaApp.controller("CartCtrl", [ '$window', '$rootScope', '$scope', 'cartServic
     },
     $scope.increase = function(item){
         item.qnty++;
-    }
+    },
 
     // Remove item from cart
-    // $scope.remove = function(pizza) {
-    //     cartService.remove(pizza);
-    // },
+    $scope.removeItem = function(item) {
+        cartService.removeItem(item);
+    }
 
     //   Buy items
     // $scope.buy = function(pizza){

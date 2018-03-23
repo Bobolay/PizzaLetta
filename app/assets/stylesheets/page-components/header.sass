@@ -21,6 +21,8 @@
   &.scrolled, &.visible
     +translate(0,0)
   @media #{$small-only}
+    &:before
+      width: 60px
   @media #{$medium-up}
     width: calc(100% - 80px)
     padding: 10px 30px
@@ -127,9 +129,18 @@
         width: 40px
         height: 40px
     .order-quantity
-      font-size: 18px
+      font-size: 10px
       font-weight: 600
       color: #fff
+      background: black
+      position: absolute
+      right: 10px
+      border-radius: 50%
+      padding: 3px
+      width: 20px
+      height: 20px
+      line-height: 16px
+      text-align: center
     .total-price
       color: white
       padding-left: 20px

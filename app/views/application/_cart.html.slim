@@ -12,14 +12,14 @@
       li.cart-item ng-repeat="item in cart"
 
         .img-holder
-          .img-bg style="background-image: url(#{asset_path('assets/img/items/{{item.imgUrl}}')})"
+          .img-bg style="background-image: url('{{item.imgUrl}}')"
 
         p.name
           | {{item.name}}
 
         p.price
           span &#8372
-          | {{item.qnty * item.price_small}}
+          | {{item.qnty * item.total_price}}
 
         .quantity.on-white-bg
           .decrease ng-click="decrease(item)" = inline_svg "icons/remove.svg"
@@ -43,7 +43,7 @@
           p.ingredients
             | {{item.litre}} л
 
-        p.clear-btn ng-click="remove(item)"
+        p.clear-btn ng-click="removeItem(item)"
           = inline_svg "icons/close.svg"
           | видалити
 

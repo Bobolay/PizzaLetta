@@ -23,7 +23,6 @@ pizzaApp.controller("CustomPizzaCtrl", [ '$http', '$rootScope', '$scope', 'cartS
     });
 
     //   Ingredients list (we get them from ItemsService)
-    // $scope.ingredients_list = ingredientsService.getIngredients();
     $http({method: 'GET', url: '/api/v1/ingredients.json'}).
     then(function success(response) {
         $scope.ingredients_list = response.data;
@@ -55,9 +54,8 @@ pizzaApp.controller("CustomPizzaCtrl", [ '$http', '$rootScope', '$scope', 'cartS
         for (key in customized_pizza) {
             pizza_to_cart[key] = customized_pizza[key];
         }
+        // $rootScope.$emit('addPizza');
         cartService.setData(pizza_to_cart);
-        // cartService.appCart.push(pizza_to_cart);
-        // console.log("cart ",cartService.appCart);
     };
 
 }]);

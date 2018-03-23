@@ -1,13 +1,3 @@
-// Functions to manage objects in Local Storage
-
-// Storage.prototype.setObj = function(key, obj) {
-//     return this.setItem(key, JSON.stringify(obj))
-// };
-// Storage.prototype.getObj = function(key) {
-//     return JSON.parse(this.getItem(key))
-// };
-
-
 // Extended instruments for Local Storage
 
 // Storage.prototype.getArray = function(arrayName) {
@@ -20,17 +10,15 @@
 //     return thisArray;
 // };
 
-Storage.prototype.pushArrayItem = function(arrayName,arrayItem) {
-    var existingArray = this.getArray(arrayName);
-    existingArray.push(arrayItem);
-    this.setItem(arrayName,JSON.stringify(existingArray));
-};
+// Storage.prototype.pushArrayItem = function(arrayName,arrayItem) {
+//     var existingArray = this.getArray(arrayName);
+//     existingArray.push(arrayItem);
+//     this.setItem(arrayName,JSON.stringify(existingArray));
+// };
 
 Storage.prototype.deleteArray = function(arrayName) {
     this.removeItem(arrayName);
 };
-
-
 
 pizzaApp.factory("cartService", [ '$rootScope', '$window', function($rootScope, $window){
 
@@ -68,23 +56,36 @@ pizzaApp.factory("cartService", [ '$rootScope', '$window', function($rootScope, 
         buy: function (pizza) {
             alert("Thank's for buying: ", pizza.name);
         },
-
-        setData: function(item) {
-            window.localStorage.pushArrayItem('storageArray',item);
-        },
-
-        getData: function() {
-
+        // Add item lo LS
+        setData: function (item) {
+            // localStorage.pushArrayItem('storageArray',item);
             var thisArray = [];
             var fetchArrayObject = localStorage.getItem('storageArray');
             if (typeof fetchArrayObject !== 'undefined') {
                 if (fetchArrayObject !== null) { thisArray = JSON.parse(fetchArrayObject); }
             }
-            console.log("Local storage: ",thisArray);
-            return thisArray;
-
-            // console.log('before Get');
+            var existingArray = thisArray;
+            existingArray.push(item);
+            localStorage.setItem('storageArray',JSON.stringify(existingArray));
+        },
+        // Get items from LS
+        getData: function () {
             // return localStorage.getArray('storageArray');
+            var thisArray = [];
+            var fetchArrayObject = localStorage.getItem('storageArray');
+            if (typeof fetchArrayObject !== 'undefined') {
+                if (fetchArrayObject !== null) { thisArray = JSON.parse(fetchArrayObject); }
+            }
+            return thisArray;
+        },
+        removeItem: function (item) {
+            var thisArray = [];
+            var fetchArrayObject = localStorage.getItem('storageArray');
+            if (typeof fetchArrayObject !== 'undefined') {
+                if (fetchArrayObject !== null) { thisArray = JSON.parse(fetchArrayObject); }
+            }
+            thisArray.pop(item);
+            return thisArray;
         }
 
     }
