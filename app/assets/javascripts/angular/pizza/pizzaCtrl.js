@@ -12,15 +12,19 @@ pizzaApp.controller("PizzaListCtrl", [ '$rootScope', '$scope', 'itemsService', '
     });
 
     // Decrease/increase quantity in items list only
-    $scope.decrease = function(pizza){
-        if (pizza.qnty == 1 ) {
+    $scope.decrease = function(item){
+        if (item.qnty == 1 ) {
             return;
         } else {
-            pizza.qnty--;
+            item.qnty--;
+            // cartService.decreaseData(item);
         }
+        // $rootScope.$emit('addPizza');
     };
-    $scope.increase = function(pizza){
-        pizza.qnty++;
+    $scope.increase = function(item){
+        item.qnty++;
+        // cartService.increaseData(item);
+        // $rootScope.$emit('addPizza');
     };
 
     // Add custom pizza for customization process

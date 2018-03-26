@@ -15,14 +15,14 @@ pizzaApp.controller("CartCtrl", [ '$window', '$rootScope', '$scope', 'cartServic
         if (item.qnty == 1 ) {
             return;
         } else {
-            item.qnty--;
-            cartService.pizza_qnty--;
+            cartService.decreaseData(item);
         }
-    },
+        $rootScope.$emit('addPizza');
+    };
     $scope.increase = function(item){
-        item.qnty++;
-        cartService.pizza_qnty++;
-    },
+        cartService.increaseData(item);
+        $rootScope.$emit('addPizza');
+    };
 
     // Remove item from cart
     $scope.removeItem = function(item) {

@@ -2,17 +2,15 @@ pizzaApp.controller("HeaderCtrl", [ '$rootScope', '$scope', 'cartService', funct
 
     // Header title depends from current page
 
-    // Get pizza qnty from cart
+    // Get pizza qnty and total from cart on page load
     angular.element(document).ready(function () {
-        $scope.pizza_qnty = cartService.getData();
+        $scope.total_price = cartService.getData();
+        $scope.total_price = cartService.getTotalPrice();
         $scope.pizza_qnty = cartService.getPizzaQnty();
     });
 
-    $rootScope.$on('pizzaIngredients', function ($event) {
-        $scope.totalPrice = cartService.total;
-    });
-
     $rootScope.$on('addPizza', function ($event) {
+        $scope.total_price = cartService.getTotalPrice();
         $scope.pizza_qnty = cartService.getPizzaQnty();
     });
 
