@@ -86,7 +86,7 @@ pizzaApp.factory("customPizzaService", function(cartService){
                 return matched.name === ingredient.name;
             });
             if (existent_ingredient) {
-                var target = custom_ingredients.indexOf(ingredient);
+                var target = custom_ingredients.indexOf(ingredient)
                 if(target != -1) {
                     // We don't want eat this shit
                     custom_ingredients.splice(target, 1);

@@ -188,15 +188,16 @@
             li.order-item.clearfix ng-repeat="item in cart"
               .floated
                 .img-holder
-                  .img-bg style="background-image: url(#{asset_path('assets/img/items/{{item.imgUrl}}')})"                p.name.dib
-                  | {{item.name}}
+                  .img-bg style="background-image: url('{{item.imgUrl}}')"
+                p.name.dib
+                | {{item.name}}
               .floated
                 p.quantity.dib
                   | {{item.qnty}}
               .floated
                 p.price.dib
                   span &#8372
-                  | {{item.qnty * item.price}}
+                  | {{item.qnty * item.pricesmall}}
 
           .input-field
             input
@@ -207,4 +208,4 @@
             span.label загальна сума
             span.price
               span &#8372
-              | 253
+              | {{ total_price }}

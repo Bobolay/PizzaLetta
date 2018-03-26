@@ -5,10 +5,25 @@ pizzaApp.controller("CartCtrl", [ '$window', '$rootScope', '$scope', 'cartServic
     //     $scope.cart = newVal;
     // });
 
+    $scope.cart = cartService.getData();
+    $scope.total_price = cartService.getTotalPrice();
+
+    angular.element(document).ready(function () {
+        $scope.total_price = cartService.getData();
+        $scope.total_price = cartService.getTotalPrice();
+    });
+
+    $rootScope.$on('addPizza', function ($event) {
+        $scope.total_price = cartService.getTotalPrice();
+    });
+
     // Items list in cart
     $rootScope.$on('addPizza', function($event) {
         $scope.cart = cartService.getData();
     });
+
+    // Additional sauces as option (red and white)
+    // $scope.additional_sauces = cartService.getSauces();
 
     //   Decrease/increase quantity in cart only
     $scope.decrease = function(item){
@@ -29,6 +44,11 @@ pizzaApp.controller("CartCtrl", [ '$window', '$rootScope', '$scope', 'cartServic
         cartService.removeItem(item);
         $scope.cart = cartService.getData();
         $rootScope.$emit('addPizza');
-    }
+    };
+
+    // Add or remove optional sauce (red or white)
+    $scope.toggleIngredient = function (ingredient) {
+        cartService.toggleIngredient(ingredient);
+    };
 
 }]);

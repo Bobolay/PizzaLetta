@@ -7,6 +7,7 @@
 
   .scroll-container
 
+    /Main list of items such as pizza, drinks and salads
     ul.item-list
 
       li.cart-item ng-repeat="item in cart"
@@ -50,16 +51,36 @@
           = inline_svg "icons/close.svg"
           | видалити
 
+    / Additional sauces (optionally)
+    ul
+      li.order-item ng-repeat="ingredient in additional_sauces"
+        .remove ng-click="toggleIngredient(ingredient)"
+          = inline_svg "icons/close.svg"
+        .clearfix
+          .floated
+            .img-holder
+              .img-bg style="background-image: url('{{ingredient.imgUrl}}')"
+            p.name.dib
+              | {{ingredient.name}}
+          .floated.quantity.on-white-bg
+            .decrease ng-click="decrease(ingredient)" = inline_svg "icons/remove.svg"
+            .number ng-bind="ingredient.qnty || 1"
+            .increase ng-click="increase(ingredient)" = inline_svg "icons/add.svg"
+          .floated
+            p.price.dib.kostyl
+              span &#8372
+              | {{ingredient.price}}
+
 
     / Choose additional sauce
-    .sauce-option
+    /.sauce-option
 
       .ingredient-type
         p.subtitle добавити соус
 
       .clearfix.ingredients-container
 
-        .floated
+        .floated ng-class="{'active':ingredient.active_ingredient}" ng-click="toggleIngredient(ingredient,category)"
           .img style="background-image: url(#{asset_path('img/Test-sauce.png')})"
           p.name червоний
           p.price
@@ -68,7 +89,7 @@
           .remove = inline_svg "icons/remove.svg"
           .add = inline_svg "icons/add.svg"
 
-        .floated
+        .floated ng-class="{'active':ingredient.active_ingredient}" ng-click="toggleIngredient(ingredient,category)"
           .img style="background-image: url(#{asset_path('img/Test-sauce.png')})"
           p.name білий
           p.price
@@ -81,6 +102,6 @@
   .order-confirmation.clearfix
     .floated.price
       span &#8372
-      | 123 example
+      | {{ total_price }}
     a.floated.btn.red href=checkout_path
       | оформити замовлення

@@ -43,6 +43,4 @@
 #= require angular/cart/cartCtrl.js
 #= require angular/cart/cartService.js
 
-#= require angular/ingredients_service
-
 #= require angular/header_controller

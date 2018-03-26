@@ -10,8 +10,13 @@ var getDataFromLS = function () {
 
 pizzaApp.factory("cartService", [ '$rootScope', '$window', function($rootScope, $window){
 
+    // Total price of all items in cart
     var total_price = 0;
+    // Quantity of pizza only
     var pizza_qnty = 0;
+
+    // Additional sauce (red or white)
+    var additional_sauces = [];
 
     return {
 
@@ -86,11 +91,54 @@ pizzaApp.factory("cartService", [ '$rootScope', '$window', function($rootScope, 
         // Remove item from LS
         removeItem: function (item) {
             var existingArray = getDataFromLS();
-            existingArray.splice(item,1);
+
+            // We are taking number of item that match object in array, but this crappy code not working =(
+            // It works in ToggleIngredient function though.. Miracle of JS! =)
+
+            // var itemToRemove = existingArray.indexOf(item);
+            // if(itemToRemove != -1) {
+            //     // We don't want eat this shit
+            //     existingArray.splice(itemToRemove, 1);
+
+            // Here we KOSTYL that make out beatiful code works!
+            // Simply go through array and increment var kostyl untill we have match.
+            // So that's will be out index of element we want to remove!
+            var kostyl = 0;
+            angular.forEach(existingArray, function (value, key) {
+                if(value.$$hashKey == item.$$hashKey){
+                    kostyl = existingArray.indexOf(value);
+                }
+            });
+            existingArray.splice(kostyl,1);
+
             pizza_qnty -= item.qnty;
             total_price -= item.pricesmall * item.qnty;
             localStorage.setItem('storageArray',JSON.stringify(existingArray));
-        }
+        },
+        // getSauces: function () {
+        //     return additional_sauces;
+        // },
+        // Add or remove ingredient from out custom pizza
+        // toggleIngredient: function (ingredient) {
+        //
+        //     var existent_ingredient = additional_sauces.find(function(matched){
+        //         return matched.name === ingredient.name;
+        //     });
+        //     if (existent_ingredient) {
+        //         var target = additional_sauces.indexOf(ingredient)
+        //         if(target != -1) {
+        //             // We don't want eat this shit
+        //             additional_sauces.splice(target, 1);
+        //             // So let's remove 'active' class by doing this
+        //             ingredient.active_ingredient = false;
+        //         }
+        //     } else {
+        //         // This ingredient isn't choosen still - throw it into our pizza
+        //         additional_sauces.push(ingredient);
+        //         // Highlight this ingredient (it receives 'active' class)
+        //         ingredient.active_ingredient = true;
+        //     }
+        // }
 
     }
 

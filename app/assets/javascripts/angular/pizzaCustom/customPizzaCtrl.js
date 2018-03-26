@@ -11,7 +11,7 @@ pizzaApp.filter('filterInArray', [ '$filter', function($filter){
     }]);
 
 //   C U S T O M   P I Z Z A   C O N T R O L L E R
-pizzaApp.controller("CustomPizzaCtrl", [ '$http', '$rootScope', '$scope', 'cartService', 'customPizzaService', 'ingredientsService', function ($http, $rootScope, $scope, cartService, customPizzaService, ingredientsService) {
+pizzaApp.controller("CustomPizzaCtrl", [ '$http', '$rootScope', '$scope', 'cartService', 'customPizzaService', function ($http, $rootScope, $scope, cartService, customPizzaService) {
 
     //   Custom pizza
     $scope.custom_pizza = customPizzaService.getCustomPizza();

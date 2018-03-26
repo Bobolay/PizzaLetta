@@ -1,4 +1,4 @@
-pizzaApp.controller("ConstructorCtrl", [ '$rootScope', '$scope', '$http', 'ingredientsService', 'constructorService', 'cartService', function ($rootScope, $scope, $http, ingredientsService, constructorService, cartService) {
+pizzaApp.controller("ConstructorCtrl", [ '$rootScope', '$scope', '$http', 'constructorService', 'cartService', function ($rootScope, $scope, $http, constructorService, cartService) {
 
     // All ingredients to choose from (we get them from ItemsService)
     $http({method: 'GET', url: '/api/v1/ingredients.json'}).
