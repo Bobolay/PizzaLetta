@@ -1,4 +1,4 @@
-pizzaApp.controller("CartCtrl", [ '$window', '$rootScope', '$scope', 'cartService', function ($window, $rootScope, $scope, cartService) {
+pizzaApp.controller("CartCtrl", [ '$http', '$window', '$rootScope', '$scope', 'cartService', function ($http, $window, $rootScope, $scope, cartService) {
 
     // $scope.$watch('cartService.getData()', function(newVal) {
     //     // console.log("New Data: " , newVal);
@@ -50,5 +50,29 @@ pizzaApp.controller("CartCtrl", [ '$window', '$rootScope', '$scope', 'cartServic
     $scope.toggleIngredient = function (ingredient) {
         cartService.toggleIngredient(ingredient);
     };
+
+    // create a blank object to handle form data.
+    $scope.message = {
+        "name": "Bob",
+        "age": 25
+    };
+    // calling our submit function.
+    $scope.submitForm = function() {
+        var url = 'structure_parts';
+        var data = {data: $scope.cart};
+        var headers = {'Content-Type': 'application/x-www-form-urlencoded'};
+        $http.get(url, data, headers)
+           .then(function(data) {
+                console.log(data);
+                if (data.errors) {
+                    // Showing errors.
+                    $scope.errorContent = data.errors.errorContent;
+                } else {
+                    $scope.message = data.message;
+                }
+           });
+    };
+
+
 
 }]);
