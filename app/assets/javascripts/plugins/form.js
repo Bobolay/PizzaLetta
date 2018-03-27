@@ -21,22 +21,4 @@ $(document).ready(function() {
     $(".checked").toggleClass("active")
   });
 
-
-  //     v a l i d a t e
-
-  // $("form").validate({
-  //   rules: {
-  //     name: {
-  //       required: true,
-  //       minlength: 3
-  //     },
-  //     email: {
-  //       required: true,
-  //       email: true
-  //     }
-  //   }
-  // });
-
-
-
 });

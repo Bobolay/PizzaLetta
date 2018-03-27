@@ -52,14 +52,14 @@ pizzaApp.controller("CartCtrl", [ '$http', '$window', '$rootScope', '$scope', 'c
     };
 
     // create a blank object to handle form data.
-    $scope.message = {
-        "name": "Bob",
-        "age": 25
-    };
+    $scope.order = {};
     // calling our submit function.
     $scope.submitForm = function() {
         var url = 'structure_parts';
-        var data = {data: $scope.cart};
+        var data = {
+            cart: $scope.cart,
+            info: $scope.order
+        };
         var headers = {'Content-Type': 'application/x-www-form-urlencoded'};
         $http.get(url, data, headers)
            .then(function(data) {
