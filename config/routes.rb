@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   devise_for :users
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root to: "pages#index"
-  post "/order", to: "orders#new"
   controller :pages do
 
     get "structure_parts", action: "structure_parts"
@@ -20,8 +19,10 @@ Rails.application.routes.draw do
     get "policy", action: "policy"
 
     get "stub", action: "stub"
+    post "order", action: "create"
 
   end
+
   namespace :api do
       namespace :v1 do
         resources :ingredients, only: [:index]
