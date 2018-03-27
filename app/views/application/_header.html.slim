@@ -44,7 +44,9 @@
           button Передзвоніть мені
 
     .dib.cart.disable
-      .dib.cart-icon = inline_svg ('icons/basket.svg')
+      .dib.cart-icon
+        .static = inline_svg ('icons/Pizza-Letta-basket.svg')
+        /.cart-animated
       .dib.order-quantity
         | {{pizza_qnty}}
       .dib.total-price

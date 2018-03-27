@@ -78,6 +78,10 @@
     @media only screen and (min-width: 1440px)
       +x-align
 
+.cart-animated
+  background-image: asset_url('icons/sprite_icons/Pizza-Letta-basket-icon.png')
+  &:hover
+    animation: play .4s steps(9) forwards
 .pizza
   background-image: asset_url('icons/sprite_icons/Pizza-Letta-pizza-icon.png')
   top: 7px
@@ -92,7 +96,7 @@
 .constructor
   background-image: asset_url('icons/sprite_icons/Pizza-Letta-constructor-icon.png')
   top: 8px
-.pizza, .drinks, .salads, .gifts, .constructor
+.cart-animated, .pizza, .drinks, .salads, .gifts, .constructor
   position: relative
   display: inline-block
   width: 53px

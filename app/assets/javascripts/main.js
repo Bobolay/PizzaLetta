@@ -13,13 +13,13 @@
 
 
         // Alert message for client
-        if (Cookies.get('alert_msg') != 'off') {
-            $('.client-alert-popup').addClass('visible');
-        }
+        // if (Cookies.get('alert_msg') != 'off') {
+        //     $('.client-alert-popup').addClass('visible');
+        // }
         // Close client alert message
         $('.alert-popup-close-btn').on('click', function(){
-            $('.client-alert-popup').removeClass('visible');
-            Cookies.set('alert_msg', 'off');
+            $('.client-alert-popup').addClass('hidden');
+            // Cookies.set('alert_msg', 'off');
         })
 
 
