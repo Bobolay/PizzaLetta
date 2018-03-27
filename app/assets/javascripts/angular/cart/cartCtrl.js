@@ -51,14 +51,16 @@ pizzaApp.controller("CartCtrl", [ '$http', '$window', '$rootScope', '$scope', 'c
         cartService.toggleIngredient(ingredient);
     };
 
+    // SENDING INFO AND ORDER
     // create a blank object to handle form data.
     $scope.order = {};
     // calling our submit function.
     $scope.submitForm = function() {
-        var url = 'structure_parts';
+        var url = '/order';
         var data = {
             cart: $scope.cart,
-            info: $scope.order
+            info: $scope.order,
+            totalprice: $scope.total_price
         };
         var headers = {'Content-Type': 'application/x-www-form-urlencoded'};
         $http.get(url, data, headers)
