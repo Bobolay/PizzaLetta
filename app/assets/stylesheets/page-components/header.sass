@@ -145,6 +145,19 @@
         height: 40px
       @media #{$small-only}
         margin-right: 0
+    .static
+      @media #{$xlarge-up}
+        display: none
+    .cart-animated
+      background-image: asset_url('icons/sprite_icons/Pizza-Letta-basket-icon.png')
+      width: 59px
+      height: 59px
+      background-position: top center
+      display: none
+      &:hover
+        animation: play-cart .4s steps(6) forwards
+      @media #{$xlarge-up}
+        display: block
     .order-quantity
       font-size: 10px
       font-weight: 600
@@ -205,3 +218,7 @@
       color: white
       font-weight: 600
       text-align: center
+
+@keyframes play-cart
+  100%
+    background-position-y: -357px
