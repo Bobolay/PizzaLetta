@@ -38,6 +38,10 @@ class PagesController < ApplicationController
     @first = Gift.show.first
   end
 
+  def create
+    redirect_to root_path
+  end
+
   def stub
     render layout: false
   end

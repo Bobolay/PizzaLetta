@@ -55,8 +55,31 @@ pizzaApp.controller("CartCtrl", [ '$http', '$window', '$rootScope', '$scope', 'c
 
     $scope.order = {};
 
+    // GET REQUEST
+
+    // $scope.submitForm = function() {
+    //     var url = '/order';
+    //     var data = {
+    //         cart: $scope.cart,
+    //         info: $scope.order,
+    //         totalprice: $scope.total_price
+    //     };
+    //     $http.get(url, data)
+    //        .then(function(data) {
+    //             if (data.errors) {
+    //                 // Showing errors.
+    //                 $scope.errorContent = data.errors.errorContent;
+    //             } else {
+    //                 console.log(data);
+    //                 $scope.message = data.message;
+    //             }
+    //        });
+    // };
+
+    // POST REQUEST
+
     $scope.submitForm = function () {
-        var url = '/order';
+        var url = 'order';
         var data = {
             cart: $scope.cart,
             info: $scope.order,
@@ -64,10 +87,10 @@ pizzaApp.controller("CartCtrl", [ '$http', '$window', '$rootScope', '$scope', 'c
         };
         var config = {
             headers : {
-                'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+                // 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+                'Content-Type': 'application/json'
             }
         };
-
         $http.post(url, data, config)
             .then(
                 function(response){
@@ -78,39 +101,6 @@ pizzaApp.controller("CartCtrl", [ '$http', '$window', '$rootScope', '$scope', 'c
                     console.log("Not working!");
                 }
             );
-
-        // Just another try
-
-        // $http({
-        //     method  : 'POST',
-        //     url     : url,
-        //     headers : { 'Content-Type': 'application/json' }
-        // })
-        //     .then(
-        //         function(response){
-        //             $scope.message = data.message;
-        //         },
-        //         function(response){
-        //             // failure callback
-        //             console.log("Not working!");
-        //         }
-        //     );
-
     };
-
-    // Was working get
-
-    // $scope.submitForm = function() {
-    //     $http.post(url, data, headers)
-    //        .then(function(data) {
-    //             console.log(data);
-    //             if (data.errors) {
-    //                 // Showing errors.
-    //                 $scope.errorContent = data.errors.errorContent;
-    //             } else {
-    //                 $scope.message = data.message;
-    //             }
-    //        });
-    // };
 
 }]);
