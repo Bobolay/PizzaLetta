@@ -22,12 +22,14 @@ Rails.application.routes.draw do
     post "order", action: "create"
 
   end
+
   namespace :api do
       namespace :v1 do
         resources :ingredients, only: [:index]
         resources :drinks, only: [:index]
         resources :pizzas, only: [:index]
         resources :constructor, only: [:index]
+        resources :salats, only: [:index]
       end
     end
   match "*url", to: "application#render_not_found", via: [:get, :post, :path, :put, :update, :delete]

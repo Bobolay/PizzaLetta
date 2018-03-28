@@ -17,6 +17,7 @@
 #= require plugins/jquery.nice-select.min
 #= require plugins/mixitup-2.1.1.min
 #= require plugins/jquery.scrolldelta
+#= require plugins/js.cookie
 
 #     I N I T I A L I Z E
 
@@ -44,3 +45,5 @@
 #= require angular/cart/cartService.js
 
 #= require angular/header_controller
+
+#= require preloader

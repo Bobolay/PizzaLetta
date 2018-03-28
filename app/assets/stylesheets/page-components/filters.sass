@@ -3,21 +3,26 @@
 .filter-wrap
   position: relative
   //margin: 150px 0 30px
-  margin: 30px 0
+  //margin: 20px 0 0
   .regular
+    display: inline-block
     font-size: 14px
     text-transform: uppercase
     margin-right: 20px
     font-weight: 600
     margin-bottom: 20px
+    @media #{$small-only}
+      display: none
     @media #{$xlarge-up}
       margin-bottom: 0
   .filter
     position: relative
-    padding: 10px
+    padding: 10px 14px
     border: 1px solid rgba(0,0,0,0.25)
     cursor: pointer
     +transition(.25s)
+    @media #{$small-only}
+      padding: 10px
     &:nth-child(n+2)
       margin-left: -1px
     &:hover, &.active
@@ -33,8 +38,13 @@
     height: 30px
     vertical-align: middle
     fill: rgba(0,0,0,0.5)
-    margin-right: 10px
     +transition(.25s)
+    @media #{$medium-up}
+      margin-right: 10px
   span
+    font-size: 14px
+    font-weight: 600
     color: rgba(0,0,0,0.5)
     +transition(.25s)
+    @media #{$small-only}
+      display: none

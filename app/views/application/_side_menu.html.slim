@@ -1,0 +1,35 @@
+.sidemenu-wrap
+
+  a.logo href=root_path
+    = inline_svg ('icons/logo.svg')
+
+  .beta-icon
+    = inline_svg ('icons/letta-beta-lable-v1.svg')
+
+  ul.sidenav
+    li
+      a href=root_path class=('active' if current_page?(root_path))
+        .pizza
+        span Піца
+    li
+      a href=drinks_path class=('active' if current_page?(drinks_path))
+        .drinks
+        span Напої
+    li.disable
+      a
+        .salads
+        span Салати
+    li.disable
+      a href=promotions_path class=('active' if current_page?(promotions_path))
+        .gifts
+        span Акції
+    li.disable
+      a href=constructor_path class=('active' if current_page?(constructor_path))
+        .constructor
+        span Конструкор
+
+  .socials
+    a href="#{Contact.first.instagram}" target="_blank"
+      = inline_svg ('icons/instagram.svg')
+    a href="#{Contact.first.facebook}" target="_blank"
+      = inline_svg ('icons/facebook.svg')

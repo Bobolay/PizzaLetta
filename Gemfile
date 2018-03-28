@@ -91,7 +91,7 @@ gem 'figaro'
 #gem 'cms', path: "/media/data/pasha/gems/cms"
 
 # gem 'cms', github: "pkorenev/cms"
-
+gem 'pry-rails', '~> 0.3.4'
 # gem 'require_reloader'
 gem 'pry'
 gem 'thin'
