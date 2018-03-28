@@ -30,6 +30,7 @@
           .floated.filter data-filter=".cheese"
             = inline_svg ('icons/filter_icons/Pizza-Letta-cheese.svg')
             span Сирна
+
       / Sorting
       /.floated-right
         .sort data-sort="myorder:asc" asc
@@ -74,7 +75,7 @@
                 span.price
                   | {{ pizza.pricesmall }}
 
-                / For version 2.0 (size)
+                /For version 2.0 (size)
                 /.price ng-show="size == 'small'"
                 /  | {{pizza.price[0]}}
                 /.price ng-show="size == 'big'"
@@ -109,62 +110,4 @@
                 span = inline_svg "icons/done.svg"
 
 
-/ BRAND LOGO
-.branding
-  .icon = inline_svg ('icons/logo.svg')
-
-
-/ LIVE VIDEO
-.video-container
-  .img-bg style="background-image: url(#{asset_path('img/nick-karvounis-463853.jpg')})"
-  .camera-option.clearfix
-    .floated.active Камера №1
-    .floated Камера №2
-  .camera-description
-    p.small Вебкамера
-    p.larger Кухня наживо
-
-
-/ SUBSCRIBE
-.subscribe-wrap
-  .bg-pattern style="background-image: url(#{asset_path('img/Letta-pattern-red.png')})"
-  .pizza-img style="background-image: url(#{asset_path('img/pizza_PNG7122.png')})"
-  .row
-    .columns.medium-10.large-9.large-centered.xlarge-8
-      .row
-        .columns.medium-6.large-5
-          p.large Будьте в курсі новин
-          p.smaller Щоб бути в курсі найсвіжіших новин та акційних пропозицій &mdash; підпишіться на емейл-розсилку.
-        .columns.medium-6
-          form
-            .input-field
-              input placeholder="Електронна скринька"
-            button
-              = inline_svg ("icons/pizza_part.svg")
-              span Підписатися
-
-
-/ SOCIAL AND FEEDBACKS
-.social-wrap
-  .label
-    = inline_svg ('icons/logo.svg')
-  .row
-    .columns
-      / Title and social buttons
-      .main-text
-        p.large-title Слідкуйте за нами
-        p.smaller Нові піци та кльові обновлення. Слідкуйте за нами в Instagram, щоб не пропустити жодної дрібниці!
-        a.btn.dark href="https://www.instagram.com/pizza_letta" target="_blank"
-          = inline_svg ("icons/instagram.svg")
-          span pizza_letta
-  .row.columns-left
-
-    / Post from socials
-    -@json.each do |json|
-      .columns.small-6.large-4
-        .square
-          a.img-bg href="#{json["link"]}" target="_blank" rel="nofollow" style="background-image: url(#{json["images"]["standard_resolution"]["url"]})"
-        span.heart-icon = inline_svg "icons/heart.svg"
-        span.likes =json["likes"]["count"]
-        p.title =json["user"]["username"]
-        p.smaller.post-description =json["caption"]["text"]
+= render "main_content"

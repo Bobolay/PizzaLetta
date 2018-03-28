@@ -33,7 +33,7 @@
     position: absolute
     display: block
     position: absolute
-    width: 170px
+    width: 193px
     height: 100%
     top: 0
     right: 0
@@ -141,7 +141,7 @@
     .cart-icon
       position: relative
       cursor: pointer
-      margin-right: 0
+      //margin-right: 0
       svg
         width: 40px
         height: 40px
@@ -177,15 +177,18 @@
       @media #{$small-only}
         right: -6px
     .total-price
+      font-size: 18px
       color: white
       padding-left: 20px
-      font-weight: 600
+      font-weight: 900
       border-left: 1px solid $dark
       width: 64px
       height: 50px
       line-height: 50px
       //Temporary hidden
       //display: none
+      span
+        font-weight: 500
       @media #{$small-only}
         display: none
 
