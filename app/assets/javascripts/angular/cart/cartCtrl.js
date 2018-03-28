@@ -51,28 +51,69 @@ pizzaApp.controller("CartCtrl", [ '$http', '$window', '$rootScope', '$scope', 'c
         cartService.toggleIngredient(ingredient);
     };
 
-    // create a blank object to handle form data.
-    $scope.message = {
-        "name": "Bob",
-        "age": 25
-    };
-    // calling our submit function.
-    $scope.submitForm = function() {
-        var url = 'structure_parts';
-        var data = {data: $scope.cart};
-        var headers = {'Content-Type': 'application/x-www-form-urlencoded'};
-        $http.get(url, data, headers)
-           .then(function(data) {
-                console.log(data);
-                if (data.errors) {
-                    // Showing errors.
-                    $scope.errorContent = data.errors.errorContent;
-                } else {
+    // SENDING INFO AND ORDER
+
+    $scope.order = {};
+    $scope.order.orderway = "courier";
+
+    // GET REQUEST
+
+    // $scope.submitForm = function() {
+    //     var url = '/order';
+    //     var data = {
+    //         cart: $scope.cart,
+    //         info: $scope.order,
+    //         totalprice: $scope.total_price
+    //     };
+    //     $http.get(url, data)
+    //        .then(function(data) {
+    //             if (data.errors) {
+    //                 // Showing errors.
+    //                 $scope.errorContent = data.errors.errorContent;
+    //             } else {
+    //                 console.log(data);
+    //                 $scope.message = data.message;
+    //             }
+    //        });
+    // };
+
+    // POST REQUEST
+
+    $scope.submitForm = function (isValid) {
+
+        var url = 'order';
+        var data = {
+            cart: $scope.cart,
+            info: $scope.order,
+            totalprice: $scope.total_price
+        };
+        var config = {
+            headers : {
+                // 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+                'Content-Type': 'application/json'
+            }
+        };
+
+        // if (isValid) {
+        //     alert('our form is amazing');
+        // } else {
+        //     alert('not valid');
+        // }
+
+        $http.post(url, data, config)
+            .then(
+                function(response){
                     $scope.message = data.message;
+                    var success = angular.element(document.querySelector(".success-wrap"));
+                    success.addClass('visible');
+                    // Clear LS
+                    localStorage.setItem('storageArray',JSON.stringify([]));
+                },
+                function(response){
+                    // failure callback
+                    console.log("Not working!");
                 }
-           });
+            );
     };
-
-
 
 }]);

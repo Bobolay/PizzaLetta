@@ -12,6 +12,17 @@
     $(function() {
 
 
+        // Alert message for client
+        // if (Cookies.get('alert_msg') != 'off') {
+        //     $('.client-alert-popup').addClass('visible');
+        // }
+        // Close client alert message
+        $('.alert-popup-close-btn').on('click', function(){
+            $('.client-alert-popup').addClass('hidden');
+            // Cookies.set('alert_msg', 'off');
+        })
+
+
         // Initialize nice select
         $('select').niceSelect();
 
@@ -19,9 +30,13 @@
         // Show/hide cart
         $('.menu-btn').on('click', function(){
             if ($('.menu-wrap').hasClass('visible')){
+                $(this).removeClass('is-active');
                 $('.menu-wrap').removeClass('visible');
+                $('body').removeClass('overflow-hidden');
             } else {
+                $(this).addClass('is-active');
                 $('.menu-wrap').addClass('visible');
+                $('body').addClass('overflow-hidden');
             }
         })
 

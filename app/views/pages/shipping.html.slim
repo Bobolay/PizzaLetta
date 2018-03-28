@@ -10,12 +10,14 @@
 
         .inner-indent
 
-          p.title Правила доставки
+          h2 Правила доставки
           p
             b =@shipping.time_of_shipping
           p =@shipping.description
-          p.shipping-address =@shipping.first_address
-          p.shipping-address =@shipping.second_address
+          p
+            b м. Львів
+          a.shipping-address href=@shipping.first_address_map target="_blank" =@shipping.first_address
+          a.shipping-address href=@shipping.second_address_map target="_blank" =@shipping.second_address
 
-          p.title Правила оплати
+          h2 Правила оплати
           p = @shipping.payment_description

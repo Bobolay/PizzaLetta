@@ -9,7 +9,7 @@
   display: -ms-flex
   display: -o-flex
   display: flex
-  background: white
+  background: #fff
   justify-content: space-between
   -webkit-box-shadow: 1px 2px 5px 0 rgba(0,0,0,0.1)
   -moz-box-shadow: 1px 2px 5px 0 rgba(0,0,0,0.1)
@@ -21,23 +21,26 @@
   &.scrolled, &.visible
     +translate(0,0)
   @media #{$small-only}
-    &:before
-      width: 60px
+    height: 56px
+    background: $black
   @media #{$medium-up}
     width: calc(100% - 80px)
     padding: 10px 30px
-  @media #{$xxlarge-up}
+  @media only screen and (min-width: 1440px)
+    width: calc(100% - 180px)
   &:before
     content: ''
     position: absolute
     display: block
     position: absolute
-    width: 206px
+    width: 170px
     height: 100%
     top: 0
     right: 0
     background: $red
     z-index: -1
+    @media #{$small-only}
+      width: 60px
   .title, .right-part
     align-self: center
   .title
@@ -52,16 +55,22 @@
       margin-right: 20px
       &:last-child
         margin-right: 0
+      @media #{$small-only}
+        margin-right: 10px
 
-  .menu-btn
-    width: 30px
-    height: 30px
+  .hamburger
     position: absolute
-    top: 23px
-    left: 23px
+    top: 0
+    left: 0
+    @media #{$medium-up}
+      display: none
+
+  .logo-mobile
+    position: absolute
+    top: 12px
+    left: 66px
     svg
-      width: 100%
-      height: 100%
+      width: 130px
     @media #{$medium-up}
       display: none
 
@@ -85,11 +94,13 @@
         display: block
 
   .mobile-phone
+    padding: 10px
     margin-right: 0
     svg
       display: block
-      width: 31px
-      height: 34px
+      fill: white
+      width: 30px
+      height: 30px
     @media #{$medium-up}
       display: none
 
@@ -123,17 +134,39 @@
         display: none
 
   .cart
+    position: relative
+    &.disable
+      //opacity: 0.5
+      //pointer-events: none
     .cart-icon
+      position: relative
       cursor: pointer
+      margin-right: 0
       svg
         width: 40px
         height: 40px
+      @media #{$small-only}
+        margin-right: 0
+    .static
+      @media #{$xlarge-up}
+        display: none
+    .cart-animated
+      background-image: asset_url('icons/sprite_icons/Pizza-Letta-basket-icon.png')
+      width: 59px
+      height: 59px
+      background-position: top center
+      display: none
+      &:hover
+        animation: play-cart .4s steps(6) forwards
+      @media #{$xlarge-up}
+        display: block
     .order-quantity
       font-size: 10px
       font-weight: 600
       color: #fff
       background: black
       position: absolute
+      top: 0
       right: 5px
       border-radius: 50%
       padding: 3px
@@ -141,6 +174,8 @@
       height: 20px
       line-height: 16px
       text-align: center
+      @media #{$small-only}
+        right: -6px
     .total-price
       color: white
       padding-left: 20px
@@ -149,6 +184,10 @@
       width: 64px
       height: 50px
       line-height: 50px
+      //Temporary hidden
+      //display: none
+      @media #{$small-only}
+        display: none
 
   .contact-dropdown
     width: 220px
@@ -185,3 +224,7 @@
       color: white
       font-weight: 600
       text-align: center
+
+@keyframes play-cart
+  100%
+    background-position-y: -357px

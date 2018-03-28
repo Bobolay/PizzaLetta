@@ -1,10 +1,17 @@
 .header-container ng-controller="HeaderCtrl"
 
-  .menu-btn
+  /.menu-btn
     = inline_svg ('icons/menu.svg')
 
+  .menu-btn.hamburger.hamburger--collapse
+    .hamburger-box
+      .hamburger-inner
+
+  a.logo-mobile href=root_path
+    = inline_svg ('icons/Pizza-Letta-logo-horizontal2.svg')
+
   p.title
-    | PizzaLetta
+    = @title
 
   .right-part
 
@@ -17,10 +24,15 @@
 
     .dib.contact
       a.numbers href="tel:#{Contact.first.first_number}" = Contact.first.first_number
-      p.numbers-light 12:00 - 21:00
-      .dropdown-arrow.contact-dropdown-btn = inline_svg ('icons/pizza_part.svg')
+      p.numbers-light
+        = inline_svg ('icons/clock.svg')
+        | 12:00 - 00:00
 
-      .contact-dropdown
+      /Contact dropdown temporary hidden
+
+      /.dropdown-arrow.contact-dropdown-btn = inline_svg ('icons/pizza_part.svg')
+
+      /.contact-dropdown
         .line-separator
         a.numbers href="tel:#{Contact.first.second_number}" = Contact.first.second_number
         a.numbers href="tel:#{Contact.first.third_number}" = Contact.first.third_number
@@ -31,11 +43,12 @@
             input placeholder="Телефон"
           button Передзвоніть мені
 
-    /.dib.cart
-    .dib.cart ng-click="showCart()"
-      .dib.cart-icon = inline_svg ('icons/basket.svg')
-      .dib.order-quantity
-        | {{pizza_qnty}}
+    .dib.cart.disable
+      .dib.cart-icon
+        .static = inline_svg ('icons/Pizza-Letta-basket.svg')
+        .cart-animated
+        .dib.order-quantity
+          | {{pizza_qnty}}
       .dib.total-price
         span &#8372;
         | {{total_price}}

@@ -7,21 +7,28 @@
   background: $dark
   @media #{$small-only}
     display: none
+  @media only screen and (min-width: 1440px)
+    width: 180px
 
   .logo
     display: block
-    width: 60px
-    margin: 20px 10px
+    width: 70px
+    margin: 20px auto 10px
+    @media only screen and (min-width: 1440px)
+      width: 140px
 
   .beta-icon
     width: 60px
     position: relative
-    left: 10px
+    margin: 0 auto
 
   .sidenav
     +y-align
     width: 100%
     li
+      &.disable
+        pointer-events: none
+        opacity: 0.4
     a
       display: block
       height: 80px
@@ -37,6 +44,9 @@
         color: white
         opacity: 0
         +transition(.25s)
+        font-size: 12px
+        @media only screen and (min-width: 1440px)
+          opacity: 1
       &:hover
         span
           opacity: 1
@@ -48,23 +58,52 @@
           opacity: 1
         svg
           fill: white
+      @media only screen and (min-width: 1440px)
+        height: 80px
+        padding-top: 6px
+        padding-left: 10px
+        text-align: left
+        span
+          display: inline-block
+          margin-left: 10px
+          position: relative
+          top: -14px
+          font-weight: 600
+          text-transform: uppercase
 
   .socials
     position: absolute
     bottom: 30px
     left: 10px
-    a
-      position: relative
-      display: inline-block
-      width: 24px
-      height: 24px
-      border: 1px solid white
-      border-radius: 50%
-      margin-right: 10px
-      &:last-child
-        margin-right: 0
-      svg
-        +centered-inside
-        width: 14px
-        height: 14px
-        fill: white
+    @media only screen and (min-width: 1440px)
+      +x-align
+
+.pizza
+  background-image: asset_url('icons/sprite_icons/Pizza-Letta-pizza-icon.png')
+  top: 7px
+.drinks
+  background-image: asset_url('icons/sprite_icons/Pizza-Letta-bottle-icon.png')
+.salads
+  background-image: asset_url('icons/sprite_icons/Pizza-Letta-salad-icon.png')
+.gifts
+  background-image: asset_url('icons/sprite_icons/Pizza-Letta-box-icon.png')
+  top: 2px
+  left: 6px
+.constructor
+  background-image: asset_url('icons/sprite_icons/Pizza-Letta-constructor-icon.png')
+  top: 8px
+.pizza, .drinks, .salads, .gifts, .constructor
+  position: relative
+  display: inline-block
+  width: 53px
+  height: 53px
+  margin: 0 auto
+  background-position: top center
+
+.sidenav a:hover
+  .pizza, .drinks, .salads, .gifts, .constructor
+    animation: play .4s steps(9) forwards
+
+@keyframes play
+  100%
+    background-position-y: -477px
