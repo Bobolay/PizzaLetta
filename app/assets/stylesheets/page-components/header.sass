@@ -134,10 +134,12 @@
         display: none
 
   .cart
+    position: relative
     &.disable
-      opacity: 0.5
-      pointer-events: none
+      //opacity: 0.5
+      //pointer-events: none
     .cart-icon
+      position: relative
       cursor: pointer
       margin-right: 0
       svg
@@ -164,13 +166,16 @@
       color: #fff
       background: black
       position: absolute
-      right: -6px
+      top: 0
+      right: 5px
       border-radius: 50%
       padding: 3px
       width: 20px
       height: 20px
       line-height: 16px
       text-align: center
+      @media #{$small-only}
+        right: -6px
     .total-price
       color: white
       padding-left: 20px
@@ -180,7 +185,7 @@
       height: 50px
       line-height: 50px
       //Temporary hidden
-      display: none
+      //display: none
       @media #{$small-only}
         display: none
 
