@@ -39,7 +39,8 @@ class PagesController < ApplicationController
   end
 
   def create
-    redirect_to root_path
+    render json: {}
+    # redirect_to root_path
   end
 
   def stub
