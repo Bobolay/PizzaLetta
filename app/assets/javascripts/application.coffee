@@ -12,7 +12,7 @@
 #= require plugins/clickout
 
 # require plugins/datepick
-# require plugins/form
+#= require plugins/form
 #= require plugins/owl.carousel.min
 #= require plugins/jquery.nice-select.min
 #= require plugins/mixitup-2.1.1.min
@@ -28,7 +28,6 @@
 #     A N G U L A R
 
 #= require angular/app
-# require angular/config
 
 #= require angular/pizza/pizzaCtrl.js
 #= require angular/pizza/pizzaService.js

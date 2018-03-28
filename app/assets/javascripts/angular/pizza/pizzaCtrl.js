@@ -4,40 +4,47 @@ pizzaApp.controller("PizzaListCtrl", [ '$rootScope', '$scope', 'itemsService', '
 
     $scope.ready = false;
 
-    // Items list (we get them from ItemsService)
-    // $scope.pizza_list = itemsService.getPizzaItems();
-
-    // Get pizza list
-    $http({method: 'GET', url: '/api/v1/pizzas.json'}).
-    then(function success(response) {
-        $scope.pizza_list = response.data;
+    // Get pizza list from service
+    var promiseObj = itemsService.getPizzaList();
+    promiseObj.then(function(value) {
+        $scope.pizza_list = value;
         $scope.ready = true;
-        console.log("Get pizza list");
     });
 
     // Decrease/increase quantity in items list only
-    $scope.decrease = function(pizza){
-        if (pizza.qnty == 1 ) {
+    $scope.decrease = function(item){
+        if (item.qnty == 1 ) {
             return;
         } else {
-            pizza.qnty--;
+            item.qnty--;
+            // cartService.decreaseData(item);
         }
+        // $rootScope.$emit('addPizza');
     };
-    $scope.increase = function(pizza){
-        pizza.qnty++;
+    $scope.increase = function(item){
+        item.qnty++;
+        // cartService.increaseData(item);
+        // $rootScope.$emit('addPizza');
     };
 
     // Add custom pizza for customization process
     $scope.addCustomPizza = function(pizza){
+        angular.element(document.querySelector("body")).addClass('overflow-hidden');
+        var custom_pizza_container = angular.element(document.querySelector(".custom-pizza-container"));
+        custom_pizza_container.addClass('visible');
         customPizzaService.addCustomPizza(pizza);
         $rootScope.$emit('pizzaIngredients');
     };
 
-    // Add pizza to cart
-    $scope.pizzaAddToCart = function(pizza){
-        pizza['total_price'] = pizza.qnty * pizza.price;
-        cartService.appCart.push(pizza);
-        console.log("Cart ",cartService.appCart);
+    $scope.pizzaAddToCart = function (pizza) {
+        var pizza_to_cart = {};
+        for (key in pizza) {
+            pizza_to_cart[key] = pizza[key];
+        }
+
+        cartService.setData(pizza);
+        $rootScope.$emit('addPizza');
+        pizza.qnty = 1;
     };
 
 }]);

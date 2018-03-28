@@ -1,4 +1,4 @@
-.section-indent.checkout-wrap
+.section-indent.checkout-wrap ng-controller="CartCtrl"
 
   form ng-submit="submitForm()"
 
@@ -6,175 +6,175 @@
 
       .columns.large-7
         .panel
-          = simple_form_for(Order.new,url: "/order", html: {method: :post}) do |f|
-            p.title введіть дані доставки
 
-            / Order way: courier, grab by myself or order by phone
-            .clearfix.tab-buttons
+          p.title введіть дані доставки
 
-              .floated.tab-button.icon-holder.active
-                input#order_way_1 type="radio" name="order_way"
-                .icon
-                label for="order_way_1" Доставка кур'єром
-              .floated.tab-button.icon-holder
-                input#order_way_2 type="radio" name="order_way"
-                .icon
-                label for="order_way_2" Забрати самому
-              .floated.tab-button.icon-holder
-                input#order_way_3 type="radio" name="order_way"
-                .icon
-                label for="order_way_3" Вказати по телефону
+          / Order way: courier, grab by myself or order by phone
+          .clearfix.tab-buttons
 
-            .tab-content-wrapper
+            .floated.tab-button.icon-holder.active
+              input#order_way_1 type="radio" name="order_way" value="courier" ng-model="order.orderway"
+              .icon
+              label for="order_way_1" Доставка кур'єром
+            .floated.tab-button.icon-holder
+              input#order_way_2 type="radio" name="order_way" value="bymyself" ng-model="order.orderway"
+              .icon
+              label for="order_way_2" Забрати самому
+            .floated.tab-button.icon-holder
+              input#order_way_3 type="radio" name="order_way" value="byphone" ng-model="order.orderway"
+              .icon
+              label for="order_way_3" Вказати по телефону
 
-              / 1 TAB Courier delivery
-              .tab-content.active
+          .tab-content-wrapper
 
-                .row
-                  .columns.large-6
-                    .input-field
-                      input
-                      label Ім'я
-                  .columns.large-6
-                    .input-field
-                      input
-                      label Телефон
-                  .columns
-                    .input-field
-                      input
-                      label Ел. скринька (не обов'язково)
-                    .checkbox-field.icon-holder
-                      input#subscribe_01 type="checkbox" checked=""
-                      label for="subscribe_01" Отримувати новини та спеціальні пропозиції
-                      .icon
+            / 1 TAB Courier delivery
+            .tab-content.active
 
-                .line-separator.inside-form
+              .row
+                .columns.medium-6
+                  .input-field
+                    input ng-model="order.name"
+                    label Ім'я
+                .columns.medium-6
+                  .input-field
+                    input ng-model="order.phone"
+                    label Телефон
+                .columns
+                  .input-field
+                    input ng-model="order.email"
+                    label Ел. скринька (не обов'язково)
+                  .checkbox-field.icon-holder
+                    input#subscribe_01 type="checkbox" checked="" ng-model="order.subscribe"
+                    label for="subscribe_01" Отримувати новини та спеціальні пропозиції
+                    .icon
 
-                .row
-                  .columns.large-3
-                    .input-field.locked
-                      input.used value="Львів"
-                      label Місто
-                  .columns.large-3
-                    .input-field
-                      input
-                      label Вулиця
-                  .columns.large-3
-                    .input-field
-                      input
-                      label Будинок
-                  .columns.large-3
-                    .input-field
-                      input
-                      label Квартира
+              .line-separator.inside-form
 
-                .line-separator.inside-form
+              .row
+                .columns.medium-6.large-3
+                  .input-field.locked
+                    input.used value="Львів"
+                    label Місто
+                .columns.medium-6.large-3
+                  .input-field
+                    input ng-model="order.street"
+                    label Вулиця
+                .columns.medium-6.large-3
+                  .input-field
+                    input ng-model="order.building"
+                    label Будинок
+                .columns.medium-6.large-3
+                  .input-field
+                    input ng-model="order.apt_number"
+                    label Квартира
 
-                .row
-                  .columns.large-4
-                    .input-field
-                      select
-                        option Сьогодні
-                        option Завтра
-                      label Дата доставки
-                  .columns.large-4
-                    .input-field
-                      select
-                        option Якомога швидше
-                        option Я не спішу
-                      label Час доставки
-                  .columns.large-4
-                    .input-field
-                      select
-                        option Готівка
-                        option Карта банку
-                      label Форма оплати
+              .line-separator.inside-form
 
-                  .columns.large-8
-                    .input-field
-                      input.used placeholder="Сума, грн."
-                      label Підготувати решту з
-                  .columns.large-4
-                    i.sum Вкажіть суму оплати, щоб кур'єр мав при собі решту
+              .row
+                .columns.medium-4.large-4
+                  .input-field
+                    select ng-model="order.date"
+                      option Сьогодні
+                      option Завтра
+                    label Дата доставки
+                .columns.medium-4.large-4
+                  .input-field
+                    select ng-model="order.time"
+                      option Якомога швидше
+                      option Я не спішу
+                    label Час доставки
+                .columns.medium-4.large-4
+                  .input-field
+                    select ng-model="order.paymentmethod"
+                      option Готівка
+                      option Карта банку
+                    label Форма оплати
 
-                p.red-label.textarea-btn
-                  = inline_svg "icons/add.svg"
-                  | додати коментар (не обов'язково)
+                .columns.medium-6.large-8
+                  .input-field
+                    input.used placeholder="Сума, грн." ng-model="order.sumchange"
+                    label Підготувати решту з
+                .columns.medium-6.large-4
+                  i.sum Вкажіть суму оплати, щоб кур'єр мав при собі решту
 
-                .input-field.optional-textarea
-                  textarea rows="5" placeholder="Поле для коментарів..."
+              p.red-label.textarea-btn
+                = inline_svg "icons/add.svg"
+                | додати коментар (не обов'язково)
 
-                button.btn.red
-                  = f.button :submit
+              .input-field.optional-textarea
+                textarea rows="5" placeholder="Поле для коментарів..." ng-model="order.comment"
 
-              / 2 TAB Take by Yourself
-              .tab-content
+              button.btn.red type="submit"
+                | Відправити
 
-                .row
-                  .columns.large-6
-                    .input-field
-                      input
-                      label Ім'я
-                  .columns.large-6
-                    .input-field
-                      input
-                      label Телефон
-                  .columns
-                    .input-field
-                      input
-                      label Ел.Cкринька (не обов'язково)
-                    .checkbox-field.icon-holder
-                      input#subscribe_02 type="checkbox" checked=""
-                      label for="subscribe_02" Отримувати новини та спеціальні пропозиції
-                      .icon
+            / 2 TAB Take by Yourself
+            .tab-content
 
-                .line-separator.inside-form
+              .row
+                .columns.large-6
+                  .input-field
+                    input ng-model="order.name"
+                    label Ім'я
+                .columns.large-6
+                  .input-field
+                    input ng-model="order.phone"
+                    label Телефон
+                .columns
+                  .input-field
+                    input ng-model="order.email"
+                    label Ел.Cкринька (не обов'язково)
+                  .checkbox-field.icon-holder
+                    input#subscribe_02 type="checkbox" checked="" ng-model="order.subscribe"
+                    label for="subscribe_02" Отримувати новини та спеціальні пропозиції
+                    .icon
 
-                .row
-                  .columns.large-6
-                    .input-field
-                      select
-                        option Просп. Чорновола 45
-                        option вул. Городоцька 7
-                      label Забрати з
-                  .columns.large-3
-                    .input-field
-                      select
-                        option Сьогодні
-                        option Завтра
-                        option 21.01.2018
-                      label Дата доставки
-                  .columns.large-3
-                    .input-field
-                      select
-                        option 10:00
-                        option 11:00
-                      label Час
+              .line-separator.inside-form
 
-                p.red-label.textarea-btn
-                  = inline_svg "icons/add.svg"
-                  | додати коментар (не обов'язково)
+              .row
+                .columns.large-6
+                  .input-field
+                    select ng-model="order.officeaddress"
+                      option Просп. Чорновола 45
+                      option вул. Городоцька 7
+                    label Забрати з
+                .columns.large-3
+                  .input-field
+                    select ng-model="order.date"
+                      option Сьогодні
+                      option Завтра
+                      option 21.01.2018
+                    label Дата доставки
+                .columns.large-3
+                  .input-field
+                    select ng-model="order.time"
+                      option 10:00
+                      option 11:00
+                    label Час
 
-                .input-field.optional-textarea
-                  textarea rows="5" placeholder="Поле для коментарів..."
+              p.red-label.textarea-btn
+                = inline_svg "icons/add.svg"
+                | додати коментар (не обов'язково)
 
-                button.btn.red
-                  = f.button :submit
+              .input-field.optional-textarea ng-model="order.comment"
+                textarea rows="5" placeholder="Поле для коментарів..."
 
-              / 3 TAB Order by phone
-              .tab-content
-                .row
-                  .columns
-                    .input-field
-                      input
-                      label Телефон
-                button.btn.red type="submit"
-                  = f.button :submit
+              button.btn.red type="submit"
+                | Відправити
+
+            / 3 TAB Order by phone
+            .tab-content
+              .row
+                .columns
+                  .input-field
+                    input ng-model="order.phone"
+                    label Телефон
+              button.btn.red type="submit"
+                | Відправити
 
 
       / ORDER SUMMARY
       .columns.large-4
-        .panel.order-summary.width-style-1 ng-controller="CartCtrl"
+        .panel.order-summary.width-style-1
 
           p.title ваше замовлення
 
@@ -188,18 +188,19 @@
             li.order-item.clearfix ng-repeat="item in cart"
               .floated
                 .img-holder
-                  .img-bg style="background-image: url(#{asset_path('assets/img/items/{{item.imgUrl}}')})"                p.name.dib
-                  | {{item.name}}
+                  .img-bg style="background-image: url('{{item.imgUrl}}')"
+                p.name.dib
+                | {{item.name}}
               .floated
                 p.quantity.dib
                   | {{item.qnty}}
               .floated
                 p.price.dib
                   span &#8372
-                  | {{item.qnty * item.price}}
+                  | {{item.qnty * item.pricesmall}}
 
           .input-field
-            input
+            input ng-model="order.promocode"
             label Промокод
             span.static-label ввести
 
@@ -207,4 +208,7 @@
             span.label загальна сума
             span.price
               span &#8372
-              | 253
+              | {{ total_price }}
+
+          button.btn.red type="submit"
+            | Відправити

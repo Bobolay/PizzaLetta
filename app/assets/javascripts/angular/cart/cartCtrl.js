@@ -1,28 +1,111 @@
-pizzaApp.controller("CartCtrl", [ '$scope', 'cartService', function ($scope, cartService) {
+pizzaApp.controller("CartCtrl", [ '$http', '$window', '$rootScope', '$scope', 'cartService', function ($http, $window, $rootScope, $scope, cartService) {
 
-    //   Items list in cart
-    $scope.cart = cartService.appCart;
+    // $scope.$watch('cartService.getData()', function(newVal) {
+    //     // console.log("New Data: " , newVal);
+    //     $scope.cart = newVal;
+    // });
+
+    $scope.cart = cartService.getData();
+    $scope.total_price = cartService.getTotalPrice();
+
+    angular.element(document).ready(function () {
+        $scope.total_price = cartService.getData();
+        $scope.total_price = cartService.getTotalPrice();
+    });
+
+    $rootScope.$on('addPizza', function ($event) {
+        $scope.total_price = cartService.getTotalPrice();
+    });
+
+    // Items list in cart
+    $rootScope.$on('addPizza', function($event) {
+        $scope.cart = cartService.getData();
+    });
+
+    // Additional sauces as option (red and white)
+    // $scope.additional_sauces = cartService.getSauces();
 
     //   Decrease/increase quantity in cart only
     $scope.decrease = function(item){
         if (item.qnty == 1 ) {
             return;
         } else {
-            item.qnty--;
+            cartService.decreaseData(item);
         }
-    },
+        $rootScope.$emit('addPizza');
+    };
     $scope.increase = function(item){
-        item.qnty++;
-    },
-
-    // Remove item from cart
-    $scope.remove = function(pizza) {
-        cartService.remove(pizza);
+        cartService.increaseData(item);
+        $rootScope.$emit('addPizza');
     };
 
-    //   Buy items
-    $scope.buy = function(pizza){
-        cartService.buy(pizza);
-    }
+    // Remove item from cart
+    $scope.removeItem = function(item) {
+        cartService.removeItem(item);
+        $scope.cart = cartService.getData();
+        $rootScope.$emit('addPizza');
+    };
+
+    // Add or remove optional sauce (red or white)
+    $scope.toggleIngredient = function (ingredient) {
+        cartService.toggleIngredient(ingredient);
+    };
+
+    // SENDING INFO AND ORDER
+
+    $scope.order = {};
+    $scope.order.orderway = "courier";
+
+    // GET REQUEST
+
+    // $scope.submitForm = function() {
+    //     var url = '/order';
+    //     var data = {
+    //         cart: $scope.cart,
+    //         info: $scope.order,
+    //         totalprice: $scope.total_price
+    //     };
+    //     $http.get(url, data)
+    //        .then(function(data) {
+    //             if (data.errors) {
+    //                 // Showing errors.
+    //                 $scope.errorContent = data.errors.errorContent;
+    //             } else {
+    //                 console.log(data);
+    //                 $scope.message = data.message;
+    //             }
+    //        });
+    // };
+
+    // POST REQUEST
+
+    $scope.submitForm = function () {
+        var url = 'order';
+        var data = {
+            cart: $scope.cart,
+            info: $scope.order,
+            totalprice: $scope.total_price
+        };
+        var config = {
+            headers : {
+                // 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+                'Content-Type': 'application/json'
+            }
+        };
+        $http.post(url, data, config)
+            .then(
+                function(response){
+                    $scope.message = data.message;
+                    var success = angular.element(document.querySelector(".success-wrap"));
+                    success.addClass('visible');
+                    // Clear LS
+                    localStorage.setItem('storageArray',JSON.stringify([]));
+                },
+                function(response){
+                    // failure callback
+                    console.log("Not working!");
+                }
+            );
+    };
 
 }]);

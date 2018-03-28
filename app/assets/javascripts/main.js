@@ -40,6 +40,7 @@
             }
         })
 
+
         // Show/hide menu on mobile
         $('.cart-icon').on('click', function(){
             if ($('.cart-container').hasClass('visible')){
@@ -51,29 +52,32 @@
             }
         })
 
+
         // Show/hide custom pizza menu
-        $('.add-ingredient-btn').on('click', function(){
-            if ($('.custom-pizza-container').hasClass('visible')){
-                $('.custom-pizza-container').removeClass('visible');
-                $('body').removeClass('overflow-hidden');
-            } else {
-                $('.custom-pizza-container').addClass('visible');
-                $('body').addClass('overflow-hidden');
-            }
-        })
+        // $('.add-ingredient-btn').on('click', function(){
+        //     console.log('works');
+        //     if ($('.custom-pizza-container').hasClass('visible')){
+        //         $('.custom-pizza-container').removeClass('visible');
+        //         $('body').removeClass('overflow-hidden');
+        //     } else {
+        //         $('.custom-pizza-container').addClass('visible');
+        //         $('body').addClass('overflow-hidden');
+        //     }
+        // })
 
 
         // Close side-container (cart and custom pizza)
         $('.cart-close-btn').on('click', function(){
             $('.side-container').removeClass('visible');
+            $('.floated').removeClass('active');
             $('body').removeClass('overflow-hidden');
         })
-        $.clickOut('.side-container.visible',
-            function(){
-                $('.side-container').removeClass('visible');
-                $('body').removeClass('overflow-hidden');
-            },{except: '.side-container, .cart-icon, .add-ingredient-btn'}
-        )
+        // $.clickOut('.side-container.visible',
+        //     function(){
+        //         $('.side-container').removeClass('visible');
+        //         $('body').removeClass('overflow-hidden');
+        //     },{except: '.side-container, .cart-icon, .add-ingredient-btn, .remove'}
+        // )
 
 
         // Show contact box
@@ -131,6 +135,7 @@
                 }
             }
         })
+
         $(".owl-btn-next").click(function(){
             owl.trigger('next.owl.carousel');
         })
@@ -138,8 +143,14 @@
             owl.trigger('prev.owl.carousel');
         })
 
+        // Temporary (alert label)
         $('.alert-label span').on('click', function(){
             $('.alert-label').fadeOut();
+        })
+
+        // Remove active class from ingredients
+        $('.clear-btn').on('click', function(){
+            $('.floated').removeClass('active');
         })
 
     });
