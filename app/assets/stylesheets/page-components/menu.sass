@@ -1,15 +1,17 @@
 .menu-wrap
   position: fixed
-  z-index: 11
-  width: 100%
-  min-height: 100vh
+  z-index: 10
+  //width: 100%
+  width: calc(100% - 100px)
+  height: 100vh
   top: 0
   left: 0
   overflow: hidden
-  display: none
+  +transition(.5s)
+  +translate(-100%,0)
   background: $dark
   &.visible
-    display: block
+    +translate(0,0)
   @media #{$medium-up}
     display: none
 
@@ -18,7 +20,7 @@
     top: 20px
     left: 20px
     svg
-      width: 80px
+      width: 120px
 
   .close-btn
     position: absolute
@@ -30,16 +32,21 @@
       fill: $red
 
   .menu-list
-    +y-align
-    left: 10px
+    position: relative
+    margin-top: 100px
+    margin-left: 10px
     li
-      margin-bottom: 30px
+      margin-bottom: 20px
+      &.disable
+        pointer-events: none
+        opacity: 0.3
     a
       padding: 10px
     svg
       display: inline-block
       vertical-align: middle
       width: 40px
+      height: 40px
       fill: white
     span
       display: inline-block
@@ -51,14 +58,10 @@
       color: white
 
   .bottom-menu
-    position: absolute
-    bottom: 20px
-    left: 0
     width: 100%
     li
-      display: inline-block
       position: relative
-      &:after
+      //&:after
         content: ''
         display: block
         position: absolute
@@ -67,9 +70,63 @@
         width: 2px
         height: 16px
         background: rgba(255,255,255,0.25)
-      &:last-child
+      //&:last-child
         &:after
           display: none
     a
+      display: inline-block
+      font-size: 14px
       color: white
-      padding: 20px
+      padding: 10px 20px
+
+  .socials
+    position: relative
+    margin-top: 30px
+    margin-left: 20px
+
+.bottom-menu-wrap
+  position: fixed
+  width: 100%
+  bottom: 0
+  left: 0
+  background: $dark
+  z-index: 3
+  @media #{$medium-up}
+    display: none
+  ul
+    li
+      display: inline-block
+      position: relative
+      width: 20%
+      text-align: center
+      &.disable
+        pointer-events: none
+        opacity: 0.3
+    a
+      display: block
+      height: 56px
+    svg
+      position: relative
+      top: 4px
+      width: 30px
+      height: 30px
+      fill: rgba(white, 0.5)
+      +transition(.25s)
+      +translate(0,8px)
+    span
+      display: block
+      color: white
+      font-size: 9px
+      font-weight: 600
+      text-transform: uppercase
+      opacity: 0
+      +transition(.25s)
+      +x-align
+      bottom: 8px
+    a.active
+      background: $red
+      span
+        opacity: 1
+      svg
+        +translate(0,0)
+        fill: white

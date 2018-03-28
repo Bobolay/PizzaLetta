@@ -19,7 +19,31 @@
       +translate(0,0)
     .add-ingredient-btn
       opacity: 1
-
+.fullsize.item
+  &:before
+    content: ''
+    display: block
+    width: 180px
+    height: 180px
+    border-radius: 50%
+    background: $dark
+    position: absolute
+    top: -100px
+    right: -75px
+    z-index: 1
+  &:after
+    content: ''
+    display: block
+    position: absolute
+    top: 10px
+    right: 0
+    width: 74px
+    height: 44px
+    background-image: asset_url('icons/logo.svg')
+    -webkit-background-size: contain
+    background-size: contain
+    background-repeat: no-repeat
+    z-index: 2
 
 .drink-img-wrap
   position: absolute
@@ -65,7 +89,7 @@
     .name, .ingredients
       color: white
   .name
-    font-size: 18px
+    font-size: 20px
     font-weight: 900
     margin-bottom: 10px
     @media #{$large-up}
@@ -75,7 +99,7 @@
   .ingredients
     width: calc(100% - 80px)
     font-size: 12px
-    font-weight: 600
+    font-weight: 500
     margin-bottom: 10px
     line-height: 1.25
     li
@@ -162,17 +186,55 @@
       width: 30px
       fill: white
 
+
+//BRANDING SECTION
+
+.branding
+  position: relative
+  background: $dark
+  &:before
+    content: ''
+    display: block
+    padding-top: 50%
+  @media #{$medium-up}
+    &:before
+      padding-top: 25%
+  .icon
+    +xy-align
+    width: 200px
+    @media #{$small-only}
+      width: 150px
+  svg
+    width: 100%
+
+
 // Live video
 
 .video-container
   position: relative
   padding-bottom: 50%
+  &:after
+    content: ''
+    display: block
+    position: absolute
+    width: 100%
+    height: 30%
+    bottom: 0
+    left: 0
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.5) 100%)
+    z-index: 1
 
 .camera-option
   position: absolute
   bottom: 30px
   left: 30px
   border: 1px solid white
+  z-index: 2
+  //temporary disabled (we don't have camera)
+  display: none
+  @media #{$small-only}
+    bottom: 10px
+    left: 10px
   .floated
     font-size: 12px
     padding: 5px 10px
@@ -187,6 +249,11 @@
   position: absolute
   bottom: 30px
   right: 30px
+  z-index: 2
+  //temporary disabled (we don't have camera)
+  display: none
+  @media #{$small-only}
+    display: none
   .small, .larger
     text-transform: uppercase
     color: white
@@ -238,8 +305,9 @@
     color: white
     font-weight: 600
     margin-bottom: 10px
-  .small
+  .smaller
     color: white
+    line-height: 1.5
   button
     position: absolute
     top: 0
@@ -264,6 +332,8 @@
   padding: 150px 0 100px
   overflow: hidden
   background: white
+  @media #{$small-only}
+    padding: 150px 0 50px
   .label
     +x-align
     width: 200px
@@ -278,20 +348,24 @@
       left: 50%
       +translate(-50%,0)
   .main-text
-    width: 400px
+    width: 500px
     max-width: 100%
     margin: 0 auto 50px
     text-align: center
+    .large-title
+      font-size: 24px
     .smaller
-      margin: 30px 0
+      margin: 20px 0 30px
   .square
     margin-bottom: 20px
+    @media #{$small-only}
+      margin-bottom: 10px
   .heart-icon
     display: inline-block
     width: 20px
     height: 21px
     vertical-align: middle
-    margin-right: 20px
+    margin-right: 10px
     cursor: pointer
     +transition(.25s)
     &:hover
@@ -301,16 +375,24 @@
       font-size: 12px
       font-weight: 600
   .likes
-    font-weight: 700
+    display: inline-block
+    font-size: 14px
+    font-weight: 900
+    @media #{$small-only}
+      margin-bottom: 30px
   .title
     font-size: 14px
     margin: 20px 0 10px
-    font-weight: 700
+    font-weight: 900
     text-transform: capitalize
   .smaller
+    font-size: 13px
+    font-weight: 500
     margin-bottom: 30px
     line-height: 1.5
-
+  .title, .post-description
+    @media #{$small-only}
+      display: none
 
 // Promotions page
 
@@ -349,6 +431,16 @@
   .img-bg
     @media #{$large-up}
       background-attachment: fixed
+  .icon
+    position: absolute
+    top: 20%
+    left: 50%
+    +translate(-50%,0)
+    z-index: 1
+    svg
+      width: 200px
+      height: 150px
+      fill: white
   .banner-title
     width: 100%
     +x-align
@@ -361,6 +453,7 @@
     z-index: 2
     @media #{$small-only}
       font-size: 48px
+      bottom: 140px
     @media #{$medium-only}
       font-size: 72px
     @media #{$large-only}
@@ -372,10 +465,15 @@
   overflow: hidden
   background: white
   padding: 100px 0
+  @media #{$small-only}
+    padding: 50px 0
 
   .logo-icon
+    position: relative
+    top: 10px
     width: 200px
-    height: 200px
+    height: 150px
+    margin: 0 auto
 
   .regular
     font-weight: 600
@@ -384,7 +482,9 @@
   .owl-wrap
     position: relative
     padding: 50px 0 100px
-    height: 600px
+    height: 500px
+    @media #{$xxlarge-up}
+      height: 600px
   .owl-carousel
     .item
       position: relative
@@ -412,6 +512,8 @@
         fill: $red
 
   .principles-title
+    position: relative
+    top: 15px
     display: inline-block
     padding: 20px 0
     font-size: 12px
@@ -433,7 +535,7 @@
         width: 60px
         height: 60px
         position: absolute
-        top: -20px
+        top: -10px
         left: -90px
         border-radius: 50%
         border: 1px solid $dark
@@ -441,6 +543,8 @@
         font-weight: 900
         line-height: 60px
         text-align: center
+      &:last-child
+        border-bottom: 0
 
   .camera
     position: relative
@@ -477,7 +581,7 @@
 .blockquotes
   position: relative
   background: $red
-  padding: 100px 0 120px
+  padding: 140px 0 130px
   .bg-pattern
     position: absolute
     width: 100%
@@ -486,6 +590,7 @@
     left: 0
     -webkit-background-size: cover
     background-size: cover
+    background-position: center right
   i
     display: block
     position: relative
@@ -495,13 +600,16 @@
     font-size: 32px
     color: white
     text-align: center
-    font-weight: 900
+    font-weight: 700
     &:before
       content: '\201C'
-      font-size: 80px
-      +x-align
+      font-size: 100px
+      position: absolute
       top: 0
-      +translate(0,-60%)
+      left: 50%
+      +translate(-65%,-60%)
+    @media #{$small-only}
+      font-size: 24px
 
 
 

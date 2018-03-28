@@ -1,28 +1,31 @@
 .menu-wrap
   
-  .menu-logo
+  /a.menu-logo href=root_path
     = inline_svg ('icons/logo.svg')
 
-  .close-btn.menu-btn
+  /.close-btn.menu-btn
     = inline_svg ('icons/cross.svg')
 
   ul.menu-list
     li
       a href=root_path
-        = inline_svg ('icons/pizza.svg')
-        span піца
+        = inline_svg ('icons/menu_icons/Pizza-Letta-pizza.svg')
+        span Піца
     li
       a href=drinks_path
-        = inline_svg ('icons/349825.svg')
-        span напої
-
-    /li
+        = inline_svg ('icons/menu_icons/Pizza-Letta-bottle.svg')
+        span Напої
+    li.disable
+      a
+        = inline_svg ('icons/menu_icons/Pizza-Letta-salads.svg')
+        span Салати
+    li.disable
       a href=promotions_path
-        = inline_svg ('icons/15172.svg')
-        span Подарунки
-    / li
+        = inline_svg ('icons/menu_icons/Pizza-Letta-box.svg')
+        span Акції
+    li.disable
       a href=constructor_path
-        = inline_svg ('icons/constructor.svg')
+        = inline_svg ('icons/menu_icons/Pizza-Letta-construct.svg')
         span Конструкор
 
   ul.bottom-menu
@@ -32,3 +35,9 @@
       a href=shipping_path Доставка
     li
       a href=policy_path Оферта
+
+  .socials
+    a href="#{Contact.first.instagram}" target="_blank"
+      = inline_svg ('icons/instagram.svg')
+    a href="#{Contact.first.facebook}" target="_blank"
+      = inline_svg ('icons/facebook.svg')

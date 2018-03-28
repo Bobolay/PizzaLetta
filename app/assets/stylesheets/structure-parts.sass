@@ -58,19 +58,25 @@
 
 .fullsize
   +fullsize
-  
+
+.align-center
+  text-align: center
+
 .btn
   display: inline-block
   height: 48px
   line-height: 48px
   font-size: 14px
   font-weight: 900
-  padding: 0px 22px
+  padding: 0 22px
   color: #fff
   text-transform: uppercase
   text-align: center
   margin-right: 10px
   cursor: pointer
+  +transition(.25s)
+  @media #{$small-only}
+    padding: 0 16px
   &:last-child
     margin-right: 0
   svg
@@ -353,14 +359,14 @@ p.clear-btn
     border-radius: 50%
   .inner-text
     +xy-align
-    font-size: 24px
-    font-weight: 900
-  span
-    font-weight: initial
+    font-size: 21px
+  span.price
+    font-weight: 700
+
   &.reduced
     span:first-child
       display: block
-      font-size: 16px
+      font-size: 14px
       text-decoration: line-through
       text-align: center
 
@@ -437,6 +443,31 @@ p.clear-btn
       line
         stroke: white
 
+
+//Socials
+.socials
+  a
+    position: relative
+    display: inline-block
+    width: 24px
+    height: 24px
+    border: 1px solid white
+    border-radius: 50%
+    margin-right: 10px
+    +transition(.25s)
+    opacity: 0.7
+    cursor: pointer
+    &:last-child
+      margin-right: 0
+    svg
+      +centered-inside
+      width: 14px
+      height: 14px
+      fill: white
+    &:hover
+      opacity: 1
+
+
 .container .mix
   display: none
 
@@ -464,10 +495,13 @@ p.clear-btn
   display: none
 
 .empty-indent
-  height: 120px
+  height: 112px
+  @media #{$small-only}
+    height: 85px
 .alert-label
   position: relative
   background: $red
+  margin-bottom: 30px
   padding: 20px
   padding-right: 50px
   p
@@ -479,7 +513,8 @@ p.clear-btn
     font-size: 14px
     line-height: 1.25
   span
-    +y-align
+    position: absolute
+    top: 20px
     right: 20px
     cursor: pointer
     svg

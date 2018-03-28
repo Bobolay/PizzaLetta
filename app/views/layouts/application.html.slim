@@ -2,17 +2,21 @@ doctype html
 html
   head
 
-    / = seo_tags
     meta name="viewport" content="width=device-width, initial-scale=1.0"
     title Швидка доставка піци та напоїв виготовлених за унікальними рецептами
     = stylesheet_link_tag "application", media: 'all'
     = csrf_meta_tags
     = render "favicons"
 
+    /= inline_css("preloader")
+
   body ng-app="pizzaApp"
 
+    = render "preloader"
+
     = render "header"
-    = render "sidemenu"
+    = render "side_menu"
+    = render "bottom_menu"
     = render "menu"
 
     / view all Your item You want to order
@@ -21,6 +25,9 @@ html
     = render "custom_pizza"
 
     = render "success_message"
+
+    /Alert for client in case of pizza is not working or smth like this
+    /= render "client_alert_popup"
 
     .main-wrapper
       = yield
