@@ -38,7 +38,20 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
-   config.included_models = [Constructor,Order,Ordersphone,Ordersemail,Call,Subscribe,Pizza,Contact,Ingredient,Drink,Gift,About,Shipping,Oferta,Aboutimage,Giftdescription]
+   config.included_models = [Orderlist,Salat,Constructor,Order,Ordersphone,Ordersemail,Call,Subscribe,Pizza,Contact,Ingredient,Drink,Gift,About,Shipping,Oferta,Aboutimage,Giftdescription]
+   config.model Orderlist do
+     navigation_label "Замовлення"
+     label "Інформація про замовлення"
+     include_fields :order_id, :quantity, :bonus_name, :bonus_description, :price, :size
+   end
+   config.model Salat do
+     navigation_label "Меню"
+     label "Салати"
+     include_fields :name, :image, :weight, :ingredients, :price, :show
+     field :category, :enum do
+       enum ["Мясні","Рибні","Вегетаріанські"]
+     end
+   end
   config.model Shipping do
    label "Доставка"
    include_fields :time_of_shipping, :description, :first_address, :first_address_map, :second_address, :second_address_map, :payment_description, :image
@@ -88,7 +101,7 @@ RailsAdmin.config do |config|
   config.model Ingredient do
     navigation_label "Меню"
     label "Інгрідієнти"
-    include_fields :name, :price, :image, :show
+    include_fields :name, :price, :image
     field :category, :enum do
       enum ["Мясо","Морепродукти","Сири","Овочі","Cпеції"]
     end
@@ -106,7 +119,7 @@ RailsAdmin.config do |config|
   end
   config.model Order do
     navigation_label "Замовлення"
-    label "Замовлення"
+    label "Інформація про доставку "
     include_fields :type_of_shipping, :name, :phone, :email, :subscribe, :city, :street, :building, :flat, :date_of_shipping, :fast_or_not, :type_of_pay, :rest, :comment, :pick_up_from, :date_of_picking, :time_of_picking
   end
   config.model Ordersphone do

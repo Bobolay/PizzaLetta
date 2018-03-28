@@ -14,7 +14,7 @@ class Api::V1::PizzasController < Api::V1::BaseController
     #                 { :name => u.name, :price => u.price, :imgURL => u.image.url, :quantity => 1 }
     #               end}
 
-    @json=Pizza.all.map do |pizza|
+    @json=Pizza.where(show: true).map do |pizza|
           {:imgUrl => pizza.image.url,
            :name => pizza.name,
            :meat => pizza.meat,

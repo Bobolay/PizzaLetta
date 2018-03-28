@@ -39,9 +39,33 @@ class PagesController < ApplicationController
   end
 
   def create
-    binding.pry
+    @order = Order.new
+    array = params[:cart]
+    array.each_value { |s|
+      @list = Orderlist.new
+      @list.name = s[:name]
+      @list.order_id = @order.id
+    }
+    @order.name = params[:info][:name]
+    @order.phone = params[:info][:phone]
+    @order.email = params[:info][:email]
+    @order.street = params[:info][:street]
+    @order.type_of_shipping = params[:info][:orderway]
+    @order.city = "Львів"
+    @order.building = params[:info][:building]
+    @order.flat = params[:info][:apt_number]
+    @order.date_of_shipping = params[:info][:date]
+    @order.fast_or_not = params[:info][:time]
+    @order.type_of_pay = params[:info][:paymentmethod]
+    @order.rest = params[:info][:sumchange]
+    @order.comment = params[:info][:comment]
+    @order.subscribe = params[:info][:subscribe]
+    @order.pick_up_from = params[:info][:officeaddress]
+    @order.date_of_picking = params[:info][:date]
+    @order.time_of_picking = params[:info][:time]
+    @order.subscribe = params[:info][:subscribe]
+    @order.save
     render json: {}
-    # redirect_to root_path
   end
 
   def stub

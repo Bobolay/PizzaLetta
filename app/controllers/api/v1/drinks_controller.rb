@@ -1,6 +1,6 @@
 class Api::V1::DrinksController < Api::V1::BaseController
   def index
-    @drink = Drink.all
+    @drink = Drink.where(show: true)
     @drinks = @drink.map do |u|
       if u.category == "Лимонади"
         { :name => u.title, :price => u.price, :imgUrl => u.image.url, :qnty => 1,:volume => u.volume, :category => "lemonad", :category_ukr => u.category }
