@@ -55,6 +55,7 @@ pizzaApp.controller("CartCtrl", [ '$http', '$window', '$rootScope', '$scope', 'c
 
     $scope.order = {};
 
+
     // GET REQUEST
 
     // $scope.submitForm = function() {
@@ -75,6 +76,7 @@ pizzaApp.controller("CartCtrl", [ '$http', '$window', '$rootScope', '$scope', 'c
     //             }
     //        });
     // };
+
 
     // POST REQUEST
 
