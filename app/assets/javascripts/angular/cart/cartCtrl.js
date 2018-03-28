@@ -79,7 +79,8 @@ pizzaApp.controller("CartCtrl", [ '$http', '$window', '$rootScope', '$scope', 'c
 
     // POST REQUEST
 
-    $scope.submitForm = function () {
+    $scope.submitForm = function (isValid) {
+
         var url = 'order';
         var data = {
             cart: $scope.cart,
@@ -92,6 +93,13 @@ pizzaApp.controller("CartCtrl", [ '$http', '$window', '$rootScope', '$scope', 'c
                 'Content-Type': 'application/json'
             }
         };
+
+        // if (isValid) {
+        //     alert('our form is amazing');
+        // } else {
+        //     alert('not valid');
+        // }
+
         $http.post(url, data, config)
             .then(
                 function(response){

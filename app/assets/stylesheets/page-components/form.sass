@@ -59,6 +59,12 @@ form
     position: absolute
     visibility: hidden
 
+  input[type="number"]
+    &::-webkit-outer-spin-button, &::-webkit-inner-spin-button
+      -webkit-appearance: none
+      margin: 0
+      display: none
+
   .nice-select
     border: 1px solid $dark
     & ~ label
@@ -67,6 +73,15 @@ form
       color: #000
       background: white
       text-transform: uppercase
+
+button[disabled]
+  opacity: 0.3
+
+.inputError
+  position: absolute
+  font-size: 14px
+  color: $red
+  margin-top: 6px
 
 .icon-holder
   position: relative
@@ -108,6 +123,9 @@ form
         &:after
           opacity: 1
   label
+    position: relative
+    left: -30px
+    padding: 10px 10px 10px 30px
     font-size: 12px
     font-weight: 600
     cursor: pointer
@@ -115,6 +133,7 @@ form
     &:hover
       color: $red
   .icon
+    pointer-events: none
     border-radius: 20%
 
 .sum
