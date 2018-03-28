@@ -54,7 +54,7 @@ pizzaApp.controller("CartCtrl", [ '$http', '$window', '$rootScope', '$scope', 'c
     // SENDING INFO AND ORDER
 
     $scope.order = {};
-
+    $scope.order.orderway = "courier";
 
     // GET REQUEST
 
@@ -77,7 +77,6 @@ pizzaApp.controller("CartCtrl", [ '$http', '$window', '$rootScope', '$scope', 'c
     //        });
     // };
 
-
     // POST REQUEST
 
     $scope.submitForm = function () {
@@ -97,6 +96,10 @@ pizzaApp.controller("CartCtrl", [ '$http', '$window', '$rootScope', '$scope', 'c
             .then(
                 function(response){
                     $scope.message = data.message;
+                    var success = angular.element(document.querySelector(".success-wrap"));
+                    success.addClass('visible');
+                    // Clear LS
+                    localStorage.setItem('storageArray',JSON.stringify([]));
                 },
                 function(response){
                     // failure callback
