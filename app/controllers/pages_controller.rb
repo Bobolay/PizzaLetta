@@ -44,7 +44,8 @@ class PagesController < ApplicationController
   def create
     print("GFDASFASDLASDLJLASDJASJDJLASDJASJDASLDJASJDLJASLDJALSDJLASJDLJASLDJLASJDLASJMDLMCIWMCPFJDEJJEJXCKGRHNEKXCDPOXJS")
     print(params)
-    binding.pry
+    binding.prycurl -v -H "Accept: application/json" -H "Content-type: application/json" -X POST -d ' {"user":{"first_name":"firstname","last_name":"lastname","email":"email@email.com","password":"app123","password_confirmation":"app123"}}'  http://localhost:3000/api/1/users
+
     @order=Order.new
   end
   private

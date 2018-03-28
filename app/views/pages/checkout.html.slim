@@ -1,7 +1,6 @@
 .section-indent.checkout-wrap ng-controller="CartCtrl"
 
-  //form ng-submit="submitForm()
-  form
+  form ng-submit="submitForm()"
 
     .row
 
@@ -34,18 +33,18 @@
                 .row
                   .columns.large-6
                     .input-field
-                      input ng-model="order.name"
+                      input
                       label Ім'я
                   .columns.large-6
                     .input-field
-                      input ng-model="order.phone"
+                      input
                       label Телефон
                   .columns
                     .input-field
-                      input ng-model="order.email"
+                      input
                       label Ел. скринька (не обов'язково)
                     .checkbox-field.icon-holder
-                      input#subscribe_01 type="checkbox" checked="" ng-model="order.subscribe"
+                      input#subscribe_01 type="checkbox" checked=""
                       label for="subscribe_01" Отримувати новини та спеціальні пропозиції
                       .icon
 
@@ -58,15 +57,15 @@
                       label Місто
                   .columns.large-3
                     .input-field
-                      input ng-model="order.street"
+                      input
                       label Вулиця
                   .columns.large-3
                     .input-field
-                      input ng-model="order.building"
+                      input
                       label Будинок
                   .columns.large-3
                     .input-field
-                      input ng-model="order.apt_number"
+                      input
                       label Квартира
 
                 .line-separator.inside-form
@@ -74,26 +73,26 @@
                 .row
                   .columns.large-4
                     .input-field
-                      select ng-model="order.date"
+                      select
                         option Сьогодні
                         option Завтра
                       label Дата доставки
                   .columns.large-4
                     .input-field
-                      select ng-model="order.time"
+                      select
                         option Якомога швидше
                         option Я не спішу
                       label Час доставки
                   .columns.large-4
                     .input-field
-                      select ng-model="order.paymentmethod"
+                      select
                         option Готівка
                         option Карта банку
                       label Форма оплати
 
                   .columns.large-8
                     .input-field
-                      input.used placeholder="Сума, грн." ng-model="order.sumchange"
+                      input.used placeholder="Сума, грн."
                       label Підготувати решту з
                   .columns.large-4
                     i.sum Вкажіть суму оплати, щоб кур'єр мав при собі решту
@@ -103,7 +102,7 @@
                   | додати коментар (не обов'язково)
 
                 .input-field.optional-textarea
-                  textarea rows="5" placeholder="Поле для коментарів..." ng-model="order.comment"
+                  textarea rows="5" placeholder="Поле для коментарів..."
 
                 button.btn.red
                   = f.button :submit
@@ -114,18 +113,18 @@
                 .row
                   .columns.large-6
                     .input-field
-                      input ng-model="order.name"
+                      input
                       label Ім'я
                   .columns.large-6
                     .input-field
-                      input ng-model="order.phone"
+                      input
                       label Телефон
                   .columns
                     .input-field
-                      input ng-model="order.email"
+                      input
                       label Ел.Cкринька (не обов'язково)
                     .checkbox-field.icon-holder
-                      input#subscribe_02 type="checkbox" checked="" ng-model="order.subscribe"
+                      input#subscribe_02 type="checkbox" checked=""
                       label for="subscribe_02" Отримувати новини та спеціальні пропозиції
                       .icon
 
@@ -134,20 +133,20 @@
                 .row
                   .columns.large-6
                     .input-field
-                      select ng-model="order.officeaddress"
+                      select
                         option Просп. Чорновола 45
                         option вул. Городоцька 7
                       label Забрати з
                   .columns.large-3
                     .input-field
-                      select ng-model="order.date"
+                      select
                         option Сьогодні
                         option Завтра
                         option 21.01.2018
                       label Дата доставки
                   .columns.large-3
                     .input-field
-                      select ng-model="order.time"
+                      select
                         option 10:00
                         option 11:00
                       label Час
@@ -156,7 +155,7 @@
                   = inline_svg "icons/add.svg"
                   | додати коментар (не обов'язково)
 
-                .input-field.optional-textarea ng-model="order.comment"
+                .input-field.optional-textarea
                   textarea rows="5" placeholder="Поле для коментарів..."
 
                 button.btn.red
@@ -167,7 +166,7 @@
                 .row
                   .columns
                     .input-field
-                      input ng-model="order.phone"
+                      input
                       label Телефон
                 button.btn.red type="submit"
                   = f.button :submit
