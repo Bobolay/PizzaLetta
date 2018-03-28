@@ -3,6 +3,8 @@ form
   .input-field
     position: relative
     margin: 20px 0
+    @media #{$small-only}
+      margin: 10px 0
     .nice-select
       width: 100%
     input, textarea, select
@@ -46,6 +48,7 @@ form
         top: 12px
         right: 6px
         background: asset_url('icons/lock.svg')
+        background-repeat: no-repeat
     .static-label
       font-size: 14px
       text-transform: uppercase
@@ -59,6 +62,12 @@ form
     position: absolute
     visibility: hidden
 
+  input[type="number"]
+    &::-webkit-outer-spin-button, &::-webkit-inner-spin-button
+      -webkit-appearance: none
+      margin: 0
+      display: none
+
   .nice-select
     border: 1px solid $dark
     & ~ label
@@ -67,6 +76,15 @@ form
       color: #000
       background: white
       text-transform: uppercase
+
+button[disabled]
+  opacity: 0.3
+
+.inputError
+  position: absolute
+  font-size: 14px
+  color: $red
+  margin-top: 6px
 
 .icon-holder
   position: relative
@@ -94,8 +112,12 @@ form
       background: $dark
       &:after
         opacity: 1
+  @media #{$small-only}
+    float: none
+    height: 40px
 
 .checkbox-field
+  margin-top: 30px
 
   input[type="checkbox"]
     position: absolute
@@ -108,19 +130,26 @@ form
         &:after
           opacity: 1
   label
+    position: relative
+    left: -30px
+    padding: 10px 10px 10px 30px
     font-size: 12px
     font-weight: 600
     cursor: pointer
     +transition(.25s)
     &:hover
       color: $red
+    @media #{$small-only}
+      font-size: 10px
   .icon
+    pointer-events: none
     border-radius: 20%
 
 .sum
   position: relative
   font-size: 12px
-  top: 20px
+  @media #{$medium-up}
+    top: 20px
 
 .red-label
   display: inline-block

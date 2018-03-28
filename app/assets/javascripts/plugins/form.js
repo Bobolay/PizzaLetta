@@ -17,4 +17,8 @@ $(document).ready(function() {
       $this.removeClass('used');
   });
 
+  // $(".accept-icon").on("click", function(){
+  //   $(".checked").toggleClass("active")
+  // });
+
 });

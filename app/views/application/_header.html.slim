@@ -30,9 +30,9 @@
 
       /Contact dropdown temporary hidden
 
-      /.dropdown-arrow.contact-dropdown-btn = inline_svg ('icons/pizza_part.svg')
+      .dropdown-arrow.contact-dropdown-btn = inline_svg ('icons/pizza_part.svg')
 
-      /.contact-dropdown
+      .contact-dropdown
         .line-separator
         a.numbers href="tel:#{Contact.first.second_number}" = Contact.first.second_number
         a.numbers href="tel:#{Contact.first.third_number}" = Contact.first.third_number
@@ -47,8 +47,8 @@
       .dib.cart-icon
         .static = inline_svg ('icons/Pizza-Letta-basket.svg')
         .cart-animated
-      .dib.order-quantity
-        | {{pizza_qnty}}
+        .dib.order-quantity
+          | {{pizza_qnty}}
       .dib.total-price
         span &#8372;
         | {{total_price}}

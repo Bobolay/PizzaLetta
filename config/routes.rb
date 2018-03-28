@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     get "constructor", action: "constructor"
 
     get "drinks", action: "drinks"
+    get "salads", action: "salads"
     get "promotions", action: "promotions"
     get "promotion", action: "promotion"
 
