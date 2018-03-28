@@ -38,22 +38,19 @@ class PagesController < ApplicationController
     @first = Gift.show.first
   end
 
+  def create
+    binding.pry
+    render json: {}
+    # redirect_to root_path
+  end
+
   def stub
     render layout: false
-  end
-  def create
-    print("GFDASFASDLASDLJLASDJASJDJLASDJASJDASLDJASJDLJASLDJALSDJLASJDLJASLDJLASJDLASJMDLMCIWMCPFJDEJJEJXCKGRHNEKXCDPOXJS")
-    print(params)
-    binding.prycurl -v -H "Accept: application/json" -H "Content-type: application/json" -X POST -d ' {"user":{"first_name":"firstname","last_name":"lastname","email":"email@email.com","password":"app123","password_confirmation":"app123"}}'  http://localhost:3000/api/1/users
-
-    @order=Order.new
   end
   private
   def instagram
     url="https://api.instagram.com/v1/users/self/media/recent/?access_token=5421929898.1677ed0.02b11596b2d4432aac9c495a152b9288"
     @json=JSON.parse(open(url).read)["data"][0..2]
   end
-  def orders_params
-    params.require(:order).permit(:name)
-  end
+
 end

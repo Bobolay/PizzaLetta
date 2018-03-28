@@ -327,6 +327,7 @@ DEPENDENCIES
   placeholdit
   pluck_to_hash
   protected_attributes
+  pry
   pry-rails (~> 0.3.4)
   puma
   quiet_assets

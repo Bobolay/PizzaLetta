@@ -93,7 +93,7 @@ gem 'figaro'
 # gem 'cms', github: "pkorenev/cms"
 gem 'pry-rails', '~> 0.3.4'
 # gem 'require_reloader'
-
+gem 'pry'
 gem 'thin'
 gem 'puma'
 gem 'angularjs-rails', '1.6'
