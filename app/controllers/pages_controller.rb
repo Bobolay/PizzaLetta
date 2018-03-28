@@ -61,6 +61,9 @@ class PagesController < ApplicationController
       @list = Orderlist.new
       @list.name = s[:name]
       @list.order_id = @order.id
+      @list.quantity = s[:qnty]
+      @list.bonus_name = s[:bonus][:name]
+      @list.bonus_description = s[:bonus][:attribute]
     }
     @order.name = params[:info][:name]
     @order.phone = params[:info][:phone]
