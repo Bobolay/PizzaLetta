@@ -1,18 +1,14 @@
 //   D R I N K S   C T R L
 
-pizzaApp.controller("DrinksCtrl", [ '$scope', 'drinksService', 'cartService', '$http', function ($scope, drinksService, cartService, $http) {
+pizzaApp.controller("DrinksCtrl", [ '$rootScope', '$scope', 'drinksService', 'cartService', '$http', function ($rootScope, $scope, drinksService, cartService, $http) {
 
     $scope.ready = false;
-
-    // Drinks list (we get them from DrinksService)
-    // $scope.drinks = drinksService.getDrinks();
 
     // Get drinks list
     $http({method: 'GET', url: '/api/v1/drinks.json'}).
     then(function success(response) {
         $scope.drinks = response.data;
         $scope.ready = true;
-        console.log("Get drinks list");
     });
 
     // Decrease/increase quantity in items list only
@@ -28,10 +24,10 @@ pizzaApp.controller("DrinksCtrl", [ '$scope', 'drinksService', 'cartService', '$
     };
 
     // Add drink to cart
-    $scope.drinkAddToCart = function(drink){
-        drink['total_price'] = drink.qnty * drink.price;
-        cartService.appCart.push(drink);
-        console.log("cart ",cartService.appCart);
+    $scope.drinkAddToCart = function (drink) {
+        cartService.setData(drink);
+        $rootScope.$emit('addPizza');
+        drink.qnty = 1;
     };
 
 }]);

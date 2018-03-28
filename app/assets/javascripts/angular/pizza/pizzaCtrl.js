@@ -17,14 +17,10 @@ pizzaApp.controller("PizzaListCtrl", [ '$rootScope', '$scope', 'itemsService', '
             return;
         } else {
             item.qnty--;
-            // cartService.decreaseData(item);
         }
-        // $rootScope.$emit('addPizza');
     };
     $scope.increase = function(item){
         item.qnty++;
-        // cartService.increaseData(item);
-        // $rootScope.$emit('addPizza');
     };
 
     // Add custom pizza for customization process
@@ -41,8 +37,7 @@ pizzaApp.controller("PizzaListCtrl", [ '$rootScope', '$scope', 'itemsService', '
         for (key in pizza) {
             pizza_to_cart[key] = pizza[key];
         }
-
-        cartService.setData(pizza);
+        cartService.setData(pizza_to_cart);
         $rootScope.$emit('addPizza');
         pizza.qnty = 1;
     };
