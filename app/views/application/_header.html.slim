@@ -23,7 +23,7 @@
       a.numbers href="tel:#{Contact.first.first_number}" = Contact.first.first_number
       p.numbers-light
         = inline_svg ('icons/clock.svg')
-        | 12:00 - 00:00
+        | 12:00 - 23:00
 
       /Contact dropdown temporary hidden
 
@@ -40,7 +40,7 @@
             input placeholder="Телефон"
           button Передзвоніть мені
 
-    .dib.cart
+    .dib.cart.disable
       .dib.cart-icon
         .static = inline_svg ('icons/Pizza-Letta-basket.svg')
         .cart-animated
