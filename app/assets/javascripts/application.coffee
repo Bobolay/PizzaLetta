@@ -39,7 +39,9 @@
 #= require angular/constructor/constructorService.js
 
 #= require angular/drinks/drinksCtrl.js
-#= require angular/drinks/drinksService.js
+# require angular/drinks/drinksService.js
+
+#= require angular/salads/saladsCtrl.js
 
 #= require angular/cart/cartCtrl.js
 #= require angular/cart/cartService.js

@@ -37,6 +37,9 @@ pizzaApp.controller("PizzaListCtrl", [ '$rootScope', '$scope', 'itemsService', '
         for (key in pizza) {
             pizza_to_cart[key] = pizza[key];
         }
+        pizza_to_cart.price = pizza.pricesmall;
+        // delete pizza_to_cart.pricesmall;
+        // delete pizza_to_cart.pricebig;
         cartService.setData(pizza_to_cart);
         $rootScope.$emit('addPizza');
         pizza.qnty = 1;
