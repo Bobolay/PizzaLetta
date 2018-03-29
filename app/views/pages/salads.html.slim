@@ -55,11 +55,15 @@
                   | {{salad.qnty}}
                 .increase ng-click="increase(salad)" = inline_svg "icons/add.svg"
 
-              .add-to-cart-btn ng-click="AddToCart(salad)" в корзину
+              .add-to-cart-btn ng-click="AddToCart(salad, $event)" в корзину
 
               .total-price
                 span &#8372
                 | {{ salad.price * salad.qnty }}
+
+              .success-message
+                span.text Успішно додано в корзину
+                span = inline_svg "icons/done.svg"
 
 
 = render "main_content"
