@@ -83,8 +83,7 @@ class PagesController < ApplicationController
       list = Orderlist.new
       list.name = s[:name]
       list.quantity = s[:qnty]
-      list.price = s[:qnty] * s[:pricesmall]
-      binding.pry
+      list.price = s[:qnty].to_i * s[:price].to_i
       if s[:bonus]
       list.bonus_name = s[:bonus][:name]
       list.bonus_description = s[:bonus][:attribute]
