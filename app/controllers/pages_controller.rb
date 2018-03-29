@@ -93,7 +93,6 @@ class PagesController < ApplicationController
       list.save
     }
 
-
   end
 
   def stub

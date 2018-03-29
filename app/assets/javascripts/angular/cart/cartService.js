@@ -34,13 +34,15 @@ pizzaApp.factory("cartService", [ '$rootScope', '$window', function($rootScope, 
             });
             if (existent_item) {
                 existent_item.qnty += item.qnty;
-                pizza_qnty += item.qnty;
-                total_price += item.pricesmall * item.qnty;
             } else {
                 existingArray.push(item);
-                pizza_qnty += item.qnty;
-                total_price += item.pricesmall * item.qnty;
             }
+            // Increment pizza_qnty if we add pizza only (not drink or salad)
+            if (item.hasOwnProperty('ingredients')){
+                pizza_qnty += item.qnty;
+            }
+            // Increment total_price
+            total_price += item.price * item.qnty;
             localStorage.setItem('storageArray',JSON.stringify(existingArray));
         },
         // Decrease qnty
@@ -53,7 +55,7 @@ pizzaApp.factory("cartService", [ '$rootScope', '$window', function($rootScope, 
                 return;
             } else {
                 existent_item.qnty--;
-                total_price -= item.pricesmall;
+                total_price -= item.price;
                 if (existent_item.hasOwnProperty('ingredients')){
                     pizza_qnty--;
                 }
@@ -67,7 +69,7 @@ pizzaApp.factory("cartService", [ '$rootScope', '$window', function($rootScope, 
                 return matched.name === item.name;
             });
             existent_item.qnty++;
-            total_price += item.pricesmall;
+            total_price += item.price;
             if (existent_item.hasOwnProperty('ingredients')){
                 pizza_qnty++;
             }
@@ -82,7 +84,7 @@ pizzaApp.factory("cartService", [ '$rootScope', '$window', function($rootScope, 
                 if (value.hasOwnProperty('ingredients')) {
                     temp_qnty += value.qnty;
                 }
-                temp_total += value.pricesmall * value.qnty;
+                temp_total += value.price * value.qnty;
             });
             pizza_qnty = temp_qnty;
             total_price = temp_total;
@@ -112,7 +114,7 @@ pizzaApp.factory("cartService", [ '$rootScope', '$window', function($rootScope, 
             existingArray.splice(kostyl,1);
 
             pizza_qnty -= item.qnty;
-            total_price -= item.pricesmall * item.qnty;
+            total_price -= item.price * item.qnty;
             localStorage.setItem('storageArray',JSON.stringify(existingArray));
         },
         // getSauces: function () {

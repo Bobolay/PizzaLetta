@@ -1,11 +1,6 @@
 .row
   .columns
     .empty-indent
-    .alert-label
-      span
-        = inline_svg ('icons/cross.svg')
-      p.qwerty Сайт працює в тестовому режимі.
-      p.asdfgh Повідомляємо Вас, що у період з 13 до 28 березня наш заклад працює у тестовому режимі. Це означає, що Ви маєте змогу насолодитись нашими піцами, сплачуючи тільки 50% вартості, яка вказана на сайті. Смачного!)
 
 / FILTER
 .row
@@ -16,54 +11,59 @@
         .regular фільтрування
         .dib.clearfix
           .floated.filter data-filter="all"
-            = inline_svg ('icons/filter_icons/Pizza-Letta-drinks.svg')
+            = inline_svg ('icons/filter_icons/Pizza-Letta-salads.svg')
             span Всі
-          .floated.filter data-filter=".alcohol"
-            = inline_svg ('icons/filter_icons/Pizza-Letta-vine.svg')
-            span Алкогольні
-          .floated.filter data-filter=".non-alcohol"
-            = inline_svg ('icons/filter_icons/Pizza-Letta-cola.svg')
-            span Безалкогольні
-          .floated.filter data-filter=".lemonad"
-            = inline_svg ('icons/filter_icons/Pizza-Letta-lemonade.svg')
-            span Лимонади
+          .floated.filter data-filter=".vegetarian"
+            = inline_svg ('icons/filter_icons/Pizza-Letta-vegy.svg')
+            span Вегетаріанські
+          .floated.filter data-filter=".meat"
+            = inline_svg ('icons/filter_icons/Pizza-Letta-meat.svg')
+            span М'ясні
+          .floated.filter data-filter=".seafood"
+            = inline_svg ('icons/filter_icons/Pizza-Letta-fish.svg')
+            span Рибні
 
 / SALADS LIST
-.indent.item-list.mix-container ng-controller="DrinksCtrl"
-  .row.columns-left.container ng-if="ready" mixitup='mixitup' entities='drinks'
-    .columns.medium-6.large-4.mix ng-repeat="drink in drinks" class="{{drink.category}}"
+.indent.item-list.mix-container ng-controller="SaladsCtrl"
+  .row.columns-left.container ng-if="ready" mixitup='mixitup' entities='salads'
+    .columns.medium-6.large-4.mix ng-repeat="salad in salads" class="{{salad.category}}"
 
       .square
         .fullsize.item
 
-          .drink-img-wrap
-            /.img-bg style="background-image: url(#{asset_path('assets/img/items/{{drink.imgUrl}}')})"
-            .img-bg style="background-image: url('{{drink.imgUrl}}')"
+          .img-bg style="background-image: url('{{salad.imgUrl}}')"
+
           .info-panel.dark
 
             p.ingredients
-              | {{drink.category_ukr}}&nbsp;&nbsp;|&nbsp;&nbsp;{{drink.volume}} л
+              | {{salad.category_ukr}}&nbsp;&nbsp;|&nbsp;&nbsp;{{salad.weight}} грам
             p.name
-              | {{drink.name}}
+              | {{salad.name}}
+            .ingredients
+              | {{salad.salat_ingredients}}
 
             .red-price.small-circle
               .inner-text
                 span &#8372
-                | {{drink.price}}
+                | {{salad.price}}
 
             .add-to-cart
 
               .quantity.on-red-bg
-                .decrease ng-click="decrease(drink)" = inline_svg "icons/remove.svg"
+                .decrease ng-click="decrease(salad)" = inline_svg "icons/remove.svg"
                 .number
-                  | {{drink.qnty}}
-                .increase ng-click="increase(drink)" = inline_svg "icons/add.svg"
+                  | {{salad.qnty}}
+                .increase ng-click="increase(salad)" = inline_svg "icons/add.svg"
 
-              .add-to-cart-btn ng-click="drinkAddToCart(drink)" в корзину
+              .add-to-cart-btn ng-click="AddToCart(salad, $event)" в корзину
 
               .total-price
                 span &#8372
-                | {{ drink.price * drink.qnty }}
+                | {{ salad.price * salad.qnty }}
+
+              .success-message
+                span.text Успішно додано в корзину
+                span = inline_svg "icons/done.svg"
 
 
 = render "main_content"
