@@ -1,13 +1,13 @@
 //   D R I N K S   C T R L
 
-pizzaApp.controller("DrinksCtrl", [ '$rootScope', '$scope', 'cartService', '$http', function ($rootScope, $scope, cartService, $http) {
+pizzaApp.controller("SaladsCtrl", [ '$rootScope', '$scope', 'cartService', '$http', function ($rootScope, $scope, cartService, $http) {
 
     $scope.ready = false;
 
-    // Get drinks list
-    $http({method: 'GET', url: '/api/v1/drinks.json'}).
+    // Get salads list
+    $http({method: 'GET', url: '/api/v1/salats.json'}).
     then(function success(response) {
-        $scope.drinks = response.data;
+        $scope.salads = response.data;
         $scope.ready = true;
     });
 
@@ -24,14 +24,14 @@ pizzaApp.controller("DrinksCtrl", [ '$rootScope', '$scope', 'cartService', '$htt
     };
 
     // Add drink to cart
-    $scope.AddToCart = function (drink) {
-        var drink_to_cart = {};
-        for (key in drink) {
-            drink_to_cart[key] = drink[key];
+    $scope.AddToCart = function (salad) {
+        var salad_to_cart = {};
+        for (key in salad) {
+            salad_to_cart[key] = salad[key];
         }
-        cartService.setData(drink_to_cart);
+        cartService.setData(salad_to_cart);
         $rootScope.$emit('addPizza');
-        drink.qnty = 1;
+        salad.qnty = 1;
 
         var success = $(event.target).parent().find('.success-message');
         success.addClass('visible');

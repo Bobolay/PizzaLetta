@@ -1,11 +1,6 @@
 .row
   .columns
     .empty-indent
-    .alert-label
-      span
-        = inline_svg ('icons/cross.svg')
-      p.qwerty Сайт працює в тестовому режимі.
-      p.asdfgh Повідомляємо Вас, що у період з 13 до 28 березня наш заклад працює у тестовому режимі. Це означає, що Ви маєте змогу насолодитись нашими піцами, сплачуючи тільки 50% вартості, яка вказана на сайті. Смачного!)
 
 / FILTER
 .row
@@ -37,7 +32,6 @@
         .fullsize.item
 
           .drink-img-wrap
-            /.img-bg style="background-image: url(#{asset_path('assets/img/items/{{drink.imgUrl}}')})"
             .img-bg style="background-image: url('{{drink.imgUrl}}')"
           .info-panel.dark
 
@@ -46,12 +40,12 @@
             p.name
               | {{drink.name}}
 
-            .red-price.small-circle
+            /.red-price.small-circle
               .inner-text
                 span &#8372
                 | {{drink.price}}
 
-            .add-to-cart
+            /.add-to-cart
 
               .quantity.on-red-bg
                 .decrease ng-click="decrease(drink)" = inline_svg "icons/remove.svg"
@@ -59,11 +53,15 @@
                   | {{drink.qnty}}
                 .increase ng-click="increase(drink)" = inline_svg "icons/add.svg"
 
-              .add-to-cart-btn ng-click="drinkAddToCart(drink)" в корзину
+              .add-to-cart-btn ng-click="AddToCart(drink, $event)" в корзину
 
               .total-price
                 span &#8372
                 | {{ drink.price * drink.qnty }}
+
+              .success-message
+                span.text Успішно додано в корзину
+                span = inline_svg "icons/done.svg"
 
 
 = render "main_content"

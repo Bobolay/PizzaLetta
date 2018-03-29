@@ -21,9 +21,12 @@
         p.price ng-if="item.total_price"
           span &#8372
           | {{item.qnty * item.total_price}}
-        p.price ng-if="item.pricesmall"
+        /p.price ng-if="item.pricesmall"
           span &#8372
           | {{item.qnty * item.pricesmall}}
+        p.price ng-if="item.price"
+          span &#8372
+          | {{item.qnty * item.price}}
 
         .quantity.on-white-bg
           .decrease ng-click="decrease(item)" = inline_svg "icons/remove.svg"

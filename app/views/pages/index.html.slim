@@ -1,11 +1,6 @@
 .row
   .columns
     .empty-indent
-    .alert-label
-      span
-        = inline_svg ('icons/cross.svg')
-      p.qwerty Сайт працює в тестовому режимі.
-      p.asdfgh Повідомляємо Вас, що у період з 13 до 28 березня наш заклад працює у тестовому режимі. Це означає, що Ви маєте змогу насолодитись нашими піцами, сплачуючи тільки 50% вартості, яка вказана на сайті. Смачного!)
 
 / FILTER
 .row
@@ -63,7 +58,7 @@
                 | {{ingredient.name}}
 
             /Add custom ingredient btn
-            .add-ingredient-btn ng-click="addCustomPizza(pizza)"
+            /.add-ingredient-btn ng-click="addCustomPizza(pizza)"
               span = inline_svg "icons/plus.svg"
               | додати інгредієнт
 
@@ -100,13 +95,14 @@
                 .increase ng-click="increase(pizza)"
                   = inline_svg "icons/add.svg"
 
-              .add-to-cart-btn ng-click="pizzaAddToCart(pizza)" в корзину
+              .add-to-cart-btn ng-click="pizzaAddToCart(pizza,$event)" в корзину
 
               .total-price
                 span &#8372
                 | {{pizza.qnty * pizza.pricesmall}}
 
               .success-message
+                span.text Успішно додано в корзину
                 span = inline_svg "icons/done.svg"
 
 

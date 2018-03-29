@@ -79,7 +79,7 @@ pizzaApp.controller("CartCtrl", [ '$http', '$window', '$rootScope', '$scope', 'c
 
     // POST REQUEST
 
-    $scope.submitForm = function (isValid) {
+    $scope.submitForm = function () {
 
         var url = 'order';
         var data = {
