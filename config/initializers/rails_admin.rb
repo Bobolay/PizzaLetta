@@ -42,7 +42,8 @@ RailsAdmin.config do |config|
    config.model Orderlist do
      navigation_label "Замовлення"
      label "Інформація про замовлення"
-     include_fields :order_id, :quantity, :bonus_name, :bonus_description, :price, :size
+     field :order_id
+     include_fields :name, :quantity, :price, :bonus_name, :bonus_description, :size
    end
    config.model Salat do
      navigation_label "Меню"
