@@ -30,7 +30,7 @@ pizzaApp.factory("cartService", [ '$rootScope', '$window', function($rootScope, 
         setData: function (item) {
             var existingArray = getDataFromLS();
             var existent_item = existingArray.find(function(matched){
-                return matched.name === item.name;
+                return matched.name === item.name && !item.hasOwnProperty('type');
             });
             if (existent_item) {
                 existent_item.qnty += item.qnty;
@@ -49,7 +49,7 @@ pizzaApp.factory("cartService", [ '$rootScope', '$window', function($rootScope, 
         decreaseData: function (item) {
             var existingArray = getDataFromLS();
             var existent_item = existingArray.find(function(matched){
-                return matched.name === item.name;
+                return matched.name === item.name && matched.price === item.price;
             });
             if (existent_item.qnty == 1) {
                 return;
@@ -66,7 +66,7 @@ pizzaApp.factory("cartService", [ '$rootScope', '$window', function($rootScope, 
         increaseData: function (item) {
             var existingArray = getDataFromLS();
             var existent_item = existingArray.find(function(matched){
-                return matched.name === item.name;
+                return matched.name === item.name && matched.price === item.price;
             });
             existent_item.qnty++;
             total_price += item.price;
