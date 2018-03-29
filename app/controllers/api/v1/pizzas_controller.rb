@@ -17,11 +17,11 @@ class Api::V1::PizzasController < Api::V1::BaseController
                     { :name => u.name, :price => u.price, :imgUrl => u.image.url, :qnty => 1 }
                   end}
           end
-      @json.map do |json|
-        if json[:bonus][:name]==""
-          json.delete(:bonus)
-        end
-       end
+      # @json.map do |json|
+      #   if json[:bonus][:name]==""
+      #     json.delete(:bonus)
+      #   end
+      #  end
     respond_with @json
 
   end
