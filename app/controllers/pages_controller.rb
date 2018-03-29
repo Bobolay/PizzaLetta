@@ -85,8 +85,8 @@ class PagesController < ApplicationController
       list.quantity = s[:qnty]
       list.price = s[:qnty].to_i * s[:price].to_i
       if s[:bonus]
-      list.bonus_name = s[:bonus][:name]
-      list.bonus_description = s[:bonus][:attribute]
+        list.bonus_name = s[:bonus][:name]
+        list.bonus_description = s[:bonus][:attribute]
       end
       list.order_id = @order.id
       list.save
