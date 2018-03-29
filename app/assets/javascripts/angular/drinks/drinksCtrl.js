@@ -32,6 +32,12 @@ pizzaApp.controller("DrinksCtrl", [ '$rootScope', '$scope', 'cartService', '$htt
         cartService.setData(drink_to_cart);
         $rootScope.$emit('addPizza');
         drink.qnty = 1;
+
+        var success = $(event.target).parent().find('.success-message');
+        success.addClass('visible');
+        setTimeout(function() {
+            success.removeClass('visible');
+        }, 1500);
     };
 
 }]);
