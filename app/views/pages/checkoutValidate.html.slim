@@ -1,7 +1,7 @@
 .section-indent.checkout-wrap ng-controller="CartCtrl"
 
-  /form name="orderForm" ng-submit="submitForm(orderForm.$valid)"
-  form name="orderForm" ng-submit="submitForm()"
+  /form name="orderForm" ng-submit="submitForm()"
+  form name="orderForm" ng-submit="submitForm(orderForm.$valid)"
 
     .row
 
@@ -34,14 +34,14 @@
               .row
                 .columns.medium-6
                   .input-field
-                    input name="name" ng-model="order.name"
+                    input name="name" ng-model="order.name" required="required"
                     label Ім'я
                     span class="inputError" ng-show="orderForm.name.$touched && orderForm.name.$invalid"
                       span ng-show="orderForm.name.$error.required"
                         | Заповніть поле
                 .columns.medium-6
                   .input-field
-                    input name="phone" ng-model="order.phone"
+                    input name="phone" ng-model="order.phone" required="required"
                     label Телефон
                     span class="inputError" ng-show="orderForm.phone.$touched && orderForm.phone.$invalid"
                       span ng-show="orderForm.phone.$error.required"
@@ -64,14 +64,14 @@
                     label Місто
                 .columns.medium-6.large-3
                   .input-field
-                    input name="street" ng-model="order.street"
+                    input name="street" ng-model="order.street" required="required"
                     label Вулиця
                     span class="inputError" ng-show="orderForm.street.$touched && orderForm.street.$invalid"
                       span ng-show="orderForm.street.$error.required"
                         | Заповніть поле
                 .columns.medium-6.large-3
                   .input-field
-                    input name="building" ng-model="order.building" type="number"
+                    input name="building" ng-model="order.building" required="required" type="number"
                     label Будинок
                     span class="inputError" ng-show="orderForm.building.$touched && orderForm.building.$invalid"
                       span ng-show="orderForm.building.$error.required"
@@ -126,14 +126,14 @@
               .row
                 .columns.large-6
                   .input-field
-                    input name="name" ng-model="order.name"
+                    input name="name" ng-model="order.name" required="required"
                     label Ім'я
                     span class="inputError" ng-show="orderForm.name.$touched && orderForm.name.$invalid"
                       span ng-show="orderForm.name.$error.required"
                         | Заповніть поле
                 .columns.large-6
                   .input-field
-                    input name="phone" ng-model="order.phone"
+                    input name="phone" ng-model="order.phone" required="required"
                     label Телефон
                     span class="inputError" ng-show="orderForm.phone.$touched && orderForm.phone.$invalid"
                       span ng-show="orderForm.phone.$error.required"
