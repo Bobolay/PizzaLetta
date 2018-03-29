@@ -4,8 +4,13 @@
 
 
 / LIVE VIDEO
-.video-container
-  .img-bg style="background-image: url(#{asset_path('img/nick-karvounis-463853.jpg')})"
+
+.video-wrap.video-container
+  .video
+    iframe src="https://www.youtube.com/embed/ldD7bI2i0a4" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" data-play="0"
+  .video-cover style="background-image: url(#{asset_path('img/nick-karvounis-463853.jpg')})"
+  /.play-btn = inline_svg "svg/play-button.svg"
+
   .camera-option.clearfix
     .floated.active Камера №1
     .floated Камера №2

@@ -32,6 +32,12 @@ pizzaApp.controller("SaladsCtrl", [ '$rootScope', '$scope', 'cartService', '$htt
         cartService.setData(salad_to_cart);
         $rootScope.$emit('addPizza');
         salad.qnty = 1;
+
+        var success = $(event.target).parent().find('.success-message');
+        success.addClass('visible');
+        setTimeout(function() {
+            success.removeClass('visible');
+        }, 1500);
     };
 
 }]);

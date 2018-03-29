@@ -1,10 +1,4 @@
 .menu-wrap
-  
-  /a.menu-logo href=root_path
-    = inline_svg ('icons/logo.svg')
-
-  /.close-btn.menu-btn
-    = inline_svg ('icons/cross.svg')
 
   ul.menu-list
     li
@@ -15,7 +9,7 @@
       a href=drinks_path
         = inline_svg ('icons/menu_icons/Pizza-Letta-bottle.svg')
         span Напої
-    li
+    li.disable
       a href=salads_path
         = inline_svg ('icons/menu_icons/Pizza-Letta-salads.svg')
         span Салати

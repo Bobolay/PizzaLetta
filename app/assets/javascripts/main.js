@@ -53,31 +53,12 @@
         })
 
 
-        // Show/hide custom pizza menu
-        // $('.add-ingredient-btn').on('click', function(){
-        //     console.log('works');
-        //     if ($('.custom-pizza-container').hasClass('visible')){
-        //         $('.custom-pizza-container').removeClass('visible');
-        //         $('body').removeClass('overflow-hidden');
-        //     } else {
-        //         $('.custom-pizza-container').addClass('visible');
-        //         $('body').addClass('overflow-hidden');
-        //     }
-        // })
-
-
         // Close side-container (cart and custom pizza)
         $('.cart-close-btn').on('click', function(){
             $('.side-container').removeClass('visible');
             $('.floated').removeClass('active');
             $('body').removeClass('overflow-hidden');
         })
-        // $.clickOut('.side-container.visible',
-        //     function(){
-        //         $('.side-container').removeClass('visible');
-        //         $('body').removeClass('overflow-hidden');
-        //     },{except: '.side-container, .cart-icon, .add-ingredient-btn, .remove'}
-        // )
 
 
         // Show contact box
@@ -152,6 +133,33 @@
         $('.clear-btn').on('click', function(){
             $('.floated').removeClass('active');
         })
+
+
+        // Video cover
+        $('.video-wrap').on('click', function(){
+            var iframe = $(this).find('iframe');
+            var url = iframe.attr('src');
+
+            var cover_photo = $(this).find('.video-cover');
+            var video = $(this).find('.video');
+
+            iframe.attr('src',url+'?autoplay=1');
+            cover_photo.fadeOut();
+            video.addClass('playing');
+        })
+
+        // $document.on 'click', '.video-wrap', ()->
+        //
+        // target_iframe = $(this).find('iframe')
+        // videoURL = target_iframe.attr('src')
+        //
+        // target_cover = $(this).find('.video-cover')
+        // target_holder = $(this).find('.video')
+        //
+        //
+        // target_iframe.attr('src',videoURL+'?autoplay=1')
+        // target_cover.addClass('hidden')
+        // target_holder.addClass('playing')
 
     });
 
