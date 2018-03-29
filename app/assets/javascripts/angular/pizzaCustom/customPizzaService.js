@@ -29,8 +29,8 @@ pizzaApp.factory("customPizzaService", function(cartService){
             }
             var joint_ingredients = custom_pizza_for_cart.ingredients.concat(custom_ingredients);
             custom_pizza_for_cart.ingredients = joint_ingredients;
-            // custom_pizza_for_cart['total_price'] = custom_pizza_total * custom_pizza_for_cart.qnty;
-            custom_pizza_for_cart['price'] = custom_pizza_total * custom_pizza_for_cart.qnty;
+            custom_pizza_for_cart['price'] = custom_pizza_total;
+            // custom_pizza_for_cart['price'] = custom_pizza_total * custom_pizza_for_cart.qnty;
             // console.log("custom_pizza_for_cart ",custom_pizza_for_cart);
             return custom_pizza_for_cart;
         },
