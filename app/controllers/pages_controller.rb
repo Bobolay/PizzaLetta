@@ -55,6 +55,9 @@ class PagesController < ApplicationController
   end
 
   def create
+
+    render json: @order
+
     @order = Order.new
     @order.name = params[:info][:name]
     @order.phone = params[:info][:phone]
@@ -75,15 +78,14 @@ class PagesController < ApplicationController
     @order.time_of_picking = params[:info][:time]
     @order.subscribe = params[:info][:subscribe]
     @order.save
-    array = params[:cart]
-    array.each_value { |s|
-      list = Orderlist.new
-      list.name = s[:name]
-      list.order_id = @order.id
-      list.save
-    }
+    # array = params[:cart]
+    # array.each_value { |s|
+    #   list = Orderlist.new
+    #   list.name = s[:name]
+    #   list.order_id = @order.id
+    #   list.save
+    # }
 
-    render json: @order
   end
 
   def stub
