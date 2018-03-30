@@ -1,6 +1,6 @@
 .side-container.custom-pizza-container ng-controller="CustomPizzaCtrl"
 
-  .local-header
+  .local-header.inside-custom
     p.title
       | добавте інгредієнти
     p
@@ -94,3 +94,7 @@
     .total-price
       span &#8372
       | {{ custom_pizza.qnty * totalPrice }}
+
+    .success-message
+      span.text Успішно додано в корзину
+      span = inline_svg "icons/done.svg"
