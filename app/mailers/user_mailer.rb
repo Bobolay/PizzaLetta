@@ -3,7 +3,6 @@ class UserMailer < ApplicationMailer
 
  def order_email(order)
    @order=order
-   @url  = 'http://example.com/login'
    mail(to: "viktor.o@voroninstudio.eu", subject: 'замовлення')
  end
 
