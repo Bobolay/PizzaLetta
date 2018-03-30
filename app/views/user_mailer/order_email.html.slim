@@ -6,5 +6,6 @@ html
     h3
       |Нове замовлення
     h5
-      | Ваша заявка на консультацію прийнята, наш менеджер найближчим часо звяжиться з вами
-    =@order.type_of_shipping
+      =@order.type_of_shipping
+      =@order.name
+      =@order.email
