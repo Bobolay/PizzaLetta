@@ -77,6 +77,8 @@ class PagesController < ApplicationController
     @order.date_of_picking = params[:info][:date]
     @order.time_of_picking = params[:info][:time]
     @order.subscribe = params[:info][:subscribe]
+    @order.promocode = params[:info][:promocode]
+    @order.price = params[:totalprice]
     @order.save
     array = params[:cart]
     array.each { |s|
@@ -85,8 +87,8 @@ class PagesController < ApplicationController
       list.quantity = s[:qnty]
       list.price = s[:qnty].to_i * s[:price].to_i
       if s[:bonus]
-      list.bonus_name = s[:bonus][:name]
-      list.bonus_description = s[:bonus][:attribute]
+        list.bonus_name = s[:bonus][:name]
+        list.bonus_description = s[:bonus][:attribute]
       end
       list.order_id = @order.id
       list.save
@@ -96,6 +98,10 @@ class PagesController < ApplicationController
 
   def stub
     render layout: false
+  end
+  def call
+    render json: {}
+    binding.pry
   end
   private
   def instagram

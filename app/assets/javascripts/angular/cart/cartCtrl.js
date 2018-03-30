@@ -54,7 +54,7 @@ pizzaApp.controller("CartCtrl", [ '$http', '$window', '$rootScope', '$scope', 'c
     // SENDING INFO AND ORDER
 
     $scope.order = {};
-    $scope.order.orderway = "courier";
+    $scope.order.orderway = "Кур'єр";
 
     // GET REQUEST
 

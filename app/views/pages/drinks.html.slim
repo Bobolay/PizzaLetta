@@ -36,17 +36,18 @@
             .img-bg style="background-image: url('{{drink.imgUrl}}')"
           .info-panel.dark
 
-            p.ingredients
+            / Short info about item
+            p.short-info
               | {{drink.category_ukr}}&nbsp;&nbsp;|&nbsp;&nbsp;{{drink.volume}} л
             p.name
               | {{drink.name}}
 
-            /.red-price.small-circle
+            .red-price.small-circle
               .inner-text
                 span &#8372
                 | {{drink.price}}
 
-            /.add-to-cart
+            .add-to-cart
 
               .quantity.on-red-bg
                 .decrease ng-click="decrease(drink)" = inline_svg "icons/remove.svg"

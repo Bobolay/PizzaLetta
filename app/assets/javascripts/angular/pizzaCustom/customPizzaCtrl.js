@@ -54,8 +54,22 @@ pizzaApp.controller("CustomPizzaCtrl", [ '$http', '$rootScope', '$scope', 'cartS
         for (key in customized_pizza) {
             pizza_to_cart[key] = customized_pizza[key];
         }
-        // $rootScope.$emit('addPizza');
+        console.log(pizza_to_cart);
         cartService.setData(pizza_to_cart);
+        $rootScope.$emit('addPizza');
+
+        $scope.custom_ingredients = customPizzaService.resetIngredients();
+        $('.floated').removeClass('active');
+
+        // Show successfully added to cart alert
+        var success = $(event.target).parent().find('.success-message');
+        success.addClass('visible');
+        setTimeout(function() {
+            success.removeClass('visible');
+            $('.custom-pizza-container').removeClass('visible');
+            $('body').removeClass('overflow-hidden');
+        }, 1500);
+
     };
 
 }]);

@@ -38,7 +38,7 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
-   config.included_models = [Orderlist,Salat,Constructor,Order,Ordersphone,Ordersemail,Call,Subscribe,Pizza,Contact,Ingredient,Drink,Gift,About,Shipping,Oferta,Aboutimage,Giftdescription]
+   config.included_models = [User,Orderlist,Salat,Constructor,Order,Ordersphone,Ordersemail,Call,Subscribe,Pizza,Contact,Ingredient,Drink,Gift,About,Shipping,Oferta,Aboutimage,Giftdescription]
    config.model Orderlist do
      navigation_label "Замовлення"
      label "Інформація про замовлення"
@@ -116,12 +116,12 @@ RailsAdmin.config do |config|
     navigation_label "Меню"
     label "Піца"
     field :ingredients
-    include_fields :name, :image, :pricesmall, :pricebig, :meat, :cheese, :fish, :vegeterian, :show, :discountsmall, :discountbig, :bonus_name, :bonus_description
+    include_fields :name, :image, :pricesmall, :pricebig, :weight, :meat, :cheese, :fish, :vegeterian, :show, :discountsmall, :discountbig, :bonus_name, :bonus_description
   end
   config.model Order do
     navigation_label "Замовлення"
     label "Інформація про доставку "
-    include_fields :type_of_shipping, :name, :phone, :email, :subscribe, :city, :street, :building, :flat, :date_of_shipping, :fast_or_not, :type_of_pay, :rest, :comment, :pick_up_from, :date_of_picking, :time_of_picking
+    include_fields :id, :type_of_shipping, :price, :name, :phone, :email, :subscribe, :city, :street, :building, :flat, :date_of_shipping, :fast_or_not, :type_of_pay, :rest, :promocode, :comment, :pick_up_from, :date_of_picking, :time_of_picking
   end
   config.model Ordersphone do
     navigation_label "Користувачі"
