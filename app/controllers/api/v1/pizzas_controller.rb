@@ -12,6 +12,7 @@ class Api::V1::PizzasController < Api::V1::BaseController
            :discountsmall => pizza.discountsmall,
            :pricesmall => pizza.pricesmall,
            :qnty => 1,
+           :weight => pizza.weight,
            :bonus => {:name => pizza.bonus_name, :attribute => pizza.bonus_description},
            :ingredients => Ingredient.includes(:pizzas).where(pizzas: { id: pizza.id}).map do |u|
                     { :name => u.name, :price => u.price, :imgUrl => u.image.url, :qnty => 1 }
