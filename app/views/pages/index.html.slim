@@ -53,9 +53,11 @@
           .info-panel.dark
 
             / Short info about item
-            /p.short-info
-              span 500
-              |&nbsp;гр,&nbsp;
+            p.short-info
+              span ng-if="pizza.weight"
+                span
+                  |{{pizza.weight}}
+                |&nbsp;гр,&nbsp;
               span 35
               |&nbsp;см
 
