@@ -25,12 +25,12 @@ database: "db/development.sqlite3"
 # ========================
 # DEVISE
 # ========================
-devise_secret_key: '96be7153c9de8c94b0220812b4cb5b46aa823fa37548f23f27b9eef262dd7ae0db69344675ea87e1df2279dfea1c77a4b6818635d159bed5ec308f9668f081e4'
+devise_secret_key: 'f08bf5395e4aee5c3ebfd7c41b4462503d6dc54ca4c37274c56536bc6afb812c68fd4c20644b5083f937b1f8636af1088988945c9bc7d414c91a4691afab48ab'
 
 # ========================
 # SECRET_KEY
 # ========================
-SECRET_KEY_BASE:
+SECRET_KEY_BASE: 'ff7c8e95b19783a523a56c87a6626fcb5b0f1f6f60f6877d7608ef76ef01efd13e8271e31d79fc93747b433bb5dd8e9b8e20520ba1767a3befb6dfa23d021b55'
 
 # ========================
 # GOOGLE MAPS
