@@ -57,7 +57,7 @@ class PagesController < ApplicationController
   def create
 
     render json: @order
-
+    @array = params
     @order = Order.new
     @order.name = params[:info][:name]
     @order.phone = params[:info][:phone]
@@ -93,7 +93,9 @@ class PagesController < ApplicationController
       list.order_id = @order.id
       list.save
     }
-
+    if @order.save
+      UserMailer.order_email(@array).deliver_now
+    end
   end
 
   def stub
