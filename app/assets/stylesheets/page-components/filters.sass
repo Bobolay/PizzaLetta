@@ -2,8 +2,6 @@
 
 .filter-wrap
   position: relative
-  //margin: 150px 0 30px
-  //margin: 20px 0 0
   .regular
     display: inline-block
     font-size: 14px
@@ -39,12 +37,13 @@
     vertical-align: middle
     fill: rgba(0,0,0,0.5)
     +transition(.25s)
-    @media #{$medium-up}
+    @media #{$large-up}
       margin-right: 10px
   span
     font-size: 14px
     font-weight: 600
     color: rgba(0,0,0,0.5)
     +transition(.25s)
-    @media #{$small-only}
-      display: none
+    display: none
+    @media #{$large-up}
+      display: inline-block

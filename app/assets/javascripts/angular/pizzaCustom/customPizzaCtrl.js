@@ -58,11 +58,16 @@ pizzaApp.controller("CustomPizzaCtrl", [ '$http', '$rootScope', '$scope', 'cartS
         cartService.setData(pizza_to_cart);
         $rootScope.$emit('addPizza');
 
+        $scope.custom_ingredients = customPizzaService.resetIngredients();
+        $('.floated').removeClass('active');
+
         // Show successfully added to cart alert
         var success = $(event.target).parent().find('.success-message');
         success.addClass('visible');
         setTimeout(function() {
             success.removeClass('visible');
+            $('.custom-pizza-container').removeClass('visible');
+            $('body').removeClass('overflow-hidden');
         }, 1500);
 
     };

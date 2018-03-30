@@ -148,19 +148,6 @@
             video.addClass('playing');
         })
 
-        // $document.on 'click', '.video-wrap', ()->
-        //
-        // target_iframe = $(this).find('iframe')
-        // videoURL = target_iframe.attr('src')
-        //
-        // target_cover = $(this).find('.video-cover')
-        // target_holder = $(this).find('.video')
-        //
-        //
-        // target_iframe.attr('src',videoURL+'?autoplay=1')
-        // target_cover.addClass('hidden')
-        // target_holder.addClass('playing')
-
     });
 
     // The rest of the code goes here!
