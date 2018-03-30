@@ -35,8 +35,10 @@
 
           .info-panel.dark
 
-            p.ingredients
-              | {{salad.category_ukr}}&nbsp;&nbsp;|&nbsp;&nbsp;{{salad.weight}} грам
+            / Short info about item
+            p.short-info
+              /| {{salad.category_ukr}}&nbsp;&nbsp;|&nbsp;&nbsp;{{salad.weight}} грам
+              | {{salad.weight}}&nbsp;грам
             p.name
               | {{salad.name}}
             .ingredients
