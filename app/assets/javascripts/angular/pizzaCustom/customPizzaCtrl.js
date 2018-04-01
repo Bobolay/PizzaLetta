@@ -54,7 +54,6 @@ pizzaApp.controller("CustomPizzaCtrl", [ '$http', '$rootScope', '$scope', 'cartS
         for (key in customized_pizza) {
             pizza_to_cart[key] = customized_pizza[key];
         }
-        console.log(pizza_to_cart);
         cartService.setData(pizza_to_cart);
         $rootScope.$emit('addPizza');
 

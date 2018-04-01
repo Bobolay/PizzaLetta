@@ -30,7 +30,7 @@ pizzaApp.factory("cartService", [ '$rootScope', '$window', function($rootScope, 
         setData: function (item) {
             var existingArray = getDataFromLS();
             var existent_item = existingArray.find(function(matched){
-                return matched.name === item.name && !item.hasOwnProperty('type');
+                return matched.name === item.name && !item.hasOwnProperty('type') && matched.ingredients === item.ingredients;
             });
             if (existent_item) {
                 existent_item.qnty += item.qnty;

@@ -4,10 +4,12 @@
 
   .ingredients-preview
     / Constructed pizza price
-    .red-price.big-circle
+    .red-price.big-circle ng-if="baseprice"
       .inner-text
         span &#8372
-        | {{ totalPrice * constructed_pizza.qnty }}
+        / | {{ totalPrice * constructed_pizza.qnty }}
+        | {{ totalPrice }}
+
     / Constructed pizza ingredients
     ul.ingredients-list
       li ng-repeat="ingredient in constructor_ingredients"
@@ -106,3 +108,7 @@
           = inline_svg "icons/add.svg"
 
       .add-to-cart-btn ng-click="constructorPizzaAddToCart()" в корзину
+
+      .success-message
+        span.text Успішно додано в корзину
+        span = inline_svg "icons/done.svg"

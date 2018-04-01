@@ -1,4 +1,6 @@
 pizzaApp.controller("ConstructorCtrl", [ '$rootScope', '$scope', '$http', 'constructorService', 'cartService', function ($rootScope, $scope, $http, constructorService, cartService) {
+    
+    $scope.baseprice = false;
 
     // All ingredients to choose from (we get them from ItemsService)
     $http({method: 'GET', url: '/api/v1/ingredients.json'}).
@@ -13,12 +15,14 @@ pizzaApp.controller("ConstructorCtrl", [ '$rootScope', '$scope', '$http', 'const
     var promiseObj = constructorService.getConstructorBase();
     promiseObj.then(function(value) {
         $scope.constructed_pizza = value;
-        // console.log("Base for constructor: ",$scope.constructed_pizza);
         constructorService.setBasePrice(value);
+
+        $scope.totalPrice = constructorService.getConstructorPizzaTotal();
+        $scope.baseprice = true;
     });
 
     // Total price of constructor pizza
-    $scope.totalPrice = constructorService.getConstructorPizzaTotal();
+    
 
     // Set sauce option
     $scope.sauce = "red";
@@ -53,12 +57,23 @@ pizzaApp.controller("ConstructorCtrl", [ '$rootScope', '$scope', '$http', 'const
         for (key in $scope.constructed_pizza) {
             pizza_to_cart[key] = $scope.constructed_pizza[key];
         }
+        console.log(pizza_to_cart);
+        pizza_to_cart['price'] = $scope.totalPrice;
         pizza_to_cart.ingredients = constructorService.getConstructorIngredients();
         pizza_to_cart.sauce = $scope.sauce;
-        constructorService.resetConstructorIngredients();
-
-        $rootScope.$emit('addPizza');
+        $scope.constructor_ingredients = constructorService.resetConstructorIngredients();
+        $('.floated').removeClass('active');
+        $scope.totalPrice = constructorService.resetConstructorPizzaTotal();
         cartService.setData(pizza_to_cart);
+        $rootScope.$emit('addPizza');
+
+        // Show successfully added to cart alert
+        var success = $(event.target).parent().find('.success-message');
+        success.addClass('visible');
+        setTimeout(function() {
+            success.removeClass('visible');
+        }, 1500);
+
     }
 
 }]);
