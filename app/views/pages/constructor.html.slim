@@ -73,20 +73,23 @@
     / Additional ingredients that we can add displays here
     ul
 
-      li.order-item.clearfix ng-repeat="ingredient in constructor_ingredients"
-        .floated
-          .img-holder.no-remove-icon
-            .img-bg style="background-image: url('{{ingredient.imgUrl}}')"
-          p.name.dib
-            | {{ingredient.name}}
-        .floated.quantity.on-white-bg
-          .decrease ng-click="decrease(ingredient)" = inline_svg "icons/remove.svg"
-          .number ng-bind="ingredient.qnty"
-          .increase ng-click="increase(ingredient)" = inline_svg "icons/add.svg"
-        .floated
-          p.price.dib.kostyl
-            span &#8372
-            | {{ingredient.price}}
+      li.order-item ng-repeat="ingredient in constructor_ingredients"
+        .remove ng-click="toggleIngredient(ingredient)"
+          = inline_svg "icons/close.svg"
+        .clearfix
+          .floated
+            .img-holder.no-remove-icon
+              .img-bg style="background-image: url('{{ingredient.imgUrl}}')"
+            p.name.dib
+              | {{ingredient.name}}
+          .floated.quantity.on-white-bg
+            .decrease ng-click="decrease(ingredient)" = inline_svg "icons/remove.svg"
+            .number ng-bind="ingredient.qnty"
+            .increase ng-click="increase(ingredient)" = inline_svg "icons/add.svg"
+          .floated
+            p.price.dib.kostyl
+              span &#8372
+              | {{ingredient.price}}
 
     .constructor-summary
       p.clear-btn ng-click="resetIngredients()"
@@ -100,7 +103,7 @@
     / Total price and comfirmation
     .add-to-cart.fixed
 
-      .quantity.on-red-bg
+      /.quantity.on-red-bg
         .decrease ng-click="decrease(constructed_pizza)"
           = inline_svg "icons/remove.svg"
         .number ng-bind="constructed_pizza.qnty"

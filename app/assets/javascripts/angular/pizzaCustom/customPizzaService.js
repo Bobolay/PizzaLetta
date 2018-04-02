@@ -92,7 +92,7 @@ pizzaApp.factory("customPizzaService", function(cartService){
                     // So let's remove 'active' class by doing this
                     ingredient.active_ingredient = false;
                     // Removing ingredient price to custom pizza total price
-                    custom_pizza_total -= ingredient.price;
+                    custom_pizza_total -= ingredient.price * ingredient.qnty;
                 }
             } else {
                 // This ingredient isn't choosen still - throw it into our pizza
@@ -100,7 +100,7 @@ pizzaApp.factory("customPizzaService", function(cartService){
                 // Highlight this ingredient (it receives 'active' class)
                 ingredient.active_ingredient = true;
                 // Adding ingredient price to custom pizza total price
-                custom_pizza_total += ingredient.price;
+                custom_pizza_total += ingredient.price * ingredient.qnty;
             }
         },
 
