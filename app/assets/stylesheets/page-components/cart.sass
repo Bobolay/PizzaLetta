@@ -17,7 +17,7 @@
 
   .scroll-container
     overflow: auto
-    height: calc(100vh - 120px)
+    height: calc(100vh - 116px)
 
   .local-header
     background: $grey
@@ -63,6 +63,7 @@
     .img-bg
       -webkit-background-size: contain
       background-size: contain
+      background-position: top center
     .quantity
       position: absolute
       top: 0
@@ -191,6 +192,7 @@
       top: -7px
       left: -24px
       +transition(.25s)
+      z-index: 1
       svg
         +transition(.25s)
         stroke: $red
@@ -212,7 +214,8 @@
       width: 50px
       height: 50px
       @media #{$small-only}
-        left: 20px
+        &:not(.no-remove-icon)
+          left: 20px
       &:before
         content: ''
         display: block

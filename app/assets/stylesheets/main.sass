@@ -93,6 +93,10 @@
   height: 200px
   bottom: 0
   left: 0
+  @media #{$small-only}
+    height: initial
+    min-height: 150px
+    padding: 10px 10px 70px 10px
   @media #{$xlarge-up}
     +translate(0,60px)
     +transition(.25s)
@@ -112,6 +116,8 @@
     font-weight: 500
     line-height: 1.25
     margin-bottom: 10px
+    @media #{$small-only}
+      margin-bottom: 6px
   .name
     font-weight: 900
     margin-bottom: 10px
@@ -172,7 +178,7 @@
 .add-to-cart
   position: absolute
   width: 100%
-  height: 60px
+  height: 56px
   padding: 15px 0
   bottom: 0
   left: 0
@@ -187,16 +193,17 @@
     color: white
     font-weight: 600
   .add-to-cart-btn
-    +x-align
-    width: 110px
+    +xy-align
+    width: 150px
     z-index: 1
     color: white
     text-transform: uppercase
-    line-height: 30px
+    padding: 20px
+    //line-height: 30px
     font-weight: 600
     cursor: pointer
   .make-pizza
-    width: 200px
+    width: 220px
   .success-message
     +fullsize
     z-index: 1
@@ -667,6 +674,7 @@
   height: 100vh
   overflow: hidden
   background-image: asset_url('img/letta-pattern-white.png')
+  z-index: 3
   .pizza-preview
     position: absolute
     width: 100%
@@ -682,17 +690,19 @@
       +scale(.7)
     @media #{$small-only}
       display: none
-  .panel
-    position: relative
-    padding-top: 100px
-    z-index: 2
+  .scroll-container
     overflow: auto
-    @media #{$medium-up}
-      position: absolute
-      width: 500px
-      height: 100%
-      top: 0
-      right: 0
+    height: calc(100vh - 116px)
+  .panel
+    padding-top: 100px
+    overflow: auto
+    position: absolute
+    width: 500px
+    height: 100%
+    max-width: 100%
+    top: 0
+    right: 0
+    z-index: 2
   .subtitle
     margin-right: 20px
   .main-options
@@ -768,6 +778,7 @@
   .add-to-cart.fixed
     position: fixed
     width: 500px
+    max-width: 100%
     left: initial
     right: 0
   .constructor-summary
