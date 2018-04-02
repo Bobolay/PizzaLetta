@@ -107,7 +107,8 @@ pizzaApp.factory("cartService", [ '$rootScope', '$window', function($rootScope, 
             // So that's will be out index of element we want to remove!
             var kostyl = 0;
             angular.forEach(existingArray, function (value, key) {
-                if(value.$$hashKey == item.$$hashKey){
+                console.log(value.price);
+                if(value.name == item.name && value.price == item.price){
                     kostyl = existingArray.indexOf(value);
                 }
             });
