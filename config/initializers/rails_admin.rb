@@ -38,7 +38,17 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
-   config.included_models = [User,Orderlist,Salat,Constructor,Order,Ordersphone,Ordersemail,Call,Subscribe,Pizza,Contact,Ingredient,Drink,Gift,About,Shipping,Oferta,Aboutimage,Giftdescription]
+   config.included_models = [Attention,Alert,User,Orderlist,Salat,Constructor,Order,Ordersphone,Ordersemail,Call,Subscribe,Pizza,Contact,Ingredient,Drink,Gift,About,Shipping,Oferta,Aboutimage,Giftdescription]
+   config.model Alert do
+     navigation_label "Повідомлення"
+     label "Попап"
+     include_fields :text, :show
+   end
+   config.model Attention do
+     navigation_label "Повідомлення"
+     label "Червоне повідомлення зверху"
+     include_fields :text, :show
+   end
    config.model Orderlist do
      navigation_label "Замовлення"
      label "Інформація про замовлення"

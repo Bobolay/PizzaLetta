@@ -27,7 +27,8 @@ html
     = render "success_message"
 
     /Alert for client in case of pizza is not working or smth like this
-    /= render "client_alert_popup"
+    -if @alert.show == true
+      = render "client_alert_popup"
 
     .main-wrapper
       = yield

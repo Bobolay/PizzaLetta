@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  before_filter :popup
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   # protect_from_forgery with: :exception
@@ -10,6 +11,10 @@ class ApplicationController < ActionController::Base
   # include Cms::Helpers::MetaDataHelper
   # include Cms::Helpers::NavigationHelper
   # include Cms::Helpers::ActionView::UrlHelper
+  def popup
+    @alert=Alert.first
+    @message = Attention.first
+  end
 
   def render_not_found
     render template: "errors/not_found.html.slim"
