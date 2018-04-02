@@ -40,10 +40,11 @@ h4 Інформація про замовника:
 table
   tr
     td Ім'я
-    td Лось Паркінсон
+    td
+      =@array[:info][:name]
   tr
     td Загальна ціна
-    td 123 &nbsp;грн.
+    td #{@array[:totalprice]}грн.
   tr
     td Промокод
     td bs23sdx-12
@@ -72,19 +73,23 @@ table
     td
       p Назва
     td
-      p Домашня українська
-  tr
-    td
       p Ціна
-    td
-      p 120грн
-  tr
     td
       p Кількість
     td
-      p 1
-  tr
-    td
       p Бонус
     td
-      p Coca-cola
+      p Обєм бонусу
+  - @list.each do |s|
+    tr
+      td
+        p =s[:name]
+      td
+        p =s[:price]
+      td
+        p =s[:qnty]
+    -if s[:bonus]
+      td
+        p = s[:bonus][:name]
+      td
+        p = s[:bonus][:attribute]

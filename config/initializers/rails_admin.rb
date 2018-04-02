@@ -42,12 +42,15 @@ RailsAdmin.config do |config|
    config.model Alert do
      navigation_label "Повідомлення"
      label "Попап"
-     include_fields :text, :show
+     include_fields  :show
+     field :text, :ck_editor
    end
    config.model Attention do
      navigation_label "Повідомлення"
      label "Червоне повідомлення зверху"
-     include_fields :text, :show
+     include_fields :show
+     field :text, :ck_editor
+
    end
    config.model Orderlist do
      navigation_label "Замовлення"
