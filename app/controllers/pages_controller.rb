@@ -79,7 +79,6 @@ class PagesController < ApplicationController
     @order.subscribe = params[:info][:subscribe]
     @order.promocode = params[:info][:promocode]
     @order.price = params[:totalprice]
-    binding.pry
     @order.save
     array = params[:cart]
     array.each { |s|

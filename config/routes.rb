@@ -23,6 +23,8 @@ Rails.application.routes.draw do
     post "order", action: "create"
     post "call", action: "call"
 
+    get "email", action: "email"
+
   end
 
   namespace :api do

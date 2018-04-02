@@ -75,7 +75,7 @@
 
       li.order-item.clearfix ng-repeat="ingredient in constructor_ingredients"
         .floated
-          .img-holder
+          .img-holder.no-remove-icon
             .img-bg style="background-image: url('{{ingredient.imgUrl}}')"
           p.name.dib
             | {{ingredient.name}}
