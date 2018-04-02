@@ -58,7 +58,7 @@
           | видалити
 
     / Additional sauces (optionally)
-    ul
+    ul.order-summary
       li.order-item ng-repeat="ingredient in additional_sauces"
         .remove ng-click="toggleIngredient(ingredient)"
           = inline_svg "icons/close.svg"
