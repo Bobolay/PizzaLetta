@@ -32,7 +32,7 @@
         .columns.medium-6
           form name="subscribeform" ng-submit="submitCallForm()"
             .input-field
-              input placeholder="Електронна скринька" name="email" type="email" ng-model="formdata.email" required="required"
+              input placeholder="Електронна скринька" name="email" type="email" ng-model="subscribe_email" required="required"
               span class="inputError" ng-show="submitCallForm.name.$touched && submitCallForm.name.$invalid"
                 span ng-show="submitCallForm.name.$error.required"
                   | Заповніть поле

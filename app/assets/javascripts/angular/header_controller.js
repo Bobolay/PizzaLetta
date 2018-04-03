@@ -19,13 +19,11 @@ pizzaApp.controller("HeaderCtrl", [ '$http', '$rootScope', '$scope', 'cartServic
         $rootScope.$emit('addPizza');
     };
 
-    $scope.formdata = {};
-
     $scope.submitCallForm = function () {
 
         var url = 'call';
         var data = {
-            phonenumber: $scope.formdata
+            phone_number: $scope.phone_number
         };
         var config = {
             headers : {
