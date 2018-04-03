@@ -25,7 +25,7 @@
     background: $black
   @media #{$medium-up}
     width: calc(100% - 80px)
-    padding: 10px 30px
+    padding: 15px
   @media only screen and (min-width: 1440px)
     width: calc(100% - 180px)
   &:before
@@ -33,7 +33,7 @@
     position: absolute
     display: block
     position: absolute
-    width: 193px
+    width: 159px
     height: 100%
     top: 0
     right: 0
@@ -41,6 +41,8 @@
     z-index: -1
     @media #{$small-only}
       width: 60px
+    @media #{$xlarge-up}
+      width: 178px
   .title, .right-part
     align-self: center
   .title
@@ -106,6 +108,7 @@
 
   .contact
     position: relative
+    padding-left: 10px
     padding-right: 30px
     width: 200px
     a
@@ -167,35 +170,33 @@
       background: black
       position: absolute
       top: 0
-      right: 5px
+      right: -5px
       border-radius: 50%
       padding: 3px
       width: 20px
       height: 20px
       line-height: 16px
       text-align: center
-      @media #{$small-only}
-        right: -6px
     .total-price
       font-size: 18px
       color: white
-      padding-left: 20px
+      padding-left: 10px
       font-weight: 900
       border-left: 1px solid $dark
       width: 64px
       height: 50px
       line-height: 50px
-      //Temporary hidden
-      //display: none
+      p
+        text-align: center
       span
         font-weight: 500
       @media #{$small-only}
         display: none
 
   .contact-dropdown
-    width: 220px
+    width: 200px
     position: absolute
-    left: -20px
+    left: 0
     bottom: -4px
     +translate(0,100%)
     padding: 10px
