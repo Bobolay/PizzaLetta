@@ -100,9 +100,11 @@ class PagesController < ApplicationController
   end
   def call
     render json: {}
+
   end
   def email
     render json: {}
+        binding.pry
   end
 
   def stub
