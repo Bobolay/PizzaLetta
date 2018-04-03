@@ -96,7 +96,9 @@
   @media #{$small-only}
     height: initial
     min-height: 150px
-    padding: 10px 10px 70px 10px
+    padding: 15px 10px 70px 10px
+  @media #{$medium-only}
+    padding: 15px 10px
   @media #{$xlarge-up}
     +translate(0,60px)
     +transition(.25s)
@@ -695,6 +697,7 @@
     height: calc(100vh - 116px)
   .panel
     padding-top: 100px
+    padding-bottom: 60px
     overflow: auto
     position: absolute
     width: 500px
@@ -703,6 +706,10 @@
     top: 0
     right: 0
     z-index: 2
+    @media #{$small-only}
+      padding-top: 80px
+      .title
+        font-size: 18px
   .subtitle
     margin-right: 20px
   .main-options

@@ -190,7 +190,7 @@
       width: 36px
       height: 36px
       top: -7px
-      left: -24px
+      left: -28px
       +transition(.25s)
       z-index: 1
       svg
@@ -205,6 +205,7 @@
           +scale(1.5)
     .floated:first-child
       padding-left: 60px
+      height: 30px
       @media #{$small-only}
         padding-left: 80px
     .img-holder
@@ -214,6 +215,7 @@
       width: 50px
       height: 50px
       @media #{$small-only}
+        left: 20px
         &:not(.no-remove-icon)
           left: 20px
       &:before
@@ -224,7 +226,11 @@
       -webkit-background-size: contain
       background-size: contain
     .name
+      position: relative
+      top: 46%
+      +translate(0,-50%)
       font-size: 12px
+      line-height: 1.25
       font-weight: 500
       text-transform: capitalize
     .quantity
