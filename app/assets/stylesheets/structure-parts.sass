@@ -391,6 +391,8 @@ p.clear-btn
     cursor: pointer
     margin-bottom: 15px
     +transition(.25s)
+    @media #{$small-only}
+      padding: 0 4px 10px 4px
     @media #{$large-up}
       width: 20%
       height: 100px
