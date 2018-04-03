@@ -56,27 +56,6 @@ pizzaApp.controller("CartCtrl", [ '$http', '$window', '$rootScope', '$scope', 'c
     $scope.order = {};
     $scope.order.orderway = "Кур'єр";
 
-    // GET REQUEST
-
-    // $scope.submitForm = function() {
-    //     var url = '/order';
-    //     var data = {
-    //         cart: $scope.cart,
-    //         info: $scope.order,
-    //         totalprice: $scope.total_price
-    //     };
-    //     $http.get(url, data)
-    //        .then(function(data) {
-    //             if (data.errors) {
-    //                 // Showing errors.
-    //                 $scope.errorContent = data.errors.errorContent;
-    //             } else {
-    //                 console.log(data);
-    //                 $scope.message = data.message;
-    //             }
-    //        });
-    // };
-
     // POST REQUEST
 
     $scope.submitForm = function () {
@@ -117,3 +96,25 @@ pizzaApp.controller("CartCtrl", [ '$http', '$window', '$rootScope', '$scope', 'c
     };
 
 }]);
+
+
+// GET REQUEST
+
+// $scope.submitForm = function() {
+//     var url = '/order';
+//     var data = {
+//         cart: $scope.cart,
+//         info: $scope.order,
+//         totalprice: $scope.total_price
+//     };
+//     $http.get(url, data)
+//        .then(function(data) {
+//             if (data.errors) {
+//                 // Showing errors.
+//                 $scope.errorContent = data.errors.errorContent;
+//             } else {
+//                 console.log(data);
+//                 $scope.message = data.message;
+//             }
+//        });
+// };
