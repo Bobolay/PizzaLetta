@@ -20,7 +20,7 @@
 
 
 / SUBSCRIBE
-.subscribe-wrap
+.subscribe-wrap ng-controller="SubscribeCtrl"
   .bg-pattern style="background-image: url(#{asset_path('img/Letta-pattern-red.png')})"
   .pizza-img style="background-image: url(#{asset_path('img/pizza_PNG7122.png')})"
   .row
@@ -30,10 +30,10 @@
           p.large Будьте в курсі новин
           p.smaller Щоб бути в курсі найсвіжіших новин та акційних пропозицій &mdash; підпишіться на емейл-розсилку.
         .columns.medium-6
-          form
+          form ng-submit="submitCallForm()"
             .input-field
-              input placeholder="Електронна скринька"
-            button
+              input placeholder="Електронна скринька" name="email" ng-model="formdata.email"
+            button type="submit"
               = inline_svg ("icons/pizza_part.svg")
               span Підписатися
 
