@@ -1,2 +1,120 @@
 uk:
-  hello: "Hello world"
+ activerecord:
+  attributes:
+    about:
+      cookers: "Кухарі"
+      description: "Опис"
+      fast_work: "Швидко"
+      clean_truth: "Прозорість і чесніть"
+      frase: "Гасло"
+      image: "Фото"
+    aboutimage:
+      image: "Фото"
+    alert:
+      show: "Показати"
+      text: "Текст"
+    attention:
+      show: "Показати"
+      text: "Текст"
+    call:
+      phone: "Номера телефону"
+    constructor:
+      small_price: "Ціна малої основи"
+      big_price: "Ціна великої основи"
+    contact:
+      first_number: "Перший номер"
+      second_number: "Другий номер"
+      third_number: "Третій номер"
+    drink:
+      title: "Назва"
+      category: "Категорія"
+      price: "Ціна"
+      image: "Фото"
+      volume: "Обєм"
+      show: "Показати"
+    gift:
+      description: "Опис"
+      title: "Назва"
+      image: "Фото"
+      show: "Показати"
+    giftdescription:
+      description: "Опис"
+    ingredient:
+      category: "Категорія"
+      price: "Ціна"
+      image: "Фото"
+      show: "Показати"
+      name: "Назва"
+    oferta:
+      image: "Фото"
+      first_title: "Перший заголовок"
+      second_title: "Другий заголовок"
+      first_description: "Перший опис"
+      second_description: "Другий опис"
+    orderlist:
+      order_id: "Номер замовлення"
+      name: "Назва"
+      quantity: "Кількість"
+      bonus_name: "Бонус"
+      bonus_description: "Деталі бонусу"
+      price: "Ціна"
+      size: "Розмір/обєм"
+    order:
+      type_of_shipping: "Тип доставки"
+      name: "Імя"
+      phone: "Номер телефона"
+      email: "Пошта"
+      subscribe: "Підписатись"
+      city: "Місто"
+      street: "Вулиця"
+      building: "Будинок"
+      flat: "Квартира"
+      date_of_shipping: "Дата доставки"
+      fast_or_not: "Швидко чи ні"
+      type_of_pay: "Тип оплати"
+      rest: "Решта"
+      comment: "Комент"
+      pick_up_from: "Забрати з"
+      date_of_picking: "Дата забираня"
+      time_of_picking: "Час забирання"
+      price: "Сума"
+      promocode: "Промокод"
+    ordersphone:
+      phone: "Номер телефона"
+    ordersemail:
+      email: "Пошта"
+    pizza:
+      ingredients: "Інгрідієнти"
+      name: "Назва"
+      pricesmall: "Ціна малоі"
+      pricebig: "Ціна великої"
+      meat: "Мясна"
+      cheese: "Сирна"
+      fish: "Рибна"
+      vegetarian: "Вегетаріанська"
+      image: "Фото"
+      show: "Показати"
+      discountsmall: "Ціна за знижкою мала піца"
+      discountbig: "Ціна за знижкою велика піца"
+      bonus_name: "Назва бонусу"
+      bonus_description: "Опис бонусу"
+      weight: "Вага"
+    salat:
+      category: "Категорія"
+      ingredients: "Інгрідієнти"
+      name: "Назва"
+      price: "Ціна"
+      image: "Фото"
+      show: "Показати"
+      weight: "Вага"
+    shipping:
+      time_of_shipping: "Час доставки"
+      description: "Опис"
+      first_address: "Перша адреса"
+      first_address_map: "Посилання на першу адресу"
+      second_address: "Друга адреса"
+      second_address_map: "Посилання на другу адресу"
+      payment_description: "Опис оплати"
+      image: "фото"
+    subscribe:
+      phone: "Пошта"
