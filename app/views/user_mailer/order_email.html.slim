@@ -100,14 +100,9 @@ html
         p Обєм бонусу
     - @list.each do |s|
       tr
-        td
-          p =s[:name]
-        td
-          p =s[:price]
-        td
-          p =s[:qnty]
+        td =s[:name]
+        td =s[:price]
+        td =s[:qnty]
         -if s[:bonus]
-          td
-            p = s[:bonus][:name]
-          td
-            p = s[:bonus][:attribute]
+          td = s[:bonus][:name]
+          td = s[:bonus][:attribute]

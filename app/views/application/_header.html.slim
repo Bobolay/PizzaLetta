@@ -36,6 +36,11 @@
         .line-separator
         form
           p.small Або вкажіть ваш номер
+          = form_tag("/call", method: "post") do
+            = label_tag(:q, "Search for:")
+            = text_field_tag(:q)
+            = submit_tag("Search")
+
           .input-field
             input placeholder="Телефон"
           button Передзвоніть мені

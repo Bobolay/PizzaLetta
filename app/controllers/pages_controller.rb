@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   before_action :instagram
+  before_filter :popup
 
   def index
     @title = "Піца"
@@ -97,15 +98,25 @@ class PagesController < ApplicationController
       UserMailer.order_email(@array).deliver_now
     end
   end
-
-  def stub
-    render layout: false
-  end
   def call
     render json: {}
     binding.pry
   end
+  def email
+    render json: {}
+    binding.pry
+  end
+
+  def stub
+    render layout: false
+  end
+
   private
+  def popup
+    @alert=Alert.first
+    @message = Attention.first
+  end
+
   def instagram
 
     url="https://api.instagram.com/v1/users/self/media/recent/?access_token=5421929898.1677ed0.02b11596b2d4432aac9c495a152b9288"
