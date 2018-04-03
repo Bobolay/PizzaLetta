@@ -1,12 +1,10 @@
 pizzaApp.controller("SubscribeCtrl", [ '$http', '$scope', function ($http, $scope) {
 
-    $scope.formdata = {};
-
     $scope.submitCallForm = function () {
 
         var url = 'email';
         var data = {
-            email: $scope.formdata
+            email: $scope.subscribe_email
         };
         var config = {
             headers : {
