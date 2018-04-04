@@ -115,7 +115,7 @@ RailsAdmin.config do |config|
   config.model Ingredient do
     navigation_label "Меню"
     label "Інгрідієнти"
-    include_fields :name, :price, :image
+    include_fields :name, :price, :image, :showcustom
     field :category, :enum do
       enum ["Мясо","Морепродукти","Сири","Овочі","Cпеції"]
     end

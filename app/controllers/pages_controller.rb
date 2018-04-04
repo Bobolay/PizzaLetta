@@ -99,13 +99,16 @@ class PagesController < ApplicationController
     end
   end
   def call
-    binding.pry
     render json: {}
-
+    call = Call.new
+    call.phone = params[:phone_number]
+    call.save
   end
   def email
-    binding.pry
     render json: {}
+    subscribe=Subscribe.new
+    subscribe.phone = params[:email]
+    subscribe.save
   end
 
   def stub
