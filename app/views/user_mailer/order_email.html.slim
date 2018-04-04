@@ -100,9 +100,22 @@ html
         p Обєм бонусу
     - @list.each do |s|
       tr
-        td =s[:name]
+        -if s[:special] == true
+          -a="Особлива(#{s[:name]})"
+          -s[:ingredients].each do |d|
+            -a = a + ",+" + d[:name] + "*" + d[:qnty].to_s
+          td = a
+        -elsif s[:name] == "Конструктор"
+          - a="Основа+#{s[:sauce]}"
+          -s[:ingredients].each do |d|
+            -a = a + ",+" + d[:name] + "*" + d[:qnty].to_s
+          td = a
+        -else
+          td = s[:name]
         td =s[:price]*s[:qnty]
         td =s[:qnty]
         -if s[:bonus]
           td = s[:bonus][:name]
           td = s[:bonus][:attribute]
+
+      
