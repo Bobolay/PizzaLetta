@@ -35,6 +35,7 @@ pizzaApp.directive('phoneInput', function($filter, $browser) {
 
     };
 });
+
 pizzaApp.filter('tel', function () {
     return function (tel) {
         // console.log(tel);
