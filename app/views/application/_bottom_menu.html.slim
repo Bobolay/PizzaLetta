@@ -9,7 +9,7 @@
       a href=drinks_path class=('active' if current_page?(drinks_path))
         = inline_svg ('icons/menu_icons/Pizza-Letta-bottle.svg')
         span Напої
-    li.disable
+    li
       a href=salads_path class=('active' if current_page?(salads_path))
         = inline_svg ('icons/menu_icons/Pizza-Letta-salads.svg')
         span Салати
@@ -17,7 +17,7 @@
       a href=promotions_path class=('active' if current_page?(promotions_path))
         = inline_svg ('icons/menu_icons/Pizza-Letta-box.svg')
         span Акції
-    li
+    li.disable
       a href=constructor_path class=('active' if current_page?(constructor_path))
         = inline_svg ('icons/menu_icons/Pizza-Letta-construct.svg')
         span Конструкор
