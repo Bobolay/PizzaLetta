@@ -1,6 +1,8 @@
-//   D R I N K S   C T R L
+SaladsCtrl.$inject = ['$rootScope', '$scope', 'cartService', '$http'];
 
-pizzaApp.controller("SaladsCtrl", [ '$rootScope', '$scope', 'cartService', '$http', function ($rootScope, $scope, cartService, $http) {
+pizzaApp.controller('SaladsCtrl', SaladsCtrl);
+
+function SaladsCtrl($rootScope, $scope, cartService, $http){
 
     $scope.ready = false;
 
@@ -40,4 +42,4 @@ pizzaApp.controller("SaladsCtrl", [ '$rootScope', '$scope', 'cartService', '$htt
         }, 1500);
     };
 
-}]);
+}

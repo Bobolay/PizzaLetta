@@ -1,11 +1,15 @@
-pizzaApp.controller("ConstructorCtrl", [ '$rootScope', '$scope', '$http', 'constructorService', 'cartService', function ($rootScope, $scope, $http, constructorService, cartService) {
-    
+ConstructorCtrl.$inject = ['$rootScope', '$scope', '$http', 'constructorService', 'cartService'];
+
+pizzaApp.controller('ConstructorCtrl', ConstructorCtrl);
+
+function ConstructorCtrl($rootScope, $scope, $http, constructorService, cartService){
+
     $scope.baseprice = false;
 
     // All ingredients to choose from (we get them from ItemsService)
     $http({method: 'GET', url: '/api/v1/ingredients.json'}).
-        then(function success(response) {
-            $scope.ingredients_list = response.data;
+    then(function success(response) {
+        $scope.ingredients_list = response.data;
     });
 
     // Ingredients we choose to put inside constructor pizza
@@ -20,9 +24,6 @@ pizzaApp.controller("ConstructorCtrl", [ '$rootScope', '$scope', '$http', 'const
         $scope.totalPrice = constructorService.getConstructorPizzaTotal();
         $scope.baseprice = true;
     });
-
-    // Total price of constructor pizza
-    
 
     // Set sauce option
     $scope.sauce = "red";
@@ -73,7 +74,6 @@ pizzaApp.controller("ConstructorCtrl", [ '$rootScope', '$scope', '$http', 'const
         setTimeout(function() {
             success.removeClass('visible');
         }, 1500);
-
     }
 
-}]);
+}

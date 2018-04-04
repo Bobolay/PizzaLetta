@@ -1,4 +1,8 @@
-pizzaApp.controller("SubscribeCtrl", [ '$http', '$scope', function ($http, $scope) {
+SubscribeCtrl.$inject = ['$http', '$scope'];
+
+pizzaApp.controller('SubscribeCtrl', SubscribeCtrl);
+
+function SubscribeCtrl($http, $scope){
 
     $scope.submitCallForm = function () {
 
@@ -27,4 +31,4 @@ pizzaApp.controller("SubscribeCtrl", [ '$http', '$scope', function ($http, $scop
             );
     };
 
-}]);
+}

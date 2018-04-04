@@ -1,6 +1,8 @@
-pizzaApp.controller("HeaderCtrl", [ '$http', '$rootScope', '$scope', 'cartService', function ($http, $rootScope, $scope, cartService) {
+HeaderCtrl.$inject = ['$http', '$rootScope', '$scope', 'cartService'];
 
-    // Header title depends from current page
+pizzaApp.controller('HeaderCtrl', HeaderCtrl);
+
+function HeaderCtrl($http, $rootScope, $scope, cartService){
 
     // Get pizza qnty and total from cart on page load
     angular.element(document).ready(function () {
@@ -46,4 +48,4 @@ pizzaApp.controller("HeaderCtrl", [ '$http', '$rootScope', '$scope', 'cartServic
             );
     };
 
-}]);
+}

@@ -1,6 +1,8 @@
-//   P I Z Z A   C T R L
+PizzaListCtrl.$inject = ['$rootScope', '$scope', 'itemsService', 'cartService', 'customPizzaService', '$http'];
 
-pizzaApp.controller("PizzaListCtrl", [ '$rootScope', '$scope', 'itemsService', 'cartService', 'customPizzaService', '$http', function ($rootScope, $scope, itemsService, cartService, customPizzaService, $http) {
+pizzaApp.controller('PizzaListCtrl', PizzaListCtrl);
+
+function PizzaListCtrl($rootScope, $scope, itemsService, cartService, customPizzaService){
 
     $scope.ready = false;
 
@@ -51,4 +53,4 @@ pizzaApp.controller("PizzaListCtrl", [ '$rootScope', '$scope', 'itemsService', '
         }, 1500);
     };
 
-}]);
+}

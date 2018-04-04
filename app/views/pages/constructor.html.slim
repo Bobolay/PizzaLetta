@@ -40,7 +40,7 @@
           span.total
             | {{filtered.length}}
       .clearfix.ingredients-container
-        .floated ng-class="{'active':ingredient.active_ingredient}" ng-click="toggleIngredient(ingredient,category)" ng-repeat="ingredient in category.list as filtered"
+        .floated ng-class="{'active':ingredient.active_ingredient}" ng-click="toggleIngredient(ingredient,category)" ng-repeat="ingredient in category.list as filtered" ng-if="ingredient.showcustom !== null"
           .img style="background-image: url('{{ingredient.imgUrl}}')"
           p.name
             | {{ingredient.name}}

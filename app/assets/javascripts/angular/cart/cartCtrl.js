@@ -1,11 +1,12 @@
-pizzaApp.controller("CartCtrl", [ '$http', '$window', '$rootScope', '$scope', 'cartService', function ($http, $window, $rootScope, $scope, cartService) {
+CartCtrl.$inject = ['$http', '$window', '$rootScope', '$scope', 'cartService'];
 
-    // $scope.$watch('cartService.getData()', function(newVal) {
-    //     // console.log("New Data: " , newVal);
-    //     $scope.cart = newVal;
-    // });
+pizzaApp.controller('CartCtrl', CartCtrl);
 
+function CartCtrl($http, $window, $rootScope, $scope, cartService) {
+
+    // Get items in cart
     $scope.cart = cartService.getData();
+    // Get total price of all item in cart
     $scope.total_price = cartService.getTotalPrice();
 
     angular.element(document).ready(function () {
@@ -99,9 +100,7 @@ pizzaApp.controller("CartCtrl", [ '$http', '$window', '$rootScope', '$scope', 'c
                 }
             );
     };
-
-}]);
-
+}
 
 // GET REQUEST
 
