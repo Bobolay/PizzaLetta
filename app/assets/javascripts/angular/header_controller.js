@@ -27,7 +27,8 @@ pizzaApp.controller("HeaderCtrl", [ '$http', '$rootScope', '$scope', 'cartServic
         };
         var config = {
             headers : {
-                'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+                // 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+                'Content-Type': 'application/json'
             }
         };
 

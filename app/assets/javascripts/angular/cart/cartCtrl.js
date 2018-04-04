@@ -51,6 +51,8 @@ pizzaApp.controller("CartCtrl", [ '$http', '$window', '$rootScope', '$scope', 'c
         cartService.toggleIngredient(ingredient);
     };
 
+    $scope.tab=1;
+
     // SENDING INFO AND ORDER
 
     $scope.order = {};

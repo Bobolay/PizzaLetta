@@ -12,7 +12,6 @@
 #= require plugins/clickout
 
 # require plugins/datepick
-#= require plugins/form
 #= require plugins/owl.carousel.min
 #= require plugins/jquery.nice-select.min
 #= require plugins/mixitup-2.1.1.min

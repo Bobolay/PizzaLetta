@@ -12,23 +12,23 @@
           / Order way: courier, grab by myself or order by phone
           .clearfix.tab-buttons
 
-            .floated.tab-button.icon-holder.active
+            .floated.tab-button.icon-holder ng-click="tab=1"
               input#order_way_1 type="radio" name="order_way" value="Кур'єр" ng-model="order.orderway"
               .icon
               label for="order_way_1" Доставка кур'єром
-            .floated.tab-button.icon-holder
+            .floated.tab-button.icon-holder ng-click="tab=2"
               input#order_way_2 type="radio" name="order_way" value="Забрати самому" ng-model="order.orderway"
               .icon
               label for="order_way_2" Забрати самому
-            .floated.tab-button.icon-holder
+            .floated.tab-button.icon-holder ng-click="tab=3"
               input#order_way_3 type="radio" name="order_way" value="Замовлення по телефону" ng-model="order.orderway"
               .icon
               label for="order_way_3" Вказати по телефону
 
-          .tab-content-wrapper
+          ng-switch on="tab"
 
             / 1 TAB Courier delivery
-            .tab-content.active
+            ng-form ng-switch-when="1"
 
               .row
                 .columns.medium-6
@@ -120,7 +120,7 @@
                 | Відправити
 
             / 2 TAB Take by Yourself
-            .tab-content
+            ng-form ng-switch-when="2"
 
               .row
                 .columns.large-6
@@ -180,7 +180,7 @@
                 | Відправити
 
             / 3 TAB Order by phone
-            .tab-content
+            ng-form ng-switch-when="3"
               .row
                 .columns
                   .input-field
