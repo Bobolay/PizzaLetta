@@ -74,6 +74,7 @@ function ConstructorCtrl($rootScope, $scope, $http, constructorService, cartServ
         setTimeout(function() {
             success.removeClass('visible');
         }, 1500);
+
     }
 
 }

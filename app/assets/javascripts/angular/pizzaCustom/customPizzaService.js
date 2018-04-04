@@ -62,7 +62,8 @@ pizzaApp.factory("customPizzaService", function(cartService){
         // Adding choosen pizza to this service from PizzaCrtl
         addCustomPizza: function (pizza) {
             if (typeof pizza === 'object') {
-                custom_pizza.type = "Особлива"
+                custom_pizza.type = "Особлива";
+                custom_pizza.special = true;
                 custom_pizza.imgUrl = pizza.imgUrl;
                 custom_pizza.name = pizza.name;
                 custom_pizza.qnty = pizza.qnty;
