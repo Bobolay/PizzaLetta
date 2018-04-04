@@ -51,7 +51,10 @@ pizzaApp.controller("CartCtrl", [ '$http', '$window', '$rootScope', '$scope', 'c
         cartService.toggleIngredient(ingredient);
     };
 
-    $scope.tab=1;
+    $scope.selectedTab = 1;
+    $scope.setTabValue = function(index){
+        $scope.selectedTab = index;
+    };
 
     // SENDING INFO AND ORDER
 
