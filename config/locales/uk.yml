@@ -45,6 +45,7 @@ uk:
       image: "Фото"
       show: "Показати"
       name: "Назва"
+      showcustom: "Показувати в конструкторі"
     oferta:
       image: "Фото"
       first_title: "Перший заголовок"

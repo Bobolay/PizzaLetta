@@ -101,7 +101,7 @@ html
     - @list.each do |s|
       tr
         td =s[:name]
-        td =s[:price]
+        td =s[:price]*s[:qnty]
         td =s[:qnty]
         -if s[:bonus]
           td = s[:bonus][:name]
