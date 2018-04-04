@@ -38,7 +38,20 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
-   config.included_models = [User,Orderlist,Salat,Constructor,Order,Ordersphone,Ordersemail,Call,Subscribe,Pizza,Contact,Ingredient,Drink,Gift,About,Shipping,Oferta,Aboutimage,Giftdescription]
+   config.included_models = [Attention,Alert,User,Orderlist,Salat,Constructor,Order,Ordersphone,Ordersemail,Call,Subscribe,Pizza,Contact,Ingredient,Drink,Gift,About,Shipping,Oferta,Aboutimage,Giftdescription]
+   config.model Alert do
+     navigation_label "Повідомлення"
+     label "Попап"
+     include_fields  :show
+     field :text, :ck_editor
+   end
+   config.model Attention do
+     navigation_label "Повідомлення"
+     label "Червоне повідомлення зверху"
+     include_fields :show
+     field :text, :ck_editor
+
+   end
    config.model Orderlist do
      navigation_label "Замовлення"
      label "Інформація про замовлення"
@@ -102,7 +115,7 @@ RailsAdmin.config do |config|
   config.model Ingredient do
     navigation_label "Меню"
     label "Інгрідієнти"
-    include_fields :name, :price, :image
+    include_fields :name, :price, :image, :showcustom
     field :category, :enum do
       enum ["Мясо","Морепродукти","Сири","Овочі","Cпеції"]
     end

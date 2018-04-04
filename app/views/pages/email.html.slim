@@ -1,0 +1,59 @@
+.empty-indent
+
+h4 Інформація про замовника:
+table
+  tr
+    td Ім'я
+    td
+      =@array[:info][:name]
+  tr
+    td Загальна ціна
+    td #{@array[:totalprice]}грн.
+  tr
+    td Промокод
+    td bs23sdx-12
+  tr
+    td Телефон
+    td 097 121 5434
+  tr
+    td Email
+    td vitka_loh@gmail.com
+  tr
+    td Адрес
+    td вул. Підзалупна 11
+  tr
+    td Дата
+    td 21.04.2018
+  tr
+    td Час
+    td 13:00
+  tr
+    td Коментар
+    td Ваш сирний бортик гімно!
+
+h4 Замовлені товари:
+table
+  tr
+    td
+      p Назва
+    td
+      p Ціна
+    td
+      p Кількість
+    td
+      p Бонус
+    td
+      p Обєм бонусу
+  - @list.each do |s|
+    tr
+      td
+        p =s[:name]
+      td
+        p =s[:price]
+      td
+        p =s[:qnty]
+    -if s[:bonus]
+      td
+        p = s[:bonus][:name]
+      td
+        p = s[:bonus][:attribute]

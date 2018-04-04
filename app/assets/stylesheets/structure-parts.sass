@@ -289,6 +289,8 @@ p.clear-btn
     font-weight: 900
     span
       font-weight: normal
+    @media #{$small-only}
+      font-size: 24px
 
 .close-btn
   svg line
@@ -314,23 +316,18 @@ p.clear-btn
   font-weight: 600
   margin-right: 20px
   +transition(.25s)
-  &:not(.active)
+  cursor: pointer
+  label
+    padding: 10px 0 10px 30px
     cursor: pointer
-    label
-      cursor: pointer
-    &:hover
-      color: $red
+  &:hover
+    color: $red
   &:last-child
     margin-right: 0
 .tab-content-wrapper
   position: relative
   @media #{$medium-up}
     margin: 30px 0
-
-.tab-content
-  display: none
-  &.active
-    display: block
 
 //Price label inside circle
 
@@ -389,6 +386,8 @@ p.clear-btn
     cursor: pointer
     margin-bottom: 15px
     +transition(.25s)
+    @media #{$small-only}
+      padding: 0 4px 10px 4px
     @media #{$large-up}
       width: 20%
       height: 100px
@@ -403,18 +402,22 @@ p.clear-btn
       left: 0
       opacity: 0
       +transition(.25s)
-    &:hover, &.active
-      background: $grey
-      &:after
-        opacity: 1
-    &:hover
-      &:not(.active)
-        .add
+    @media #{$xlarge-up}
+      &:hover, &.active
+        background: $grey
+        &:after
           opacity: 1
-    &.active
       &:hover
-        .remove
-          opacity: 1
+        &:not(.active)
+          .add
+            opacity: 1
+      &.active
+        &:hover
+          .remove
+            opacity: 1
+    &.active
+      background: $grey
+
   .img
     width: 50px
     height: 50px
@@ -511,10 +514,10 @@ p.clear-btn
   padding-right: 50px
   p
     color: white
-  .qwerty
+  .alert_title
     font-weight: 600
     margin-bottom: 10px
-  .asdfgh
+  .alert_subtitle
     font-size: 14px
     line-height: 1.25
   span

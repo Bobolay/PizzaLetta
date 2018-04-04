@@ -1,6 +1,8 @@
-pizzaApp.controller("HeaderCtrl", [ '$rootScope', '$scope', 'cartService', function ($rootScope, $scope, cartService) {
+HeaderCtrl.$inject = ['$http', '$rootScope', '$scope', 'cartService'];
 
-    // Header title depends from current page
+pizzaApp.controller('HeaderCtrl', HeaderCtrl);
+
+function HeaderCtrl($http, $rootScope, $scope, cartService){
 
     // Get pizza qnty and total from cart on page load
     angular.element(document).ready(function () {
@@ -19,4 +21,31 @@ pizzaApp.controller("HeaderCtrl", [ '$rootScope', '$scope', 'cartService', funct
         $rootScope.$emit('addPizza');
     };
 
-}]);
+    $scope.submitCallForm = function () {
+
+        var url = 'call';
+        var data = {
+            phone_number: $scope.phone_number
+        };
+        var config = {
+            headers : {
+                // 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+                'Content-Type': 'application/json'
+            }
+        };
+
+        $http.post(url, data, config)
+            .then(
+                function(response){
+                    $scope.message = data.message;
+                    var success = angular.element(document.querySelector(".success-wrap"));
+                    success.addClass('visible');
+                },
+                function(response){
+                    // failure callback
+                    console.log("Not working!");
+                }
+            );
+    };
+
+}

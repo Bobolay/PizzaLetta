@@ -34,11 +34,13 @@
         a.numbers href="tel:#{Contact.first.second_number}" = Contact.first.second_number
         a.numbers href="tel:#{Contact.first.third_number}" = Contact.first.third_number
         .line-separator
-        form
+        form name="callmebackform" ng-submit="submitCallForm()"
           p.small Або вкажіть ваш номер
+          p
+            | {{phonenumber}}
           .input-field
-            input placeholder="Телефон"
-          button Передзвоніть мені
+            input placeholder="Телефон" phone-input="" minlength="14" name="phone" ng-model="phone_number" required="required"
+          button type="submit" ng-disabled="!callmebackform.$valid" Передзвоніть мені
 
     .dib.cart.disable
       .dib.cart-icon

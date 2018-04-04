@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     get "stub", action: "stub"
     post "order", action: "create"
     post "call", action: "call"
+    post "email", action: "email"
 
   end
 

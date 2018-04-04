@@ -30,7 +30,7 @@ pizzaApp.factory("cartService", [ '$rootScope', '$window', function($rootScope, 
         setData: function (item) {
             var existingArray = getDataFromLS();
             var existent_item = existingArray.find(function(matched){
-                return matched.name === item.name && !item.hasOwnProperty('type');
+                return matched.name === item.name && !item.hasOwnProperty('type') && matched.ingredients === item.ingredients;
             });
             if (existent_item) {
                 existent_item.qnty += item.qnty;
@@ -107,7 +107,7 @@ pizzaApp.factory("cartService", [ '$rootScope', '$window', function($rootScope, 
             // So that's will be out index of element we want to remove!
             var kostyl = 0;
             angular.forEach(existingArray, function (value, key) {
-                if(value.$$hashKey == item.$$hashKey){
+                if(value.name == item.name && value.price == item.price){
                     kostyl = existingArray.indexOf(value);
                 }
             });

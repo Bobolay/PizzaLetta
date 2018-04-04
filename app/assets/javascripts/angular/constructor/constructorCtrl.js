@@ -1,9 +1,15 @@
-pizzaApp.controller("ConstructorCtrl", [ '$rootScope', '$scope', '$http', 'constructorService', 'cartService', function ($rootScope, $scope, $http, constructorService, cartService) {
+ConstructorCtrl.$inject = ['$rootScope', '$scope', '$http', 'constructorService', 'cartService'];
+
+pizzaApp.controller('ConstructorCtrl', ConstructorCtrl);
+
+function ConstructorCtrl($rootScope, $scope, $http, constructorService, cartService){
+
+    $scope.baseprice = false;
 
     // All ingredients to choose from (we get them from ItemsService)
     $http({method: 'GET', url: '/api/v1/ingredients.json'}).
-        then(function success(response) {
-            $scope.ingredients_list = response.data;
+    then(function success(response) {
+        $scope.ingredients_list = response.data;
     });
 
     // Ingredients we choose to put inside constructor pizza
@@ -13,12 +19,11 @@ pizzaApp.controller("ConstructorCtrl", [ '$rootScope', '$scope', '$http', 'const
     var promiseObj = constructorService.getConstructorBase();
     promiseObj.then(function(value) {
         $scope.constructed_pizza = value;
-        // console.log("Base for constructor: ",$scope.constructed_pizza);
         constructorService.setBasePrice(value);
-    });
 
-    // Total price of constructor pizza
-    $scope.totalPrice = constructorService.getConstructorPizzaTotal();
+        $scope.totalPrice = constructorService.getConstructorPizzaTotal();
+        $scope.baseprice = true;
+    });
 
     // Set sauce option
     $scope.sauce = "red";
@@ -53,12 +58,22 @@ pizzaApp.controller("ConstructorCtrl", [ '$rootScope', '$scope', '$http', 'const
         for (key in $scope.constructed_pizza) {
             pizza_to_cart[key] = $scope.constructed_pizza[key];
         }
+        console.log(pizza_to_cart);
+        pizza_to_cart['price'] = $scope.totalPrice;
         pizza_to_cart.ingredients = constructorService.getConstructorIngredients();
         pizza_to_cart.sauce = $scope.sauce;
-        constructorService.resetConstructorIngredients();
-
-        $rootScope.$emit('addPizza');
+        $scope.constructor_ingredients = constructorService.resetConstructorIngredients();
+        $('.floated').removeClass('active');
+        $scope.totalPrice = constructorService.resetConstructorPizzaTotal();
         cartService.setData(pizza_to_cart);
+        $rootScope.$emit('addPizza');
+
+        // Show successfully added to cart alert
+        var success = $(event.target).parent().find('.success-message');
+        success.addClass('visible');
+        setTimeout(function() {
+            success.removeClass('visible');
+        }, 1500);
     }
 
-}]);
+}

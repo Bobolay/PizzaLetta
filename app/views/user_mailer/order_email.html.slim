@@ -4,40 +4,105 @@ html
     meta[content="text/html; charset=UTF-8" http-equiv="Content-Type"]
   body
     h3
-      |Нове замовлення #{@array[:info][:orderway]}
-    h4
-      -if @array[:info][:orderway] == "Кур'єр"
-        =@array[:info][:name]
-        =@array[:totalprice]
-        =@array[:info][:promocode]
-        =@array[:info][:phone]
-        =@array[:info][:email]
-        =@array[:info][:street]
-        =@array[:info][:building]
-        =@array[:info][:apt_number]
-        =@array[:info][:date]
-        =@array[:info][:time]
-        =@array[:info][:paymentmethod]
-        =@array[:info][:sumchange]
-        =@array[:info][:comment]
-      - elsif @array[:info][:orderway]=="Забрати самому"
-        =@array[:info][:name]
-        =@array[:totalprice]
-        =@array[:info][:promocode]
-        =@array[:info][:phone]
-        =@array[:info][:email]
-        =@array[:info][:officeaddress]
-        =@array[:info][:date]
-        =@array[:info][:time]
-        =@array[:info][:comment]
-      - else
-        =@array[:info][:phone]
-        =@array[:totalprice]
-        =@array[:info][:promocode]
-      - @list.each do |s|
-        =s[:name]
-        =s[:price]
-        =s[:qnty]
+      |Тип доставки #{@array[:info][:orderway]}
+    -if @array[:info][:orderway] == "Кур'єр"
+      h4 Інформація про замовника:
+      table
+        tr
+          td Ім'я
+          td
+            =@array[:info][:name]
+        tr
+          td Загальна ціна
+          td #{@array[:totalprice]}грн.
+        tr
+          td Промокод
+          td  =@array[:info][:promocode]
+        tr
+          td Телефон
+          td =@array[:info][:phone]
+        tr
+          td Email
+          td =@array[:info][:email]
+        tr
+          td Адрес
+          td #{@array[:info][:street]}, #{@array[:info][:building]},#{@array[:info][:apt_number]}
+        tr
+          td Дата
+          td =@array[:info][:date]
+        tr
+          td Час
+          td =@array[:info][:time]
+        tr
+          td Коментар
+          td =@array[:info][:comment]
+        tr
+          td Решта
+          td =@array[:info][:sumchange]
+        tr
+          td Тип оплату
+          td =@array[:info][:paymentmethod]
+    - elsif @array[:info][:orderway]=="Забрати самому"
+      h4 Інформація про замовника:
+      table
+        tr
+          td Ім'я
+          td =@array[:info][:name]
+        tr
+          td Загальна ціна
+          td #{@array[:totalprice]}грн.
+        tr
+          td Промокод
+          td  =@array[:info][:promocode]
+        tr
+          td Телефон
+          td =@array[:info][:phone]
+        tr
+          td Email
+          td =@array[:info][:email]
+        tr
+          td Точка отримання
+          td #{@array[:info][:officeaddress]}
+        tr
+          td Дата
+          td =@array[:info][:date]
+        tr
+          td Час
+          td =@array[:info][:time]
+        tr
+          td Коментар
+          td  =@array[:info][:comment]
+    -else
+      h4 Інформація про замовника:
+      table
+        tr
+          td Номер телефону
+          td =@array[:info][:phone]
+        tr
+          td Загальна ціна
+          td #{@array[:totalprice]}грн.
+        tr
+          td Промокод
+          td  =@array[:info][:promocode]
+
+  h4 Замовлені товари:
+  table
+    tr
+      td
+        p Назва
+      td
+        p Ціна
+      td
+        p Кількість
+      td
+        p Бонус
+      td
+        p Обєм бонусу
+    - @list.each do |s|
+      tr
+        td =s[:name]
+        td =s[:price]*s[:qnty]
+        td =s[:qnty]
         -if s[:bonus]
-          = s[:bonus][:name]
-          = s[:bonus][:attribute]
+          td = s[:bonus][:name]
+          td = s[:bonus][:attribute]

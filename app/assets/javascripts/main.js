@@ -87,7 +87,7 @@
 
 
         // Close success message
-        $('.success-close-btn').on('click', function(){
+        $('.success-popup-close-btn').on('click', function(){
             $('.success-wrap').removeClass('visible');
             $('body').removeClass('overflow-hidden');
         })

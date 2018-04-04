@@ -10,8 +10,11 @@ pizzaApp.filter('filterInArray', [ '$filter', function($filter){
         };
     }]);
 
-//   C U S T O M   P I Z Z A   C O N T R O L L E R
-pizzaApp.controller("CustomPizzaCtrl", [ '$http', '$rootScope', '$scope', 'cartService', 'customPizzaService', function ($http, $rootScope, $scope, cartService, customPizzaService) {
+CustomPizzaCtrl.$inject = ['$http', '$rootScope', '$scope', 'cartService', 'customPizzaService'];
+
+pizzaApp.controller('CustomPizzaCtrl', CustomPizzaCtrl);
+
+function CustomPizzaCtrl($http, $rootScope, $scope, cartService, customPizzaService){
 
     //   Custom pizza
     $scope.custom_pizza = customPizzaService.getCustomPizza();
@@ -54,7 +57,6 @@ pizzaApp.controller("CustomPizzaCtrl", [ '$http', '$rootScope', '$scope', 'cartS
         for (key in customized_pizza) {
             pizza_to_cart[key] = customized_pizza[key];
         }
-        console.log(pizza_to_cart);
         cartService.setData(pizza_to_cart);
         $rootScope.$emit('addPizza');
 
@@ -69,7 +71,6 @@ pizzaApp.controller("CustomPizzaCtrl", [ '$http', '$rootScope', '$scope', 'cartS
             $('.custom-pizza-container').removeClass('visible');
             $('body').removeClass('overflow-hidden');
         }, 1500);
-
     };
 
-}]);
+}

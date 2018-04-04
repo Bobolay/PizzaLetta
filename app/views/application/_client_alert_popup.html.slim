@@ -3,9 +3,6 @@
   .inner
 
     .alert-popup-close-btn.close-btn = inline_svg "icons/cross.svg"
-    p Повідомляємо Вас, що піцерія Pizza Letta сьогодні 27 березня не працює у зв'язку з проведенням електромонтажних робіт.
-    p Просимо вибачення за тимчасові незручності.
-    p З 28 березня наш заклад працює у стандартному режимі з 12 до 00.
-    p Смачного!
+    = raw @alert.text
     .align-center
       .alert-popup-close-btn.btn.red Ознайомився

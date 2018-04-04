@@ -19,14 +19,6 @@
           | {{item.name}}
           span ng-if="item.type" &nbsp;({{item.type}})
 
-        /p.price ng-if="item.total_price"
-        /  span &#8372
-        /  | {{item.qnty * item.total_price}}
-
-        /p.price ng-if="item.pricesmall"
-          span &#8372
-          | {{item.qnty * item.pricesmall}}
-
         p.price ng-if="item.price"
           span &#8372
           | {{item.qnty * item.price}}
@@ -58,7 +50,7 @@
           | видалити
 
     / Additional sauces (optionally)
-    ul
+    ul.order-summary
       li.order-item ng-repeat="ingredient in additional_sauces"
         .remove ng-click="toggleIngredient(ingredient)"
           = inline_svg "icons/close.svg"

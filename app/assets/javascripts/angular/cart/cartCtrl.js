@@ -1,11 +1,12 @@
-pizzaApp.controller("CartCtrl", [ '$http', '$window', '$rootScope', '$scope', 'cartService', function ($http, $window, $rootScope, $scope, cartService) {
+CartCtrl.$inject = ['$http', '$window', '$rootScope', '$scope', 'cartService'];
 
-    // $scope.$watch('cartService.getData()', function(newVal) {
-    //     // console.log("New Data: " , newVal);
-    //     $scope.cart = newVal;
-    // });
+pizzaApp.controller('CartCtrl', CartCtrl);
 
+function CartCtrl($http, $window, $rootScope, $scope, cartService) {
+
+    // Get items in cart
     $scope.cart = cartService.getData();
+    // Get total price of all item in cart
     $scope.total_price = cartService.getTotalPrice();
 
     angular.element(document).ready(function () {
@@ -51,31 +52,15 @@ pizzaApp.controller("CartCtrl", [ '$http', '$window', '$rootScope', '$scope', 'c
         cartService.toggleIngredient(ingredient);
     };
 
+    $scope.selectedTab = 1;
+    $scope.setTabValue = function(index){
+        $scope.selectedTab = index;
+    };
+
     // SENDING INFO AND ORDER
 
     $scope.order = {};
     $scope.order.orderway = "Кур'єр";
-
-    // GET REQUEST
-
-    // $scope.submitForm = function() {
-    //     var url = '/order';
-    //     var data = {
-    //         cart: $scope.cart,
-    //         info: $scope.order,
-    //         totalprice: $scope.total_price
-    //     };
-    //     $http.get(url, data)
-    //        .then(function(data) {
-    //             if (data.errors) {
-    //                 // Showing errors.
-    //                 $scope.errorContent = data.errors.errorContent;
-    //             } else {
-    //                 console.log(data);
-    //                 $scope.message = data.message;
-    //             }
-    //        });
-    // };
 
     // POST REQUEST
 
@@ -115,5 +100,25 @@ pizzaApp.controller("CartCtrl", [ '$http', '$window', '$rootScope', '$scope', 'c
                 }
             );
     };
+}
 
-}]);
+// GET REQUEST
+
+// $scope.submitForm = function() {
+//     var url = '/order';
+//     var data = {
+//         cart: $scope.cart,
+//         info: $scope.order,
+//         totalprice: $scope.total_price
+//     };
+//     $http.get(url, data)
+//        .then(function(data) {
+//             if (data.errors) {
+//                 // Showing errors.
+//                 $scope.errorContent = data.errors.errorContent;
+//             } else {
+//                 console.log(data);
+//                 $scope.message = data.message;
+//             }
+//        });
+// };
