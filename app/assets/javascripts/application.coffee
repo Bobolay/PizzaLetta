@@ -28,7 +28,7 @@
 
 #= require angular/app
 
-# require angular/directives
+#= require angular/directives
 
 #= require angular/pizza/pizzaCtrl.js
 #= require angular/pizza/pizzaService.js

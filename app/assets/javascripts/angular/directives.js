@@ -1,4 +1,4 @@
-pizzaApp.directive('phoneInput', function($filter, $browser) {
+pizzaApp.directive('phoneInput', ['$filter', '$browser', function($filter, $browser) {
     return {
         require: 'ngModel',
         link: function($scope, $element, $attrs, ngModelCtrl) {
@@ -34,7 +34,7 @@ pizzaApp.directive('phoneInput', function($filter, $browser) {
         }
 
     };
-});
+}]);
 
 pizzaApp.filter('tel', function () {
     return function (tel) {
