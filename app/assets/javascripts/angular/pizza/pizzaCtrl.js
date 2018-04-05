@@ -2,7 +2,7 @@ PizzaListCtrl.$inject = ['$rootScope', '$scope', 'itemsService', 'cartService', 
 
 pizzaApp.controller('PizzaListCtrl', PizzaListCtrl);
 
-function PizzaListCtrl($rootScope, $scope, itemsService, cartService, customPizzaService){
+function PizzaListCtrl($rootScope, $scope, itemsService, cartService, customPizzaService, $http){
 
     $scope.ready = false;
 

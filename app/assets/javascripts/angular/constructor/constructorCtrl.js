@@ -58,7 +58,7 @@ function ConstructorCtrl($rootScope, $scope, $http, constructorService, cartServ
         for (key in $scope.constructed_pizza) {
             pizza_to_cart[key] = $scope.constructed_pizza[key];
         }
-        console.log(pizza_to_cart);
+        // console.log(pizza_to_cart);
         pizza_to_cart['price'] = $scope.totalPrice;
         pizza_to_cart.ingredients = constructorService.getConstructorIngredients();
         pizza_to_cart.sauce = $scope.sauce;
