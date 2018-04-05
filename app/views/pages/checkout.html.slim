@@ -1,6 +1,6 @@
 .section-indent.checkout-wrap ng-controller="CartCtrl"
 
-  form name="orderForm" ng-submit="submitForm()"
+  form name="orderForm" ng-submit="submitForm()" novalidate=""
 
     .row
 
@@ -10,7 +10,7 @@
           p.title введіть дані доставки
 
           / Order way: courier, grab by myself or order by phone
-          .clearfix.tab-buttons
+          /.clearfix.tab-buttons
 
             .floated.tab-button.icon-holder ng-click="setTabValue(1)"
               input#order_way_1 type="radio" name="order_way" value="Кур'єр" ng-model="order.orderway"
@@ -31,16 +31,18 @@
             .row
               .columns.medium-6
                 .input-field
-                  input name="name" ng-model="order.name"
+                  input name="name" ng-model="order.name" required=""
                   label Ім'я
-                  span class="inputError" ng-show="orderForm.name.$touched && orderForm.name.$invalid"
+                  /span class="inputError" ng-show="orderForm.name.$touched && orderForm.name.$invalid"
                     span ng-show="orderForm.name.$error.required"
                       | Заповніть поле
               .columns.medium-6
                 .input-field
-                  input name="phone" ng-model="order.phone"
+
+                  input name="phone" ng-model="order.phone" required=""
+
                   label Телефон
-                  span class="inputError" ng-show="orderForm.phone.$touched && orderForm.phone.$invalid"
+                  /span class="inputError" ng-show="orderForm.phone.$touched && orderForm.phone.$invalid"
                     span ng-show="orderForm.phone.$error.required"
                       | Заповніть поле
               .columns
@@ -61,16 +63,16 @@
                   label Місто
               .columns.medium-6.large-3
                 .input-field
-                  input name="street" ng-model="order.street"
+                  input name="street" ng-model="order.street" required=""
                   label Вулиця
-                  span class="inputError" ng-show="orderForm.street.$touched && orderForm.street.$invalid"
+                  /span class="inputError" ng-show="orderForm.street.$touched && orderForm.street.$invalid"
                     span ng-show="orderForm.street.$error.required"
                       | Заповніть поле
               .columns.medium-6.large-3
                 .input-field
-                  input name="building" ng-model="order.building" type="number"
+                  input name="building" ng-model="order.building" type="number" required=""
                   label Будинок
-                  span class="inputError" ng-show="orderForm.building.$touched && orderForm.building.$invalid"
+                  /span class="inputError" ng-show="orderForm.building.$touched && orderForm.building.$invalid"
                     span ng-show="orderForm.building.$error.required"
                       | Заповніть поле
               .columns.medium-6.large-3
@@ -114,11 +116,11 @@
             .input-field.optional-textarea ng-show="showTextArea"
               textarea rows="5" placeholder="Поле для коментарів..." ng-model="order.comment"
 
-            button.btn.red type="submit"
+            button.btn.red type="submit" ng-disabled="orderForm.$invalid"
               | Відправити
 
           / 2 TAB Take by Yourself
-          ng-form ng-show="selectedTab==2"
+          /ng-form ng-show="selectedTab==2"
 
             .row
               .columns.large-6
@@ -130,7 +132,9 @@
                       | Заповніть поле
               .columns.large-6
                 .input-field
+
                   input name="phone" ng-model="order.phone"
+
                   label Телефон
                   span class="inputError" ng-show="orderForm.phone.$touched && orderForm.phone.$invalid"
                     span ng-show="orderForm.phone.$error.required"
@@ -178,7 +182,7 @@
               | Відправити
 
           / 3 TAB Order by phone
-          ng-form ng-show="selectedTab==3"
+          /ng-form ng-show="selectedTab==3"
             .row
               .columns
                 .input-field
@@ -226,5 +230,5 @@
               span &#8372
               | {{ total_price }}
 
-          button.btn.red type="submit"
+          /button.btn.red type="submit"
             | Відправити

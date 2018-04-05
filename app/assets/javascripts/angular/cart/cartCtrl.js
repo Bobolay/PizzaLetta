@@ -79,15 +79,10 @@ function CartCtrl($http, $window, $rootScope, $scope, cartService) {
             }
         };
 
-        // if (isValid) {
-        //     alert('our form is amazing');
-        // } else {
-        //     alert('not valid');
-        // }
-
         $http.post(url, data, config)
             .then(
                 function(response){
+                    // success callback
                     $scope.message = data.message;
                     var success = angular.element(document.querySelector(".success-wrap"));
                     success.addClass('visible');
