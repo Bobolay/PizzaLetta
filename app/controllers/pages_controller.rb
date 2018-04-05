@@ -56,7 +56,6 @@ class PagesController < ApplicationController
   end
 
   def create
-
     render json: @order
     @array = params
     @order = Order.new
@@ -82,9 +81,23 @@ class PagesController < ApplicationController
     @order.price = params[:totalprice]
     @order.save
     array = params[:cart]
-    array.each { |s|
+    array.each do |s|
       list = Orderlist.new
+      if s[:special] == true
+        a="Особлива(#{s[:name]})"
+        s[:ingredients].each do |d|
+        a = a + ",+" + d[:name] + "*" + d[:qnty].to_s
+      end
+        list.name = a
+      elsif s[:name] == "Конструктор"
+        a="Основа+#{s[:sauce]}"
+        s[:ingredients].each do |d|
+        a = a + ",+" + d[:name] + "*" + d[:qnty].to_s
+      end
+      list.name = a
+      else
       list.name = s[:name]
+      end
       list.quantity = s[:qnty]
       list.price = s[:qnty].to_i * s[:price].to_i
       if s[:bonus]
@@ -93,7 +106,7 @@ class PagesController < ApplicationController
       end
       list.order_id = @order.id
       list.save
-    }
+    end
     if @order.save
       UserMailer.order_email(@array).deliver_now
     end
