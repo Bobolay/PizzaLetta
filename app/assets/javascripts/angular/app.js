@@ -1,4 +1,4 @@
-var pizzaApp = angular.module('pizzaApp', ['ngRoute']);
+var pizzaApp = angular.module('pizzaApp', ['ngRoute', 'ngMask']);
 
 pizzaApp.directive('mixitup',function(){
     var linker = function(scope,element,attrs) {
