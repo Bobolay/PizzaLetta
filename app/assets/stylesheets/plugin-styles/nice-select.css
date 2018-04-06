@@ -64,6 +64,7 @@
             transform: rotate(-135deg); }
   .nice-select.open .list {
     opacity: 1;
+    display: block;
     pointer-events: auto;
     -webkit-transform: scale(1) translateY(0);
         -ms-transform: scale(1) translateY(0);
@@ -105,8 +106,11 @@
     padding: 0;
     pointer-events: none;
     position: absolute;
+    display: none;
+    max-height: 280px;
+    overflow: auto;
     top: 100%;
-    left: 0;
+    left: -1px;
     -webkit-transform-origin: 50% 0;
         -ms-transform-origin: 50% 0;
             transform-origin: 50% 0;
