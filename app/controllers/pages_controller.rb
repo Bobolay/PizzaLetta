@@ -80,6 +80,14 @@ class PagesController < ApplicationController
     @order.promocode = params[:info][:promocode]
     @order.price = params[:totalprice]
     @order.save
+    if params[:info][:subscribe] == true
+    if Subscribe.exists?(phone: "#{params[:info][:email]}") == false
+      Subscribe.create(:phone => "#{params[:info][:email]}")
+    end
+    end
+    if Ordersphone.exists?(phone: "#{params[:info][:phone]}") == false
+      Ordersphone.create(:phone => "#{params[:info][:phone]}")
+    end
     array = params[:cart]
     array.each do |s|
       list = Orderlist.new
