@@ -82,32 +82,61 @@
             .line-separator.inside-form
 
             .row
+
               .columns.medium-6.large-3
+                .input-field
+                  input type="text" name="date" ng-model="order.date" datepicker="" required=""
+                  label Дата доставки
+                  span class="inputError" ng-show="orderForm1.date.$invalid"
+                    | Заповніть поле
+
+              .columns.medium-6.large-3
+                .input-field
+                  input name="time" ng-model="order.time" ui-timepicker="" required=""
+                  label Час доставки
+                  span class="inputError" ng-show="orderForm1.time.$invalid"
+                    | Заповніть поле
+                  p
+                    | Time: {{order.time}}
+
+              /.columns.medium-6.large-3
                 .input-field.timepicker-wrap
                   input.timepicker name="time" ng-model="order.time" required=""
                   label Час доставки
                   span class="inputError" ng-show="orderForm1.time.$invalid"
                     | Заповніть поле
-                p
-                  | {{ order.time }}
-              .columns.medium-4.large-4
-                .input-field.custom-select
-                  select name="date" ng-model="order.date" required=""
-                    option value="" Оберіть дату
-                    option Сьогодні
-                    option Завтра
-                  label Дата доставки
-                  span class="inputError" ng-show="orderForm1.date.$invalid"
-                    | Заповніть поле
+
               /.columns.medium-4.large-4
                 .input-field
                   select name="time" ng-model="order.time" required=""
                     option value="" Оберіть час
-                    option Якомога швидше
-                    option Я не спішу
+                    option 12:00
+                    option 12:30
+                    option 13:00
+                    option 13:30
+                    option 14:00
+                    option 14:30
+                    option 15:00
+                    option 15:30
+                    option 16:00
+                    option 16:30
+                    option 17:00
+                    option 17:30
+                    option 18:00
+                    option 18:30
+                    option 19:00
+                    option 19:30
+                    option 20:00
+                    option 20:30
+                    option 21:00
+                    option 21:30
+                    option 22:00
+                    option 22:30
+                    option 23:00
                   label Час доставки
                   span class="inputError" ng-show="orderForm1.time.$invalid"
                     | Заповніть поле
+
               .columns.medium-4.large-4
                 .input-field
                   select ng-model="order.paymentmethod"

@@ -1,4 +1,4 @@
-var pizzaApp = angular.module('pizzaApp', ['ngRoute', 'ngMask']);
+var pizzaApp = angular.module('pizzaApp', ['ngMask', 'ui.timepicker']);
 
 pizzaApp.directive('mixitup',function(){
     var linker = function(scope,element,attrs) {

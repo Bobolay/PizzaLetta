@@ -13,32 +13,15 @@
 
 
         // Alert message for client
-        // if (Cookies.get('alert_msg') != 'off') {
-        //     $('.client-alert-popup').addClass('visible');
-        // }
+        if (Cookies.get('alert_msg') != 'off'){
+            $('.client-alert-popup').addClass('visible');
+        }
         // Close client alert message
         $('.alert-popup-close-btn').on('click', function(){
             $('.client-alert-popup').addClass('hidden');
-            // Cookies.set('alert_msg', 'off');
-        })
-
-        $('.timepicker').timepicker({
-            timeFormat: 'HH:mm',
-            interval: 60,
-            minTime: '12',
-            maxTime: '23',
-            dynamic: true,
-            dropdown: true,
-            scrollbar: true,
-            change: function(time) {
-                // the input field
-                var element = $(this), text;
-                // get access to this Timepicker instance
-                var timepicker = element.timepicker();
-                text = 'Selected time is: ' + timepicker.format(time);
-                element.siblings('span.help-line').text(text);
-            }
+            Cookies.set('alert_msg', 'off');
         });
+
 
         // Initialize nice select
         $('select').niceSelect();
