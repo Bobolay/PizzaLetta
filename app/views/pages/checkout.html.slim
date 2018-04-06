@@ -184,13 +184,13 @@
 
             .line-separator.inside-form
 
-            .row.columns-left
-              /.columns.large-6
+            .row
+              .columns.large-6
                 .input-field
                   select name="officeaddress" ng-model="order.officeaddress" required=""
                     option value="" Оберіть адрес
                     option Просп. Чорновола 45
-                    option вул. Городоцька 7
+                    option disabled="" вул. Городоцька 7
                   label Забрати з
                   span class="inputError" ng-show="orderForm2.officeaddress.$touched && orderForm2.officeaddress.$invalid"
                     span ng-show="orderForm2.officeaddress.$error.required"
