@@ -10,7 +10,7 @@
           p.title введіть дані доставки
 
           / Order way: courier, grab by myself or order by phone
-          /.clearfix.tab-buttons
+          .clearfix.tab-buttons
 
             .floated.tab-button.icon-holder ng-click="setTabValue(1)"
               input#order_way_1 type="radio" name="order_way" value="Кур'єр" ng-model="order.orderway"
@@ -26,22 +26,22 @@
               label for="order_way_3" Вказати по телефону
 
           / 1 TAB Courier delivery
-          ng-form ng-show="selectedTab==1"
+          ng-form name="orderForm1" ng-show="selectedTab==1"
 
             .row
               .columns.medium-6
                 .input-field
                   input name="name" ng-model="order.name" required=""
                   label Ім'я
-                  /span class="inputError" ng-show="orderForm.name.$touched && orderForm.name.$invalid"
-                    span ng-show="orderForm.name.$error.required"
+                  span class="inputError" ng-show="orderForm1.name.$touched && orderForm1.name.$invalid"
+                    span ng-show="orderForm1.name.$error.required"
                       | Заповніть поле
               .columns.medium-6
                 .input-field
-                  input name="phone" ng-model="order.phone" phone-input="" minlength="14" required=""
+                  input name="phone" ng-model="order.phone" required="" mask="(999) 999-9999"
                   label Телефон
-                  /span class="inputError" ng-show="orderForm.phone.$touched && orderForm.phone.$invalid"
-                    span ng-show="orderForm.phone.$error.required"
+                  span class="inputError" ng-show="orderForm1.phone.$touched && orderForm1.phone.$invalid"
+                    span ng-show="orderForm1.phone.$error.required"
                       | Заповніть поле
               .columns
                 .input-field
@@ -63,15 +63,15 @@
                 .input-field
                   input name="street" ng-model="order.street" required=""
                   label Вулиця
-                  /span class="inputError" ng-show="orderForm.street.$touched && orderForm.street.$invalid"
-                    span ng-show="orderForm.street.$error.required"
+                  span class="inputError" ng-show="orderForm1.street.$touched && orderForm1.street.$invalid"
+                    span ng-show="orderForm1.street.$error.required"
                       | Заповніть поле
               .columns.medium-6.large-3
                 .input-field
                   input name="building" ng-model="order.building" type="number" required=""
                   label Будинок
-                  /span class="inputError" ng-show="orderForm.building.$touched && orderForm.building.$invalid"
-                    span ng-show="orderForm.building.$error.required"
+                  span class="inputError" ng-show="orderForm1.building.$touched && orderForm.orderForm1.$invalid"
+                    span ng-show="orderForm1.building.$error.required"
                       | Заповніть поле
               .columns.medium-6.large-3
                 .input-field
@@ -83,19 +83,25 @@
             .row
               .columns.medium-4.large-4
                 .input-field
-                  select ng-model="order.date"
+                  select name="date" ng-model="order.date" required=""
+                    option value="" Оберіть дату
                     option Сьогодні
                     option Завтра
                   label Дата доставки
+                  /span class="inputError" ng-show="orderForm.date.$invalid"
+                    span ng-show="orderForm1.date.$error.required"
+                      | Заповніть поле
               .columns.medium-4.large-4
                 .input-field
-                  select ng-model="order.time"
+                  select name="time" ng-model="order.time" required=""
+                    option value="" Оберіть час
                     option Якомога швидше
                     option Я не спішу
                   label Час доставки
               .columns.medium-4.large-4
                 .input-field
                   select ng-model="order.paymentmethod"
+                    option value="" Спосіб оплати
                     option Готівка
                     option Карта банку
                   label Форма оплати
@@ -114,31 +120,33 @@
             .input-field.optional-textarea ng-show="showTextArea"
               textarea rows="5" placeholder="Поле для коментарів..." ng-model="order.comment"
 
-            button.btn.red type="submit" ng-disabled="orderForm.$invalid"
+            button.btn.red type="submit" ng-disabled="orderForm1.$invalid"
               | Відправити
 
+
+
           / 2 TAB Take by Yourself
-          /ng-form ng-show="selectedTab==2"
+          ng-form name="orderForm2" ng-show="selectedTab==2"
 
             .row
               .columns.large-6
                 .input-field
-                  input name="name" ng-model="order.name"
+                  input name="name" ng-model="order.name" required=""
                   label Ім'я
-                  span class="inputError" ng-show="orderForm.name.$touched && orderForm.name.$invalid"
-                    span ng-show="orderForm.name.$error.required"
+                  span class="inputError" ng-show="orderForm2.name.$touched && orderForm2.name.$invalid"
+                    span ng-show="orderForm2.name.$error.required"
                       | Заповніть поле
               .columns.large-6
                 .input-field
-                  input name="phone" ng-model="order.phone" phone-input="" minlength="14"
+                  input name="phone" ng-model="order.phone" required="" mask="(999) 999-9999"
                   label Телефон
-                  span class="inputError" ng-show="orderForm.phone.$touched && orderForm.phone.$invalid"
-                    span ng-show="orderForm.phone.$error.required"
+                  span class="inputError" ng-show="orderForm2.phone.$touched && orderForm2.phone.$invalid"
+                    span ng-show="orderForm2.phone.$error.required"
                       | Заповніть поле
               .columns
                 .input-field
                   input ng-model="order.email"
-                  label Ел.Cкринька (не обов'язково)
+                  label Ел. скринька (не обов'язково)
                 .checkbox-field.icon-holder
                   input#subscribe_02 type="checkbox" checked="" ng-model="order.subscribe"
                   label for="subscribe_02" Отримувати новини та спеціальні пропозиції
@@ -149,13 +157,18 @@
             .row
               .columns.large-6
                 .input-field
-                  select ng-model="order.officeaddress"
+                  select name="officeaddress" ng-model="order.officeaddress" required=""
+                    option value="" Оберіть адрес
                     option Просп. Чорновола 45
                     option вул. Городоцька 7
                   label Забрати з
+                  span class="inputError" ng-show="orderForm2.officeaddress.$touched && orderForm2.officeaddress.$invalid"
+                    span ng-show="orderForm2.officeaddress.$error.required"
+                      | Заповніть поле
               .columns.large-3
                 .input-field
                   select ng-model="order.date"
+                    option value="" Оберіть дату
                     option Сьогодні
                     option Завтра
                     option 21.01.2018
@@ -163,6 +176,7 @@
               .columns.large-3
                 .input-field
                   select ng-model="order.time"
+                    option value="" Оберіть час
                     option 10:00
                     option 11:00
                   label Час
@@ -174,18 +188,23 @@
             .input-field.optional-textarea ng-model="order.comment"
               textarea rows="5" placeholder="Поле для коментарів..."
 
-            button.btn.red type="submit"
+            button.btn.red type="submit" ng-disabled="orderForm2.$invalid"
               | Відправити
 
+
+
           / 3 TAB Order by phone
-          /ng-form ng-show="selectedTab==3"
+          ng-form name="orderForm3" ng-show="selectedTab==3"
             .row
               .columns
                 .input-field
-                  input ng-model="order.phone" phone-input="" minlength="14"
+                  input ng-model="order.phone" required="" mask="(999) 999-9999"
                   label Телефон
-            button.btn.red type="submit"
+            button.btn.red type="submit" ng-disabled="orderForm3.$invalid"
               | Відправити
+
+          /button.btn.red type="submit" ng-disabled="orderForm.$invalid"
+            | Відправити
 
 
       / ORDER SUMMARY

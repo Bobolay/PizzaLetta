@@ -17,6 +17,7 @@
 #= require plugins/mixitup-2.1.1.min
 #= require plugins/jquery.scrolldelta
 #= require plugins/js.cookie
+#= require plugins/ngMask.min
 
 #     I N I T I A L I Z E
 
@@ -27,8 +28,6 @@
 #     A N G U L A R
 
 #= require angular/app
-
-#= require angular/directives
 
 #= require angular/pizza/pizzaCtrl.js
 #= require angular/pizza/pizzaService.js
