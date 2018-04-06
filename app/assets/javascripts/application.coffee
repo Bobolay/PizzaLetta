@@ -12,6 +12,7 @@
 #= require plugins/clickout
 
 # require plugins/datepick
+#= require plugins/jquery.timepicker.min
 #= require plugins/owl.carousel.min
 #= require plugins/jquery.nice-select.min
 #= require plugins/mixitup-2.1.1.min
@@ -23,7 +24,6 @@
 
 #= require main
 #= require header
-#= require tabs
 
 #     A N G U L A R
 

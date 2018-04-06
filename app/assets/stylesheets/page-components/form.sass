@@ -4,7 +4,7 @@ form
     position: relative
     margin: 20px 0
     @media #{$small-only}
-      margin: 10px 0
+      margin: 10px 0 20px
     .nice-select
       width: 100%
     input, textarea, select
@@ -28,7 +28,7 @@ form
       padding: 0 10px
       pointer-events: none
       +transition(.25s)
-    input:focus ~ label, input.ng-not-empty ~ label, input.used ~ label
+    input:focus ~ label, input.ng-not-empty ~ label, input.used ~ label, input.ng-valid ~ label
       top: -5px
       font-size: 12px
       color: $dark
@@ -68,7 +68,7 @@ form
       margin: 0
       display: none
 
-  .nice-select
+  .nice-select, .timepicker
     border: 1px solid $dark
     & ~ label
       top: -5px
@@ -82,7 +82,7 @@ button[disabled]
 
 .inputError
   position: absolute
-  font-size: 14px
+  font-size: 12px
   color: $red
   margin-top: 6px
 
@@ -117,7 +117,9 @@ button[disabled]
     height: 40px
 
 .checkbox-field
-  margin-top: 30px
+  margin-top: 20px
+  @media #{$small-only}
+    margin-top: 0
 
   input[type="checkbox"]
     position: absolute
@@ -130,8 +132,10 @@ button[disabled]
         &:after
           opacity: 1
   label
+    display: inline-block
     position: relative
-    padding: 10px 10px 10px 30px
+    width: 280px
+    padding: 15px 10px 10px 30px
     font-size: 12px
     font-weight: 600
     cursor: pointer
@@ -143,6 +147,7 @@ button[disabled]
   .icon
     pointer-events: none
     border-radius: 20%
+    top: 15px
 
 .sum
   position: relative

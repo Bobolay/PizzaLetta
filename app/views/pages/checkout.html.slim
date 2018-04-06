@@ -43,10 +43,11 @@
                   span class="inputError" ng-show="orderForm1.phone.$touched && orderForm1.phone.$invalid"
                     span ng-show="orderForm1.phone.$error.required"
                       | Заповніть поле
-              .columns
+              .columns.medium-6
                 .input-field
                   input ng-model="order.email"
                   label Ел. скринька (не обов'язково)
+              .columns.medium-6
                 .checkbox-field.icon-holder
                   input#subscribe_01 type="checkbox" checked="" ng-model="order.subscribe"
                   label for="subscribe_01" Отримувати новини та спеціальні пропозиції
@@ -81,23 +82,32 @@
             .line-separator.inside-form
 
             .row
+              .columns.medium-6.large-3
+                .input-field.timepicker-wrap
+                  input.timepicker name="time" ng-model="order.time" required=""
+                  label Час доставки
+                  span class="inputError" ng-show="orderForm1.time.$invalid"
+                    | Заповніть поле
+                p
+                  | {{ order.time }}
               .columns.medium-4.large-4
-                .input-field
+                .input-field.custom-select
                   select name="date" ng-model="order.date" required=""
                     option value="" Оберіть дату
                     option Сьогодні
                     option Завтра
                   label Дата доставки
-                  /span class="inputError" ng-show="orderForm.date.$invalid"
-                    span ng-show="orderForm1.date.$error.required"
-                      | Заповніть поле
-              .columns.medium-4.large-4
+                  span class="inputError" ng-show="orderForm1.date.$invalid"
+                    | Заповніть поле
+              /.columns.medium-4.large-4
                 .input-field
                   select name="time" ng-model="order.time" required=""
                     option value="" Оберіть час
                     option Якомога швидше
                     option Я не спішу
                   label Час доставки
+                  span class="inputError" ng-show="orderForm1.time.$invalid"
+                    | Заповніть поле
               .columns.medium-4.large-4
                 .input-field
                   select ng-model="order.paymentmethod"
