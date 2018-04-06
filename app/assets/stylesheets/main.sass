@@ -196,14 +196,18 @@
     font-weight: 600
   .add-to-cart-btn
     +xy-align
-    width: 150px
+    width: 90px
     z-index: 1
+    font-size: 14px
     color: white
     text-transform: uppercase
-    padding: 20px
-    //line-height: 30px
+    padding: 20px 0
     font-weight: 600
     cursor: pointer
+    @media #{$xxlarge-up}
+      font-size: 16px
+      width: 150px
+      padding: 20px
   .make-pizza
     width: 220px
   .success-message
