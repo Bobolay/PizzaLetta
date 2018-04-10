@@ -12,16 +12,16 @@
       .floated
         .regular фільтрування
         .dib.clearfix
-          .floated.filter data-filter="all"
+          .floated.filter title="Фільтрувати салати по категоріях" data-filter="all"
             = inline_svg ('icons/filter_icons/Pizza-Letta-salads.svg')
             span Всі
-          .floated.filter data-filter=".vegetarian"
+          .floated.filter title="Фільтрувати салати по категоріях" data-filter=".vegetarian"
             = inline_svg ('icons/filter_icons/Pizza-Letta-vegy.svg')
             span Вегетаріанські
-          .floated.filter data-filter=".meat"
+          .floated.filter title="Фільтрувати салати по категоріях" data-filter=".meat"
             = inline_svg ('icons/filter_icons/Pizza-Letta-meat.svg')
             span М'ясні
-          .floated.filter data-filter=".seafood"
+          .floated.filter title="Фільтрувати салати по категоріях" data-filter=".seafood"
             = inline_svg ('icons/filter_icons/Pizza-Letta-fish.svg')
             span Рибні
 
@@ -41,7 +41,7 @@
             p.short-info
               /| {{salad.category_ukr}}&nbsp;&nbsp;|&nbsp;&nbsp;{{salad.weight}} грам
               | {{salad.weight}}&nbsp;грам
-            p.name
+            h2.name
               | {{salad.name}}
             .ingredients
               | {{salad.salat_ingredients}}
@@ -54,12 +54,12 @@
             .add-to-cart
 
               .quantity.on-red-bg
-                .decrease ng-click="decrease(salad)" = inline_svg "icons/remove.svg"
+                .decrease title="Зменшити кількість одиниць товару" ng-click="decrease(salad)" = inline_svg "icons/remove.svg"
                 .number
                   | {{salad.qnty}}
-                .increase ng-click="increase(salad)" = inline_svg "icons/add.svg"
+                .increase title="Збільшити кількість одиниць товару" ng-click="increase(salad)" = inline_svg "icons/add.svg"
 
-              .add-to-cart-btn ng-click="AddToCart(salad, $event)" в корзину
+              .add-to-cart-btn title="Додати товар в корзину" ng-click="AddToCart(salad, $event)" в корзину
 
               .total-price
                 span &#8372

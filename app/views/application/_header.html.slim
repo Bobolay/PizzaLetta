@@ -7,7 +7,7 @@
   a.logo-mobile href=root_path
     = inline_svg ('icons/Pizza-Letta-logo-horizontal2.svg')
 
-  p.title
+  h1.title
     = @title
 
   .right-part
@@ -20,19 +20,19 @@
       = inline_svg ('icons/phone.svg')
 
     .dib.contact
-      a.numbers href="tel:#{Contact.first.first_number}" = Contact.first.first_number
+      a.numbers title="Передзвонити нам" href="tel:#{Contact.first.first_number}" = Contact.first.first_number
       p.numbers-light
         = inline_svg ('icons/clock.svg')
         | 12:00 - 23:00
 
       / Contact dropdown temporary hidden
 
-      .dropdown-arrow.contact-dropdown-btn = inline_svg ('icons/pizza_part.svg')
+      .dropdown-arrow.contact-dropdown-btn title="Розгорнути форму з додатковими опціями контакту з нами" = inline_svg ('icons/pizza_part.svg')
 
       .contact-dropdown
         .line-separator
-        a.numbers href="tel:#{Contact.first.second_number}" = Contact.first.second_number
-        a.numbers href="tel:#{Contact.first.third_number}" = Contact.first.third_number
+        a.numbers title="Передзвонити нам" href="tel:#{Contact.first.second_number}" = Contact.first.second_number
+        a.numbers title="Передзвонити нам" href="tel:#{Contact.first.third_number}" = Contact.first.third_number
         .line-separator
         form name="callmebackform" ng-submit="submitCallForm()"
           p.small Або вкажіть ваш номер
@@ -43,7 +43,7 @@
           button type="submit" ng-disabled="!callmebackform.$valid" Передзвоніть мені
 
     .dib.cart
-      .dib.cart-icon
+      .dib.cart-icon title="Відкрити корзину"
         .static = inline_svg ('icons/Pizza-Letta-basket.svg')
         .cart-animated
         .dib.order-quantity

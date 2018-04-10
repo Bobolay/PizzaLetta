@@ -12,16 +12,16 @@
       .floated
         .regular фільтрування
         .dib.clearfix
-          .floated.filter data-filter="all"
+          .floated.filter title="Фільтрувати напої по категоріях" data-filter="all"
             = inline_svg ('icons/filter_icons/Pizza-Letta-drinks.svg')
             span Всі
-          .floated.filter data-filter=".alcohol"
+          .floated.filter title="Фільтрувати напої по категоріях" data-filter=".alcohol"
             = inline_svg ('icons/filter_icons/Pizza-Letta-vine.svg')
             span Алкогольні
-          .floated.filter data-filter=".non-alcohol"
+          .floated.filter title="Фільтрувати напої по категоріях" data-filter=".non-alcohol"
             = inline_svg ('icons/filter_icons/Pizza-Letta-cola.svg')
             span Безалкогольні
-          .floated.filter data-filter=".lemonad"
+          .floated.filter title="Фільтрувати напої по категоріях" data-filter=".lemonad"
             = inline_svg ('icons/filter_icons/Pizza-Letta-lemonade.svg')
             span Лимонади
 
@@ -40,7 +40,7 @@
             / Short info about item
             p.short-info
               | {{drink.category_ukr}}&nbsp;&nbsp;|&nbsp;&nbsp;{{drink.volume}} л
-            p.name
+            h2.name
               | {{drink.name}}
 
             .red-price.small-circle
@@ -51,12 +51,12 @@
             .add-to-cart
 
               .quantity.on-red-bg
-                .decrease ng-click="decrease(drink)" = inline_svg "icons/remove.svg"
+                .decrease title="Зменшити кількість одиниць товару" ng-click="decrease(drink)" = inline_svg "icons/remove.svg"
                 .number
                   | {{drink.qnty}}
-                .increase ng-click="increase(drink)" = inline_svg "icons/add.svg"
+                .increase title="Збільшити кількість одиниць товару" ng-click="increase(drink)" = inline_svg "icons/add.svg"
 
-              .add-to-cart-btn ng-click="AddToCart(drink, $event)" в корзину
+              .add-to-cart-btn title="Додати товар в корзину" ng-click="AddToCart(drink, $event)" в корзину
 
               .total-price
                 span &#8372

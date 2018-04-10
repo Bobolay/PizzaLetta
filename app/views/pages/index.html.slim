@@ -12,19 +12,19 @@
       .floated
         .regular фільтрування
         .dib.clearfix
-          .floated.filter data-filter="all"
+          .floated.filter title="Фільтрувати піци по категоріях" data-filter="all"
             = inline_svg ('icons/filter_icons/Pizza-Letta-all-pizza.svg')
             span Всі
-          .floated.filter data-filter=".vegetarian"
+          .floated.filter title="Фільтрувати піци по категоріях" data-filter=".vegetarian"
             = inline_svg ('icons/filter_icons/Pizza-Letta-vegy.svg')
             span Вегетаріанські
-          .floated.filter data-filter=".meat"
+          .floated.filter title="Фільтрувати піци по категоріях" data-filter=".meat"
             = inline_svg ('icons/filter_icons/Pizza-Letta-meat.svg')
             span М'ясні
-          .floated.filter data-filter=".seafood"
+          .floated.filter title="Фільтрувати піци по категоріях" data-filter=".seafood"
             = inline_svg ('icons/filter_icons/Pizza-Letta-fish.svg')
             span Морепродукти
-          .floated.filter data-filter=".cheese"
+          .floated.filter title="Фільтрувати піци по категоріях" data-filter=".cheese"
             = inline_svg ('icons/filter_icons/Pizza-Letta-cheese.svg')
             span Сирні
 
@@ -62,7 +62,7 @@
               span 35
               |&nbsp;см
 
-            p.name
+            h2.name
               | {{pizza.name}}
             ul.ingredients
               li ng-repeat="ingredient in pizza.ingredients" ng-class='{first:$first}'
@@ -100,13 +100,13 @@
             .add-to-cart
 
               .quantity.on-red-bg
-                .decrease ng-click="decrease(pizza)"
+                .decrease title="Зменшити кількість одиниць товару" ng-click="decrease(pizza)"
                   = inline_svg "icons/remove.svg"
                 .number ng-bind="pizza.qnty"
-                .increase ng-click="increase(pizza)"
+                .increase title="Збільшити кількість одиниць товару" ng-click="increase(pizza)"
                   = inline_svg "icons/add.svg"
 
-              .add-to-cart-btn ng-click="pizzaAddToCart(pizza,$event)" в корзину
+              .add-to-cart-btn title="Додати товар в корзину" ng-click="pizzaAddToCart(pizza,$event)" в корзину
 
               .total-price
                 span &#8372

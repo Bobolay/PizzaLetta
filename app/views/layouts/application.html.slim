@@ -10,9 +10,10 @@ html
 
     /= inline_css("preloader")
 
+  /body
   body ng-app="pizzaApp"
 
-    = render "preloader"
+    /= render "preloader"
 
     = render "header"
     = render "side_menu"
@@ -36,4 +37,5 @@ html
     - if @render_footer != false
       = render "footer"
 
+    /= javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.0/angular.js", 'data-turbolinks-track' => true
     = javascript_include_tag "application"

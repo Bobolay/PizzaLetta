@@ -1,5 +1,4 @@
 // Filter ingredients Function
-
 pizzaApp.filter('filterInArray', [ '$filter', function($filter){
         return function(list, arrayFilter, element){
             if(arrayFilter){

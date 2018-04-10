@@ -10,7 +10,7 @@
 
         .inner-indent
 
-          h2 Правила доставки
+          h3 Правила доставки
           p
             b =@shipping.time_of_shipping
           p =@shipping.description
@@ -19,5 +19,5 @@
           a.shipping-address href=@shipping.first_address_map target="_blank" =@shipping.first_address
           a.shipping-address href=@shipping.second_address_map target="_blank" =@shipping.second_address
 
-          h2 Правила оплати
+          h3 Правила оплати
           p = @shipping.payment_description

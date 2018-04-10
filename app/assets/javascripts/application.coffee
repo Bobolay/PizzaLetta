@@ -4,7 +4,8 @@
 #= require global
 
 #= require angular
-#= require angular-route
+
+# require turbolinks
 
 #     P L U G I N S
 
@@ -48,4 +49,4 @@
 #= require angular/header_controller
 #= require angular/subscribe_controller
 
-#= require preloader
+# require preloader

@@ -1,0 +1,23 @@
+.navbar {
+  background: black;
+}
+
+.navbar-brand {
+  padding: 10px;
+}
+
+.navbar-brand svg {
+  width: 60px;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: white;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+  color: #eb0029;
+}
+
+.label-danger {
+  background-color: #eb0029;
+}

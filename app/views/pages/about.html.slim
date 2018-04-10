@@ -1,10 +1,9 @@
 / Main banner
 
 .banner
-  / img size: 1920x1080#
   .icon = inline_svg "icons/logo.svg"
   .img-bg style="background-image: url(#{@about.image})"
-  p.banner-title pizza letta
+  h2.banner-title pizza letta
 
 .about-wrap
   .row
@@ -33,11 +32,11 @@
     .columns.medium-8
       ul.article-container.principles-list
         li
-          p = raw @about.cookers
+          = raw @about.cookers
         li
-          p = raw @about.fast_work
+          = raw @about.fast_work
         li
-          p = raw @about.clean_truth
+          = raw @about.clean_truth
           /.camera
             span
               = inline_svg "icons/pizza_part.svg"
