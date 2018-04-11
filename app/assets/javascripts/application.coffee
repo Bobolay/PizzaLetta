@@ -1,11 +1,10 @@
 #= require jquery
 #= require jquery-ui
+#= require turbolinks
 
 #= require global
-
 #= require angular
 
-# require turbolinks
 
 #     P L U G I N S
 
@@ -18,10 +17,12 @@
 #= require plugins/ngMask.min
 #= require plugins/jquery.timepicker.min
 
+
 #     I N I T I A L I Z E
 
-#= require main
+#= require main2
 #= require header
+
 
 #     A N G U L A R
 

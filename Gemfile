@@ -18,7 +18,8 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'instagram'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+gem 'turbolinks', github: "turbolinks/turbolinks-classic"
+# gem 'turbolinks', '~> 5.0.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -94,7 +95,6 @@ gem 'figaro'
 gem 'pry-rails', '~> 0.3.4'
 # gem 'require_reloader'
 gem 'pry'
-gem 'thin'
 gem 'puma'
 gem 'angularjs-rails', '1.6'
 gem 'responders'

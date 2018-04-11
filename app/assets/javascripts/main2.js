@@ -1,6 +1,7 @@
-$(document).on('turbolinks:load', ready)
+$(document).on('ready page:load', ready())
 
 function ready() {
+
 
     // Alert message for client
     if (Cookies.get('alert_msg') != 'off'){

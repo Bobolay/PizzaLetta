@@ -8,28 +8,16 @@ html
     = csrf_meta_tags
     = render "favicons"
 
-    /= inline_css("preloader")
-
-  /body
-  body ng-app="pizzaApp"
+  body
 
     /= render "preloader"
-
     = render "header"
     = render "side_menu"
     = render "bottom_menu"
     = render "menu"
-
-    / view all Your item You want to order
     = render "cart"
-    / make your very own custom pizza with additional ingredients
     = render "custom_pizza"
-
     = render "success_message"
-
-    /Alert for client in case of pizza is not working or smth like this
-    /-if @alert.show == true
-    /  = render "client_alert_popup"
 
     .main-wrapper
       = yield
@@ -37,5 +25,4 @@ html
     - if @render_footer != false
       = render "footer"
 
-    /= javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.0/angular.js", 'data-turbolinks-track' => true
-    = javascript_include_tag "application"
+    = javascript_include_tag "application", 'data-turbolinks-track' => true

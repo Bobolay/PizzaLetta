@@ -29,7 +29,6 @@ function HeaderCtrl($http, $rootScope, $scope, cartService){
         };
         var config = {
             headers : {
-                // 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
                 'Content-Type': 'application/json'
             }
         };
