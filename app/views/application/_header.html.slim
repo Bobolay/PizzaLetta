@@ -39,7 +39,7 @@
           p
             | {{phonenumber}}
           .input-field
-            input placeholder="Телефон" phone-input="" minlength="14" name="phone" ng-model="phone_number" required="required"
+            input placeholder="(099) 123-4567" phone-input="" minlength="14" name="phone" ng-model="phone_number" required="required" mask="(999) 999-9999"
           button type="submit" ng-disabled="!callmebackform.$valid" Передзвоніть мені
 
     .dib.cart

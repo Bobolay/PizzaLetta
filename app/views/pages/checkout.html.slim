@@ -38,7 +38,7 @@
                       | Заповніть поле
               .columns.medium-6
                 .input-field
-                  input name="phone" ng-model="order.phone" required="" mask="(999) 999-9999"
+                  input.used placeholder="(099) 123-4567" name="phone" ng-model="order.phone" required="" mask="(999) 999-9999"
                   label Телефон
                   span class="inputError" ng-show="orderForm1.phone.$touched && orderForm1.phone.$invalid"
                     span ng-show="orderForm1.phone.$error.required"
@@ -168,7 +168,7 @@
                       | Заповніть поле
               .columns.large-6
                 .input-field
-                  input name="phone" ng-model="order.phone" required="" mask="(999) 999-9999"
+                  input.used placeholder="(099) 123-4567" name="phone" ng-model="order.phone" required="" mask="(999) 999-9999"
                   label Телефон
                   span class="inputError" ng-show="orderForm2.phone.$touched && orderForm2.phone.$invalid"
                     span ng-show="orderForm2.phone.$error.required"
@@ -249,7 +249,7 @@
             .row
               .columns
                 .input-field
-                  input ng-model="order.phone" required="" mask="(999) 999-9999"
+                  input.used placeholder="(099) 123-4567" ng-model="order.phone" required="" mask="(999) 999-9999"
                   label Телефон
             button.btn.red type="submit" ng-disabled="orderForm3.$invalid"
               | Відправити
@@ -293,5 +293,3 @@
               span &#8372
               | {{ total_price }}
 
-.progress-wrap
-  .in-progress

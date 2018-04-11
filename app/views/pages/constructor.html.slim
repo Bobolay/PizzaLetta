@@ -7,7 +7,6 @@
     .red-price.big-circle ng-if="baseprice"
       .inner-text
         span &#8372
-        / | {{ totalPrice * constructed_pizza.qnty }}
         | {{ totalPrice }}
 
     / Constructed pizza ingredients
@@ -24,9 +23,9 @@
 
       p.subtitle.dib соус
       .sauce-option.dib
-        input#sauce-white type="radio" name="sauce" ng-model='sauce' ng-value="'білий'" ng-click="getSauce(sauce)"
+        input#sauce-white title="Вершковий соус" type="radio" name="sauce" ng-model='sauce' ng-value="'білий'" ng-click="getSauce(sauce)"
         label.white for="sauce-white"
-        input#sauce-red type="radio" name="sauce" checked="checked" ng-model='sauce' ng-value="'червоний'" ng-click="getSauce(sauce)"
+        input#sauce-red title="Томатний соус" type="radio" name="sauce" checked="checked" ng-model='sauce' ng-value="'червоний'" ng-click="getSauce(sauce)"
         label.red for="sauce-red"
 
     / All ingredients list
