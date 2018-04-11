@@ -1,24 +1,12 @@
-// IIFE - Immediately Invoked Function Expression
-(function(yourcode) {
+$(document).on('ready page:load', preloader())
 
-        // The global jQuery object is passed as a parameter
-        yourcode(window.jQuery, window, document);
+function preloader() {
 
-    }(function($, window, document) {
+    if (!sessionStorage.isVisited) {
+        sessionStorage.isVisited = 'true'
+        $(".preloader-wrap").delay(1500).fadeOut("slow");
+    } else {
+        $(".preloader-wrap").hide();
+    }
 
-        // The $ is now locally scoped
-
-        // Listen for the jQuery ready event on the document
-        $(function() {
-
-
-            // Initialize nice select
-            setTimeout(function(){
-                $('.preloader-wrap').fadeOut();
-            }, 1000);
-
-        });
-
-        // The rest of the code goes here!
-    })
-)
+}

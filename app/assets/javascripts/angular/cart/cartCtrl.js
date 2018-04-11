@@ -65,7 +65,7 @@ function CartCtrl($http, $window, $rootScope, $scope, cartService) {
     // POST REQUEST
 
     $scope.submitForm = function () {
-
+        $('.progress-wrap').addClass('visible');
         var url = 'order';
         var data = {
             cart: $scope.cart,
@@ -74,7 +74,6 @@ function CartCtrl($http, $window, $rootScope, $scope, cartService) {
         };
         var config = {
             headers : {
-                // 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
                 'Content-Type': 'application/json'
             }
         };
@@ -84,6 +83,7 @@ function CartCtrl($http, $window, $rootScope, $scope, cartService) {
                 function(response){
                     // success callback
                     $scope.message = data.message;
+                    $('.progress-wrap').removeClass('visible');
                     var success = angular.element(document.querySelector(".success-wrap"));
                     success.addClass('visible');
                     // Clear LS
@@ -91,7 +91,7 @@ function CartCtrl($http, $window, $rootScope, $scope, cartService) {
                 },
                 function(response){
                     // failure callback
-                    console.log("Not working!");
+                    alert("Вибачте, при замовленні сталась помилка.")
                 }
             );
     };

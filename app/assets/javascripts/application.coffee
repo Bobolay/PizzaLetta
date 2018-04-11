@@ -50,4 +50,4 @@
 #= require angular/header_controller
 #= require angular/subscribe_controller
 
-# require preloader
+#= require preloader
