@@ -91,7 +91,8 @@ function CartCtrl($http, $window, $rootScope, $scope, cartService) {
                 },
                 function(response){
                     // failure callback
-                    alert("Вибачте, при замовленні сталась помилка.")
+                    alert("Вибачте, при замовленні сталась помилка.");
+                    $('.progress-wrap').removeClass('visible');
                 }
             );
     };
