@@ -8,7 +8,7 @@ html
     = csrf_meta_tags
     = render "favicons"
 
-  body
+  body ng-app="pizzaApp"
 
     = render "preloader"
     = render "header"
@@ -24,5 +24,5 @@ html
 
     - if @render_footer != false
       = render "footer"
-
-    = javascript_include_tag "application", 'data-turbolinks-track' => true
+    /= javascript_include_tag "application", 'data-turbolinks-track' => true
+    = javascript_include_tag "application"

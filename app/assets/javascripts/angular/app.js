@@ -1,9 +1,9 @@
 var pizzaApp = angular.module('pizzaApp', ['ngMask', 'ui.timepicker']);
 
 
-$(document).on('ready page:load', function() {
-    angular.bootstrap(document.body, ['pizzaApp'])
-});
+// $(document).on('ready page:load', function() {
+//     angular.bootstrap(document.body, ['pizzaApp'])
+// });
 
 
 pizzaApp.directive('mixitup',function(){

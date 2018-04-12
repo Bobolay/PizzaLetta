@@ -3,7 +3,7 @@
 
 #= require global
 #= require angular
-#= require turbolinks
+# require turbolinks
 
 
 #     P L U G I N S
@@ -20,7 +20,7 @@
 
 #     I N I T I A L I Z E
 
-#= require main2
+#= require main
 #= require header
 
 
