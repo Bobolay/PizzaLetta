@@ -77,7 +77,7 @@ RailsAdmin.config do |config|
   config.model Constructor do
     navigation_label "Меню"
     label "Основи для піц"
-    include_fields :small_price, :big_price
+    include_fields :small_price, :big_price, :image
   end
   config.model Aboutimage do
     navigation_label "Про нас"
