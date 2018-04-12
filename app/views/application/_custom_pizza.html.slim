@@ -67,7 +67,7 @@
             span.total
               | {{filtered.length}}
         .clearfix.ingredients-container
-          .floated ng-class="{'active':ingredient.active_ingredient}" ng-click="toggleIngredient(ingredient,category)" ng-repeat="ingredient in category.list | filterInArray:custom_pizza_ingredients:'name' as filtered" ng-if="ingredient.showcustom !== null"
+          .floated ng-class="{'active':ingredient.active_ingredient}" ng-click="toggleIngredient(ingredient,category)" ng-repeat="ingredient in category.list | filterInArray:custom_pizza_ingredients:'name' as filtered" ng-if="ingredient.showcustom == true"
             .img style="background-image: url('{{ingredient.imgUrl}}')"
             p.name
               | {{ingredient.name}}

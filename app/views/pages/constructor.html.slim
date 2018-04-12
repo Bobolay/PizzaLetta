@@ -27,6 +27,8 @@
         label.white for="sauce-white"
         input#sauce-red title="Томатний соус" type="radio" name="sauce" checked="checked" ng-model='sauce' ng-value="'червоний'" ng-click="getSauce(sauce)"
         label.red for="sauce-red"
+        input#sauce-yellow title="Гірчичний грибний соус Берлусконі" type="radio" name="sauce" ng-model='sauce' ng-value="'гірчичний'" ng-click="getSauce(sauce)"
+        label.yellow for="sauce-yellow"
 
     / All ingredients list
     .ingredient-type-wrap ng-repeat="category in ingredients_list"
@@ -39,7 +41,7 @@
           span.total
             | {{filtered.length}}
       .clearfix.ingredients-container
-        .floated ng-class="{'active':ingredient.active_ingredient}" ng-click="toggleIngredient(ingredient,category)" ng-repeat="ingredient in category.list as filtered" ng-if="ingredient.showcustom !== null"
+        .floated ng-class="{'active':ingredient.active_ingredient}" ng-click="toggleIngredient(ingredient,category)" ng-repeat="ingredient in category.list as filtered" ng-if="ingredient.showcustom == true"
           .img style="background-image: url('{{ingredient.imgUrl}}')"
           p.name
             | {{ingredient.name}}
