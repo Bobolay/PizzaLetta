@@ -1,10 +1,10 @@
-$(document).on('ready page:load', preloader())
+$(document).on('ready', preloader())
 
 function preloader() {
 
     if (!sessionStorage.isVisited) {
         sessionStorage.isVisited = 'true'
-        $(".preloader-wrap").delay(1500).fadeOut("slow");
+        $(".preloader-wrap").delay(1000).fadeOut("slow");
     } else {
         $(".preloader-wrap").hide();
     }
