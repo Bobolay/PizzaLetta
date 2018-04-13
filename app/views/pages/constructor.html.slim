@@ -51,7 +51,7 @@
           .remove = inline_svg "icons/remove.svg"
           .add = inline_svg "icons/add.svg"
 
-    .add-to-cart.fixed
+    .add-to-cart.fixed.construct-pizza ng-class="ingredients_is_empty()"
 
       .add-to-cart-btn.make-pizza ng-click="showDetails = ! showDetails"
         | сформувати піцу

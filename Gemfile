@@ -82,6 +82,8 @@ gem 'kaminari'
 
 gem 'figaro'
 
+gem 'sprockets-rails', :require => 'sprockets/railtie'
+
 # gem "htmlcompressor"
 # gem 'rack-page_caching'
 

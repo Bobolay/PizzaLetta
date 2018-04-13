@@ -5,6 +5,7 @@ var pizzaApp = angular.module('pizzaApp', ['ngMask', 'ui.timepicker']);
 //     angular.bootstrap(document.body, ['pizzaApp'])
 // });
 
+// $(document).on "turbolinks:load", ->
 
 pizzaApp.directive('mixitup',function(){
     var linker = function(scope,element,attrs) {
