@@ -4,6 +4,7 @@ pizzaApp.controller('ConstructorCtrl', ConstructorCtrl);
 
 function ConstructorCtrl($rootScope, $scope, $http, constructorService, cartService){
 
+    // Force to wait loading page until we receive data from server
     $scope.baseprice = false;
 
     // All ingredients to choose from (we get them from ItemsService)
@@ -14,6 +15,11 @@ function ConstructorCtrl($rootScope, $scope, $http, constructorService, cartServ
 
     // Ingredients we choose to put inside constructor pizza
     $scope.constructor_ingredients = constructorService.getConstructorIngredients();
+
+    // Disable button CreatePizza if ingredients list is empty
+    $scope.ingredients_is_empty = function() {
+        return ($scope.constructor_ingredients.length == 0) ? 'disable' : null;
+    };
 
     // Get base constructor
     var promiseObj = constructorService.getConstructorBase();
@@ -72,8 +78,9 @@ function ConstructorCtrl($rootScope, $scope, $http, constructorService, cartServ
         success.addClass('visible');
         setTimeout(function() {
             success.removeClass('visible');
-        }, 1500);
 
+        }, 1500);
+        // window.location.href = '/checkout';
     }
 
 }

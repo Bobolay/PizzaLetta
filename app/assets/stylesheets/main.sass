@@ -805,6 +805,14 @@
     max-width: 100%
     left: initial
     right: 0
+  .construct-pizza.disable
+    .add-to-cart-btn
+      pointer-events: none
+    &:after
+      content: ''
+      display: block
+      +fullsize
+      background: rgba(white,0.5)
   .constructor-summary
     margin-top: 30px
     .total

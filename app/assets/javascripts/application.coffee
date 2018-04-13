@@ -1,9 +1,11 @@
 #= require jquery
 #= require jquery-ui
 
+#= require turbolinks
+#= require preloader
+
 #= require global
 #= require angular
-#= require turbolinks
 
 
 #     P L U G I N S
@@ -50,4 +52,3 @@
 #= require angular/header_controller
 #= require angular/subscribe_controller
 
-#= require preloader
