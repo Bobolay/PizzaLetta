@@ -12,7 +12,7 @@ class UserMailer < ApplicationMailer
  end
  def call_email(call)
    @call=call
-   mail(to: " yuriy.h@voroninstudio.eu", subject: 'замовлення')
+   mail(to: "yuriy.h@voroninstudio.eu", subject: 'замовлення')
  end
 
 end
