@@ -71,7 +71,7 @@
                       | Заповніть поле
               .columns.medium-6.large-3
                 .input-field
-                  input name="building" ng-model="order.building" type="number" required=""
+                  input name="building" ng-model="order.building"  required=""
                   label Будинок
                   span class="inputError" ng-show="orderForm1.building.$touched && orderForm.orderForm1.$invalid"
                     span ng-show="orderForm1.building.$error.required"
@@ -192,7 +192,7 @@
                 .input-field
                   select name="officeaddress" ng-model="order.officeaddress" required=""
                     option value="" Оберіть адрес
-                    option Просп. Чорновола 45
+                    option Просп. Чорновола 45а
                     /option disabled="" вул. Городоцька 7
                   label Забрати з
                   span class="inputError" ng-show="orderForm2.officeaddress.$touched && orderForm2.officeaddress.$invalid"

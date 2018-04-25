@@ -50,7 +50,7 @@ uk:
       image: "Фото"
       first_title: "Перший заголовок"
       second_title: "Другий заголовок"
-      first_description: "Перший опис"
+      first_description: "Oпис"
       second_description: "Другий опис"
     orderlist:
       order_id: "Номер замовлення"
