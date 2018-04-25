@@ -4,15 +4,15 @@ class UserMailer < ApplicationMailer
  def order_email(order)
    @array=order
    @list= order[:cart]
-   mail(to: "yuriy.h@voroninstudio.eu", subject: 'замовлення')
+   mail(to: "pizzaletta17@gmail.com", subject: 'замовлення')
  end
  def subscribe_email(email)
    @email = email
-   mail(to: "yuriy.h@voroninstudio.eu", subject: 'замовлення')
+   mail(to: "pizzaletta17@gmail.com", subject: 'замовлення')
  end
  def call_email(call)
    @call=call
-   mail(to: "yuriy.h@voroninstudio.eu", subject: 'замовлення')
+   mail(to: "pizzaletta17@gmail.com", subject: 'замовлення')
  end
 
 end
