@@ -72,7 +72,8 @@ RailsAdmin.config do |config|
   end
   config.model Oferta do
     label "Оферта"
-    include_fields :image, :first_title,:first_description,:second_title, :second_description
+    include_fields :image
+    field :first_description, :ck_editor
   end
   config.model Constructor do
     navigation_label "Меню"

@@ -10,10 +10,4 @@
 
         .inner-indent
 
-          h3 =@policy.first_title
-          p
-            =@policy.first_description
-
-          h3 =@policy.second_title
-          p
-            =@policy.second_description
+          = raw @policy.first_description
