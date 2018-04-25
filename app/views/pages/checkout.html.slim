@@ -38,7 +38,9 @@
                       | Заповніть поле
               .columns.medium-6
                 .input-field
-                  input.used placeholder="(099) 123-4567" name="phone" ng-model="order.phone" required="" mask="(999) 999-9999"
+                  span.kostil1 +38
+                  input.used. placeholder="(099) 123-4567" name="phone" ng-model="order.phone" required="" mask="(999) 999-9999"
+
                   label Телефон
                   span class="inputError" ng-show="orderForm1.phone.$touched && orderForm1.phone.$invalid"
                     span ng-show="orderForm1.phone.$error.required"
@@ -168,6 +170,7 @@
                       | Заповніть поле
               .columns.large-6
                 .input-field
+                  span.kostil1  +38
                   input.used placeholder="(099) 123-4567" name="phone" ng-model="order.phone" required="" mask="(999) 999-9999"
                   label Телефон
                   span class="inputError" ng-show="orderForm2.phone.$touched && orderForm2.phone.$invalid"
@@ -190,7 +193,7 @@
                   select name="officeaddress" ng-model="order.officeaddress" required=""
                     option value="" Оберіть адрес
                     option Просп. Чорновола 45
-                    option disabled="" вул. Городоцька 7
+                    /option disabled="" вул. Городоцька 7
                   label Забрати з
                   span class="inputError" ng-show="orderForm2.officeaddress.$touched && orderForm2.officeaddress.$invalid"
                     span ng-show="orderForm2.officeaddress.$error.required"
@@ -249,6 +252,7 @@
             .row
               .columns
                 .input-field
+                  span.kostil1  +38
                   input.used placeholder="(099) 123-4567" ng-model="order.phone" required="" mask="(999) 999-9999"
                   label Телефон
             button.btn.red type="submit" ng-disabled="orderForm3.$invalid"

@@ -1,6 +1,7 @@
 #= require jquery
 #= require jquery-ui
 
+
 #= require preloader
 
 #= require global
@@ -15,8 +16,10 @@
 #= require plugins/mixitup-2.1.1.min
 #= require plugins/jquery.scrolldelta
 #= require plugins/js.cookie
+#= require plugins/jQueryMaskedInputPlugin
 #= require plugins/ngMask.min
 #= require plugins/jquery.timepicker.min
+
 
 
 #     I N I T I A L I Z E

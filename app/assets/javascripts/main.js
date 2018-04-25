@@ -153,3 +153,9 @@
     // The rest of the code goes here!
 })
 );
+
+// jQuery(function($){
+//     $(".phone-nomber").mask("99/99/9999",{placeholder:" "});
+// });
+//
+// // herna ne robocha

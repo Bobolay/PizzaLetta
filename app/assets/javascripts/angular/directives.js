@@ -12,16 +12,19 @@ pizzaApp.directive("datepicker", function () {
                 dateFormat: "dd/mm/yy",
                 onSelect: function (dateText) {
                     updateModel(dateText);
+
                 }
             };
             elem.datepicker({
                 dateFormat: "dd.mm.yy",
                 monthNames: [ "Січень", "Лютий", "Березень", "Квітень", "Травень", "Червень", "Липень", "Серпень", "Вересень", "Жовтень", "Листопад", "Грудень" ],
                 dayNames: [ "Понеділок", "Вівторок", "Середа", "Четвер", "П'ятниця", "Субота", "Неділя" ],
-                dayNamesMin: [ "Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Нд" ],
-                dayNamesShort: [ "Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Нд" ],
+                dayNamesMin: [ "Нд","Пн", "Вт", "Ср", "Чт", "Пт", "Сб" ],
+                dayNamesShort: [ "Нд","Пн", "Вт", "Ср", "Чт", "Пт", "Сб" ],
                 prevText: 'Попередній',
-                nextText: 'Наступний'
+                nextText: 'Наступний',
+                minDate: "0",
+                firstDay: "1"
             });
         }
     }
