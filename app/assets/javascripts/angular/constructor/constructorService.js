@@ -100,3 +100,7 @@ pizzaApp.factory("constructorService", [ '$window', 'cartService', '$http', '$q'
     }
 
 }]);
+gtag('event', 'page_view', {
+    'send_to': 'AW-809095766',
+    'user_id': 'replace with value'
+})

@@ -10,6 +10,7 @@
 
 #     P L U G I N S
 
+#= require plugins/google.Analytics.min
 #= require plugins/clickout
 #= require plugins/owl.carousel.min
 #= require plugins/jquery.nice-select.min

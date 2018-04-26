@@ -144,10 +144,15 @@
                   label Підготувати решту з
               .columns.medium-6.large-4
                 i.sum Вкажіть суму оплати, щоб кур'єр мав при собі решту
+            .row
 
-            p.red-label.textarea-btn ng-click="showTextArea = !showTextArea"
+             p.red-label.textarea-btn ng-click="showTextArea = !showTextArea"
               = inline_svg "icons/add.svg"
               | додати коментар (не обов'язково)
+             .columns.medium-6.large-6
+                 i.sum
+                   | *Підтверджуючи замовлення я свідомо погоджуюсь з умовами
+                   a.pbdoc href="http://pizzaletta.com/policy"  Публічного договору
 
             .input-field.optional-textarea ng-show="showTextArea"
               textarea rows="5" placeholder="Поле для коментарів..." ng-model="order.comment"
@@ -234,7 +239,10 @@
                   label Час доставки
                   span class="inputError" ng-show="orderForm1.time.$invalid"
                     | Заповніть поле
-
+              .columns.medium-6.large-6
+                i.sum.myfails
+                  | *Підтверджуючи замовлення я свідомо погоджуюсь з умовами
+                  a.pbdoc href="http://pizzaletta.com/policy"  Публічного договору
             p.red-label.textarea-btn
               = inline_svg "icons/add.svg"
               | додати коментар (не обов'язково)

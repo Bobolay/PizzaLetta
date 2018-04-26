@@ -17,7 +17,6 @@ pizzaApp.factory("cartService", [ '$rootScope', '$window', function($rootScope, 
 
     // Additional sauce (red or white)
     // var additional_sauces = [];
-
     return {
 
         getTotalPrice: function () {

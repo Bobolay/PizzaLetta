@@ -52,7 +52,7 @@
           opacity: 1
         svg
           fill: rgba(255,255,255,0.75)
-      &.active
+      &.active, &:hover
         background: $red
         span
           opacity: 1
@@ -70,7 +70,10 @@
           top: -14px
           font-weight: 600
           text-transform: uppercase
-
+  .sidenav
+    li
+      &:hover
+        color: #eb0029
   .socials
     position: absolute
     bottom: 30px
