@@ -2,7 +2,6 @@
 #= require jquery-ui
 
 
-#= require turbolinks
 #= require preloader
 
 #= require global
@@ -27,7 +26,7 @@
 
 #     I N I T I A L I Z E
 
-#= require main2
+#= require main
 #= require header
 
 

@@ -21,6 +21,7 @@ uk:
     constructor:
       small_price: "Ціна малої основи"
       big_price: "Ціна великої основи"
+      image: "Фото основи"
     contact:
       first_number: "Перший номер"
       second_number: "Другий номер"
