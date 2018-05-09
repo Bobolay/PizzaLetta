@@ -61,7 +61,7 @@ RailsAdmin.config do |config|
    config.model Salat do
      navigation_label "Меню"
      label "Салати"
-     include_fields :name, :image, :weight, :ingredients, :price, :show
+     include_fields :name, :image, :weight, :ingredients, :price, :show, :article_num
      field :category, :enum do
        enum ["Мясні","Рибні","Вегетаріанські"]
      end
@@ -78,7 +78,7 @@ RailsAdmin.config do |config|
   config.model Constructor do
     navigation_label "Меню"
     label "Основи для піц"
-    include_fields :small_price, :big_price
+    include_fields :small_price, :big_price, :article_num
   end
   config.model Aboutimage do
     navigation_label "Про нас"
@@ -108,7 +108,7 @@ RailsAdmin.config do |config|
   config.model Drink do
     navigation_label "Меню"
     label "Напої"
-    include_fields :title, :price, :image, :volume, :show
+    include_fields :title, :price, :image, :volume, :show, :article_num
     field :category, :enum do
       enum ["Безалкогольні","Алкогольні","Лимонади"]
     end
@@ -116,7 +116,7 @@ RailsAdmin.config do |config|
   config.model Ingredient do
     navigation_label "Меню"
     label "Інгрідієнти"
-    include_fields :name, :price, :image, :showcustom
+    include_fields :name, :price, :image, :showcustom, :article_num
     field :category, :enum do
       enum ["Мясо","Морепродукти","Сири","Овочі","Cпеції"]
     end
@@ -130,7 +130,7 @@ RailsAdmin.config do |config|
     navigation_label "Меню"
     label "Піца"
     field :ingredients
-    include_fields :name, :image, :pricesmall, :pricebig, :weight, :meat, :cheese, :fish, :vegeterian, :show, :discountsmall, :discountbig, :bonus_name, :bonus_description
+    include_fields :name, :image, :pricesmall, :pricebig, :weight, :meat, :cheese, :fish, :vegeterian, :show, :discountsmall, :discountbig, :bonus_name, :bonus_description, :article_num
   end
   config.model Order do
     navigation_label "Замовлення"
