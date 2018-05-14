@@ -23,7 +23,7 @@ class Api::V1::PizzasController < Api::V1::BaseController
           json.delete(:bonus)
         end
        end
-    respond_with @json
+    respond_with @json.reverse
 
   end
 end
