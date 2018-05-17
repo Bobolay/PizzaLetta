@@ -64,6 +64,7 @@ class PagesController < ApplicationController
         else
           url = url + "&comment=#{params[:info][:comment].parameterize}"
         end
+        binding.pry
     elsif  params[:info][:orderway] == "Забрати самому"
       timing = params[:info][:time] + " " + params[:info][:date]
       url = "http://online.mobidel.ru/makeOrder.php?%20user=internet&password=casper12345&wid=7021&phone=#{params[:info][:phone]}&family=#{params[:info][:name].parameterize}&advanceDeliveryDate=#{timing}&independently=1&warehouseID=855983713182099675"
@@ -103,6 +104,7 @@ class PagesController < ApplicationController
     k = 0
     hash = Hash[Pizza.pluck(:name, :article_num) + Drink.pluck(:title, :article_num) + Salat.pluck(:name, :article_num)]
     ingredients_hash = Hash[Ingredient.pluck(:name, :article_num)]
+    souces = { "білий" => 1272762880, "червоний" => 1364746634, "гірчичний" => 156403205 }
     if params[:info][:subscribe] == true
     if Subscribe.exists?(phone: "#{params[:info][:email]}") == false
       Subscribe.create(:phone => "#{params[:info][:email]}")
@@ -122,8 +124,8 @@ class PagesController < ApplicationController
       end
         list.name = a
       elsif s[:name] == "Конструктор"
-        koef_ingredients = 0
-        url = url + "&articles[#{k}]=54195402&quantities[#{k}]=#{s[:qnty]}"
+        koef_ingredients = 1
+        url = url + "&articles[#{k}]=54195402&quantities[#{k}]=#{s[:qnty]}&additives_a[#{k}][0]=#{souces[s[:sauce]]}&additives_q[#{k}][0]=1"
         a="Основа+#{s[:sauce]}"
         s[:ingredients].each do |d|
           url = url +  "&additives_a[#{k}][#{koef_ingredients}]=#{ingredients_hash[d[:name]]}&additives_q[#{k}][#{koef_ingredients}]=#{d[:qnty]}"
@@ -146,6 +148,7 @@ class PagesController < ApplicationController
       list.order_id = @order.id
       list.save
     end
+    HTTParty.get(url)
     if @order.save
       UserMailer.order_email(@array).deliver_now
     end
