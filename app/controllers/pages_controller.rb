@@ -148,7 +148,7 @@ class PagesController < ApplicationController
       list.order_id = @order.id
       list.save
     end
-    HTTParty.get(url)
+    # HTTParty.get(url)
     if @order.save
       UserMailer.order_email(@array).deliver_now
     end
