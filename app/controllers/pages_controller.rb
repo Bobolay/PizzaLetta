@@ -75,7 +75,6 @@ class PagesController < ApplicationController
     else
       url = "http://online.mobidel.ru/makeOrder.php?%20user=internet&password=casper12345&wid=7021&phone=#{params[:info][:phone]}" 
     end
-    # binding.pry
     # HTTParty.get(url)
     I18n.default_locale = :uk
     render json: @order
@@ -102,6 +101,9 @@ class PagesController < ApplicationController
     @order.promocode = params[:info][:promocode]
     @order.price = params[:totalprice]
     @order.save
+    k = 0
+    hash = Hash[Pizza.pluck(:name, :article_num) + Drink.pluck(:title, :article_num) + Salat.pluck(:name, :article_num)]
+    ingredients_hash = Hash[Ingredient.pluck(:name, :article_num)]
     if params[:info][:subscribe] == true
     if Subscribe.exists?(phone: "#{params[:info][:email]}") == false
       Subscribe.create(:phone => "#{params[:info][:email]}")
@@ -117,16 +119,25 @@ class PagesController < ApplicationController
         a="Особлива(#{s[:name]})"
         s[:ingredients].each do |d|
         a = a + ",+" + d[:name] + "*" + d[:qnty].to_s
+        k= k + 1 
       end
         list.name = a
       elsif s[:name] == "Конструктор"
+        koef_ingredients = 0
+        binding.pry
+        url = url + "&articles[#{k}]=54195402&quantities[#{k}]=#{s[:qnty]}"
         a="Основа+#{s[:sauce]}"
         s[:ingredients].each do |d|
+          url = url +  "&additives_a[#{k}][#{koef_ingredients}]=#{ingredients_hash[d[:name]]}&additives_q[#{k}][#{koef_ingredients}]=#{d[:qnty]}"
         a = a + ",+" + d[:name] + "*" + d[:qnty].to_s
+        koef_ingredients = koef_ingredients + 1
       end
+      k= k + 1
       list.name = a
       else
+      url = url + "&articles[#{k}]=#{hash[s[:name]]}&quantities[#{k}]=#{s[:qnty]}"
       list.name = s[:name]
+      k= k + 1
       end
       list.quantity = s[:qnty]
       list.price = s[:qnty].to_i * s[:price].to_i
@@ -137,6 +148,7 @@ class PagesController < ApplicationController
       list.order_id = @order.id
       list.save
     end
+    binding.pry
     if @order.save
       # UserMailer.order_email(@array).deliver_now
     end
