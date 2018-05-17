@@ -56,6 +56,28 @@ class PagesController < ApplicationController
   end
 
   def create
+  
+    I18n.default_locale = :ru
+    if  params[:info][:orderway] == "Кур'єр"
+      timing = params[:info][:time] + " " + params[:info][:date]
+      url = "http://online.mobidel.ru/makeOrder.php?%20user=internet&password=casper12345&wid=7021&phone=#{params[:info][:phone]}&family=#{params[:info][:name].parameterize}&street=#{params[:info][:street].parameterize }&home=#{params[:info][:building]}&room=#{params[:info][:apt_number]}&note=#{params[:info][:sumchange]}&advanceDeliveryDate=#{timing}"
+        if params[:info][:comment] == nil 
+        else
+          url = url + "&comment=#{params[:info][:comment].parameterize}"
+        end
+    elsif  params[:info][:orderway] == "Забрати самому"
+      timing = params[:info][:time] + " " + params[:info][:date]
+      url = "http://online.mobidel.ru/makeOrder.php?%20user=internet&password=casper12345&wid=7021&phone=#{params[:info][:phone]}&family=#{params[:info][:name].parameterize}&advanceDeliveryDate=#{timing}&independently=1&warehouseID=855983713182099675"
+        if params[:info][:comment] == nil 
+        else
+          url = url + "&comment=#{params[:info][:comment].parameterize}"
+        end
+    else
+      url = "http://online.mobidel.ru/makeOrder.php?%20user=internet&password=casper12345&wid=7021&phone=#{params[:info][:phone]}" 
+    end
+    # binding.pry
+    # HTTParty.get(url)
+    I18n.default_locale = :uk
     render json: @order
     @array = params
     @order = Order.new
@@ -116,7 +138,7 @@ class PagesController < ApplicationController
       list.save
     end
     if @order.save
-      UserMailer.order_email(@array).deliver_now
+      # UserMailer.order_email(@array).deliver_now
     end
   end
   def call
@@ -143,9 +165,13 @@ class PagesController < ApplicationController
   end
 
   def instagram
-
     url="https://api.instagram.com/v1/users/self/media/recent/?access_token=5421929898.1677ed0.02b11596b2d4432aac9c495a152b9288"
     @json=JSON.parse(open("https://api.instagram.com/v1/users/self/media/recent/?access_token=5421929898.1677ed0.02b11596b2d4432aac9c495a152b9288").read)["data"][0..2]
+  end
+  def sad(param)
+     I18n.with_locale :ru do
+       param.parameterize
+    end
   end
 
 end
