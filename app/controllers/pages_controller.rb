@@ -56,7 +56,6 @@ class PagesController < ApplicationController
   end
 
   def create
-  
     I18n.default_locale = :ru
     if  params[:info][:orderway] == "Кур'єр"
       timing = params[:info][:time] + " " + params[:info][:date]
@@ -124,7 +123,6 @@ class PagesController < ApplicationController
         list.name = a
       elsif s[:name] == "Конструктор"
         koef_ingredients = 0
-        binding.pry
         url = url + "&articles[#{k}]=54195402&quantities[#{k}]=#{s[:qnty]}"
         a="Основа+#{s[:sauce]}"
         s[:ingredients].each do |d|
@@ -148,9 +146,8 @@ class PagesController < ApplicationController
       list.order_id = @order.id
       list.save
     end
-    binding.pry
     if @order.save
-      # UserMailer.order_email(@array).deliver_now
+      UserMailer.order_email(@array).deliver_now
     end
   end
   def call
