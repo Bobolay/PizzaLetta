@@ -146,9 +146,9 @@ class PagesController < ApplicationController
       list.order_id = @order.id
       list.save
     end
-    # if @order.save
-    #   UserMailer.order_email(@array).deliver_now
-    # end
+    if @order.save
+      UserMailer.order_email(@array).deliver_now
+    end
   end
   def call
     render json: {}
