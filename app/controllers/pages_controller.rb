@@ -64,7 +64,7 @@ class PagesController < ApplicationController
         else
           url = url + "&comment=#{params[:info][:comment].parameterize}"
         end
-        binding.pry
+        #binding.pry
     elsif  params[:info][:orderway] == "Забрати самому"
       timing = params[:info][:time] + " " + params[:info][:date]
       url = "http://online.mobidel.ru/makeOrder.php?%20user=internet&password=casper12345&wid=7021&phone=#{params[:info][:phone]}&family=#{params[:info][:name].parameterize}&advanceDeliveryDate=#{timing}&independently=1&warehouseID=855983713182099675"
