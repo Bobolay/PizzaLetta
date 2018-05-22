@@ -66,4 +66,7 @@
           span.heart-icon = inline_svg "icons/heart.svg"
           span.likes =json["likes"]["count"]
           p.title =json["user"]["username"]
-          p.smaller.post-description =json["caption"]["text"]
+          -if json["caption"] == nil
+            p.smaller.post-description #pizzaletta
+          -else
+            p.smaller.post-description =json["caption"]["text"]
