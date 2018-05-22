@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  # before_filter :instagram
+  before_filter :instagram
   before_filter :popup
 
   def index
@@ -176,8 +176,13 @@ class PagesController < ApplicationController
   end
 
   def instagram
-    url="https://api.instagram.com/v1/users/self/media/recent/?access_token=5421929898.1677ed0.02b11596b2d4432aac9c495a152b9288"
-    @json=JSON.parse(open("https://api.instagram.com/v1/users/self/media/recent/?access_token=5421929898.1677ed0.02b11596b2d4432aac9c495a152b9288").read)["data"][0..2]
+    url="https://api.instagram.com/v1/users/self/media/recent/?access_token=5421929898.1677ed0.08d0d101ccb044e0b709604fbd1eab0e"
+    @json =  HTTParty.get(url)
+    if @json["meta"]["code"] == 200
+    @json = @json["data"][0..2]
+    else
+      @json =[] 
+    end   
   end
 
 end
