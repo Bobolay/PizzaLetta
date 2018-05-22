@@ -57,11 +57,11 @@
   .row.columns-left
 
     / Post from socials
-    -@json.each do |json|
-      .columns.small-6.large-4
-        .square
-          a.img-bg href="#{json["link"]}" target="_blank" rel="nofollow" style="background-image: url(#{json["images"]["standard_resolution"]["url"]})"
-        span.heart-icon = inline_svg "icons/heart.svg"
-        span.likes =json["likes"]["count"]
-        p.title =json["user"]["username"]
-        p.smaller.post-description =json["caption"]["text"]
+    / -@json.each do |json|
+    /   .columns.small-6.large-4
+    /     .square
+    /       a.img-bg href="#{json["link"]}" target="_blank" rel="nofollow" style="background-image: url(#{json["images"]["standard_resolution"]["url"]})"
+    /     span.heart-icon = inline_svg "icons/heart.svg"
+    /     span.likes =json["likes"]["count"]
+    /     p.title =json["user"]["username"]
+    /     p.smaller.post-description =json["caption"]["text"]

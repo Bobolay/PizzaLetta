@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_filter :instagram
+  # before_filter :instagram
   before_filter :popup
 
   def index
@@ -74,7 +74,7 @@ class PagesController < ApplicationController
     else
       url = "http://online.mobidel.ru/makeOrder.php?%20user=internet&password=casper12345&wid=7021&phone=#{params[:info][:phone]}" 
     end
-    # HTTParty.get(url)
+    
     I18n.default_locale = :uk
     render json: @order
     @array = params
@@ -178,11 +178,6 @@ class PagesController < ApplicationController
   def instagram
     url="https://api.instagram.com/v1/users/self/media/recent/?access_token=5421929898.1677ed0.02b11596b2d4432aac9c495a152b9288"
     @json=JSON.parse(open("https://api.instagram.com/v1/users/self/media/recent/?access_token=5421929898.1677ed0.02b11596b2d4432aac9c495a152b9288").read)["data"][0..2]
-  end
-  def sad(param)
-     I18n.with_locale :ru do
-       param.parameterize
-    end
   end
 
 end
