@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_filter :instagram
+  # before_filter :instagram
   before_filter :popup
 
   def index
